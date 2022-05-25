@@ -15,13 +15,13 @@ LINE_TYPES = ["node", "fanin", "fanout"]
 
 class iscNode:
     def __init__(self):
-        self.id= None; self.name = None; self.type = None
+        self.id = None; self.name = None; self.type = None
         self.nfanout = 0; self.fanouts = []
         self.nfanin = 0; self.fanins = []
 
     def __repr__(self):
-        return "[iscNode] name = {}, type = {}, fan-ins = {}, fan-outs = {}".format(
-            self.name, self.type,
+        return "[iscNode] id = {}, name = {}, type = {}, fan-ins = {}, fan-outs = {}".format(
+            self.id, self.name, self.type,
             self.fanins, self.fanouts
         )
 
@@ -36,6 +36,7 @@ def parse_isc_file(fpath):
         # control FSM
         last_line_type = curr_line_type = "node"
         remaining_fanin_lines = 0; remaining_fanout_lines = 0
+        last_normal_node_id = None
 
 
         for line in f:
@@ -67,8 +68,9 @@ def parse_isc_file(fpath):
                 node.nfanin = nfanin; node.fanins = []
                 node.nfanout = nfanout; node.fanouts = []
                 isc_nodes.append(node)
+                last_normal_node_id = node.id
 
-                print(node)
+                # print(node)
 
                 remaining_fanin_lines = 1 if nfanin > 0 else 0
                 remaining_fanout_lines = nfanout
@@ -112,10 +114,12 @@ def parse_isc_file(fpath):
                 # NOTE: fanout information are redundant
                 node = iscNode()
                 node.id = id; node.name = name; node.type = type
-                node.nfanin = 1; node.fanins = [driver]
+                node.nfanin = 1; node.fanins = [last_normal_node_id]
                 node.nfanout = 0; node.fanouts = []
                 isc_nodes.append(node)
-                
+
+                # print(node)
+
                 remaining_fanout_lines -= 1
                 assert remaining_fanin_lines >= 0
                 assert remaining_fanout_lines >= 0
@@ -139,26 +143,36 @@ def isc_nodes_to_hypergraph(isc_node:list) -> tuple:
     """Transform isc nodes to a hypergraph.
     we assume that each netlist has only 1 driver
     """
-    nodes_by_id = OrderedDict()
 
-    # extract pure cell nodes ids
+    # nodes dict indexed by id
+    nodes_dict = dict()
+
     for isc_node in isc_nodes:
-        # skip fanout isc nodes
-        if (isc_node["type"] == "from"):
-            continue
         # initialize with empty fanouts
-        nodes_by_id[isc_node.id] = {
+        nodes_dict[isc_node.id] = {
             "name" : isc_node.name,
             "fanins": isc_node.fanins,
-            "fanouts" : []
+            "fanouts" : isc_node.fanouts
         }
+        # fanouts should be empty
+        assert len(isc_node.fanouts) == 0, ValueError()
 
-    # track 
+    print(nodes_dict)
+
+    # track fan-in to generate fan-out
     for isc_node in isc_nodes:
-        for src in isc_node["fanins"]:
-            nodes_by_id[src]["fanouts"] = isc_node["id"]
+        # # skip fanout isc nodes
+        # if (isc_node.type == "from"):
+        #     continue
+
+        print(isc_node)
+
+        for src in isc_node.fanins:
+            print("src node id = ", src)
+            driver = nodes_dict[src]
+            driver["fanouts"].append(isc_node.id)
     
-    print(nodes_by_id)
+    print(nodes_dict)
 
 
 
@@ -167,9 +181,10 @@ if __name__ == "__main__":
     script_dir_path = os.path.dirname(__file__)
 
     circuit_dir = os.path.join("iscas85", "isc")
-    circuit_name = "c880"
+    circuit_name = "c17"
 
     isc_path = os.path.join(circuit_dir, circuit_name + ".isc")
 
     isc_nodes = parse_isc_file(isc_path)
-    print(len(isc_nodes))
+
+    isc_nodes_to_hypergraph((isc_nodes))
