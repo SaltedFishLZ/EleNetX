@@ -54,17 +54,17 @@ def parse_isc_file(fpath):
                 
                 # extract node information
                 # error properties ignored
-                id, name, type, nfanout, nfanin = words[:5]
-
-                assert (type in NODE_TYPES), TypeError("Invalid node type: {}".format(type))
+                id, name, ntype, nfanout, nfanin = words[:5]
                 id = int(id); nfanin = int(nfanin); nfanout = int(nfanout)
+
+                assert (ntype in NODE_TYPES), TypeError("Invalid node type: {}".format(ntype))
                 assert (nfanin >= 0), ValueError("Invalid # fanin {}".format(nfanin))
                 assert (nfanout >= 0), ValueError()
                 assert (id >= 0), ValueError()
 
                 # assemble and append isc node
                 node = iscNode()
-                node.id = id; node.name = name; node.type = type
+                node.id = id; node.name = name; node.type = ntype
                 node.nfanin = nfanin; node.fanins = []
                 node.nfanout = nfanout; node.fanouts = []
                 isc_nodes.append(node)
@@ -109,11 +109,12 @@ def parse_isc_file(fpath):
                 # print("CURR LINE:", curr_line_type)
 
                 # extract node information
-                id, name, type, driver = words[:4]
+                id, name, ntype, driver = words[:4]
+                id = int(id)
 
                 # NOTE: fanout information are redundant
                 node = iscNode()
-                node.id = id; node.name = name; node.type = type
+                node.id = id; node.name = name; node.type = ntype
                 node.nfanin = 1; node.fanins = [last_normal_node_id]
                 node.nfanout = 0; node.fanouts = []
                 isc_nodes.append(node)
@@ -139,12 +140,12 @@ def parse_isc_file(fpath):
     return isc_nodes
 
 
-def isc_nodes_to_hypergraph(isc_node:list) -> tuple:
+def connect_isc_nodes(isc_node:list) -> tuple:
     """Transform isc nodes to a hypergraph.
     we assume that each netlist has only 1 driver
     """
 
-    # nodes dict indexed by id
+    # auxilary data: nodes dict indexed by id
     nodes_dict = dict()
 
     for isc_node in isc_nodes:
@@ -157,22 +158,19 @@ def isc_nodes_to_hypergraph(isc_node:list) -> tuple:
         # fanouts should be empty
         assert len(isc_node.fanouts) == 0, ValueError()
 
-    print(nodes_dict)
+    # print(nodes_dict)
 
     # track fan-in to generate fan-out
     for isc_node in isc_nodes:
-        # # skip fanout isc nodes
-        # if (isc_node.type == "from"):
-        #     continue
-
-        print(isc_node)
-
         for src in isc_node.fanins:
-            print("src node id = ", src)
             driver = nodes_dict[src]
             driver["fanouts"].append(isc_node.id)
     
-    print(nodes_dict)
+    # print(nodes_dict)
+
+    # annoate fan-outs back
+    for isc_node in isc_nodes:
+        isc_node.fanouts = nodes_dict[isc_node.id]["fanouts"]
 
 
 
@@ -186,5 +184,7 @@ if __name__ == "__main__":
     isc_path = os.path.join(circuit_dir, circuit_name + ".isc")
 
     isc_nodes = parse_isc_file(isc_path)
-
-    isc_nodes_to_hypergraph((isc_nodes))
+    print(isc_nodes)
+    
+    connect_isc_nodes(isc_nodes)
+    print(isc_nodes)
