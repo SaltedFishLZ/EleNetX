@@ -1,0 +1,281 @@
+This directory contains two floorplanning benchmarks:
+
+Name      YAL datafile    VPNR datafile  #blocks  #nets  #I/O
+=============================================================
+PrimBBL1  xerox.yal       xerox.vpnr     10       203    2
+FAN       fan.yal         fan.vpnr       10       312    40
+
+The data is contained in the following files:
+
+fan.floorplan		- design consideration for the FAN benchmark.
+fan.vpnr, fan.yal	- netlist description for the FAN benchmark.
+
+xerox.floorplan		- design consideration for the PrimBBL1 benchmark.
+xerox.floorplan.post	- the 'Benchmarks for General Cell Floorplanning'
+			  paper and design consideration for PrimBBL1,
+			  all in PostScript file (nicely formatted).
+xerox.profiles.post	- chart with the profiles of the component blocks
+			  for the PrimBBL1 benchmark.
+
+NOTES:
+
+PrimBBL1 benchmark was derived from the BBL1 building block benchmark.
+The netlist for the PrimBBL1 benchmark is in the xerox.yal and xerox.vpnr
+files in the ../block directory.
+
+The remainder of this file is a plain text of the ''Benchmarks for General
+Cell Floorplanning' by M.Pedram and B.Preas.   It is provided for those
+people who do not have access to PostScript printers.
+
+==============================================================================
+              Benchmarks for General Cell Floorplanning
+
+Massoud Pedram 
+Department of Electrical Engineering and Computer Science
+University of California, Berkeley, CA 94720
+
+Bryan Preas
+Computer Science Laboratory
+Xerox Palo Alto Research Center, Palo Alto, CA 94304
+
+
+1. INTRODUCTION
+
+In the CAD area, benchmarks have become important in the development, 
+refinement and selection of algorithms and tools.  Until now, workers 
+in general cell floorplanning have been required to use artificial or 
+specialized examples.  To aid developers of design automation algorithms 
+as well as those who want to compare results of algorithm developers, 
+a set of general cell floorplanning benchmarks has been developed.  These 
+benchmarks are intended to allow tool developers to demonstrate their 
+systems on realistic problems, highlighting the capabilities and strengths
+of their approaches.  They also make these capabilities clearer to readers
+interested in making use of the technology.  The benchmarks offer moderate
+complexity and a broad functionality.  They are intended to allow all to 
+participate but also to challenge design automation authors to higher 
+levels of abstraction.
+
+General cell layout style is often used when a complex circuit must have 
+minimum area and high performance.  There are both area and performance 
+gains to this layout style compared to other cell-based layout styles 
+which have regular structures (such as standard cell and gate array / 
+sea-of-gates). The price to pay, however, is higher design cost and 
+longer design time.  The general cell design aid tools are not as mature 
+as standard cell or gate array tools, and hence, general cell layout 
+requires more time and effort on part of the chip designers.
+The general cell layout, however, uses more flexible topologies and cells,
+hence allowing very good area and performance optimizations.  In addition,
+this layout style is more suited to a hierarchical design environment 
+since it relies mainly on interface description of the cells, and 
+therefore, permits higher degrees of design modularity and concurrent 
+group work.  The cells to be laid out in a general cell assembly can each 
+be optimized independently based on the functionality and requirements 
+of the cell. Individual cells can be implemented by the most appropriate 
+layout style.
+
+During the early stages in the design of electronic systems, decisions are
+made which have a dramatic effect on the quality (performance, density or 
+area) of the resulting design.  Choices must be made in partitioning 
+functions into physical cells and in choosing interface characteristics 
+of the cells such as size, shape, and pin positions.  These choices are 
+difficult because their effects are hard to predict and may not become 
+apparent until much later in the design process.  Floorplanning helps 
+solve these problems.
+
+Floorplanning is related to general cell placement.  Both problems concern
+the placement of cells of arbitrary size and (usually rectangular) shape 
+such that the total, post layout area is minimized (subject to timing, 
+clock-skew, and power consumption constraints). A concurrent goal is to 
+minimize the total wire length.  However, floorplanning has an extra 
+degree of freedom: at least some of the cells' interface characteristics 
+are flexible and must be determined as part of the design process.  The 
+flexibility in the interface of the cells is constrained by the design, 
+function, and layout of the cells.  Floorplanning algorithms must model 
+the cells' interface flexibility and any constraints on that flexibility 
+in order to produce high quality floorplans without excessive design 
+iterations.
+
+Net list partitioning and optimization are often considered as parts of 
+general cell floorplanning.  (However, the current set of benchmarks does 
+not cover these aspects). The general cell floorplanning is currently 
+used for circuits having a few to a few tens of leaf cells.
+
+
+2. OVERVIEW OF FLOORPLANNING
+
+There are three major thrusts in floorplanning research.  One thrust 
+accepts that the floorplanning is so difficult that a circuit designer 
+must be an integral part of the process; therefore, interactive graphics 
+must be included in addition to algorithmic approaches.  The second 
+major thrust uses floorplanning in the initial stages of design synthesis 
+to develop constraints that can be passed to succeeding stages in the 
+design process.  The third major thrust relies on the existence of 
+powerful cell generators that can implement cells according to 
+specifications.  This second thrust allows the floorplanner to be 
+integrated with the generators and allows truly automatic layout.
+
+The objective of floorplanning is to trade off cell interface 
+characteristics (size, shape, and pin position) and cell locations to 
+optimize the layout.  Floorplanning is the first step in the physical 
+design which determines the spatial and interface characteristics of 
+given cells such that the desired physical and electrical constraints 
+are satisfied.  The floorplanner must generate a chip plan that can 
+be implemented by cell generators (in a few, preferably no, iterations).  
+Such a floorplanner would allow full automation of the physical design 
+process.
+
+Floorplanning algorithms should model the cells' interface flexibility 
+and any constraints on that flexibility.  Three classes of cells are 
+used in floorplanning: 
+
+1) Some cells are already laid out and are stored in a library.  All the 
+interface characteristics of these cells are known and fixed.  To provide 
+some flexibility, several versions of cells with different characteristics
+may be stored in a library.
+2) The designs of some cells are known, but their layouts are flexible and
+can be influenced by the results of floorplanning.  For example, standard 
+or general cell layout methods can produce a wide range of shapes for a 
+given design.  PLAs and memory cells can be distorted through folding or 
+layout design.  
+3) Cells of the third class are flexible because their designs (and 
+perhaps even the design methods) are not known or are uncertain.  In this 
+case it is difficult for the designers or algorithms to even specify 
+nominal interface characteristics or constraints thereon.
+
+An important aspect of cell modeling is estimation of area, shape and 
+delay. This task often requires appropriate modeling of corresponding cell 
+generators so that cells' shape and delay functions can be accurately and 
+quickly estimated.  The floorplanner must exploit these functions in 
+order to trade off the sizes and shapes of the leaf cells against each 
+other to optimize the layout.
+
+Hierarchy is the typical way to deal with the complexity of large designs.
+A hierarchical approach prunes the solution space and reduces the design 
+objects to manageable sizes.  The hierarchical representation of cells 
+greatly simplifies the floorplanning problem since floorplanning 
+algorithms can recursively operate on one hierarchical cell at a time.
+
+3. GOALS OF THE BENCHMARKS
+
+Our ultimate goal is to develop a complete and representative set of 
+circuit descriptions that can be used to compare floorplanning systems 
+and algorithms.  However, modern circuits and layout systems are so 
+complex and different that no single circuit (or small number of circuits)
+will suffice.  Other issues must be addressed in order to ensure that the 
+comparisons are valid and to achieve widespread acceptance.  Several goals
+were pursued to ensure success of the benchmark set. Not all of these 
+goals were achieved in this first release.
+
+The benchmarks should demonstrate the capability of floorplanning systems
+and algorithms along several dimensions:
+
+1) Universality - Since widely different floorplanning systems and 
+algorithms exist, we must provide sufficient information so that all 
+views can operate and report results. 
+
+2) Functionality - General cells should be taken from major functional 
+groups encountered in practice.
+
+    i) Flexibility - Some general cells must be flexible and some must 
+be fixed.  There are different types (size, shape, I/O interface, delay) 
+and different degrees of flexibility.
+
+    ii) Complexity - Complexities should range from a few to a few tens 
+of general cells.
+
+    iii) Objective function - Since different applications emphasize 
+different criteria during the optimization process, we must clearly state 
+all the constraints and requirements for various objectives (i.e., 
+minimizing area, total wire length, maximize performance, and so on.)
+
+    iv) Layout estimators - The floorplanning system should be able to 
+generate shape and delay estimate functions for the leaf cells - if these 
+functions are not already given.  The benchmarks should give enough 
+information to the floorplanning system to make such estimations as 
+accurate as possible. 
+
+    v) Interaction with cell synthesis - The benchmarks should demonstrate
+the amount of interaction and integration between floorplanning system 
+and the cell synthesizers. The benchmarks should provide functional, 
+structural, and interface descriptions of the general cells in order to 
+give the floorplanning systems the freedom to either implement the cells 
+according to their functional and structural specifications or to treat 
+the cells as `black boxes' whose interface characteristics are known. 
+(Also see [2].)
+
+    vi) Interaction with high level synthesis - Ideally, the floorplanning
+system should take a high level description and produce a layout 
+implementing the description.  The benchmarks should evaluate the ability 
+of the floorplanning system to fully or partially interact with the high 
+level synthesis programs.  The benchmark set should provide an English 
+language description of the chip and specify high level optimization 
+goals.  Some systems may use this description to automatically lay out 
+the chip without any reference to the cells and nets inside of the chip. 
+
+    vii) Timing aspects - Both path-based and net-based timing constraints
+should be supported.  The timing constraints are specified as propagation 
+delay constraints and/or as maximum net length constraints.
+
+    iix) Clock skew - The clock should be distributed so that clock skew 
+at the inputs of any general cell is kept small.
+
+3) The benchmarks should be challenging enough to encourage development 
+of new tools and algorithms for several years to come.
+
+4) The benchmarks should be designed to encourage direct comparison with 
+flat implementations.
+
+5) The circuits should be representative of those used in modern 
+integrated circuits.
+
+4. DESCRIPTION OF THE BENCHMARKS
+
+Ideally, floorplanning benchmarks should contain all of the following 
+information.  While we were unable to provide all of this information, 
+we thought it worthwhile to describe what we would like to have included.  
+The cell level constraints and/or requirements are as follows.
+
+1) English language description of cell functionality, layout style, 
+complexity, and design issues (high-speed versus low-speed).
+
+2) Structural description of cell.  This description could be in the form 
+of a net list and a component list (cell-based layouts), equation list 
+(PLAs), or organization, decoding, and type (Memory cells).
+
+3) Interface description. These constraints include I/O pin constraints, 
+bussing constraints, and so on. In addition, current draw requirements 
+on primary inputs, drivability of the output pins are specified.
+
+4) Shape function (height versus width function).  Lower bounds and 
+upper bounds on cell aspect ratios may be given as well.
+
+The chip level constraints and/or requirements are as follows.
+
+1) English language description of the chip stating overall chip 
+functionality, complexity and design issues.
+
+2) Constraints on sizes and shapes of bonding pads (power versus signal 
+pads).
+
+3) Bussing structure in the chip.
+
+4) Placement constraints. These constraints could be in the form of 
+relative cell positions, orientation constraints on some cells, and so on.
+
+5) Fabrication technology and design rules.  These include minimum 
+spacing and width rules as well as capacitance and resistance per unit 
+length of interconnect.
+
+5. GUIDELINES TO REPORT RESULTS
+
+Workers who are reporting benchmark results must clearly describe their 
+view of floorplanning (top-down goal assignment versus bottom-up 
+constraint propagation), must state assumptions and simplifications 
+(aspects of specifications used) made, and explain the algorithm used. 
+
+6. REFERENCES
+
+[1] D. Hill and B.T. Preas, ``Benchmarks for Cell Synthesis,'' to be 
+published in Proc. 27th Design Automation Conf. 1990.
+[2] B.T. Preas, ``Benchmarks for cell-based layout systems'', in Proc. 
+24th Design Automation Conf., pp. 319-320, 1987.

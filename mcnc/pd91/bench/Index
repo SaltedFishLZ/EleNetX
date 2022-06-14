@@ -1,0 +1,27 @@
+This file contains an explanation the directories included in the
+benchmark distribution.
+
+
+DIRECTORIES:
+
+./:				- this directory
+./alu:				- module generation alu benchmakrs
+./block:			- building block (macro-block) benchmarks
+./compact:			- compaction benchmarks
+./compact/c132_2.subcells:	- subcells used in c132_2 compaction benchmark
+./compact/mul.subcells:		- subcells used in 'multiplier' benchmarks
+./flex:				- flexibility benchmark
+./fsm:				- module generaion fsm benchmark
+./gatearr:			- gate arrays from Place & Route Workshop'88
+./mixed:			- standard cells + macro blocks mixed benchmarks
+./scripts:			- C-shell scripts to run vpnr translators
+./stdcell:			- standard cell benchmarks
+./tech:				- technology info and normlization cell for
+				  the flexibility benchmark
+./vpnr:				- VPNR interface
+./vpnr/load:			- auxiliary tool for parser customization
+./vpnr/parser:			- generic VPNR parser
+./vpnr/sample:			- sample usage of the VPNR parser
+./yal:				- YAL parser
+./yal2vpnr:			- a simple YAL->VPNR translator
+

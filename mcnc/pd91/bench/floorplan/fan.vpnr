@@ -1,0 +1,834 @@
+
+cell begin CLOCKGEN type=GENERAL scale=0.001
+profile top (0,130400) (296400,130400);
+profile bot (0,0) (296400,0);
+termlist
+   GND { (0,5000-15000) layer=METAL2 (296400,5000-15000) layer=METAL2 } pintype=vdd;
+   VDD { (0,115400-125400) layer=METAL2 (296400,115400-125400) layer=METAL2 } pintype=vdd;
+   Phi { (52400-54800,130400) layer=METAL2 } pintype=input;
+   Phi1t { (276000-278400,0) layer=METAL2 } pintype=input;
+   Phi1H { (109600-112000,0) layer=METAL2 } pintype=output;
+   Phi2H { (130400-132800,0) layer=METAL2 } pintype=output;
+   Phi1_test { (94000-96400,130400) layer=METAL2 } pintype=output;
+   Phi1Hf { (31600-34000,130400) layer=METAL2 } pintype=input;
+   Phi1_tf { (36800-39200,130400) layer=METAL2 } pintype=input;
+   Phi2Hf { (47200-49600,130400) layer=METAL2 } pintype=input;
+cell end CLOCKGEN
+
+cell begin MULT type=GENERAL scale=0.001
+profile top (6000,1037200) (3614800,1037200);
+profile bot (6000,18000) (3614800,18000);
+termlist
+   GND { (6000,0-40000) layer=METAL2 (3614800,0-40000) layer=METAL2 } pintype=vdd;
+   VDD { (6000,997200-1037200) layer=METAL2 (3614800,997200-1037200) layer=METAL2 } pintype=vdd;
+   ScanIn { (197400-199400,1037200) layer=METAL2 } pintype=input;
+   ScanOut { (3248200-3250200,1037200) layer=METAL2 } pintype=output;
+   Phi1H { (936600-939000,1037200) layer=METAL2 (873000-875400,1037200) layer=METAL2 (809400-811800,1037200) layer=METAL2 (745800-748200,1037200) layer=METAL2 (682200-684600,1037200) layer=METAL2 (618600-621000,1037200) layer=METAL2 (555000-557400,1037200) layer=METAL2 (491400-493800,1037200) layer=METAL2 (427800-430200,1037200) layer=METAL2 (364200-366600,1037200) layer=METAL2 (3198800-3201200,1037200) layer=METAL2 (2977200-2979600,1037200) layer=METAL2 (2697600-2700000,1037200) layer=METAL2 (2298400-2300800,1037200) layer=METAL2 (185200-187600,1037200) layer=METAL2 (1572600-1575000,1037200) layer=METAL2 (1509000-1511400,1037200) layer=METAL2 (1445400-1447800,1037200) layer=METAL2 (1381800-1384200,1037200) layer=METAL2 (1318200-1320600,1037200) layer=METAL2 (1254600-1257000,1037200) layer=METAL2 (1191000-1193400,1037200) layer=METAL2 (1127400-1129800,1037200) layer=METAL2 (1063800-1066200,1037200) layer=METAL2 (1000200-1002600,1037200) layer=METAL2 } pintype=input;
+   Phi1_test { (989800-992200,1037200) layer=METAL2 (926200-928600,1037200) layer=METAL2 (862600-865000,1037200) layer=METAL2 (799000-801400,1037200) layer=METAL2 (735400-737800,1037200) layer=METAL2 (671800-674200,1037200) layer=METAL2 (608200-610600,1037200) layer=METAL2 (544600-547000,1037200) layer=METAL2 (481000-483400,1037200) layer=METAL2 (417400-419800,1037200) layer=METAL2 (353800-356200,1037200) layer=METAL2 (3204000-3206400,1037200) layer=METAL2 (2969200-2971600,1037200) layer=METAL2 (2692400-2694800,1037200) layer=METAL2 (2293200-2295600,1037200) layer=METAL2 (179200-181600,1037200) layer=METAL2 (1562200-1564600,1037200) layer=METAL2 (1498600-1501000,1037200) layer=METAL2 (1435000-1437400,1037200) layer=METAL2 (1371400-1373800,1037200) layer=METAL2 (1307800-1310200,1037200) layer=METAL2 (1244200-1246600,1037200) layer=METAL2 (1180600-1183000,1037200) layer=METAL2 (1117000-1119400,1037200) layer=METAL2 (1053400-1055800,1037200) layer=METAL2 } pintype=input;
+   Phi2H { (979400-981800,1037200) layer=METAL2 (915800-918200,1037200) layer=METAL2 (852200-854600,1037200) layer=METAL2 (788600-791000,1037200) layer=METAL2 (725000-727400,1037200) layer=METAL2 (661400-663800,1037200) layer=METAL2 (597800-600200,1037200) layer=METAL2 (534200-536600,1037200) layer=METAL2 (470600-473000,1037200) layer=METAL2 (407000-409400,1037200) layer=METAL2 (343400-345800,1037200) layer=METAL2 (3228800-3231200,1037200) layer=METAL2 (3189200-3191600,1037200) layer=METAL2 (3003600-3006000,1037200) layer=METAL2 (2724000-2726400,1037200) layer=METAL2 (2324000-2326400,1037200) layer=METAL2 (211200-213600,1037200) layer=METAL2 (1551800-1554200,1037200) layer=METAL2 (1488200-1490600,1037200) layer=METAL2 (1424600-1427000,1037200) layer=METAL2 (1361000-1363400,1037200) layer=METAL2 (1297400-1299800,1037200) layer=METAL2 (1233800-1236200,1037200) layer=METAL2 (1170200-1172600,1037200) layer=METAL2 (1106600-1109000,1037200) layer=METAL2 (1043000-1045400,1037200) layer=METAL2 } pintype=input;
+   RsignA { (2808600-2810600,1037200) layer=METAL2 } pintype=input;
+   ShfAmt { (2268200-2270200,1037200) layer=METAL2 } pintype=input;
+   ldMulA { (163400-165400,1037200) layer=METAL2 } pintype=input;
+   ldMulB { (959000-961000,1037200) layer=METAL2 (895400-897400,1037200) layer=METAL2 (831800-833800,1037200) layer=METAL2 (768200-770200,1037200) layer=METAL2 (704600-706600,1037200) layer=METAL2 (641000-643000,1037200) layer=METAL2 (577400-579400,1037200) layer=METAL2 (513800-515800,1037200) layer=METAL2 (450200-452200,1037200) layer=METAL2 (386600-388600,1037200) layer=METAL2 (1629400-1631400,1037200) layer=METAL2 (1595000-1597000,1037200) layer=METAL2 (1531400-1533400,1037200) layer=METAL2 (1467800-1469800,1037200) layer=METAL2 (1404200-1406200,1037200) layer=METAL2 (1340600-1342600,1037200) layer=METAL2 (1277000-1279000,1037200) layer=METAL2 (1213400-1215400,1037200) layer=METAL2 (1149800-1151800,1037200) layer=METAL2 (1086200-1088200,1037200) layer=METAL2 (1022600-1024600,1037200) layer=METAL2 } pintype=input;
+   ldRaddA { (2792200-2794200,1037200) layer=METAL2 } pintype=input;
+   ldRaddB { (2955800-2957800,1037200) layer=METAL2 } pintype=input;
+   nbus.1 { (3322400-3324800,1037200) layer=METAL2 (2422400-2424800,1037200) layer=METAL2 (147600-150000,1037200) layer=METAL2 } pintype=bus;
+   nbus.10 { (82800-85200,1037200) layer=METAL2 (3391600-3394000,1037200) layer=METAL2 (2493200-2495600,1037200) layer=METAL2 } pintype=bus;
+   nbus.11 { (75600-78000,1037200) layer=METAL2 (3398800-3401200,1037200) layer=METAL2 (2499600-2502000,1037200) layer=METAL2 } pintype=bus;
+   nbus.12 { (68400-70800,1037200) layer=METAL2 (3406000-3408400,1037200) layer=METAL2 (2506000-2508400,1037200) layer=METAL2 } pintype=bus;
+   nbus.13 { (61200-63600,1037200) layer=METAL2 (3413200-3415600,1037200) layer=METAL2 (2512400-2514800,1037200) layer=METAL2 } pintype=bus;
+   nbus.14 { (54000-56400,1037200) layer=METAL2 (3420400-3422800,1037200) layer=METAL2 (2518800-2521200,1037200) layer=METAL2 } pintype=bus;
+   nbus.15 { (46800-49200,1037200) layer=METAL2 (3427600-3430000,1037200) layer=METAL2 (2525200-2527600,1037200) layer=METAL2 } pintype=bus;
+   nbus.16 { (39600-42000,1037200) layer=METAL2 (3434800-3437200,1037200) layer=METAL2 (2531600-2534000,1037200) layer=METAL2 } pintype=bus;
+   nbus.17 { (3442000-3444400,1037200) layer=METAL2 (32400-34800,1037200) layer=METAL2 (2538000-2540400,1037200) layer=METAL2 } pintype=bus;
+   nbus.18 { (3449200-3451600,1037200) layer=METAL2 (25200-27600,1037200) layer=METAL2 (2544400-2546800,1037200) layer=METAL2 } pintype=bus;
+   nbus.19 { (3456400-3458800,1037200) layer=METAL2 (2550800-2553200,1037200) layer=METAL2 (18000-20400,1037200) layer=METAL2 } pintype=bus;
+   nbus.2 { (3334000-3336400,1037200) layer=METAL2 (2442000-2444400,1037200) layer=METAL2 (140400-142800,1037200) layer=METAL2 } pintype=bus;
+   nbus.20 { (3463600-3466000,1037200) layer=METAL2 (2557200-2559600,1037200) layer=METAL2 (10800-13200,1037200) layer=METAL2 } pintype=bus;
+   nbus.3 { (3341200-3343600,1037200) layer=METAL2 (2448400-2450800,1037200) layer=METAL2 (133200-135600,1037200) layer=METAL2 } pintype=bus;
+   nbus.4 { (3348400-3350800,1037200) layer=METAL2 (2454800-2457200,1037200) layer=METAL2 (126000-128400,1037200) layer=METAL2 } pintype=bus;
+   nbus.5 { (3355600-3358000,1037200) layer=METAL2 (2461200-2463600,1037200) layer=METAL2 (118800-121200,1037200) layer=METAL2 } pintype=bus;
+   nbus.6 { (3362800-3365200,1037200) layer=METAL2 (2467600-2470000,1037200) layer=METAL2 (111600-114000,1037200) layer=METAL2 } pintype=bus;
+   nbus.7 { (3370000-3372400,1037200) layer=METAL2 (2474000-2476400,1037200) layer=METAL2 (104400-106800,1037200) layer=METAL2 } pintype=bus;
+   nbus.8 { (97200-99600,1037200) layer=METAL2 (3377200-3379600,1037200) layer=METAL2 (2480400-2482800,1037200) layer=METAL2 } pintype=bus;
+   nbus.9 { (90000-92400,1037200) layer=METAL2 (3384400-3386800,1037200) layer=METAL2 (2486800-2489200,1037200) layer=METAL2 } pintype=bus;
+   qbus.1 { (2563600-2566000,1037200) layer=METAL2 } pintype=bus;
+   qbus.10 { (2621200-2623600,1037200) layer=METAL2 } pintype=bus;
+   qbus.11 { (2627600-2630000,1037200) layer=METAL2 } pintype=bus;
+   qbus.12 { (2634000-2636400,1037200) layer=METAL2 } pintype=bus;
+   qbus.13 { (2640400-2642800,1037200) layer=METAL2 } pintype=bus;
+   qbus.14 { (2646800-2649200,1037200) layer=METAL2 } pintype=bus;
+   qbus.15 { (2653200-2655600,1037200) layer=METAL2 } pintype=bus;
+   qbus.16 { (2659600-2662000,1037200) layer=METAL2 } pintype=bus;
+   qbus.17 { (2666000-2668400,1037200) layer=METAL2 } pintype=bus;
+   qbus.18 { (2672400-2674800,1037200) layer=METAL2 } pintype=bus;
+   qbus.19 { (2678800-2681200,1037200) layer=METAL2 } pintype=bus;
+   qbus.2 { (2570000-2572400,1037200) layer=METAL2 } pintype=bus;
+   qbus.20 { (2685200-2687600,1037200) layer=METAL2 } pintype=bus;
+   qbus.3 { (2576400-2578800,1037200) layer=METAL2 } pintype=bus;
+   qbus.4 { (2582800-2585200,1037200) layer=METAL2 } pintype=bus;
+   qbus.5 { (2589200-2591600,1037200) layer=METAL2 } pintype=bus;
+   qbus.6 { (2595600-2598000,1037200) layer=METAL2 } pintype=bus;
+   qbus.7 { (2602000-2604400,1037200) layer=METAL2 } pintype=bus;
+   qbus.8 { (2608400-2610800,1037200) layer=METAL2 } pintype=bus;
+   qbus.9 { (2614800-2617200,1037200) layer=METAL2 } pintype=bus;
+   rbus.1 { (3470800-3473200,1037200) layer=METAL2 (2936400-2938800,1037200) layer=METAL2 (1600400-1602800,1037200) layer=METAL2 } pintype=bus;
+   rbus.10 { (3535600-3538000,1037200) layer=METAL2 (2878800-2881200,1037200) layer=METAL2 (1028000-1030400,1037200) layer=METAL2 } pintype=bus;
+   rbus.11 { (964400-966800,1037200) layer=METAL2 (3542800-3545200,1037200) layer=METAL2 (2872400-2874800,1037200) layer=METAL2 } pintype=bus;
+   rbus.12 { (900800-903200,1037200) layer=METAL2 (3550000-3552400,1037200) layer=METAL2 (2866000-2868400,1037200) layer=METAL2 } pintype=bus;
+   rbus.13 { (837200-839600,1037200) layer=METAL2 (3557200-3559600,1037200) layer=METAL2 (2859600-2862000,1037200) layer=METAL2 } pintype=bus;
+   rbus.14 { (773600-776000,1037200) layer=METAL2 (3564400-3566800,1037200) layer=METAL2 (2853200-2855600,1037200) layer=METAL2 } pintype=bus;
+   rbus.15 { (710000-712400,1037200) layer=METAL2 (3571600-3574000,1037200) layer=METAL2 (2846800-2849200,1037200) layer=METAL2 } pintype=bus;
+   rbus.16 { (646400-648800,1037200) layer=METAL2 (3578800-3581200,1037200) layer=METAL2 (2840400-2842800,1037200) layer=METAL2 } pintype=bus;
+   rbus.17 { (582800-585200,1037200) layer=METAL2 (3586000-3588400,1037200) layer=METAL2 (2834000-2836400,1037200) layer=METAL2 } pintype=bus;
+   rbus.18 { (519200-521600,1037200) layer=METAL2 (3593200-3595600,1037200) layer=METAL2 (2827600-2830000,1037200) layer=METAL2 } pintype=bus;
+   rbus.19 { (455600-458000,1037200) layer=METAL2 (3600400-3602800,1037200) layer=METAL2 (2821200-2823600,1037200) layer=METAL2 } pintype=bus;
+   rbus.2 { (3478000-3480400,1037200) layer=METAL2 (2930000-2932400,1037200) layer=METAL2 (1536800-1539200,1037200) layer=METAL2 } pintype=bus;
+   rbus.20 { (392000-394400,1037200) layer=METAL2 (3607600-3610000,1037200) layer=METAL2 (2814800-2817200,1037200) layer=METAL2 } pintype=bus;
+   rbus.3 { (3485200-3487600,1037200) layer=METAL2 (2923600-2926000,1037200) layer=METAL2 (1473200-1475600,1037200) layer=METAL2 } pintype=bus;
+   rbus.4 { (3492400-3494800,1037200) layer=METAL2 (2917200-2919600,1037200) layer=METAL2 (1409600-1412000,1037200) layer=METAL2 } pintype=bus;
+   rbus.5 { (3499600-3502000,1037200) layer=METAL2 (2910800-2913200,1037200) layer=METAL2 (1346000-1348400,1037200) layer=METAL2 } pintype=bus;
+   rbus.6 { (3506800-3509200,1037200) layer=METAL2 (2904400-2906800,1037200) layer=METAL2 (1282400-1284800,1037200) layer=METAL2 } pintype=bus;
+   rbus.7 { (3514000-3516400,1037200) layer=METAL2 (2898000-2900400,1037200) layer=METAL2 (1218800-1221200,1037200) layer=METAL2 } pintype=bus;
+   rbus.8 { (3521200-3523600,1037200) layer=METAL2 (2891600-2894000,1037200) layer=METAL2 (1155200-1157600,1037200) layer=METAL2 } pintype=bus;
+   rbus.9 { (3528400-3530800,1037200) layer=METAL2 (2885200-2887600,1037200) layer=METAL2 (1091600-1094000,1037200) layer=METAL2 } pintype=bus;
+   reset { (995200-997200,1037200) layer=METAL2 (931600-933600,1037200) layer=METAL2 (868000-870000,1037200) layer=METAL2 (804400-806400,1037200) layer=METAL2 (740800-742800,1037200) layer=METAL2 (677200-679200,1037200) layer=METAL2 (613600-615600,1037200) layer=METAL2 (550000-552000,1037200) layer=METAL2 (486400-488400,1037200) layer=METAL2 (422800-424800,1037200) layer=METAL2 (359200-361200,1037200) layer=METAL2 (3194600-3196600,1037200) layer=METAL2 (2998600-3000600,1037200) layer=METAL2 (2718200-2720200,1037200) layer=METAL2 (2319800-2321800,1037200) layer=METAL2 (206200-208200,1037200) layer=METAL2 (1567600-1569600,1037200) layer=METAL2 (1504000-1506000,1037200) layer=METAL2 (1440400-1442400,1037200) layer=METAL2 (1376800-1378800,1037200) layer=METAL2 (1313200-1315200,1037200) layer=METAL2 (1249600-1251600,1037200) layer=METAL2 (1186000-1188000,1037200) layer=METAL2 (1122400-1124400,1037200) layer=METAL2 (1058800-1060800,1037200) layer=METAL2 } pintype=input;
+   srcMul1 { (2408200-2410200,1037200) layer=METAL2 } pintype=input;
+   srcMul2 { (2366200-2368200,1037200) layer=METAL2 } pintype=input;
+   srcRsum1 { (3300600-3302600,1037200) layer=METAL2 } pintype=input;
+   srcRsum2 { (3258600-3260600,1037200) layer=METAL2 } pintype=input;
+cell end MULT
+
+cell begin HADD type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   HclrA { (0-2000,2000) layer=METAL2 } pintype=input;
+   HclrB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Hneg { (0-2000,0) layer=METAL2 } pintype=output;
+   HsignA { (0-2000,2000) layer=METAL2 } pintype=input;
+   HsignB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Hzer { (0-2000,0) layer=METAL2 } pintype=output;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   bbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   ldHaddA { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldHaddB { (0-2000,2000) layer=METAL2 } pintype=input;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcHsum1 { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcHsum2 { (0-2000,2000) layer=METAL2 } pintype=input;
+cell end HADD
+
+cell begin HCTRL type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   HSelect { (0-2000,0) layer=METAL2 } pintype=output;
+   HclrA { (0-2000,0) layer=METAL2 } pintype=output;
+   HclrB { (0-2000,0) layer=METAL2 } pintype=output;
+   Hneg { (0-2000,2000) layer=METAL2 } pintype=input;
+   HsignA { (0-2000,0) layer=METAL2 } pintype=output;
+   HsignB { (0-2000,0) layer=METAL2 } pintype=output;
+   Hzer { (0-2000,2000) layer=METAL2 } pintype=input;
+   Init { (0-2000,2000) layer=METAL2 } pintype=input;
+   MSelect { (0-2000,2000) layer=METAL2 } pintype=input;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   WaitI { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldHaddA { (0-2000,0) layer=METAL2 } pintype=output;
+   ldHaddB { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVh { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVh1 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVh2 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVh3 { (0-2000,0) layer=METAL2 } pintype=output;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcDenomh { (0-2000,0) layer=METAL2 } pintype=output;
+   srcHsum1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcHsum2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcOneh { (0-2000,0) layer=METAL2 } pintype=output;
+   srcQh { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTolb { (0-2000,0) layer=METAL2 } pintype=output;
+   srcV0b { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVh { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVh1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVh2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVh3 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVhsel { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVnb { (0-2000,0) layer=METAL2 } pintype=output;
+   srcWh { (0-2000,0) layer=METAL2 } pintype=output;
+cell end HCTRL
+
+cell begin LADD type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   LclrA { (0-2000,2000) layer=METAL2 } pintype=input;
+   LclrB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Lneg { (0-2000,0) layer=METAL2 } pintype=output;
+   LsignA { (0-2000,2000) layer=METAL2 } pintype=input;
+   LsignB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Lzer { (0-2000,0) layer=METAL2 } pintype=output;
+   Phi1L { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2L { (-200-2200,2000) layer=METAL2 } pintype=input;
+   abus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   ldLaddA { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldLaddB { (0-2000,2000) layer=METAL2 } pintype=input;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcLsum1 { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcLsum2 { (0-2000,2000) layer=METAL2 } pintype=input;
+cell end LADD
+
+cell begin LCTRL type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   Init { (0-2000,2000) layer=METAL2 } pintype=input;
+   LSelect { (0-2000,0) layer=METAL2 } pintype=output;
+   LclrA { (0-2000,0) layer=METAL2 } pintype=output;
+   LclrB { (0-2000,0) layer=METAL2 } pintype=output;
+   Lneg { (0-2000,2000) layer=METAL2 } pintype=input;
+   LsignA { (0-2000,0) layer=METAL2 } pintype=output;
+   LsignB { (0-2000,0) layer=METAL2 } pintype=output;
+   Lzer { (0-2000,2000) layer=METAL2 } pintype=input;
+   MSelect { (0-2000,2000) layer=METAL2 } pintype=input;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   WaitI { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldLaddA { (0-2000,0) layer=METAL2 } pintype=output;
+   ldLaddB { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVl { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVl1 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVl2 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVl3 { (0-2000,0) layer=METAL2 } pintype=output;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcDenoml { (0-2000,0) layer=METAL2 } pintype=output;
+   srcLsum1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcLsum2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcQl { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTola { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTwol { (0-2000,0) layer=METAL2 } pintype=output;
+   srcV0a { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVl { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVl1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVl2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVl3 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVlsel { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVna { (0-2000,0) layer=METAL2 } pintype=output;
+   srcWl { (0-2000,0) layer=METAL2 } pintype=output;
+cell end LCTRL
+
+cell begin MADD type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   MclrA { (0-2000,2000) layer=METAL2 } pintype=input;
+   MclrB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Mneg { (0-2000,0) layer=METAL2 } pintype=output;
+   MsignA { (0-2000,2000) layer=METAL2 } pintype=input;
+   MsignB { (0-2000,2000) layer=METAL2 } pintype=input;
+   Mzer { (0-2000,0) layer=METAL2 } pintype=output;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   ldMaddA { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldMaddB { (0-2000,2000) layer=METAL2 } pintype=input;
+   mbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcMsum { (0-2000,2000) layer=METAL2 } pintype=input;
+cell end MADD
+
+cell begin MCTRL type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   HSelect { (0-2000,2000) layer=METAL2 } pintype=input;
+   Init { (0-2000,0) layer=METAL2 } pintype=output;
+   LSelect { (0-2000,2000) layer=METAL2 } pintype=input;
+   MSelect { (0-2000,2000) layer=METAL2 } pintype=output;
+   MclrA { (0-2000,0) layer=METAL2 } pintype=output;
+   MclrB { (0-2000,0) layer=METAL2 } pintype=output;
+   Mneg { (0-2000,2000) layer=METAL2 } pintype=input;
+   MsignA { (0-2000,0) layer=METAL2 } pintype=output;
+   MsignB { (0-2000,0) layer=METAL2 } pintype=output;
+   Mzer { (0-2000,2000) layer=METAL2 } pintype=input;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   RED { (0-2000,0) layer=METAL2 } pintype=output;
+   ResCmd { (0-2000,2000) layer=METAL2 } pintype=input;
+   Reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   SED { (0-2000,0) layer=METAL2 } pintype=output;
+   SelCmd { (0-2000,2000) layer=METAL2 } pintype=input;
+   WEI { (0-2000,2000) layer=METAL2 } pintype=input;
+   Wait { (0-2000,0) layer=METAL2 } pintype=output;
+   ldDenomN { (0-2000,0) layer=METAL2 } pintype=output;
+   ldDenomO { (0-2000,0) layer=METAL2 } pintype=output;
+   ldMaddA { (0-2000,0) layer=METAL2 } pintype=output;
+   ldMaddB { (0-2000,0) layer=METAL2 } pintype=output;
+   ldTcount { (0-2000,0) layer=METAL2 } pintype=output;
+   ldTmax { (0-2000,0) layer=METAL2 } pintype=output;
+   ldTol { (0-2000,0) layer=METAL2 } pintype=output;
+   ldV0 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVhsel { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVi { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVlsel { (0-2000,0) layer=METAL2 } pintype=output;
+   ldVn { (0-2000,0) layer=METAL2 } pintype=output;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcMsum { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTcountM { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTcountT { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTmax { (0-2000,0) layer=METAL2 } pintype=output;
+   srcTol { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVi { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVn { (0-2000,0) layer=METAL2 } pintype=output;
+   srcdataSx { (0-2000,0) layer=METAL2 } pintype=output;
+cell end MCTRL
+
+cell begin RCTRL type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   DenomN16ored { (0-2000,2000) layer=METAL2 } pintype=input;
+   DenomN4.0 { (0-2000,2000) layer=METAL2 } pintype=input;
+   DenomN4.1 { (0-2000,2000) layer=METAL2 } pintype=input;
+   DenomN4.2 { (0-2000,2000) layer=METAL2 } pintype=input;
+   DenomN4.3 { (0-2000,2000) layer=METAL2 } pintype=input;
+   Init { (0-2000,2000) layer=METAL2 } pintype=input;
+   MSelect { (0-2000,2000) layer=METAL2 } pintype=input;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   RsignA { (0-2000,0) layer=METAL2 } pintype=output;
+   ShfAmt { (0-2000,0) layer=METAL2 } pintype=output;
+   WaitI { (0-2000,2000) layer=METAL2 } pintype=input;
+   ldMulA { (0-2000,0) layer=METAL2 } pintype=output;
+   ldMulB { (0-2000,0) layer=METAL2 } pintype=output;
+   ldP1 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldP2 { (0-2000,0) layer=METAL2 } pintype=output;
+   ldQh { (0-2000,0) layer=METAL2 } pintype=output;
+   ldQl { (0-2000,0) layer=METAL2 } pintype=output;
+   ldRaddA { (0-2000,0) layer=METAL2 } pintype=output;
+   ldRaddB { (0-2000,0) layer=METAL2 } pintype=output;
+   ldWh { (0-2000,0) layer=METAL2 } pintype=output;
+   ldWl { (0-2000,0) layer=METAL2 } pintype=output;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcDenomn { (0-2000,0) layer=METAL2 } pintype=output;
+   srcDenomr { (0-2000,0) layer=METAL2 } pintype=output;
+   srcMul1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcMul2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcOner { (0-2000,0) layer=METAL2 } pintype=output;
+   srcP0 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcP1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcP2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcRsum1 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcRsum2 { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVhn { (0-2000,0) layer=METAL2 } pintype=output;
+   srcVln { (0-2000,0) layer=METAL2 } pintype=output;
+cell end RCTRL
+
+cell begin REG type=GENERAL scale=0.001
+profile top (0,2000) (2000,2000);
+profile bot (0,0) (2000,0);
+termlist
+   ScanIn { (0,0-2000) layer=METAL2 } pintype=input;
+   ScanOut { (2000,0-2000) layer=METAL2 } pintype=output;
+   DenomN16ored { (0-2000,0) layer=METAL2 } pintype=output;
+   DenomN4.0 { (0-2000,0) layer=METAL2 } pintype=output;
+   DenomN4.1 { (0-2000,0) layer=METAL2 } pintype=output;
+   DenomN4.2 { (0-2000,0) layer=METAL2 } pintype=output;
+   DenomN4.3 { (0-2000,0) layer=METAL2 } pintype=output;
+   Phi1H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi1_test { (-200-2200,2000) layer=METAL2 } pintype=input;
+   Phi2H { (-200-2200,2000) layer=METAL2 } pintype=input;
+   RC { (0-2000,2000) layer=METAL2 } pintype=input;
+   RE { (0-2000,2000) layer=METAL2 } pintype=input;
+   ResCmd { (0-2000,0) layer=METAL2 } pintype=output;
+   Reset { (0-2000,0) layer=METAL2 } pintype=output;
+   SC { (0-2000,2000) layer=METAL2 } pintype=input;
+   SelCmd { (0-2000,0) layer=METAL2 } pintype=output;
+   SystemIn.1 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.10 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.11 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.12 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.13 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.14 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.15 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.16 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.2 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.3 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.4 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.5 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.6 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.7 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.8 { (0-2000,2000) layer=METAL2 } pintype=input;
+   SystemIn.9 { (0-2000,2000) layer=METAL2 } pintype=input;
+   WE { (0-2000,2000) layer=METAL2 } pintype=input;
+   WEI { (0-2000,0) layer=METAL2 } pintype=output;
+   Wait { (0-2000,2000) layer=METAL2 } pintype=input;
+   WaitI { (0-2000,0) layer=METAL2 } pintype=output;
+   abus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   abus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   bbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   hbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   lbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   ldDenomN { (0-2000,0) layer=METAL2 } pintype=input;
+   ldDenomO { (0-2000,0) layer=METAL2 } pintype=input;
+   ldMaddA { (0-2000,0) layer=METAL2 } pintype=input;
+   ldMaddB { (0-2000,0) layer=METAL2 } pintype=input;
+   ldP1 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldP2 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldQh { (0-2000,0) layer=METAL2 } pintype=input;
+   ldQl { (0-2000,0) layer=METAL2 } pintype=input;
+   ldTcount { (0-2000,0) layer=METAL2 } pintype=input;
+   ldTmax { (0-2000,0) layer=METAL2 } pintype=input;
+   ldTol { (0-2000,0) layer=METAL2 } pintype=input;
+   ldV0 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVh { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVh1 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVh2 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVh3 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVhsel { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVi { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVl { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVl1 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVl2 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVl3 { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVlsel { (0-2000,0) layer=METAL2 } pintype=input;
+   ldVn { (0-2000,0) layer=METAL2 } pintype=input;
+   ldWh { (0-2000,0) layer=METAL2 } pintype=input;
+   ldWl { (0-2000,0) layer=METAL2 } pintype=input;
+   mbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   mbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   nbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   qbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.1 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.10 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.11 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.12 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.13 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.14 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.15 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.16 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.17 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.18 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.19 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.2 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.20 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.3 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.4 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.5 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.6 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.7 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.8 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   rbus.9 { (-200-2200,2000) layer=METAL2 } pintype=bus;
+   reset { (0-2000,2000) layer=METAL2 } pintype=input;
+   srcDenomh { (0-2000,0) layer=METAL2 } pintype=input;
+   srcDenoml { (0-2000,0) layer=METAL2 } pintype=input;
+   srcDenomn { (0-2000,0) layer=METAL2 } pintype=input;
+   srcDenomr { (0-2000,0) layer=METAL2 } pintype=input;
+   srcHsum1 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcHsum2 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcLsum1 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcLsum2 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcMsum { (0-2000,0) layer=METAL2 } pintype=input;
+   srcOneh { (0-2000,0) layer=METAL2 } pintype=input;
+   srcOner { (0-2000,0) layer=METAL2 } pintype=input;
+   srcP0 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcP1 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcP2 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcQh { (0-2000,0) layer=METAL2 } pintype=input;
+   srcQl { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTcountM { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTcountT { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTmax { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTol { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTola { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTolb { (0-2000,0) layer=METAL2 } pintype=input;
+   srcTwol { (0-2000,0) layer=METAL2 } pintype=input;
+   srcV0a { (0-2000,0) layer=METAL2 } pintype=input;
+   srcV0b { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVh { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVh1 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVh2 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVh3 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVhn { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVhsel { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVi { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVl { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVl1 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVl2 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVl3 { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVln { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVlsel { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVn { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVna { (0-2000,0) layer=METAL2 } pintype=input;
+   srcVnb { (0-2000,0) layer=METAL2 } pintype=input;
+   srcWh { (0-2000,0) layer=METAL2 } pintype=input;
+   srcWl { (0-2000,0) layer=METAL2 } pintype=input;
+   srcdataSx { (0-2000,0) layer=METAL2 } pintype=input;
+cell end REG
+
+domain begin FAN type=PARENT scale=0.001
+profile top (0,110000) (110000,110000);
+profile bot (0,0) (110000,0);
+iolist
+   GND T:(45,49) width=2000 desired=(50000,110000) pintype=vdd
+   GND R:(54,58) width=2000 desired=(110000,60000) pintype=vdd
+   GND L:(54,58) width=2000 desired=(0,60000) pintype=vdd
+   GND L:(18,22) width=2000 desired=(0,20000) pintype=vdd
+   GND B:(54,58) width=2000 desired=(60000,0) pintype=vdd
+   GND B:(90,94) width=2000 desired=(100000,0) pintype=vdd
+   Phi1 B:(72,76) width=2400 desired=(80000,0) pintype=input
+   Phi1t B:(63,67) width=2400 desired=(70000,0) pintype=input
+   RC R:(36,40) width=2000 desired=(110000,40000) pintype=input
+   RE R:(27,31) width=2000 desired=(110000,30000) pintype=input
+   RED B:(18,22) width=2000 desired=(20000,0) pintype=output
+   SC R:(18,22) width=2000 desired=(110000,20000) pintype=input
+   SED B:(27,31) width=2000 desired=(30000,0) pintype=output
+   ScanIn L:(27,31) width=2000 desired=(0,30000) pintype=input
+   ScanOut L:(9,13) width=2000 desired=(0,10000) pintype=output
+   SystemIn.1 R:(63,67) width=2000 desired=(110000,70000) pintype=input
+   SystemIn.10 T:(27,31) width=2000 desired=(30000,110000) pintype=input
+   SystemIn.11 T:(18,22) width=2000 desired=(20000,110000) pintype=input
+   SystemIn.12 T:(9,13) width=2000 desired=(10000,110000) pintype=input
+   SystemIn.13 L:(90,94) width=2000 desired=(0,100000) pintype=input
+   SystemIn.14 L:(81,85) width=2000 desired=(0,90000) pintype=input
+   SystemIn.15 L:(72,76) width=2000 desired=(0,80000) pintype=input
+   SystemIn.16 L:(63,67) width=2000 desired=(0,70000) pintype=input
+   SystemIn.2 R:(72,76) width=2000 desired=(110000,80000) pintype=input
+   SystemIn.3 R:(81,85) width=2000 desired=(110000,90000) pintype=input
+   SystemIn.4 R:(90,94) width=2000 desired=(110000,100000) pintype=input
+   SystemIn.5 T:(90,94) width=2000 desired=(100000,110000) pintype=input
+   SystemIn.6 T:(81,85) width=2000 desired=(90000,110000) pintype=input
+   SystemIn.7 T:(72,76) width=2000 desired=(80000,110000) pintype=input
+   SystemIn.8 T:(63,67) width=2000 desired=(70000,110000) pintype=input
+   SystemIn.9 T:(36,40) width=2000 desired=(40000,110000) pintype=input
+   VDD T:(54,58) width=2000 desired=(60000,110000) pintype=vdd
+   VDD R:(45,49) width=2000 desired=(110000,50000) pintype=vdd
+   VDD L:(45,49) width=2000 desired=(0,50000) pintype=vdd
+   VDD B:(81,85) width=2000 desired=(90000,0) pintype=vdd
+   VDD B:(45,49) width=2000 desired=(50000,0) pintype=vdd
+   VDD B:(36,40) width=2000 desired=(40000,0) pintype=vdd
+   VDD B:(9,13) width=2000 desired=(10000,0) pintype=vdd
+   WE R:(9,13) width=2000 desired=(110000,10000) pintype=input
+   reset L:(36,40) width=2000 desired=(0,40000) pintype=input
+;
+row 1
+   CLOCKGEN	C_0(GND,VDD,Phi,Phi1t,Phi1H,Phi2H,Phi1_test,Phi1Hf,Phi1_tf,Phi2Hf)
+   MULT	C_1(GND,VDD,ScanIn,ScanOut,Phi1H,Phi1_test,Phi2H,RsignA,ShfAmt,ldMulA,ldMulB,
+ldRaddA,ldRaddB,nbus.1,nbus.10,nbus.11,nbus.12,nbus.13,nbus.14,nbus.15,
+nbus.16,nbus.17,nbus.18,nbus.19,nbus.2,nbus.20,nbus.3,nbus.4,nbus.5,nbus.6,
+nbus.7,nbus.8,nbus.9,qbus.1,qbus.10,qbus.11,qbus.12,qbus.13,qbus.14,qbus.15,
+qbus.16,qbus.17,qbus.18,qbus.19,qbus.2,qbus.20,qbus.3,qbus.4,qbus.5,qbus.6,
+qbus.7,qbus.8,qbus.9,rbus.1,rbus.10,rbus.11,rbus.12,rbus.13,rbus.14,rbus.15,
+rbus.16,rbus.17,rbus.18,rbus.19,rbus.2,rbus.20,rbus.3,rbus.4,rbus.5,rbus.6,
+rbus.7,rbus.8,rbus.9,reset,srcMul1,srcMul2,srcRsum1,srcRsum2)
+   HADD	C_2(ScanIn,ScanOut,HclrA,HclrB,Hneg,HsignA,HsignB,Hzer,Phi1H,Phi1_test,Phi2H,
+bbus.1,bbus.10,bbus.11,bbus.12,bbus.13,bbus.14,bbus.15,bbus.16,bbus.17,
+bbus.18,bbus.19,bbus.2,bbus.20,bbus.3,bbus.4,bbus.5,bbus.6,bbus.7,bbus.8,
+bbus.9,hbus.1,hbus.10,hbus.11,hbus.12,hbus.13,hbus.14,hbus.15,hbus.16,
+hbus.17,hbus.18,hbus.19,hbus.2,hbus.20,hbus.3,hbus.4,hbus.5,hbus.6,hbus.7,
+hbus.8,hbus.9,ldHaddA,ldHaddB,reset,srcHsum1,srcHsum2)
+   HCTRL	C_3(ScanIn,ScanOut,HSelect,HclrA,HclrB,Hneg,HsignA,HsignB,Hzer,Init,MSelect,
+Phi1H,Phi1_test,Phi2H,WaitI,ldHaddA,ldHaddB,ldVh,ldVh1,ldVh2,ldVh3,reset,
+srcDenomh,srcHsum1,srcHsum2,srcOneh,srcQh,srcTolb,srcV0b,srcVh,srcVh1,
+srcVh2,srcVh3,srcVhsel,srcVnb,srcWh)
+   LADD	C_4(ScanIn,ScanOut,LclrA,LclrB,Lneg,LsignA,LsignB,Lzer,Phi1L,Phi1_test,Phi2L,
+abus.1,abus.10,abus.11,abus.12,abus.13,abus.14,abus.15,abus.16,abus.17,
+abus.18,abus.19,abus.2,abus.20,abus.3,abus.4,abus.5,abus.6,abus.7,abus.8,
+abus.9,lbus.1,lbus.10,lbus.11,lbus.12,lbus.13,lbus.14,lbus.15,lbus.16,
+lbus.17,lbus.18,lbus.19,lbus.2,lbus.20,lbus.3,lbus.4,lbus.5,lbus.6,lbus.7,
+lbus.8,lbus.9,ldLaddA,ldLaddB,reset,srcLsum1,srcLsum2)
+   LCTRL	C_5(ScanIn,ScanOut,Init,LSelect,LclrA,LclrB,Lneg,LsignA,LsignB,Lzer,MSelect,
+Phi1H,Phi1_test,Phi2H,WaitI,ldLaddA,ldLaddB,ldVl,ldVl1,ldVl2,ldVl3,reset,
+srcDenoml,srcLsum1,srcLsum2,srcQl,srcTola,srcTwol,srcV0a,srcVl,srcVl1,
+srcVl2,srcVl3,srcVlsel,srcVna,srcWl)
+   MADD	C_6(ScanIn,ScanOut,MclrA,MclrB,Mneg,MsignA,MsignB,Mzer,Phi1H,Phi1_test,Phi2H,
+ldMaddA,ldMaddB,mbus.1,mbus.10,mbus.11,mbus.12,mbus.13,mbus.14,mbus.15,
+mbus.16,mbus.17,mbus.18,mbus.19,mbus.2,mbus.20,mbus.3,mbus.4,mbus.5,mbus.6,
+mbus.7,mbus.8,mbus.9,reset,srcMsum)
+   MCTRL	C_7(ScanIn,ScanOut,HSelect,Init,LSelect,MSelect,MclrA,MclrB,Mneg,MsignA,MsignB,
+Mzer,Phi1H,Phi1_test,Phi2H,RED,ResCmd,Reset,SED,SelCmd,WEI,Wait,ldDenomN,
+ldDenomO,ldMaddA,ldMaddB,ldTcount,ldTmax,ldTol,ldV0,ldVhsel,ldVi,ldVlsel,
+ldVn,reset,srcMsum,srcTcountM,srcTcountT,srcTmax,srcTol,srcVi,srcVn,
+srcdataSx)
+   RCTRL	C_8(ScanIn,ScanOut,DenomN16ored,DenomN4.0,DenomN4.1,DenomN4.2,DenomN4.3,Init,
+MSelect,Phi1H,Phi1_test,Phi2H,RsignA,ShfAmt,WaitI,ldMulA,ldMulB,ldP1,ldP2,
+ldQh,ldQl,ldRaddA,ldRaddB,ldWh,ldWl,reset,srcDenomn,srcDenomr,srcMul1,
+srcMul2,srcOner,srcP0,srcP1,srcP2,srcRsum1,srcRsum2,srcVhn,srcVln)
+   REG	C_9(ScanIn,ScanOut,DenomN16ored,DenomN4.0,DenomN4.1,DenomN4.2,DenomN4.3,Phi1H,
+Phi1_test,Phi2H,RC,RE,ResCmd,Reset,SC,SelCmd,SystemIn.1,SystemIn.10,
+SystemIn.11,SystemIn.12,SystemIn.13,SystemIn.14,SystemIn.15,SystemIn.16,
+SystemIn.2,SystemIn.3,SystemIn.4,SystemIn.5,SystemIn.6,SystemIn.7,
+SystemIn.8,SystemIn.9,WE,WEI,Wait,WaitI,abus.1,abus.10,abus.11,abus.12,
+abus.13,abus.14,abus.15,abus.16,abus.17,abus.18,abus.19,abus.2,abus.20,
+abus.3,abus.4,abus.5,abus.6,abus.7,abus.8,abus.9,bbus.1,bbus.10,bbus.11,
+bbus.12,bbus.13,bbus.14,bbus.15,bbus.16,bbus.17,bbus.18,bbus.19,bbus.2,
+bbus.20,bbus.3,bbus.4,bbus.5,bbus.6,bbus.7,bbus.8,bbus.9,hbus.1,hbus.10,
+hbus.11,hbus.12,hbus.13,hbus.14,hbus.15,hbus.16,hbus.17,hbus.18,hbus.19,
+hbus.2,hbus.20,hbus.3,hbus.4,hbus.5,hbus.6,hbus.7,hbus.8,hbus.9,lbus.1,
+lbus.10,lbus.11,lbus.12,lbus.13,lbus.14,lbus.15,lbus.16,lbus.17,lbus.18,
+lbus.19,lbus.2,lbus.20,lbus.3,lbus.4,lbus.5,lbus.6,lbus.7,lbus.8,lbus.9,
+ldDenomN,ldDenomO,ldMaddA,ldMaddB,ldP1,ldP2,ldQh,ldQl,ldTcount,ldTmax,ldTol,
+ldV0,ldVh,ldVh1,ldVh2,ldVh3,ldVhsel,ldVi,ldVl,ldVl1,ldVl2,ldVl3,ldVlsel,
+ldVn,ldWh,ldWl,mbus.1,mbus.10,mbus.11,mbus.12,mbus.13,mbus.14,mbus.15,
+mbus.16,mbus.17,mbus.18,mbus.19,mbus.2,mbus.20,mbus.3,mbus.4,mbus.5,mbus.6,
+mbus.7,mbus.8,mbus.9,nbus.1,nbus.10,nbus.11,nbus.12,nbus.13,nbus.14,nbus.15,
+nbus.16,nbus.17,nbus.18,nbus.19,nbus.2,nbus.20,nbus.3,nbus.4,nbus.5,nbus.6,
+nbus.7,nbus.8,nbus.9,qbus.1,qbus.10,qbus.11,qbus.12,qbus.13,qbus.14,qbus.15,
+qbus.16,qbus.17,qbus.18,qbus.19,qbus.2,qbus.20,qbus.3,qbus.4,qbus.5,qbus.6,
+qbus.7,qbus.8,qbus.9,rbus.1,rbus.10,rbus.11,rbus.12,rbus.13,rbus.14,rbus.15,
+rbus.16,rbus.17,rbus.18,rbus.19,rbus.2,rbus.20,rbus.3,rbus.4,rbus.5,rbus.6,
+rbus.7,rbus.8,rbus.9,reset,srcDenomh,srcDenoml,srcDenomn,srcDenomr,srcHsum1,
+srcHsum2,srcLsum1,srcLsum2,srcMsum,srcOneh,srcOner,srcP0,srcP1,srcP2,srcQh,
+srcQl,srcTcountM,srcTcountT,srcTmax,srcTol,srcTola,srcTolb,srcTwol,srcV0a,
+srcV0b,srcVh,srcVh1,srcVh2,srcVh3,srcVhn,srcVhsel,srcVi,srcVl,srcVl1,srcVl2,
+srcVl3,srcVln,srcVlsel,srcVn,srcVna,srcVnb,srcWh,srcWl,srcdataSx)
+;
+domain end FAN

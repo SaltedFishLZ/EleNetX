@@ -1,0 +1,2382 @@
+/*sized */
+cell begin in_half_adder_32Zin_0 lib=scmos
+
+termlist
+cout_b ;
+a_0 ;
+sum_0 ;
+
+siglist
+vdd
+vss
+nd_0
+;
+translist
+tp_b_3 sum_0 vdd cout_b width=6000 length=3000 type=p
+tp_a_2 a_0 vdd cout_b width=6000 length=3000 type=p
+tn_b_1 sum_0 nd_0 cout_b width=6000 length=3000 type=n
+tn_a_0 a_0 vss nd_0 width=6000 length=3000 type=n
+;
+cell end in_half_adder_32Zin_0
+
+cell begin in_half_adder_32Zin_1 lib=scmos
+
+termlist
+crry_1 ;
+cout_b ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_cout_b_5 cout_b vdd crry_1 width=6000 length=3000 type=p
+tn_cout_b_4 cout_b vss crry_1 width=6000 length=3000 type=n
+;
+cell end in_half_adder_32Zin_1
+
+cell begin in_half_adder_32Zin_2 lib=scmos
+
+termlist
+sum_b ;
+a_0 ;
+sum_0 ;
+cout_b ;
+
+siglist
+vdd
+vss
+nd_2
+nd_1
+;
+translist
+tp_cout_b_11 cout_b vdd sum_b width=6000 length=3000 type=p
+tp_b_10 sum_0 nd_2 sum_b width=6000 length=3000 type=p
+tp_a_9 a_0 vdd nd_2 width=6000 length=3000 type=p
+tn_cout_b_8 cout_b nd_1 sum_b width=6000 length=3000 type=n
+tn_b_7 sum_0 vss nd_1 width=6000 length=3000 type=n
+tn_a_6 a_0 vss nd_1 width=6000 length=3000 type=n
+;
+cell end in_half_adder_32Zin_2
+
+cell begin in_half_adder_32Zin_3 lib=scmos
+
+termlist
+s_out_0 ;
+sum_b ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_sum_b_13 sum_b vdd s_out_0 width=6000 length=3000 type=p
+tn_sum_b_12 sum_b vss s_out_0 width=6000 length=3000 type=n
+;
+cell end in_half_adder_32Zin_3
+
+domain begin in_half_adder_32 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cout 
+sum 
+;
+row 0
+in_half_adder_32Zin_0 in_0 (cout_b a b )
+in_half_adder_32Zin_1 in_1 (cout cout_b )
+in_half_adder_32Zin_2 in_2 (sum_b a b cout_b )
+in_half_adder_32Zin_3 in_3 (sum sum_b )
+;
+domain end in_half_adder_32
+
+cell begin in_fflop_33Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_33Zin_13
+
+cell begin in_fflop_33Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_0 ;
+
+translist
+tp_clk_b_71 clk_b s_out_0 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_0 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_33Zin_14
+
+cell begin in_fflop_33Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_33Zin_15
+
+cell begin in_fflop_33Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=13500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=13500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=13500 length=3000 type=n
+tn_s_78 s vss t2 width=13500 length=3000 type=n
+;
+cell end in_fflop_33Zin_16
+
+cell begin in_fflop_33Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=9000 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=9000 length=3000 type=n
+;
+cell end in_fflop_33Zin_17
+
+cell begin in_fflop_33Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_0 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_0 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_0 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_33Zin_18
+
+cell begin in_fflop_33Zin_19 lib=scmos
+
+termlist
+sum_0 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_0 width=13500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=20500 length=3000 type=p
+tn_t4_91 t4 vss sum_0 width=6000 length=3000 type=n
+tn_r_90 r vss sum_0 width=6000 length=3000 type=n
+;
+cell end in_fflop_33Zin_19
+
+domain begin in_fflop_33 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_33Zin_13 in_13 (clk_b clk )
+in_fflop_33Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_33Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_33Zin_16 in_16 (t2 s t1 )
+in_fflop_33Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_33Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_33Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_33
+
+cell begin in_adder_34Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_1 ;
+sum_1 ;
+crry_1 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_1 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_1 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_1 nd_14 t1 width=6000 length=3000 type=p
+tp_b_41 sum_1 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_1 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_34Zin_7
+
+cell begin in_adder_34Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_1 ;
+sum_1 ;
+crry_1 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_1 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_1 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_1 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_1 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_1 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_34Zin_8
+
+cell begin in_adder_34Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_1 ;
+sum_1 ;
+crry_1 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_1 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_1 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_1 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_1 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_1 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_1 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_34Zin_9
+
+cell begin in_adder_34Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_1 ;
+sum_1 ;
+crry_1 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_1 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_1 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_1 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_1 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_1 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_1 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_34Zin_10
+
+cell begin in_adder_34Zin_11 lib=scmos
+
+termlist
+crry_2 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_2 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_2 width=6000 length=3000 type=n
+;
+cell end in_adder_34Zin_11
+
+cell begin in_adder_34Zin_12 lib=scmos
+
+termlist
+s_out_1 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_1 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_1 width=6000 length=3000 type=n
+;
+cell end in_adder_34Zin_12
+
+domain begin in_adder_34 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_34Zin_7 in_7 (t1 a b cin )
+in_adder_34Zin_8 in_8 (t1 a b cin )
+in_adder_34Zin_9 in_9 (t2 a b cin t1 )
+in_adder_34Zin_10 in_10 (t2 a b cin t1 )
+in_adder_34Zin_11 in_11 (cout t1 )
+in_adder_34Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_34
+
+cell begin in_fflop_35Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_35Zin_13
+
+cell begin in_fflop_35Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_1 ;
+
+translist
+tp_clk_b_71 clk_b s_out_1 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_1 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_35Zin_14
+
+cell begin in_fflop_35Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_35Zin_15
+
+cell begin in_fflop_35Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_35Zin_16
+
+cell begin in_fflop_35Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_35Zin_17
+
+cell begin in_fflop_35Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_1 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_1 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_1 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_35Zin_18
+
+cell begin in_fflop_35Zin_19 lib=scmos
+
+termlist
+sum_1 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_1 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_1 width=9000 length=3000 type=n
+tn_r_90 r vss sum_1 width=6000 length=3000 type=n
+;
+cell end in_fflop_35Zin_19
+
+domain begin in_fflop_35 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_35Zin_13 in_13 (clk_b clk )
+in_fflop_35Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_35Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_35Zin_16 in_16 (t2 s t1 )
+in_fflop_35Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_35Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_35Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_35
+
+cell begin in_adder_36Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_2 ;
+sum_2 ;
+crry_2 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_2 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_2 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_2 nd_14 t1 width=6000 length=3000 type=p
+tp_b_41 sum_2 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_2 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_36Zin_7
+
+cell begin in_adder_36Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_2 ;
+sum_2 ;
+crry_2 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_2 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_2 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_2 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_2 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_2 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_36Zin_8
+
+cell begin in_adder_36Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_2 ;
+sum_2 ;
+crry_2 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_2 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_2 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_2 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_2 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_2 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_2 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_36Zin_9
+
+cell begin in_adder_36Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_2 ;
+sum_2 ;
+crry_2 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_2 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_2 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_2 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_2 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_2 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_2 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_36Zin_10
+
+cell begin in_adder_36Zin_11 lib=scmos
+
+termlist
+crry_3 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_3 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_3 width=6000 length=3000 type=n
+;
+cell end in_adder_36Zin_11
+
+cell begin in_adder_36Zin_12 lib=scmos
+
+termlist
+s_out_2 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_2 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_2 width=6000 length=3000 type=n
+;
+cell end in_adder_36Zin_12
+
+domain begin in_adder_36 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_36Zin_7 in_7 (t1 a b cin )
+in_adder_36Zin_8 in_8 (t1 a b cin )
+in_adder_36Zin_9 in_9 (t2 a b cin t1 )
+in_adder_36Zin_10 in_10 (t2 a b cin t1 )
+in_adder_36Zin_11 in_11 (cout t1 )
+in_adder_36Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_36
+
+cell begin in_fflop_37Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_37Zin_13
+
+cell begin in_fflop_37Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_2 ;
+
+translist
+tp_clk_b_71 clk_b s_out_2 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_2 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_37Zin_14
+
+cell begin in_fflop_37Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_37Zin_15
+
+cell begin in_fflop_37Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_37Zin_16
+
+cell begin in_fflop_37Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_37Zin_17
+
+cell begin in_fflop_37Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_2 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_2 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_2 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_37Zin_18
+
+cell begin in_fflop_37Zin_19 lib=scmos
+
+termlist
+sum_2 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_2 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_2 width=9000 length=3000 type=n
+tn_r_90 r vss sum_2 width=6000 length=3000 type=n
+;
+cell end in_fflop_37Zin_19
+
+domain begin in_fflop_37 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_37Zin_13 in_13 (clk_b clk )
+in_fflop_37Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_37Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_37Zin_16 in_16 (t2 s t1 )
+in_fflop_37Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_37Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_37Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_37
+
+cell begin in_adder_38Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_3 ;
+sum_3 ;
+crry_3 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_3 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_3 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_3 nd_14 t1 width=6000 length=3000 type=p
+tp_b_41 sum_3 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_3 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_38Zin_7
+
+cell begin in_adder_38Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_3 ;
+sum_3 ;
+crry_3 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_3 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_3 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_3 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_3 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_3 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_38Zin_8
+
+cell begin in_adder_38Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_3 ;
+sum_3 ;
+crry_3 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_3 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_3 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_3 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_3 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_3 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_3 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_38Zin_9
+
+cell begin in_adder_38Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_3 ;
+sum_3 ;
+crry_3 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_3 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_3 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_3 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_3 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_3 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_3 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_38Zin_10
+
+cell begin in_adder_38Zin_11 lib=scmos
+
+termlist
+crry_4 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_4 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_4 width=6000 length=3000 type=n
+;
+cell end in_adder_38Zin_11
+
+cell begin in_adder_38Zin_12 lib=scmos
+
+termlist
+s_out_3 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_3 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_3 width=6000 length=3000 type=n
+;
+cell end in_adder_38Zin_12
+
+domain begin in_adder_38 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_38Zin_7 in_7 (t1 a b cin )
+in_adder_38Zin_8 in_8 (t1 a b cin )
+in_adder_38Zin_9 in_9 (t2 a b cin t1 )
+in_adder_38Zin_10 in_10 (t2 a b cin t1 )
+in_adder_38Zin_11 in_11 (cout t1 )
+in_adder_38Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_38
+
+cell begin in_fflop_39Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_39Zin_13
+
+cell begin in_fflop_39Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_3 ;
+
+translist
+tp_clk_b_71 clk_b s_out_3 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_3 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_39Zin_14
+
+cell begin in_fflop_39Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_39Zin_15
+
+cell begin in_fflop_39Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_39Zin_16
+
+cell begin in_fflop_39Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_39Zin_17
+
+cell begin in_fflop_39Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_3 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_3 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_3 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_39Zin_18
+
+cell begin in_fflop_39Zin_19 lib=scmos
+
+termlist
+sum_3 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_3 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_3 width=9000 length=3000 type=n
+tn_r_90 r vss sum_3 width=6000 length=3000 type=n
+;
+cell end in_fflop_39Zin_19
+
+domain begin in_fflop_39 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_39Zin_13 in_13 (clk_b clk )
+in_fflop_39Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_39Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_39Zin_16 in_16 (t2 s t1 )
+in_fflop_39Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_39Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_39Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_39
+
+cell begin in_adder_40Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_4 ;
+sum_4 ;
+crry_4 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_4 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_4 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_4 nd_14 t1 width=9000 length=3000 type=p
+tp_b_41 sum_4 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_4 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_40Zin_7
+
+cell begin in_adder_40Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_4 ;
+sum_4 ;
+crry_4 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_4 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_4 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_4 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_4 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_4 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_40Zin_8
+
+cell begin in_adder_40Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_4 ;
+sum_4 ;
+crry_4 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_4 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_4 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_4 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_4 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_4 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_4 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_40Zin_9
+
+cell begin in_adder_40Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_4 ;
+sum_4 ;
+crry_4 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_4 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_4 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_4 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_4 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_4 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_4 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_40Zin_10
+
+cell begin in_adder_40Zin_11 lib=scmos
+
+termlist
+crry_5 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_5 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_5 width=6000 length=3000 type=n
+;
+cell end in_adder_40Zin_11
+
+cell begin in_adder_40Zin_12 lib=scmos
+
+termlist
+s_out_4 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_4 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_4 width=6000 length=3000 type=n
+;
+cell end in_adder_40Zin_12
+
+domain begin in_adder_40 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_40Zin_7 in_7 (t1 a b cin )
+in_adder_40Zin_8 in_8 (t1 a b cin )
+in_adder_40Zin_9 in_9 (t2 a b cin t1 )
+in_adder_40Zin_10 in_10 (t2 a b cin t1 )
+in_adder_40Zin_11 in_11 (cout t1 )
+in_adder_40Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_40
+
+cell begin in_fflop_41Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_41Zin_13
+
+cell begin in_fflop_41Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_4 ;
+
+translist
+tp_clk_b_71 clk_b s_out_4 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_4 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_41Zin_14
+
+cell begin in_fflop_41Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_41Zin_15
+
+cell begin in_fflop_41Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_41Zin_16
+
+cell begin in_fflop_41Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_41Zin_17
+
+cell begin in_fflop_41Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_4 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_4 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_4 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_41Zin_18
+
+cell begin in_fflop_41Zin_19 lib=scmos
+
+termlist
+sum_4 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_4 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_4 width=9000 length=3000 type=n
+tn_r_90 r vss sum_4 width=6000 length=3000 type=n
+;
+cell end in_fflop_41Zin_19
+
+domain begin in_fflop_41 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_41Zin_13 in_13 (clk_b clk )
+in_fflop_41Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_41Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_41Zin_16 in_16 (t2 s t1 )
+in_fflop_41Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_41Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_41Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_41
+
+cell begin in_adder_42Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_5 ;
+sum_5 ;
+crry_5 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_5 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_5 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_5 nd_14 t1 width=9000 length=3000 type=p
+tp_b_41 sum_5 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_5 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_42Zin_7
+
+cell begin in_adder_42Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_5 ;
+sum_5 ;
+crry_5 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_5 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_5 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_5 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_5 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_5 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_42Zin_8
+
+cell begin in_adder_42Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_5 ;
+sum_5 ;
+crry_5 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_5 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_5 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_5 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_5 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_5 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_5 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_42Zin_9
+
+cell begin in_adder_42Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_5 ;
+sum_5 ;
+crry_5 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_5 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_5 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_5 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_5 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_5 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_5 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_42Zin_10
+
+cell begin in_adder_42Zin_11 lib=scmos
+
+termlist
+crry_6 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_6 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_6 width=6000 length=3000 type=n
+;
+cell end in_adder_42Zin_11
+
+cell begin in_adder_42Zin_12 lib=scmos
+
+termlist
+s_out_5 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_5 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_5 width=6000 length=3000 type=n
+;
+cell end in_adder_42Zin_12
+
+domain begin in_adder_42 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_42Zin_7 in_7 (t1 a b cin )
+in_adder_42Zin_8 in_8 (t1 a b cin )
+in_adder_42Zin_9 in_9 (t2 a b cin t1 )
+in_adder_42Zin_10 in_10 (t2 a b cin t1 )
+in_adder_42Zin_11 in_11 (cout t1 )
+in_adder_42Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_42
+
+cell begin in_fflop_43Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_43Zin_13
+
+cell begin in_fflop_43Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_5 ;
+
+translist
+tp_clk_b_71 clk_b s_out_5 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_5 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_43Zin_14
+
+cell begin in_fflop_43Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_43Zin_15
+
+cell begin in_fflop_43Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_43Zin_16
+
+cell begin in_fflop_43Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_43Zin_17
+
+cell begin in_fflop_43Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_5 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_5 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_5 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_43Zin_18
+
+cell begin in_fflop_43Zin_19 lib=scmos
+
+termlist
+sum_5 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_5 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_5 width=9000 length=3000 type=n
+tn_r_90 r vss sum_5 width=6000 length=3000 type=n
+;
+cell end in_fflop_43Zin_19
+
+domain begin in_fflop_43 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_43Zin_13 in_13 (clk_b clk )
+in_fflop_43Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_43Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_43Zin_16 in_16 (t2 s t1 )
+in_fflop_43Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_43Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_43Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_43
+
+cell begin in_adder_44Zin_7 lib=scmos
+
+termlist
+t1 ;
+a_6 ;
+sum_6 ;
+crry_6 ;
+
+siglist
+vdd
+nd_14
+nd_13
+;
+translist
+tp_b_44 sum_6 vdd nd_14 width=9000 length=3000 type=p
+tp_a_43 a_6 vdd nd_14 width=9000 length=3000 type=p
+tp_cin_42 crry_6 nd_14 t1 width=9000 length=3000 type=p
+tp_b_41 sum_6 nd_13 t1 width=6000 length=3000 type=p
+tp_a_40 a_6 vdd nd_13 width=6000 length=3000 type=p
+;
+cell end in_adder_44Zin_7
+
+cell begin in_adder_44Zin_8 lib=scmos
+
+termlist
+t1 ;
+a_6 ;
+sum_6 ;
+crry_6 ;
+
+siglist
+vss
+nd_16
+nd_15
+;
+translist
+tn_b_49 sum_6 vss nd_16 width=6000 length=3000 type=n
+tn_a_48 a_6 vss nd_16 width=6000 length=3000 type=n
+tn_cin_47 crry_6 nd_16 t1 width=6000 length=3000 type=n
+tn_b_46 sum_6 nd_15 t1 width=6000 length=3000 type=n
+tn_a_45 a_6 vss nd_15 width=6000 length=3000 type=n
+;
+cell end in_adder_44Zin_8
+
+cell begin in_adder_44Zin_9 lib=scmos
+
+termlist
+t2 ;
+a_6 ;
+sum_6 ;
+crry_6 ;
+t1 ;
+
+siglist
+vdd
+nd_19
+nd_18
+nd_17
+;
+translist
+tp_cin_56 crry_6 nd_19 t2 width=6000 length=3000 type=p
+tp_b_55 sum_6 nd_18 nd_19 width=6000 length=3000 type=p
+tp_a_54 a_6 vdd nd_18 width=6000 length=3000 type=p
+tp_t1_53 t1 nd_17 t2 width=6000 length=3000 type=p
+tp_cin_52 crry_6 vdd nd_17 width=6000 length=3000 type=p
+tp_b_51 sum_6 vdd nd_17 width=6000 length=3000 type=p
+tp_a_50 a_6 vdd nd_17 width=6000 length=3000 type=p
+;
+cell end in_adder_44Zin_9
+
+cell begin in_adder_44Zin_10 lib=scmos
+
+termlist
+t2 ;
+a_6 ;
+sum_6 ;
+crry_6 ;
+t1 ;
+
+siglist
+vss
+nd_22
+nd_21
+nd_20
+;
+translist
+tn_cin_63 crry_6 nd_22 t2 width=6000 length=3000 type=n
+tn_b_62 sum_6 nd_21 nd_22 width=6000 length=3000 type=n
+tn_a_61 a_6 vss nd_21 width=6000 length=3000 type=n
+tn_t1_60 t1 nd_20 t2 width=6000 length=3000 type=n
+tn_cin_59 crry_6 vss nd_20 width=6000 length=3000 type=n
+tn_b_58 sum_6 vss nd_20 width=6000 length=3000 type=n
+tn_a_57 a_6 vss nd_20 width=6000 length=3000 type=n
+;
+cell end in_adder_44Zin_10
+
+cell begin in_adder_44Zin_11 lib=scmos
+
+termlist
+crry_7 ;
+t1 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t1_65 t1 vdd crry_7 width=6000 length=3000 type=p
+tn_t1_64 t1 vss crry_7 width=6000 length=3000 type=n
+;
+cell end in_adder_44Zin_11
+
+cell begin in_adder_44Zin_12 lib=scmos
+
+termlist
+s_out_6 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_67 t2 vdd s_out_6 width=6000 length=3000 type=p
+tn_t2_66 t2 vss s_out_6 width=6000 length=3000 type=n
+;
+cell end in_adder_44Zin_12
+
+domain begin in_adder_44 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+cout 
+sum 
+;
+row 0
+in_adder_44Zin_7 in_7 (t1 a b cin )
+in_adder_44Zin_8 in_8 (t1 a b cin )
+in_adder_44Zin_9 in_9 (t2 a b cin t1 )
+in_adder_44Zin_10 in_10 (t2 a b cin t1 )
+in_adder_44Zin_11 in_11 (cout t1 )
+in_adder_44Zin_12 in_12 (sum t2 )
+;
+domain end in_adder_44
+
+cell begin in_fflop_45Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_45Zin_13
+
+cell begin in_fflop_45Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_6 ;
+
+translist
+tp_clk_b_71 clk_b s_out_6 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_6 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_45Zin_14
+
+cell begin in_fflop_45Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_45Zin_15
+
+cell begin in_fflop_45Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_45Zin_16
+
+cell begin in_fflop_45Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_45Zin_17
+
+cell begin in_fflop_45Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_6 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_6 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_6 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_45Zin_18
+
+cell begin in_fflop_45Zin_19 lib=scmos
+
+termlist
+sum_6 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_6 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_6 width=9000 length=3000 type=n
+tn_r_90 r vss sum_6 width=6000 length=3000 type=n
+;
+cell end in_fflop_45Zin_19
+
+domain begin in_fflop_45 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_45Zin_13 in_13 (clk_b clk )
+in_fflop_45Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_45Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_45Zin_16 in_16 (t2 s t1 )
+in_fflop_45Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_45Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_45Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_45
+
+cell begin in_no_carry_adder_46Zin_4 lib=scmos
+
+termlist
+t1 ;
+a_7 ;
+sum_7 ;
+crry_7 ;
+
+siglist
+vdd
+vss
+nd_5
+nd_6
+nd_4
+nd_3
+;
+translist
+tp_b_23 sum_7 vdd nd_5 width=6000 length=3000 type=p
+tp_a_22 a_7 vdd nd_5 width=6000 length=3000 type=p
+tp_cin_21 crry_7 nd_5 t1 width=6000 length=3000 type=p
+tp_b_20 sum_7 nd_6 t1 width=6000 length=3000 type=p
+tp_a_19 a_7 nd_5 nd_6 width=6000 length=3000 type=p
+tn_b_18 sum_7 nd_4 t1 width=6000 length=3000 type=n
+tn_a_17 a_7 vss nd_4 width=6000 length=3000 type=n
+tn_cin_16 crry_7 nd_3 t1 width=6000 length=3000 type=n
+tn_b_15 sum_7 vss nd_3 width=6000 length=3000 type=n
+tn_a_14 a_7 vss nd_3 width=6000 length=3000 type=n
+;
+cell end in_no_carry_adder_46Zin_4
+
+cell begin in_no_carry_adder_46Zin_5 lib=scmos
+
+termlist
+t2 ;
+a_7 ;
+sum_7 ;
+crry_7 ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_10
+nd_12
+nd_11
+nd_9
+nd_8
+nd_7
+;
+translist
+tp_cin_37 crry_7 vdd nd_10 width=6000 length=3000 type=p
+tp_b_36 sum_7 vdd nd_10 width=6000 length=3000 type=p
+tp_a_35 a_7 vdd nd_10 width=6000 length=3000 type=p
+tp_t1_34 t1 nd_10 t2 width=6000 length=3000 type=p
+tp_cin_33 crry_7 nd_12 t2 width=9000 length=3000 type=p
+tp_b_32 sum_7 nd_11 nd_12 width=9000 length=3000 type=p
+tp_a_31 a_7 nd_10 nd_11 width=9000 length=3000 type=p
+tn_cin_30 crry_7 nd_9 t2 width=6000 length=3000 type=n
+tn_b_29 sum_7 nd_8 nd_9 width=6000 length=3000 type=n
+tn_a_28 a_7 vss nd_8 width=6000 length=3000 type=n
+tn_t1_27 t1 nd_7 t2 width=6000 length=3000 type=n
+tn_cin_26 crry_7 vss nd_7 width=6000 length=3000 type=n
+tn_b_25 sum_7 vss nd_7 width=6000 length=3000 type=n
+tn_a_24 a_7 vss nd_7 width=6000 length=3000 type=n
+;
+cell end in_no_carry_adder_46Zin_5
+
+cell begin in_no_carry_adder_46Zin_6 lib=scmos
+
+termlist
+s_out_7 ;
+t2 ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_t2_39 t2 vdd s_out_7 width=6000 length=3000 type=p
+tn_t2_38 t2 vss s_out_7 width=6000 length=3000 type=n
+;
+cell end in_no_carry_adder_46Zin_6
+
+domain begin in_no_carry_adder_46 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a 
+b 
+cin 
+sum 
+;
+row 0
+in_no_carry_adder_46Zin_4 in_4 (t1 a b cin )
+in_no_carry_adder_46Zin_5 in_5 (t2 a b cin t1 )
+in_no_carry_adder_46Zin_6 in_6 (sum t2 )
+;
+domain end in_no_carry_adder_46
+
+cell begin in_fflop_47Zin_13 lib=scmos
+
+termlist
+clk_b ;
+clk ;
+
+siglist
+vdd
+vss
+;
+translist
+tp_clk_69 clk vdd clk_b width=6000 length=3000 type=p
+tn_clk_68 clk vss clk_b width=6000 length=3000 type=n
+;
+cell end in_fflop_47Zin_13
+
+cell begin in_fflop_47Zin_14 lib=scmos
+
+termlist
+t1 ;
+clk ;
+clk_b ;
+s_out_7 ;
+
+translist
+tp_clk_b_71 clk_b s_out_7 t1 width=6000 length=3000 type=p
+tn_clk_70 clk s_out_7 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_47Zin_14
+
+cell begin in_fflop_47Zin_15 lib=scmos
+
+termlist
+t1 ;
+clk_b ;
+clk ;
+r ;
+t2 ;
+
+siglist
+vdd
+vss
+nd_24
+nd_23
+;
+translist
+tp_t2_77 t2 nd_24 nd_23 width=6000 length=3000 type=p
+tp_r_76 r vdd nd_24 width=6000 length=3000 type=p
+tn_t2_75 t2 vss nd_23 width=6000 length=3000 type=n
+tn_r_74 r vss nd_23 width=6000 length=3000 type=n
+tp_clk_73 clk nd_23 t1 width=6000 length=3000 type=p
+tn_clk_b_72 clk_b nd_23 t1 width=6000 length=3000 type=n
+;
+cell end in_fflop_47Zin_15
+
+cell begin in_fflop_47Zin_16 lib=scmos
+
+termlist
+t2 ;
+s ;
+t1 ;
+
+siglist
+vdd
+vss
+nd_25
+;
+translist
+tp_t1_81 t1 nd_25 t2 width=20500 length=3000 type=p
+tp_s_80 s vdd nd_25 width=20500 length=3000 type=p
+tn_t1_79 t1 vss t2 width=20500 length=3000 type=n
+tn_s_78 s vss t2 width=20500 length=3000 type=n
+;
+cell end in_fflop_47Zin_16
+
+cell begin in_fflop_47Zin_17 lib=scmos
+
+termlist
+t4 ;
+clk_b ;
+clk ;
+t2 ;
+
+translist
+tp_clk_83 clk t2 t4 width=13500 length=3000 type=p
+tn_clk_b_82 clk_b t2 t4 width=13500 length=3000 type=n
+;
+cell end in_fflop_47Zin_17
+
+cell begin in_fflop_47Zin_18 lib=scmos
+
+termlist
+t4 ;
+clk ;
+clk_b ;
+sum_7 ;
+s ;
+
+siglist
+vdd
+vss
+nd_27
+nd_26
+;
+translist
+tp_s_89 s vdd nd_27 width=6000 length=3000 type=p
+tp_q_88 sum_7 nd_27 nd_26 width=6000 length=3000 type=p
+tn_s_87 s vss nd_26 width=6000 length=3000 type=n
+tn_q_86 sum_7 vss nd_26 width=6000 length=3000 type=n
+tp_clk_b_85 clk_b nd_26 t4 width=6000 length=3000 type=p
+tn_clk_84 clk nd_26 t4 width=6000 length=3000 type=n
+;
+cell end in_fflop_47Zin_18
+
+cell begin in_fflop_47Zin_19 lib=scmos
+
+termlist
+sum_7 ;
+r ;
+t4 ;
+
+siglist
+vdd
+vss
+nd_28
+;
+translist
+tp_t4_93 t4 nd_28 sum_7 width=30500 length=3000 type=p
+tp_r_92 r vdd nd_28 width=30500 length=3000 type=p
+tn_t4_91 t4 vss sum_7 width=9000 length=3000 type=n
+tn_r_90 r vss sum_7 width=6000 length=3000 type=n
+;
+cell end in_fflop_47Zin_19
+
+domain begin in_fflop_47 lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+d 
+s 
+r 
+q 
+clk 
+;
+row 0
+in_fflop_47Zin_13 in_13 (clk_b clk )
+in_fflop_47Zin_14 in_14 (t1 clk clk_b d )
+in_fflop_47Zin_15 in_15 (t1 clk_b clk r t2 )
+in_fflop_47Zin_16 in_16 (t2 s t1 )
+in_fflop_47Zin_17 in_17 (t4 clk_b clk t2 )
+in_fflop_47Zin_18 in_18 (t4 clk clk_b q s )
+in_fflop_47Zin_19 in_19 (q r t4 )
+;
+domain end in_fflop_47
+
+domain begin accum lib=scmos
+
+ profile top (0,0) (0,0);
+ profile bot (0,0) (0,0);
+iolist
+a_0 
+a_1 
+a_2 
+a_3 
+a_4 
+a_5 
+a_6 
+a_7 
+sum_0 
+sum_1 
+sum_2 
+sum_3 
+sum_4 
+sum_5 
+sum_6 
+sum_7 
+clk 
+s 
+r 
+;
+row 0
+in_half_adder_32 in_half_adder_32 (a_0 sum_0 crry_1 s_out_0 )
+in_fflop_33 in_fflop_33 (s_out_0 s r sum_0 clk )
+in_adder_34 in_adder_34 (a_1 sum_1 crry_1 crry_2 s_out_1 )
+in_fflop_35 in_fflop_35 (s_out_1 s r sum_1 clk )
+in_adder_36 in_adder_36 (a_2 sum_2 crry_2 crry_3 s_out_2 )
+in_fflop_37 in_fflop_37 (s_out_2 s r sum_2 clk )
+in_adder_38 in_adder_38 (a_3 sum_3 crry_3 crry_4 s_out_3 )
+in_fflop_39 in_fflop_39 (s_out_3 s r sum_3 clk )
+in_adder_40 in_adder_40 (a_4 sum_4 crry_4 crry_5 s_out_4 )
+in_fflop_41 in_fflop_41 (s_out_4 s r sum_4 clk )
+in_adder_42 in_adder_42 (a_5 sum_5 crry_5 crry_6 s_out_5 )
+in_fflop_43 in_fflop_43 (s_out_5 s r sum_5 clk )
+in_adder_44 in_adder_44 (a_6 sum_6 crry_6 crry_7 s_out_6 )
+in_fflop_45 in_fflop_45 (s_out_6 s r sum_6 clk )
+in_no_carry_adder_46 in_no_carry_adder_46 (a_7 sum_7 crry_7 s_out_7 )
+in_fflop_47 in_fflop_47 (s_out_7 s r sum_7 clk )
+;
+domain end accum
+

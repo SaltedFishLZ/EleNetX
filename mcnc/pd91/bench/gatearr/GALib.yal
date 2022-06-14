@@ -1,0 +1,492 @@
+
+/* File name GALib.yal                                      */
+/* Copyright (C) 1987 by Bryan Preas and Ken Roberts.       */
+/*                All rights reserved.                      */
+/*                                                          */
+/* Library: GALib.yal                                       */
+/*                                                          */
+/* Technology: Gate array, 2 metal routing.                 */
+/*                                                          */
+/* Design rules: Metal width, 4u, both levels.              */
+/*               Via size = 4u.                             */
+/*               Via oversize = 1u                          */
+/*               Metal spacing = 5u (both levels).          */
+/*                                                          */
+/* Routing grid: 10u on both levels. Horizontally and       */
+/*               vertically adjacent vias NOT allowed,      */
+/*               but diagonally adjacent vias OK.           */
+/*                                                          */
+/* Array organization: Rows with allowable cell origins at  */
+/*                     20u increments.                      */ 
+/*                                                          */
+/*                     There are routing channels between   */
+/*                     the rows, and around the periphery   */
+/*                     of the internal rows.                */
+/*                                                          */
+/*                     Cell placements can abut, but not    */
+/*                     overlap.  Cells can occupy 1 or more */
+/*                     adjacent placement locations.  Legal */
+/*                     orientations for internal cell       */
+/*                     placements are normal (RFLNONE ROT0) */
+/*                     and reflected about Y (RFLY ROT0).   */
+/*                                                          */
+/*                     Feedthroughs allowed on any routing  */
+/*                     grid not occupied by a cell, at the  */
+/*                     left and right boundary of any cell, */
+/*                     and at internal locations given in   */
+/*                     the cell definitions.                */
+/*                                                          */
+/*                     Pad cells are placed at 300u         */
+/*                     increments.  Pad cell orientations   */
+/*                     are: right side - RFLNONE ROT0       */
+/*                          left side  - RFLY ROT0          */
+/*                          top        - RFLY ROT270        */
+/*                          bottom     - RFLNONE ROT270     */
+/*                                                          */
+/* Array sizes: see desciptions of Circuits 4 and 5.        */
+/*                                                          */
+/*                                                          */
+/* Cell G11.  Combinational gate, 1 input, 1 output.        */
+/*                                                          */
+MODULE G11;
+ TYPE STANDARD;
+ WIDTH 40;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  O1  O  BOTTOM 20 4 METAL2;
+  O1  O  TOP    20 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 30 4 METAL2;
+  F2  F  TOP    30 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G21.  Combinational gate, 2 inputs, 1 output.       */
+/*                                                          */
+MODULE G21;
+ TYPE STANDARD;
+ WIDTH 80;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 50 4 METAL2;
+  I2  I  TOP    50 4 METAL2;
+  O1  O  BOTTOM 60 4 METAL2;
+  O1  O  TOP    60 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 30 4 METAL2;
+  F2  F  TOP    30 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+  F4  F  BOTTOM 70 4 METAL2;
+  F4  F  TOP    70 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G31.  Combinational gate, 3 inputs, 1 output.       */
+/*                                                          */
+MODULE G31;
+ TYPE STANDARD;
+ WIDTH 80;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 30 4 METAL2;
+  I2  I  TOP    30 4 METAL2;
+  I3  I  BOTTOM 50 4 METAL2;
+  I3  I  TOP    50 4 METAL2;
+  O1  O  BOTTOM 60 4 METAL2;
+  O1  O  TOP    60 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+  F4  F  BOTTOM 70 4 METAL2;
+  F4  F  TOP    70 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G41.  Combinational gate, 4 inputs, 1 output.       */
+/*                                                          */
+MODULE G41;
+ TYPE STANDARD;
+ WIDTH 100;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 30 4 METAL2;
+  I2  I  TOP    30 4 METAL2;
+  I3  I  BOTTOM 50 4 METAL2;
+  I3  I  TOP    50 4 METAL2;
+  I4  I  BOTTOM 70 4 METAL2;
+  I4  I  TOP    70 4 METAL2;
+  O1  O  BOTTOM 80 4 METAL2;
+  O1  O  TOP    80 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 100 4 METAL2;
+  F5  F  TOP    100 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G61.  Combinational gate, 6 inputs, 1 output.       */
+/*                                                          */
+MODULE G61;
+ TYPE STANDARD;
+ WIDTH 140;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 30 4 METAL2;
+  I2  I  TOP    30 4 METAL2;
+  I3  I  BOTTOM 50 4 METAL2;
+  I3  I  TOP    50 4 METAL2;
+  I4  I  BOTTOM 90 4 METAL2;
+  I4  I  TOP    90 4 METAL2;
+  I5  I  BOTTOM 110 4 METAL2;
+  I5  I  TOP    110 4 METAL2;
+  I6  I  BOTTOM 130 4 METAL2;
+  I6  I  TOP    130 4 METAL2;
+  O1  O  BOTTOM 80 4 METAL2;
+  O1  O  TOP    80 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 100 4 METAL2;
+  F5  F  TOP    100 4 METAL2;
+  F6  F  BOTTOM 120 4 METAL2;
+  F6  F  TOP    120 4 METAL2;
+  F7  F  BOTTOM 140 4 METAL2;
+  F7  F  TOP    140 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G81.  Combinational gate, 8 inputs, 1 output.       */
+/*                                                          */
+MODULE G81;
+ TYPE STANDARD;
+ WIDTH 220;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 30 4 METAL2;
+  I2  I  TOP    30 4 METAL2;
+  I3  I  BOTTOM 50 4 METAL2;
+  I3  I  TOP    50 4 METAL2;
+  I4  I  BOTTOM 70 4 METAL2;
+  I4  I  TOP    70 4 METAL2;
+  I5  I  BOTTOM 150 4 METAL2;
+  I5  I  TOP    150 4 METAL2;
+  I6  I  BOTTOM 170 4 METAL2;
+  I6  I  TOP    170 4 METAL2;
+  I7  I  BOTTOM 190 4 METAL2;
+  I7  I  TOP    190 4 METAL2;
+  I8  I  BOTTOM 210 4 METAL2;
+  I8  I  TOP    210 4 METAL2;
+  O1  O  BOTTOM 100 4 METAL2;
+  O1  O  TOP    100 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 40 4 METAL2;
+  F3  F  TOP    40 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 120 4 METAL2;
+  F5  F  TOP    120 4 METAL2;
+  F6  F  BOTTOM 140 4 METAL2;
+  F6  F  TOP    140 4 METAL2;
+  F7  F  BOTTOM 180 4 METAL2;
+  F7  F  TOP    180 4 METAL2;
+  F8  F  BOTTOM 200 4 METAL2;
+  F8  F  TOP    200 4 METAL2;
+  F9  F  BOTTOM 220 4 METAL2;
+  F9  F  TOP    220 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell G12.  Combinational gate, 1 input, 2 outputs.       */
+/*                                                          */
+MODULE G12;
+ TYPE STANDARD;
+ WIDTH  80;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  O1  O  BOTTOM 40 4 METAL2;
+  O1  O  TOP    40 4 METAL2;
+  O2  O  BOTTOM 60 4 METAL2;
+  O2  O  TOP    60 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 30 4 METAL2;
+  F3  F  TOP    30 4 METAL2;
+  F4  F  BOTTOM 70 4 METAL2;
+  F4  F  TOP    70 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell F22.  Sequential function 2 inputs, 2 outputs.      */
+/*                                                          */
+MODULE F22;
+ TYPE STANDARD;
+ WIDTH  200;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 50 4 METAL2;
+  I2  I  TOP    50 4 METAL2;
+  O1  O  BOTTOM 140 4 METAL2;
+  O1  O  TOP    140 4 METAL2;
+  O2  O  BOTTOM 180 4 METAL2;
+  O2  O  TOP    180 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 30 4 METAL2;
+  F3  F  TOP    30 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+  F6  F  BOTTOM 100 4 METAL2;
+  F6  F  TOP    100 4 METAL2;
+  F7  F  BOTTOM 110 4 METAL2;
+  F7  F  TOP    110 4 METAL2;
+  F8  F  BOTTOM 120 4 METAL2;
+  F8  F  TOP    120 4 METAL2;
+  F9  F  BOTTOM 150 4 METAL2;
+  F9  F  TOP    150 4 METAL2;
+  F10 F  BOTTOM 200 4 METAL2;
+  F10 F  TOP    200 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell F32.  Sequential function 3 inputs, 2 outputs.      */
+/*                                                          */
+MODULE F32;
+ TYPE STANDARD;
+ WIDTH  360;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 50 4 METAL2;
+  I2  I  TOP    50 4 METAL2;
+  I3  I  BOTTOM 110 4 METAL2;
+  I3  I  TOP    110 4 METAL2;
+  O1  O  BOTTOM 260 4 METAL2;
+  O1  O  TOP    260 4 METAL2;
+  O2  O  BOTTOM 320 4 METAL2;
+  O2  O  TOP    320 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 30 4 METAL2;
+  F3  F  TOP    30 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+  F6  F  BOTTOM 100 4 METAL2;
+  F6  F  TOP    100 4 METAL2;
+  F7  F  BOTTOM 120 4 METAL2;
+  F7  F  TOP    120 4 METAL2;
+  F8  F  BOTTOM 140 4 METAL2;
+  F8  F  TOP    140 4 METAL2;
+  F9  F  BOTTOM 150 4 METAL2;
+  F9  F  TOP    150 4 METAL2;
+  F10 F  BOTTOM 200 4 METAL2;
+  F10 F  TOP    200 4 METAL2;
+  F11 F  BOTTOM 220 4 METAL2;
+  F11 F  TOP    220 4 METAL2;
+  F12 F  BOTTOM 250 4 METAL2;
+  F12 F  TOP    250 4 METAL2;
+  F13 F  BOTTOM 280 4 METAL2;
+  F13 F  TOP    280 4 METAL2;
+  F14 F  BOTTOM 290 4 METAL2;
+  F14 F  TOP    290 4 METAL2;
+  F15 F  BOTTOM 300 4 METAL2;
+  F15 F  TOP    300 4 METAL2;
+  F16 F  BOTTOM 310 4 METAL2;
+  F16 F  TOP    310 4 METAL2;
+  F17 F  BOTTOM 340 4 METAL2;
+  F17 F  TOP    340 4 METAL2;
+  F18 F  BOTTOM 360 4 METAL2;
+  F18 F  TOP    360 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell F42.  Sequential function 4 inputs, 2 outputs.      */
+/*                                                          */
+MODULE F42;
+ TYPE STANDARD;
+ WIDTH  360;
+ HEIGHT 100;
+ IOLIST;
+  I1  I  BOTTOM 10 4 METAL2;
+  I1  I  TOP    10 4 METAL2;
+  I2  I  BOTTOM 50 4 METAL2;
+  I2  I  TOP    50 4 METAL2;
+  I3  I  BOTTOM 110 4 METAL2;
+  I3  I  TOP    110 4 METAL2;
+  I4  I  BOTTOM 130 4 METAL2;
+  I4  I  TOP    130 4 METAL2;
+  O1  O  BOTTOM 260 4 METAL2;
+  O1  O  TOP    260 4 METAL2;
+  O2  O  BOTTOM 320 4 METAL2;
+  O2  O  TOP    320 4 METAL2;
+  F1  F  BOTTOM  0 4 METAL2;
+  F1  F  TOP     0 4 METAL2;
+  F2  F  BOTTOM 20 4 METAL2;
+  F2  F  TOP    20 4 METAL2;
+  F3  F  BOTTOM 30 4 METAL2;
+  F3  F  TOP    30 4 METAL2;
+  F4  F  BOTTOM 60 4 METAL2;
+  F4  F  TOP    60 4 METAL2;
+  F5  F  BOTTOM 80 4 METAL2;
+  F5  F  TOP    80 4 METAL2;
+  F6  F  BOTTOM 100 4 METAL2;
+  F6  F  TOP    100 4 METAL2;
+  F7  F  BOTTOM 120 4 METAL2;
+  F7  F  TOP    120 4 METAL2;
+  F8  F  BOTTOM 140 4 METAL2;
+  F8  F  TOP    140 4 METAL2;
+  F9  F  BOTTOM 150 4 METAL2;
+  F9  F  TOP    150 4 METAL2;
+  F10 F  BOTTOM 200 4 METAL2;
+  F10 F  TOP    200 4 METAL2;
+  F11 F  BOTTOM 220 4 METAL2;
+  F11 F  TOP    220 4 METAL2;
+  F12 F  BOTTOM 250 4 METAL2;
+  F12 F  TOP    250 4 METAL2;
+  F13 F  BOTTOM 280 4 METAL2;
+  F13 F  TOP    280 4 METAL2;
+  F14 F  BOTTOM 290 4 METAL2;
+  F14 F  TOP    290 4 METAL2;
+  F15 F  BOTTOM 300 4 METAL2;
+  F15 F  TOP    300 4 METAL2;
+  F16 F  BOTTOM 310 4 METAL2;
+  F16 F  TOP    310 4 METAL2;
+  F17 F  BOTTOM 340 4 METAL2;
+  F17 F  TOP    340 4 METAL2;
+  F18 F  BOTTOM 360 4 METAL2;
+  F18 F  TOP    360 4 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell I1.  Input pad cell, 1 output.                      */
+/*                                                          */
+MODULE I1;
+ TYPE PAD;
+ WIDTH 600;
+ HEIGHT 300;
+ IOLIST;
+  I1  PI RIGHT 150 0 METAL2;
+  O1  O  LEFT  150 4 METAL1;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell I2.  Input pad cell, 2 outputs.                     */
+/*                                                          */
+MODULE I2;
+ TYPE PAD;
+ WIDTH 600;
+ HEIGHT 300;
+ IOLIST;
+  I1  PI RIGHT 150 0 METAL2;
+  O1  O  LEFT  140 4 METAL1;
+  O2  O  LEFT  160 4 METAL1;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell O1.  Output pad cell, 1 input.                      */
+/*                                                          */
+MODULE O1;
+ TYPE PAD;
+ WIDTH 600;
+ HEIGHT 300;
+ IOLIST;
+  I1  I  LEFT  150 4 METAL1;
+  O1  PO RIGHT 150 0 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell O2.  Output pad cell, 2 inputs.                     */
+/*                                                          */
+MODULE O2;
+ TYPE PAD;
+ WIDTH 600;
+ HEIGHT 300;
+ IOLIST;
+  I1  I  LEFT  140 4 METAL1;
+  I2  I  LEFT  160 4 METAL1;
+  O1  PO RIGHT 150 0 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+/*                                                          */
+/*                                                          */
+/* Cell B21.  Bidirectional pad cell, 2 inputs, 1 output.   */
+/*                                                          */
+MODULE B21;
+ TYPE PAD;
+ WIDTH 600;
+ HEIGHT 300;
+ IOLIST;
+  I1  I  LEFT  140 4 METAL1;
+  I2  I  LEFT  150 4 METAL1;
+  O1  O  LEFT  160 4 METAL1;
+  B1  PB RIGHT 150 0 METAL2;
+ ENDIOLIST;
+ENDMODULE;
+

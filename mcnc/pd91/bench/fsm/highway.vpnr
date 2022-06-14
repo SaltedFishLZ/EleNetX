@@ -1,0 +1,77 @@
+/* This is the highway controller from Mead, Conway, Introduction to VLSI
+ * design.
+ */
+
+domain begin highway lib=scmos swap=0
+profile top (0,0) (0,0);
+profile bot (0,0) (0,0);
+iolist
+reset T:(0,100) pintype=reset
+Phi1H T:(0,100) pintype=clock
+Phi2H T:(0,100) pintype=clock
+Phi1_test T:(0,100) pintype=clock
+Cars T:(0,100) pintype=pi
+HYGreenLight B:(0,100) pintype=po
+HYRedLight B:(0,100) pintype=po
+HYYellowLight B:(0,100) pintype=po
+FarmGreenLight B:(0,100) pintype=po
+FarmRedLight B:(0,100) pintype=po
+FarmYellowLight B:(0,100) pintype=po
+;
+row 1
+dsr2s	IFS1 (I5,I11,reset,Phi1H,Phi1_test,Phi2H,I8,I2)
+dsr2s	IFS2 (I6,I18,reset,Phi1H,Phi1_test,Phi2H,I9,I3)
+dsr2s	IFS3 (I7,I25,reset,Phi1H,Phi1_test,Phi2H,I10,I4)
+oi2s	INS89 (I79,I83,Short)
+oi2s	INS90 (I42,I79,Long)
+o3s	INS92 (I2,I75,I32,I91.1)
+o2s	INS93 (I76,I79,I91.2)
+ai2s	INS94 (I91.1,I91.2,I5)
+oi3s	INS95 (I32,I84,I76,I6)
+oi2s	INS96 (I32,I4,I7)
+i1s	INS97 (I76,I42)
+ai2s	INS98 (I3,I4,I75)
+ai2s	INS99 (Start_Timer,I2,I79)
+oi2s	INS100 (I3,I4,I84)
+i1s	INS101 (Start_Timer,I32)
+i1s	INS102 (I75,I76)
+i1s	INS103 (I84,I83)
+dsr2s	IFS4 (I107,I121,reset,Phi1H,Phi1_test,Phi2H,I114,I105)
+dsr2s	IFS5 (I108,I128,reset,Phi1H,Phi1_test,Phi2H,I115,I106)
+dsr2s	IFS6 (I109,I135,reset,Phi1H,Phi1_test,Phi2H,I116,Start_Timer)
+dsr2s	IFS7 (I110,I142,reset,Phi1H,Phi1_test,Phi2H,I117,HL.1)
+dsr2s	IFS8 (I111,I149,reset,Phi1H,Phi1_test,Phi2H,I118,HL.0)
+dsr2s	IFS9 (I112,I156,reset,Phi1H,Phi1_test,Phi2H,I119,FL.1)
+dsr2s	IFS10 (I113,I163,reset,Phi1H,Phi1_test,Phi2H,I120,FL.0)
+o2s	INS241 (I106,I236,I240.1)
+o2s	INS242 (I174,I228,I240.2)
+o2s	INS243 (I105,I224,I240.3)
+ai3s	INS244 (I240.1,I240.2,I240.3,I109)
+oi2s	INS245 (I105,I174,I110)
+i1s	INS246 (I173,I111)
+oi2s	INS247 (I173,I106,I112)
+i1s	INS248 (I105,I113)
+o2s	INS250 (Short,I173,I249.1)
+ai2s	INS251 (I249.1,I224,I107)
+o2s	INS253 (I174,I229,I252.1)
+ai2s	INS254 (I252.1,I236,I108)
+ai2s	INS255 (Short,I106,I224)
+o2s	INS257 (I170,Long,I256.1)
+ai2s	INS258 (I256.1,I105,I228)
+ai3s	INS259 (Cars,Long,I173,I236)
+i1s	INS260 (Cars,I170)
+i1s	INS261 (I105,I173)
+i1s	INS262 (I106,I174)
+i1s	INS263 (I228,I229)
+oi2s	INS281 (HL.1,HL.0,HYGreenLight)
+ai2s	INS282 (I264,HL.0,I267)
+oi2s	INS283 (I264,HL.0,HYYellowLight)
+i1s	INS284 (HL.1,I264)
+i1s	INS285 (I267,HYRedLight)
+oi2s	INS303 (FL.1,FL.0,FarmGreenLight)
+ai2s	INS304 (I286,FL.0,I289)
+oi2s	INS305 (I286,FL.0,FarmYellowLight)
+i1s	INS306 (FL.1,I286)
+i1s	INS307 (I289,FarmRedLight)
+;
+domain end highway

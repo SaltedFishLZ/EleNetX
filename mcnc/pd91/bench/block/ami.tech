@@ -1,0 +1,16 @@
+/* File name : ami.tech    */
+
+UNITS
+All lengths are in microns, currents in [A], voltages in [V].
+
+CONSTANTS
+conductance  G = 45.454546
+curPerMicron K =  0.45e-2
+
+DESIGN RULES
+metal_1 wire width               :   w1 = 4
+metal_1 wire-wire spacing        :   s1 = 2
+metal_2 wire width               :   w2 = 5 
+metal_2 wire-wire spacing        :   s2 = 2 
+via size                         : svia = 2
+via surrounding                  : vsur = 1

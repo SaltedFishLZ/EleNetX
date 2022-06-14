@@ -1,0 +1,31 @@
+This directory contains the library that should be used with the data
+in the files 'primary1' and 'primary2' from the 'stdcell' directory.
+The specifications of the gate arrays to be used for these circuts can
+be found in the comments in the 'primary1.yal' and 'primary2.yal'
+files.
+
+In addition, the 'industry2' and 'industry3' benchmarks can be used as
+a gate array benchmark as well.  Please assume identical library of
+cell outlines as for the standard cells.  The additional information
+for gate-array placement/routing is as follows
+
+========= industry2.gate.array ==========
+
+The data below is expressed in the grid units of 4 microns:
+
+As a gate array, the circuit has 66 rows, each of whose length is
+4000.  Each cell must begin on an even grid (i.e. 0,2,4,...). There are
+16 routing tracks available in each channel (for a total of 1072
+(16X67)). Thus, the row separation is (accounting for the track pitch
+of 2 units): (16+1)X2 = 34 units.
+
+========= industry3.gate.array ==========
+
+The data below is expressed in the grid units of 4 microns:
+
+The gate array version of this circuit has 51 rows, and therefore 52
+channels, each of which has 38 tracks available for routing. The length
+of each row is 7300 units, so the total row length is 372,300.  The
+routing pitch is 2 units in each direction. One can then deduce that
+the core area is 7300 by 7320.
+
