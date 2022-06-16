@@ -3,6 +3,7 @@
 import os
 
 import ply.lex as lex
+import ply.yacc as yacc
 
 
 keywords = {
@@ -17,21 +18,60 @@ keywords = {
     
     'PLACEMENT'     :   'Placement'     ,
     'ENDPLACEMENT'  :   'EndPlacement'  ,
-    
-    'VOLTAGE'       :   'voltage'
+
+    'DIMENSIONS'    :   'Dimensions'    ,
+
+    # Module types
+    'TYPE'          :   'Type'          ,
+    'STANDARD'      :   'Standard'      ,
+    'PAD'           :   'Pad'           ,
+    'GENERAL'       :   'General'       ,
+    'PARENT'        :   'Parent'        ,
+    'FEEDTHROUGH'   :   'Feedthrough'   ,
+
+    # Terminal types
+    'I'             :   'I'             ,
+    'O'             :   'O'             ,
+    'B'             :   'B'             ,
+    'PI'            :   'PI'            ,
+    'PO'            :   'PO'            ,
+    'PB'            :   'PB'            ,
+    'F'             :   'F'             ,
+    'PWR'           :   'PWR'           ,
+    'GND'           :   'GND'           ,
+
+    # Side enum
+    'BOTTOM'        :   'Bottom'        ,
+    'RIGHT'         :   'Right'         ,
+    'TOP'           :   'Top'           ,
+    'LEFT'          :   'Left'          ,
+
+    # Layer enum
+    'PDIFF'         :   'PDiff'         ,
+    'NDIFF'         :   'NDiff'         ,
+    'POLY'          :   'Poly'          ,
+    'METAL1'        :   'Metal1'        ,
+    'METAL2'        :   'Metal2'        ,
+
+    # Reflection enum
+    'RFLNONE'       :   'ReflectNone'   ,
+    'RFLY'          :   'ReflectY'      ,
+
+    # Rotation
+    'ROT0'          :   'Rot0'          ,
+    'ROT90'         :   'Rot90'         ,
+    'ROT180'        :   'Rot180'        ,
+    'ROT270'        :   'Rot270'        ,
+
+    'VOLTAGE'       :   'Voltage'       ,
+    'CURRENT'       :   'Current'       ,
 }
 
 tokens = [
-    'comment',
-    'semicolon',
-    'number',
-    'name',
-    'moduletype',
-    'terminaltype',
-    'side',
-    'layer',
-    'reflection',
-    'rotation'
+    'Comment',
+    'Semicolon',
+    'Number',
+    'Name',
 ] + list(keywords.values())
 
 
@@ -39,40 +79,29 @@ tokens = [
 def YalLexer():
 
     # C style comments
-    t_comment = r'(/\*(.|\n)*?\*/)|(//.*)'
+    def t_Comment(t):
+        r'(/\*(.|\n)*?\*/)|(//.*)'
+        # return t
+        pass
 
     # Semicolon : end of logical line
-    t_semicolon = r'\;'
+    def t_Semicolon(t):
+        r'\;'
+        return t
 
     # Numbers in YAL (a token is a number or name is not context-free)
-    t_number = r'[0-9]*([0-9]\.?|\.[0-9])[0-9]*([Ee][-+]?[0-9]+)*'
-    
-    # Module type : we merge all enumerations to token
-    t_moduletype = r'(STANDARD|PAD|GENERAL|PARENT|FEEDTHROUGH)'
-    
-    # Terminal type
-    t_terminaltype = r'I|O|B|PI|PO|PB|F|PWR|GND'
-    
-    # Side
-    t_side = r'BOTTOM|RIGHT|TOP|LEFT'
-    
-    # Layer
-    t_layer = r'PDIFF|NDIFF|POLY|METAL1|METAL2'
-    
-    # Reflection
-    t_reflection = r'RFLNONE|RFLY'
+    def t_Number(t):
+        r'[-+]?[0-9]*([0-9]\.?|\.[0-9])[0-9]*([Ee][-+]?[0-9]+)*'
+        return t
 
-    # Rotation
-    t_rotation = r'ROT0|ROT90|ROT180|ROT270'
-
-    def t_name(t):
-        r'[a-zA-Z_#$%&<>\.][a-zA-Z_#$%&<>\.0-9]*'
-        # r'[^:\s\t]+'
-        # t.type = reserved.get(t.value, 'name')
-        if (t.value in keywords):
-            t.type = keywords[t.value]
-        else:
-            t.type = 'name'
+    def t_Name(t):
+        # r'[a-zA-Z_#$%&<>\.][a-zA-Z_#$%&<>\.0-9]*'
+        r'[^; \s\t]+'
+        t.type = keywords.get(t.value, 'Name')
+        # if (t.value in keywords):
+        #     t.type = keywords[t.value]
+        # else:
+        #     t.type = 'Name'
         return t
 
     # Define a rule so we can track line numbers
@@ -85,10 +114,22 @@ def YalLexer():
 
     # Error handling rule
     def t_error(t):
-        print("Illegal character '%s'" % t.value[0])
+        print("[Error] Line %d : Illegal character '%s'" %
+              (t.lexer.lineno, t.value[0]))
         t.lexer.skip(1)
 
     return lex.lex()
+
+
+
+"""
+Rules for YACC
+
+
+"""
+def YalParser():
+    pass
+
 
 
 if __name__ == "__main__":
@@ -102,21 +143,30 @@ if __name__ == "__main__":
         for line in f:
 
             lexer.input(line)
-            lexer.lineno += 1
 
+            # print("=" * 64)
+            # print("line no", lexer.lineno)
+
+            num_tokens_in_line = 0
             while True:
+                # Get new token
                 tok = lexer.token()
                 if not tok:
                     break
-                if tok.type == 'comment':
-                    pass
-                if tok.type in keywords:
-                    pass
-                if tok.type == 'number':
-                    print(tok)
+                num_tokens_in_line += 1
 
-                tok = lexer.token()
+                # if tok.type == 'Comment':
+                #     pass
+                # if tok.type in keywords:
+                #     pass
+                # if tok.type == 'Network':
+                #     print(tok)
+                # print(tok)
 
-            if lexer.lineno > 1000:
-                break
+
+            
+            # print("num of tokens in line:", num_tokens_in_line)
+
+            # if lexer.lineno > 1000:
+            #     break
 
