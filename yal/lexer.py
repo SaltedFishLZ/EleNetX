@@ -38,7 +38,9 @@ keywords = {
     'PB'            :   'PB'            ,
     'F'             :   'F'             ,
     'PWR'           :   'PWR'           ,
-    'GND'           :   'GND'           ,
+    # I cannot understand why there can be signals with name 'GND'
+    # why?
+    # 'GND'           :   'GND'           ,
 
     # Side enum
     'BOTTOM'        :   'BOTTOM'        ,
@@ -164,22 +166,59 @@ def test_lexer(fpath):
 def YalParser(**kwargs):
 
 
+    def p_IO(p):
+        r'''
+        IO  :   IOLIST Semicolon IOList ENDIOLIST Semicolon
+        '''
+        print('IO block matched!')
+        pass
 
-    # def p_IOListLine(p):
-    #     r'''
-    #     IOListLine  :   SignalName TerminalType XPositionOrSide Semicolon
-    #                 |   SignalName TerminalType XPositionOrSide YPositionOrPosition Semicolon
-    #                 |   SignalName TerminalType XPositionOrSide YPositionOrPosition WidthAndLayer Semicolon
+    def p_IOList(p):
+        r'''
+        IOList  :   IOLine
+                |   IOList IOLine
+        '''
+        pass
+
+    def p_IOLine(p):
+        r'''
+        IOLine  :   SignalName TerminalType XPositionOrSide Semicolon
+                |   SignalName TerminalType XPositionOrSide YPositionOrPosition Semicolon
+                |   SignalName TerminalType XPositionOrSide YPositionOrPosition WidthAndLayer Semicolon
+                |   SignalName TerminalType XPositionOrSide YPositionOrPosition WidthAndLayer Current Semicolon
+                |   SignalName TerminalType XPositionOrSide YPositionOrPosition WidthAndLayer Voltage Semicolon
+                |   SignalName TerminalType XPositionOrSide YPositionOrPosition WidthAndLayer Current Voltage Semicolon
         
-    #     XPositionOrSide :   XPosition 
-    #                     |   Side
+        XPositionOrSide :   XPosition 
+                        |   Side
         
-    #     YPositionOrPosition :   YPosition
-    #                         |   Position
-        
-    #     WidthAndLayer   :   Width Layer
-    #     '''
-    #     pass
+        YPositionOrPosition :   YPosition
+                            |   Position
+        '''
+        print("IO line matched!")
+        pass
+
+    def p_WidthAndLayer(p):
+        r'''
+        WidthAndLayer   :   Width Layer
+        '''
+        pass
+
+    def p_Current(p):
+        r'''
+        Current :   CURRENT Number
+        '''
+        pass
+
+    def p_Voltage(p):
+        r'''
+        Voltage :   VOLTAGE Number
+        '''
+        pass
+
+    # -------------------------------- #
+    #       Network Struct             #
+    # -------------------------------- #
 
     def p_Network(p):
         r'''
@@ -212,7 +251,7 @@ def YalParser(**kwargs):
         pass
 
     # -------------------------------- #
-    #       Terminal rules             #
+    #       Terminal Rules             #
     # -------------------------------- #
 
     def p_Width(p):
@@ -240,7 +279,6 @@ def YalParser(**kwargs):
                         |   PB
                         |   F
                         |   PWR
-                        |   GND
         '''
         print("terminal type = ", p[1])
         return {'TerminalType' : p[1]}
