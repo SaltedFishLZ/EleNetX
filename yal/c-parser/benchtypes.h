@@ -271,3 +271,14 @@ typedef struct CriticalNetListType {
 #define Rot90  "ROT90"
 #define Rot180 "ROT180"
 #define Rot270 "ROT270"
+
+
+typedef struct ModuleClass {
+    NameType Name;
+    ModuleType ModType;
+    IOList *IOListHead;
+    CoordPair *Dimensions;
+    NetworkList *NetworkListHead;
+    PlacementList *PlacementListHead;
+    CriticalNetList *CriticalNetListHead;
+    } Module;

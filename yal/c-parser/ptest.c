@@ -19,6 +19,7 @@ void main(int argc, char* argv[])
 { 
     FILE *InputFile, *OutputFile;
 
+    /*
     NameType Name;
     ModuleType ModType;
     IOList *IOListHead;
@@ -26,6 +27,7 @@ void main(int argc, char* argv[])
     NetworkList *NetworkListHead;
     PlacementList *PlacementListHead;
     CriticalNetList *CriticalNetListHead;
+    */
     short Done;
     int ModuleNumber;
 
@@ -48,16 +50,17 @@ void main(int argc, char* argv[])
     Done = false;
     for(ModuleNumber = 1; !Done; ModuleNumber++) {
 
-	GetModule(InputFile, Name, &ModType, &Dimensions, &IOListHead, 
-		  &NetworkListHead, &PlacementListHead, &CriticalNetListHead);
+    Module mod;
+	GetModule(InputFile, mod.Name, &mod.ModType, &mod.Dimensions, &mod.IOListHead, 
+		  &mod.NetworkListHead, &mod.PlacementListHead, &mod.CriticalNetListHead);
 	
-	if (ModType == ENDFILE) Done = true;
+	if (mod.ModType == ENDFILE) Done = true;
 
 	else {
 	    printf("Got Module %d\n",ModuleNumber);
 
-	    WriteModule(OutputFile, Name, ModType, Dimensions, IOListHead, 
-		      NetworkListHead, PlacementListHead,CriticalNetListHead);
+	    WriteModule(OutputFile, mod.Name, mod.ModType, mod.Dimensions, mod.IOListHead, 
+		      mod.NetworkListHead, mod.PlacementListHead, mod.CriticalNetListHead);
 	}
     }
 }
