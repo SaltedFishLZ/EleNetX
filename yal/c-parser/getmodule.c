@@ -9,6 +9,7 @@
 
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <strings.h>
 #include "benchtypes.h"
 
@@ -657,7 +658,7 @@ CriticalNetList **CriticalNetListHead;
 /*  Memory Allocation and De-Allocation Routines */
 
 int fred;
-char *malloc();
+/* char *malloc(); */
 
 char *GetMemory(NumberOfBytes)
 int NumberOfBytes;
