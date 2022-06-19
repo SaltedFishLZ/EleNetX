@@ -173,13 +173,3 @@ if __name__ == "__main__":
     fpath = os.path.join('mcnc', 'pd91', 'bench', 'mixed', 'a3.yal')
 
     test_lexer(fpath)
-
-
-    lexer = YalLexer()
-    parser = YalParser(debug=True)
-
-
-    with open(fpath) as f:
-        text = f.read()
-
-        parser.parse(text)
