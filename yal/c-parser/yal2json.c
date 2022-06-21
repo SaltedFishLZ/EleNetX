@@ -161,7 +161,7 @@ int main(int argc, char const *argv[])
 
     /*  Read modules */
     short Done = false;
-    int ModuleNumber;
+    int ModuleNumber = ModuleInitiaID;
     for (ModuleNumber = ModuleInitiaID; !Done; ModuleNumber++) {
         Module module;
         GetModule(InputFile,
@@ -174,8 +174,6 @@ int main(int argc, char const *argv[])
         if (module.ModType == ENDFILE)
             Done = true;
         else {
-            printf("Got Module %d\n", ModuleNumber);
-
             /* translate the module to JSON */
             char* json_str = yal2json(&module);
 
@@ -185,6 +183,9 @@ int main(int argc, char const *argv[])
             fprintf(OutputFile, "%s\n\n", json_str);
         }
     }
+    /* Note: there is a ENDFILE module read by GetModule */
+    printf("%d modules parsed\n", ModuleNumber - ModuleInitiaID - 1);
+
 
     /* JSON list wrapper */
     fprintf(OutputFile, "]\n");
