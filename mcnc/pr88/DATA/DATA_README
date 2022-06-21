@@ -1,0 +1,158 @@
+
+/* File name Read_me                                            */
+
+   BENCHMARK CHARACTERISTICS 
+
+
+   A total of 16 examples were assembled and six of these were identified
+as "primary" circuits. If you are going to participate in Benchmark session
+of the Workshop, please present there your results for the primary examples
+in the layout catagory of your choice. You are encouraged to try as many
+other examples as you can.
+
+   This directory containes the benchmark data as described below and
+an additional example to ensure that you can handle the formats correctly.
+It is in the Smoke.yal file. Please do not report results on Smoke example.
+
+   The tables give basic informations about the benchmarks. Note that
+some examples have data in two files. The "main" file contains information
+about connectivity and the "auxilary" file about appropriate cell library
+(for gate array and some standard cell examples) and about geometrical
+design rules, electromigration and conductance constants (for building
+block layouts).
+
+   Please, try all standard cell and building block examples without
+aspect ratio constraint and with the following aspect ratios
+
+   i. 1:1 ;
+  ii. 1:1,5 ;
+ iii. 1:2 .
+
+
+   "Primary" examples have also suggested SCALE for displaying results
+at the Workshop.
+
+
+
+A. PRIMARY EXAMPLES.
+
+_______________________________________________________________________________
+*******************************************************************************
+
+Name      Style   Main.file      Aux.file    #cells  #nets  #pads  SCALE
+_______________________________________________________________________________
+*******************************************************************************
+
+
+
+PrimGA1   GA      Primary1.yal   GALib.yal   752     904    81      your choice
+
+_______________________________________________________________________________
+
+
+PrimGA2   GA      Primary2.yal   GALib.yal   2907    3029   107     your choice
+
+_______________________________________________________________________________
+
+
+PrimSC1   SC      Primary1.yal   SCLib.yal   752     904    81      46
+
+
+________________________________________________________________________________
+
+PrimSC2   SC      Primary2.yal   SCLib.yal   2907    3029   107     24
+
+
+________________________________________________________________________________
+
+PrimBBL1  BBL      Xexox.yal      xerox.tech  10      203    2      45
+
+________________________________________________________________________________
+
+
+PrimBBL2  BBL      ami33.yal      ami.tech    33      123    42    120
+
+________________________________________________________________________________
+
+
+
+
+B. OTHER EXAMPLES.
+ 
+________________________________________________________________________________
+********************************************************************************
+
+Name    Style   Main.file      Aux.file    #cells  #nets  #pads   
+________________________________________________________________________________
+********************************************************************************
+
+REGFILE SC      REGFILE.yal     SCLib.yal    160     196    196
+
+
+________________________________________________________________________________
+
+
+
+DECIN   SC      DECIN.yal       SCLib.yal    137     150    48
+
+
+________________________________________________________________________________
+
+
+
+Test01  SC      Test01.yal      none           10     14     3
+
+
+         
+________________________________________________________________________________
+
+
+
+Test02  SC      Test02.yal      none         1663     1866   70
+
+
+________________________________________________________________________________
+
+
+
+Test03  SC      Test03.yal      none         1607     1699   65
+
+
+________________________________________________________________________________
+
+
+
+Test04  SC      Test04.yal      none        1515      1738   36
+
+
+________________________________________________________________________________
+
+
+
+Test05  SC      Test05.yal      none        2595      2910   63
+
+
+________________________________________________________________________________
+
+
+
+Test06  SC      Test06.yal      none        1752      1745   69
+
+
+________________________________________________________________________________
+
+
+
+Test07  SC      Test07.yal      none        2379      2664   100
+
+
+________________________________________________________________________________
+
+
+
+Test08  SC      Test08.yal      none       3804       4137    66
+
+
+_______________________________________________________________________________
+
+

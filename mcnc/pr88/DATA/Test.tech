@@ -1,0 +1,17 @@
+
+The following design rules apply to circuits Test01 - Test 08.
+
+  Metal width - 8 microns
+  Metal spacing - 8 microns
+  Poly width - 4 microns
+  Poly spacing - 4 microns
+  Contact size - 4X4 microns
+  
+  Horizontally, vertically and diagonally adjacent contacts are
+    allowed.
+
+  Standard cells may be reflected about the Y axis.
+
+  Pad cells should be rotated so that the bonding pads
+    (terminal type PI, PO or PS) is on the outside of the chip.
+

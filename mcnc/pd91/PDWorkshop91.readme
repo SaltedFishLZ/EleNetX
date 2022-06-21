@@ -1,0 +1,120 @@
+	PDWorkshop91 - From the 1991 Physical Design Workshop
+
+All of the benchmark data and documentation files are in ./bench.
+The original versions of these files have been packed into a single file
+"bench.tar" using the "tar" command.
+
+		How To Obtain Benchmark Data
+
+The Physical Design 1991 benchmark data can be obtained from MCNC
+in one of two ways: by FTP over ARPA Net or by 9-track tape.
+
+1.0 ARPA Net FTP
+
+If you have access to an ARPA Net connection you may establish an FTP
+connection to host "mcnc.mcnc.org" and copy the files using the
+"get" command.  The login name is "anonymous" and the password is 
+any string (we ask that you use your name or home login id).
+The files are in the "/pub/benchmark/PDWorkshop91" directory.  
+
+The command sequence to establish a connection to the host machine is:
+
+	ftp mcnc.mcnc.org
+	anonymous 	(in response to the "Name" prompt)
+	(your id) 	(in response to the "password" prompt)
+
+If you have a UNIX(tm) machine on the Arpanet, check to see if you have
+the "uncompress" and "tar" commands available. Shipping the benchmarks
+over in a compressed tar format is much faster than in individual
+ASCII files. 
+
+	cd pub/benchmark/PDWorkshop91
+	get PDWorkshop91.readme
+	get PDWorkshop91.list
+	binary
+	get bench.tar.Z
+	bye
+
+on your local machine, uncompress the file with the commands
+
+	uncompress bench.tar.Z
+
+un-tar the files with the commands
+
+	tar xvf bench.tar
+
+
+Users who can use "tar" but without the "uncompress" command should
+get the non-comressed tar file:
+
+	cd pub/benchmark/PDWorkshop91
+	binary
+	get PDWorkshop91.readme
+	get PDWorkshop91.list
+	get bench.tar
+	bye
+	
+then use the "tar" command on your local machine:
+
+	tar xvf bench.tar
+
+
+FOR NON-UNIX USERS:
+
+If you do not have the "compress" and "tar" utilities available,
+you will have to copy the files explicitly. The actual files
+are stored under the directory "bench" and its numerous sub-directories:
+
+	bench/alu, bench/flex, bench/fsm, bench/ram, bench/scripts,
+	bench/tmpfsm
+
+Since simply "mget"ing all of the files into one directory on the
+local machine will destroy the original directory structure, you should
+re-create the original structure and use ftp to copy the files into the
+correct places.  You can use the "! mkdir" command to make a new directory
+on your local machine from inside ftp.  The following set of commands for
+ftp will do this:
+
+	! mkdir PDWorkshop91
+	lcd PDWorkshop91
+	cd pub/benchmark/PDWorkshop91
+	get PDWorkshop91.readme
+	get PDWorkshop91.list
+	prompt			# Should turn prompting off.
+	! mkdir bench		# make "bench" dir on local machine.
+	lcd bench		# move to "bench" on local machine.
+	cd bench		# move to "bench" on remote machine.
+	mget *			# get files from remote to local "bench".
+	!mkdir alu		# make "bench/block" on local.
+	lcd alu			#  etc.
+	cd alu
+	mget *
+	! mkdir ../flex
+	lcd ../flex
+	cd ../flex
+	mget *
+	! mkdir ../fsm
+	lcd ../fsm
+	cd ../fsm
+	mget *
+	! mkdir ../ram
+	lcd ../ram
+	cd ../ram
+	mget *
+	! mkdir ../scripts
+	lcd ../scripts
+	cd ../scripts
+	mget *
+	! mkdir ../tmpfsm
+	lcd ../tmpfsm
+	cd ../tmpfsm
+	mget *
+	bye
+
+
+2.0 9-Track Tape, SUN-type workstation cartridge, DEC station cartridge.
+
+We are prepared to send you a 9-track tape in TAR format.  
+Contact benchmarks@mcnc.org for details.
+ACM SIGDA is providing funds to cover the cost of tapes and shipping,
+so there is no cost to you for this service.

@@ -1,0 +1,30 @@
+
+ ACKNOWLEDGEMENTS
+
+ The   following   individuals   provided   us   with    examples:
+
+ Al Dunlop (AT&T)	Bill Kao (Xerox)
+ Bob Kirk (AMI)	Bryan Preas (Xerox PARC)
+ Ken Roberts (Motorola)
+
+ YAL (Yet Another Language) was designed by Bryan  Preas  and  Ken
+ Roberts.
+
+ Jonathan Rose (Stanford University) wrote the YAL parser.
+
+ Steve Meyer (Independent Consultant) wrote the  BBL-YAL  transla-
+ tor.
+
+ We received valuable suggestions, and  help  from  the  following
+ colleagues: 
+
+ Franc Brglez (BNR/MCNC)	Al Dunlop (AT&T)
+ Robi Dutta (DEC)		Bill Kao (Xerox)
+ Bob Kirk (AMI)		Ernest S. Kuh (U.C.Berkeley)
+ Mike Lorenzetti (MCNC)	Tatsuo Ohtsuki (Waseda University)
+ Bryan Preas (Xerox PARC)	Ken Roberts (Motorola)
+ Jonathan Rose (Stanford	Rob Rutenbar (CMU)
+
+ MCNC is distributing the benchmarks and documentation.
+
+

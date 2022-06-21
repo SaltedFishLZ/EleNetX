@@ -1,0 +1,107 @@
+
+PHYSICAL DESIGN WORKSHOP
+Marriott's Hilton Head Resort
+Hilton Head, South Carolina,  April 27 - 29, 1987
+
+Physical Design Workshop Place-Off Rules
+
+1.  Introduction
+
+The primary purpose of the Place-Off is to focus on the issue
+of benchmarking cell-based automatic layout tools.  We hope
+that the ultimate outcome will be a set of "standard"
+benchmarks used by everyone in the industry, as well as
+recognized standards by which tools are measured and
+compared.
+
+The Place-Off circuits are representative designs of up to
+4000 standard cells, gate-array cells or mixed standard and
+general cells.  In order to get as wide a participation as
+possible, we have tried to keep the rules and data formats
+simple.  There are few restrictions on how layouts are to be
+done and results reported.  We are looking for your ideas on
+benchmarking.
+
+Your primary obligation is to accurately report what you did
+and why!
+
+2.  Technologies 
+
+Because these circuits come from different sources, several
+cell libraries are provided.  The primary benchmarks
+(Primary1 or Primary2) may be run with either the standard
+cell or gate array library (SCLib or GALib).  Use the
+technology description in the text at the start of the
+appropriate library.  The remainder of the circuits (Test01 -
+Test08) are standard cell or mixed standard cell and general
+cell designs and have the primitive module definitions
+included in the file containing the parent module.  The
+following design rules apply to circuits Test01 - Test 08.
+
+  Metal width - 8 microns
+  Metal spacing - 8 microns
+  Poly width - 4 microns
+  Poly spacing - 4 microns
+  Contact size - 4X4 microns
+  
+  Horizontally, vertically and diagonally adjacent contacts are
+    allowed.
+
+  Standard cells may be reflected about the Y axis.
+
+  Pad cells should be rotated so that the bonding pads
+    (terminal type PI, PO or PS) is on the outside of the chip.
+
+3.  General Technology Rules
+
+Circuits which are gate arrays or totally standard height cells
+will be placed in rows.  The topology is at your discretion
+for circuits composed of mixed standard cells and general
+cells.
+
+For gate array implementations we will specify the number of
+rows, placement positions per row, tracks per channel, and
+the number of pad positions on each side of the die.
+
+Some of the circuits will have a pre-specified pad placement.
+
+The gate array library includes feedthrough positions on cells
+for over-cell routing.  At least one standard cell library will
+also permit over-cell routing.  In reporting results, you
+should indicate whether or not you route over the cells.
+
+Most cells are dual-ported.  Terminals are accessed only from
+the side specified in the cell description.  Any over-cell
+routing is assumed to go straight across the cell.
+
+You may implement power and ground routing in any way
+your system permits.  Tell us what you do.
+
+4.  Results 
+
+We hope participants will spend a few minutes presenting
+their results at the Workshop.  This should include an
+overview of their placement method and a discussion of
+results in terms of the following types of metrics:
+
+  wire length metrics such as half-perimeter spanning tree,
+    and/or Steiner wiring estimates
+  congestion measures such as one- or two-dimension crossing
+    counts
+  actual wiring lengths and via counts, if routed
+  core layout size for standard cell circuits
+  routing completion for gate arrays
+  any metric you think is appropriate
+
+In addition, we hope you will tell us execution times, number
+of runs, and any tuning that you  did.  We encourage
+people to bring plots of their results.  We will display any
+we get.
+
+Finally, we would like you to send your placements for
+Primary1.yal and Primary2.yal to Ken Roberts prior to the
+Workshop (by April 10, 1987, please).  We would like this
+data in the given format, either on IBM floppy or by
+electronic mail.  Ken will develop and present consistent
+statistics for all results received (we will maintain
+anonymity if you prefer).

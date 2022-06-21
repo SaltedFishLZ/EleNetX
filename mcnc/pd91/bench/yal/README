@@ -1,0 +1,34 @@
+/* file name : README */
+
+This directory contains parser files. There are separate YAL parsers 
+for gate array and standard cell examples and for building block examples.
+
+This parser is the same as distributed for the Workshop on Placement and
+Routing 1988.
+
+***************************************************************************
+
+Files of the parser for BUILDING BLOCK style examples are :
+
+benchtypes.h       - the types and the constants;
+getmodule.c        - the parser;
+writemodule.c      - the routine to output a module;
+ptest.c            - a simple main routine to read and write modules;
+makefile           - make file for ptest.
+
+*****************************************************************************
+
+The parsers for GATE ARRAY and STANDARD CELL examples are in:
+ 
+parse.h		a "C" version of the parser
+parse.pas	a Pascal version of the parser
+
+*****************************************************************************
+
+Documentation is in :
+
+README
+YAL_DESCRIPTION
+YAL_PARSER_DOCUMENT
+
+****************************************************************************

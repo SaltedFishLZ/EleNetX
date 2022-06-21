@@ -1,0 +1,47 @@
+Typical data from a MOSIS 2 micron run:
+
+    TRANSISTOR
+    PARAMETERS: W/L             N-CHANNEL       P-CHANNEL       UNITS   
+------------------------------------------------------------------------------
+Vth (Vds=.05V)  3/2             .817            -.779           V
+ 
+Vth (Vds=.05V)  18/2            .776            -.755           V
+Idss (Vgds=5V)  18/2            2455.0          -1112.0         uA
+Vpt (Id=1.0uA)  18/2            N/A             -16.62          V
+ 
+Vth (Vds=.05V)  50/50           .832            -.786           V
+Vbkd (Ij=1.0uA) 50/50           19.1            -17.7           V
+Kp              50/50           24.8            9.80            uA/V^2
+(Uo*Cox/2)
+Gamma           50/50           .505            .522            V^0.5
+ (2.5v,5.0v)
+ 
+Delta Length                    .249            .197            um
+Delta Width                     .443            .191            um
+(Effective=Drawn-Delta)
+ 
+    PROCESS       N      P       N       P       N      METAL   METAL
+    PARAMETERS:  POLY   POLY    DIFF    DIFF    WELL      1       2     UNITS
+------------------------------------------------------------------------------
+Sheet Resistance 22.1   22.5    22.8    106.5   2611.0  .108    .045    Ohm/sq
+Width Variation  -.191  -.181   .786    .338    ----    .120    .421    um
+(Measured - Drawn)
+Contact Resist.  7.89   7.49    12.24   39.44   ----    ----    .181    Ohms
+(Metal1 to Layer)
+ 
+Gate Oxide
+Thickness:       ----   ----    ----    405.    ----    ----    ----    Angst.
+ 
+ 
+   CAPACITANCE                   N       P      METAL   METAL
+   PARAMETERS:          POLY    DIFF    DIFF      1       2     UNITS
+------------------------------------------------------------------------------
+Area Cap                .038    .120    .255    .027    .021    fF/um^2
+(Layer to subs)
+Area Cap                ----    ----    ----    .046    .025    fF/um^2
+(Layer to Poly)
+Area Cap                ----    ----    ----    ----    .047    fF/um^2
+(Layer to Metal1)
+Fringe Cap              ----    .533    .329    ----    ----    fF/um
+(Layer to subs)
+ 

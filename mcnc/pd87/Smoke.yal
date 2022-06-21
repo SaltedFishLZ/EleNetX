@@ -1,0 +1,129 @@
+
+/* File name Smoke.yal                                       */
+/*                                                           */
+/* Copyright (C) 1987 by Bryan Preas and Ken Roberts.        */
+/*                All rights reserved.                       */
+/*                                                           */
+/* Modified March 24, 1987: added bindings to pads           */
+/*                                                           */
+/* Format Test: Smoke.yal                                    */
+/*                                                           */
+/*                                                           */
+/*  Module name = INV                                        */
+/*  Width = 20 microns, Height = 160 microns                 */
+/*                                                           */
+MODULE INV;
+ TYPE STANDARD;
+ WIDTH 20;
+ HEIGHT 160;
+/*                                                           */
+/*  Define the external connections: I1 and O1               */
+/*                                                           */
+ IOLIST;
+/* <signalname><terminaltype><side> <position><width><layer> */
+   I1          I             TOP    5.0       3.0    METAL2;
+   I1          I             BOTTOM 5.0       3.0    METAL2;
+   O1          O             TOP    15.0      3.0    METAL2;
+   O1          O             BOTTOM 15.0      3.0    METAL2;
+ ENDIOLIST;
+ ENDMODULE;
+/*                                                           */
+/*  Module name = FEEDER                                     */
+/*  Width = 10 microns, Height = 160 microns                 */
+/*                                                           */
+MODULE FEEDER;
+ TYPE FEEDTHROUGH;
+ WIDTH 10;
+ HEIGHT 160;
+/*                                                           */
+/*  Define the external connection: F1                       */
+/*                                                           */
+ IOLIST;
+/* <signalname> <terminaltype><side><position><width><layer> */
+   F1           F             TOP    5.0      3.0    METAL2;
+   F1           F             BOTTOM 5.0      3.0    METAL2;
+ ENDIOLIST;
+ ENDMODULE;
+
+/*                                                           */
+/*  Module name = NAND                                       */
+/*  Width = 30 microns, Height = 160 microns                 */
+/*                                                           */
+ MODULE NAND;
+ TYPE STANDARD;
+ WIDTH 30; HEIGHT 160;
+/*                                                           */
+/*  Define the external connections: I1, I2 and OUT          */
+/*                                                           */
+ IOLIST;
+/* <signalname><terminaltype><side> <position><width><layer> */
+   I1          I             TOP    5.0       3.0    METAL2;
+   I1          I             BOTTOM 5.0       3.0    METAL2;
+   I2          I             TOP    15.0      3.0    METAL2;
+   I2          I             BOTTOM 15.0      3.0    METAL2;
+   OUT         O             TOP    25.0      3.0    METAL2;
+   OUT         O             BOTTOM 25.0      3.0    METAL2;
+ ENDIOLIST;
+ ENDMODULE;
+/*                                                           */
+/*  Module name = INPUTPAD                                   */
+/*  Width = 200 microns, Height = 200 microns                */
+/*                                                           */
+MODULE INPUTPAD;
+ TYPE PAD;
+ WIDTH 200; HEIGHT 200;
+/*                                                           */
+/*  Define the external connections: OUT and INPAD           */
+/*                                                           */
+ IOLIST;
+/* <signalname><terminaltype><side> <position><width><layer> */
+   OUT         O             BOTTOM 100.0     3.0    METAL2;
+   INPAD       PI            TOP    100.0     50.0   METAL2;
+ ENDIOLIST;
+ ENDMODULE;
+/*                                                           */
+/*  Module name = OUTPUTPAD                                  */
+/*  Width = 200 microns, Height = 200 microns                */
+/*                                                           */
+MODULE OUTPUTPAD;
+ TYPE PAD;
+ WIDTH 200; HEIGHT 200;
+/*                                                           */
+/*  Define the external connections: IN and OUTPAD           */
+/*                                                           */
+
+IOLIST;
+
+/* <signalname><terminaltype><side> <position><width><layer> */
+   IN          I             BOTTOM 100.0     3.0    METAL2;
+   OUTPAD      PO            TOP    100.0     50.0   METAL2;
+ ENDIOLIST;
+ ENDMODULE;
+/*                                                           */ 
+/*  Module to be laid out: name = AND                        */
+/*                                                           */
+MODULE AND;
+ TYPE PARENT;
+/*                                                           */
+/*  Define the external connections: I1, I2 and OUT          */
+/*  Pad positions are not fixed                              */
+/*                                                           */
+ IOLIST;
+/* <signalname> <terminaltype><side><position><width><layer> */
+  I1           PI;
+  I2           PI;
+  OUT          PO;
+ ENDIOLIST;
+/*                                                           */
+/*  Define the instances of primitive modules and the        */
+/*    connectivity                                           */
+/*                                                           */
+ NETWORK;
+/* <instancename> <modulename> <signalname> <signalname>     */
+   I1             INPUTPAD     i1            I1;
+   I2             INPUTPAD     i2            I2;
+   Out            OUTPUTPAD    out           OUT;
+   Inv            INV          nout          out;
+   Nand           NAND         i1            i2          nout;
+ ENDNETWORK;
+ ENDMODULE;

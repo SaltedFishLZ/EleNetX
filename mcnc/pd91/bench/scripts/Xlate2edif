@@ -1,0 +1,53 @@
+#!/bin/csh -f
+
+set v2e=`pwd`/../v2/v2
+set warn
+set sepC
+set sepL
+
+# Uncomment the line below if you want all warnings to appear as comments
+# in the edif file.
+
+# set warn=(-W -O)
+
+# Comment out the two lines below if you do not want to separate libraries
+# from the main circuit.
+
+set sepC=-C
+set sepL=-L
+
+pushd gatearr
+cat GALib.vpnr			| $v2e -7 -r $warn $sepC GALib.edf
+popd
+
+push mixed
+cat a3.vpnr			| $v2e -r -7p $warn a3.edf
+cat g2.vpnr			| $v2e -r -7p $warn g2.edf
+cat t1.vpnr			| $v2e -r -7p $warn t1.edf
+popd
+
+pushd block
+cat ami33.vpnr			| $v2e -r $warn ami33.edf
+cat ami49.vpnr			| $v2e $warn ami49.edf
+cat apte.vpnr			| $v2e $warn apte.edf
+cat xerox.vpnr			| $v2e $warn xerox.edf
+cat hp.vpnr			| $v2e $warn hp.edf
+popd
+
+pushd stdcell
+cat sclib.vpnr			| $v2e -7 -r $warn $sepC sclib.edf
+cat sclib.vpnr primary1.vpnr	| $v2e -7w -G -r $warn $sepL primary1.edf
+cat sclib.vpnr primary2.vpnr	| $v2e -7w -G -r $warn $sepL primary2.edf
+cat db.vpnr			| $v2e $warn $sepC db.edf
+cat db.vpnr biomed.vpnr		| $v2e $warn $sepL biomed.edf
+cat db.vpnr fract.vpnr		| $v2e $warn $sepL fract.edf
+cat db.vpnr struct.vpnr		| $v2e $warn $sepL struct.edf
+cat industry1.vpnr		| $v2e -G $warn industry1.edf
+cat industry1a.vpnr		| $v2e -G $warn industry1a.edf
+cat industry2.vpnr		| $v2e -G $warn industry2.edf
+cat industry3.vpnr		| $v2e -G $warn industry3.edf
+popd stdcell
+
+pushd floorplan
+cat fan.vpnr			| $v2e -r -7 $warn fan.edf
+popd

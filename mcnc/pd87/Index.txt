@@ -1,0 +1,48 @@
+
+PHYSICAL DESIGN WORKSHOP
+Marriott's Hilton Head Resort
+Hilton Head, South Carolina,  April 27 - 29, 1987
+
+
+Index of Files on Floppy Disk
+
+The enclosed disk is a double-sided, IBM PC compatable
+floppy formatted for 360 Kilobytes of data.  You should
+be able to read the floppy on any IBM PC or compatable
+personal computer.  It contains the following files:
+
+  File            Description
+	
+
+  Cover.txt    Text of the cover letter describing the
+                  benchmark material and the place-Off rules.
+  Index.txt    Text of the directory of this floppy disc.
+  Rules.txt    A text file describing the benchmark process
+                 and the rules applicable to the Physical Design
+                 Workshop.
+  HowTo.txt    A text file describing how to obtain the
+                 benchmark data
+  Format.txt	 A text file describing the format of the
+                 benchmark data.
+  Parse.h    	 A file containing Unix C programs to read and
+                 write the benchmark data.
+  Smoke.yal	 A small benchmark test case in Physical
+                 Design Workshop format.  It is intended to test
+                 conversion procedures and should not be reported
+                 at the workshop.
+  Primary1.yal The first "primary" circuit.  It can be treated
+                 as a standard cell or gate array design.  It has 750
+                 cells.  Bonding pads are included.
+  Primary2.yal The second "primary" circuit.  It can be treated
+                 as a standard cell or gate array design.  It has 2907
+                 cells.  Bonding pads are included.
+  DECIN.yal    A Subchip  with approximately 150 cells of
+                 totally combinational logic.  This  and SubChip2.yal
+                 are intended to provide examples of extemes in
+                 random and regular circuits. 
+  REGFILE.yal  A subchip with 160 cells  of  highly  regular
+                 sequential logic.
+  GALib.yal	 The gate array library for Primary1 and 2 and
+                 DECIN and REGFILE
+  SCLib.yal	 The standard cell library for Primary1 and 2 and
+                 DECIN and REGFILE

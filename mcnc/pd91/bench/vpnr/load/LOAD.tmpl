@@ -1,0 +1,1620 @@
+/*
+ *   This code was developed by individuals connected with MCNC
+ *   and Duke University.
+ *
+ *   Copyright 1988 by the Microelectronics Center of North Carolina       
+ *   All rights reserved.
+ *
+ *   $Source: /mcnc/pi/hill/modgen89/bench/src/load/RCS/LOAD.tmpl,v $
+ *   $Date: 89/01/20 09:48:05 $
+ *   $Author: kk $
+ *   $Revision: 1.1 $
+ *
+ */
+
+## addtop
+	/* VPNR Standard Cells */
+	/* Code that is here is inserted at the top of the 'load.zz.c'
+	   file.  This is where '#include' and variable declaration
+	   statements, etc., should be put.  No data is captured here. */
+
+## begin addtop
+	/* VPNR Standard Cells */
+	/* Code that is here is inserted at the top of the 'begin' routine.
+	   Declarations for local variables go here.  No data is captured
+	   here. */
+
+## begin cell
+	/* VPNR Standard Cells */
+	/* The words 'begin cell' and the name of the cell have been read in.
+	   The name of the cell is in the 'zzs' string variable.
+	   Initialization for variables dealing with cell structures should
+	   be done here. */
+	/* In the example, the 'cell begin aoi2211s;' line is read here,
+	   so zzs=``aoi2211s''. */
+
+## begin domain
+	/* VPNR Standard Cells */
+	/* The words 'begin domain' and the name of the domain have been read
+	   in.  The name of the domain is in the 'zzs' string variable.
+	   Initialization of variables for dealing with domain structures
+	   should be done here. */
+	/* In the example, the 'domain begin MAIN swap=0' line is read here,
+	   so zzs=``MAIN''. 'swap=0' is an integer attribute. */
+
+## begin channel
+	/* VPNR Standard Cells */
+	/* The words 'begin channel' and the name of the channel have been read
+	   in.  The name of the channel is in the 'zzs' string variable.
+	   Initialization of variables for dealing with channel structures
+	   should be done here. */
+	/* In the example, the 'channel begin ch.2 density=9;' line is
+	   read here, so zzs=``ch.2''.  'density=9' is an integer
+	   attribute. */
+
+## begin tech
+	/* The words 'begin tech' have been read in.  The name of the
+	   technology is in the 'zzs' string variable.
+	   Initialization of variables for dealing with technology structures
+	   should be done here. */
+	/* In the example, the 'tech begin magic;' line is read here,
+	   so zzs=``magic''. */
+
+## begin addend
+	/* The code from this section is put at the end of the 'begin'
+	   routine.  Anything which is to be done to all three types of
+	   structures should be put here to avoid duplicating code.
+	   No data is captured here. */
+
+## profile addtop
+	/* VPNR Standard Cells */
+	/* Code that is here is inserted at the top of the 'profile' routine.
+	   Declarations for local variables go here.  No data is captured
+	   here. */
+
+## profile cell top
+	/* The words 'profile cell top' have been read in.  Initialization
+	   for variables dealing with the top profile of cell structures
+	   should be done here. No data is captured here. */
+
+## profile cell bottom
+	/* The words 'profile cell bottom' have been read in.  Initialization
+	   for variables dealing with the bottom profile of cell structures
+	   should be done here. No data is captured here. */
+
+## profile cell left
+	/* The words 'profile cell left' have been read in.  Initialization
+	   for variables dealing with the left profile of cell structures
+	   should be done here. No data is captured here. */
+
+## profile cell right
+	/* The words 'profile cell right' have been read in.  Initialization
+	   for variables dealing with the right profile of cell structures
+	   should be done here. No data is captured here. */
+
+## profile cell point top
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a top profile of a cell has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the example, the 'profile top (-1,57) (31,57)' line
+	   is read here. The first time through zzx= -1, zzy=57; the second
+	   time through zzx=31, zzy=57. */
+
+## profile cell point bottom
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a bottom profile of a cell has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the example, the 'profile bottom (-1,-1) (31,-1)' line
+	   is read here. The first time through zzx= -1, zzy= -1; the second
+	   time through zzx=31, zzy= -1. */
+
+## profile cell point left
+	/* A point representing one corner of a left profile of a cell has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile cell point right
+	/* A point representing one corner of a right profile of a cell has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile domain top
+	/* The words 'profile domain top' have been read in.  Initialization
+	   for variables dealing with the top profile of domain structures
+	   should be done here. No data is captured here. */
+	/* In the example, the 'profile top (0,0) (0,0)' line
+	   is read here. The first time through zzx=0, zzy=0; the second
+	   time through zzx=0, zzy=0.   The current VPNR programs do not
+	   use the profile information for domains, so it is left in its
+	   initialized state.  */
+
+## profile domain bottom
+	/* VPNR Standard Cells */
+	/* The words 'profile domain bottom' have been read in.  Initialization
+	   for variables dealing with the bottom profile of domain structures
+	   should be done here. No data is captured here. */
+	/* In the example, the 'profile bottom (0,0) (0,0)' line
+	   is read here. The first time through zzx=0, zzy=0; the second
+	   time through zzx=0, zzy=0.   The current VPNR programs do not
+	   use the profile information for domains, so it is left in its
+	   initialized state.  */
+
+## profile domain left
+	/* The words 'profile domain left' have been read in.  Initialization
+	   for variables dealing with the left profile of domain structures
+	   should be done here. No data is captured here. */
+
+## profile domain right
+	/* The words 'profile domain right' have been read in.  Initialization
+	   for variables dealing with the right profile of domain structures
+	   should be done here. No data is captured here. */
+
+## profile domain point top
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a top profile of a domain has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile domain point bottom
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a bottom profile of a domain has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile domain point left
+	/* A point representing one corner of a left profile of a domain has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile domain point right
+	/* A point representing one corner of a right profile of a domain has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+
+## profile channel top
+	/* The words 'profile channel top' have been read in.  Initialization
+	   for variables dealing with the top profile of channel structures
+	   should be done here. No data is captured here. */
+
+## profile channel bottom
+	/* The words 'profile channel bottom' have been read in.  Initialization
+	   for variables dealing with the bottom profile of channel structures
+	   should be done here. No data is captured here. */
+
+## profile channel left
+	/* The words 'profile channel left' have been read in.  Initialization
+	   for variables dealing with the left profile of channel structures
+	   should be done here. No data is captured here. */
+
+## profile channel right
+	/* The words 'profile channel right' have been read in.  Initialization
+	   for variables dealing with the right profile of channel structures
+	   should be done here. No data is captured here. */
+
+## profile channel point top
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a top profile of a channel has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the unrouted example, the 'profile top (0,83) (323,83)' line
+	   is read here. The first time through zzx=0, zzy=83; the second
+	   time through zzx=323, zzy=83. */
+	/* In the routed example, the 'profile top (0,83) (304,83)' line
+	   is read here. The first time through zzx=0, zzy=83; the second
+	   time through zzx=304, zzy=83. */
+
+## profile channel point bottom
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a bottom profile of a channel has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the unrouted example, the 'profile bot (0,0) (323,0)' line
+	   is read here. The first time through zzx=0, zzy=0; the second
+	   time through zzx=323, zzy=0. */
+	/* In the routed example, the 'profile bot (0,0) (304,0)' line
+	   is read here. The first time through zzx=0, zzy=0; the second
+	   time through zzx=304, zzy=0. */
+
+## profile channel point left
+	/* A point representing one corner of a left profile of a channel has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the routed example, the 'profile left (0,0) (0,83) line
+	   is read here. The first time through zzx=0, zzy=0; the second
+	   time through zzx=0, zzy=83. */
+
+## profile channel point right
+	/* A point representing one corner of a right profile of a channel has
+	   been read in.  The x- and y- coordinates are in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the routed example, the 'profile right (304,0) (304,83) line
+	   is read here. The first time through zzx=304, zzy=0; the second
+	   time through zzx=304, zzy=83. */
+
+## profile addend
+	/* The code from this section is put at the end of the 'profile'
+	   routine.  Anything which is to be done to all three types of
+	   structures should be put here to avoid duplicating code.
+	   No data is captured here. */
+
+## termlist addtop
+	/* VPNR Standard Cells */
+	/* The 'termlist' routine parses the list of terminals for cells
+	   (i.e., the library) and for channels.  Any declarations needed
+	   for this purpose should be put here.  No data is captured here. */
+
+## termlist cell head
+	/* The word 'termlist' has just been read; this part of the routine
+	   is only called once per cell.  This is where initialization such
+	   as memory allocation can be done.  No data is captured here. */
+
+## termlist cell tail
+	/* The ';' has been read in, signifying the end of the list of cell
+	   terminals.  No data is captured here.  */
+
+## termlist cell name
+	/* VPNR Standard Cells */
+	/* The single-word name of a cell's signal has been read in,
+	   it is stored in the string variable 'zzs'. */
+	/* In the example, the signal name from the 'a1 { (1-4,57) (1-4,-1)};'
+	   line is read here, so zzs=``a2s''. */
+
+## termlist cell names
+	/* The two-word name of a cell's signal has been read in, it is stored
+	   in the string variables 'zzs1' and 'zzs2'. THIS HOOK IS CURRENTLY
+	   UNUSED */
+
+## termlist cell top
+	/* The terminal(s) about to be read in will be 'somewhere' on the top
+	   of the cell.  Any initialization for such a terminal should be done
+	   here.  No data is captured here. */
+
+## termlist cell bottom
+	/* The terminal(s) about to be read in will be 'somewhere' on the bottom
+	   of the cell.  Any initialization for such a terminal should be done
+	   here.  No data is captured here. */
+
+## termlist cell left
+	/* The terminal(s) about to be read in will be 'somewhere' on the left
+	   of the cell.  Any initialization for such a terminal should be done
+	   here.  No data is captured here. */
+
+## termlist cell right
+	/* The terminal(s) about to be read in will be 'somewhere' on the right
+	   of the cell.  Any initialization for such a terminal should be done
+	   here.  No data is captured here. */
+
+## termlist cell xy
+	/* The x- and y- coordinates for a terminal on a cell have
+	   been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist cell xy T
+	/* The x- and y- coordinates for a terminal on the top of a cell have
+	   been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist cell xy B
+	/* The x- and y- coordinates for a terminal on the bottom of a cell
+	   have been read in.  They are stored in the integer variables 'zzx'
+	   and 'zzy'. */
+
+## termlist cell xy R
+	/* The x- and y- coordinates for a terminal on the right side of a cell
+	   have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist cell xy L
+	/* The x- and y- coordinates for a terminal on the left side of a cell
+	   have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist cell x1x2y
+	/* VPNR Standard Cells */
+	/* The x- and y- coordinates for a horizontal terminal on
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx1', 'zzx2' and 'zzy'. */
+	/* In the example, the points from the 'a1 { (1-4,57) (1-4,-1)};' line
+	   is read here. The first time through zzx1=1, zzx2=4, zzy=57; the
+	   second time through zzx1=1, zzx2=4, zzy= -1. */
+
+## termlist cell x1x2y T
+	/* The x- and y- coordinates for a horizontal terminal on the top of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist cell x1x2y B
+	/* The x- and y- coordinates for a horizontal terminal on the bottom of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist cell x1x2y R
+	/* The x- and y- coordinates for a horizontal terminal on the right side
+	   of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist cell x1x2y L
+	/* The x- and y- coordinates for a horizontal terminal on the left side
+	   of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist cell xy1y2
+	/* The x- and y- coordinates for a vertical terminal on the top of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist cell xy1y2 T
+	/* The x- and y- coordinates for a vertical terminal on the top of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist cell xy1y2 B
+	/* The x- and y- coordinates for a vertical terminal on the bottom of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist cell xy1y2 R
+	/* The x- and y- coordinates for a vertical terminal on the right side
+	   of a cell have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist cell xy1y2 L
+	/* The x- and y- coordinates for a vertical terminal on the left side of
+	   a cell have been read in.  They are stored in the integer variables
+	   'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist cell x1x2y1y2
+	/* The x- and y- coordinates for a two-dimensional terminal on the top
+	   of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist cell x1x2y1y2 T
+	/* The x- and y- coordinates for a two-dimensional terminal on the top
+	   of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist cell x1x2y1y2 B
+	/* The x- and y- coordinates for a two-dimensional terminal on the
+	   bottom of a cell have been read in.  They are stored in the
+	   integer variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist cell x1x2y1y2 R
+	/* The x- and y- coordinates for a two-dimensional terminal on the right
+	   side of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist cell x1x2y1y2 L
+	/* The x- and y- coordinates for a two-dimensional terminal on the left
+	   side of a cell have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist channel head
+	/* The word 'termlist' has just been read; this part of the routine
+	   is only called once per channel.  This is where initialization such
+	   as memory allocation can be done.  No data is captured here. */
+
+## termlist channel tail
+	/* The ';' has been read in, signifying the end of the list of channel
+	   terminals.  No data is captured here.  */
+
+## termlist channel name
+	/* VPNR Standard Cells */
+	/* The single-word name of a channel's signal has been read in,
+	   it is stored in the string variable 'zzs'. */
+
+## termlist channel names
+	/* VPNR Standard Cells */
+	/* The two-word name of a channel's signal has been read in, it is
+	   stored in the string variables 'zzs1' and 'zzs2'.  In the current
+	   VPNR standard cells system, the first name is the signal name
+	   from the netlist in the domain section, and the second name is
+	   a segment name provided by the global router.  That is, a net
+	   may be split within a given channel but all parts are connected
+	   by connections to the cells. */
+	/* In the example, the '1 3' line in the 'termlist' section
+	   is read here.  The signal name is
+	   zzs1=``1'' and the segment name is zzs2=``3''. */
+
+## termlist channel top
+	/* The terminal(s) about to be read in will be 'somewhere' on the top
+	   of the channel.  Any initialization for such a terminal should be
+	   done here.  No data is captured here. */
+
+## termlist channel bottom
+	/* The terminal(s) about to be read in will be 'somewhere' on the bottom
+	   of the channel.  Any initialization for such a terminal should be
+	   done here.  No data is captured here. */
+
+## termlist channel left
+	/* VPNR Standard Cells */
+	/* The terminal(s) about to be read in will be 'somewhere' on the left
+	   of the channel.  Any initialization for such a terminal should be
+	   done here.  No data is captured here. */
+
+## termlist channel right
+	/* VPNR Standard Cells */
+	/* The terminal(s) about to be read in will be 'somewhere' on the right
+	   of the channel.  Any initialization for such a terminal should be
+	   done here.  No data is captured here. */
+	/* In the example of the unrouted channel, the 'LEFT' line
+	   is read here. */
+
+## termlist channel xy
+	/* The x- and y- coordinates for a terminal on a channel
+	   have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist channel xy T
+	/* The x- and y- coordinates for a terminal on the top of a channel
+	   have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist channel xy B
+	/* The x- and y- coordinates for a terminal on the bottom of a channel
+	   have been read in.  They are stored in the integer variables 'zzx'
+	   and 'zzy'. */
+
+## termlist channel xy R
+	/* The x- and y- coordinates for a terminal on the right side of a
+	   channel have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist channel xy L
+	/* The x- and y- coordinates for a terminal on the left side of a
+	   channel have been read in.  They are stored in the integer variables
+	   'zzx' and 'zzy'. */
+
+## termlist channel x1x2y
+	/* The x- and y- coordinates for a horizontal terminal on
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist channel x1x2y T
+	/* VPNR Standard Cells */
+	/* The x- and y- coordinates for a horizontal terminal on the top of
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist channel x1x2y B
+	/* VPNR Standard Cells */
+	/* The x- and y- coordinates for a horizontal terminal on the bottom of
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+	/* In the example, the point from the 'T:(10-13,0)'
+	   line is read here, so zzx1=10, zzx2=13, zzy=0. */
+
+## termlist channel x1x2y R
+	/* The x- and y- coordinates for a horizontal terminal on the right side
+	   of a channel have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist channel x1x2y L
+	/* The x- and y- coordinates for a horizontal terminal on the left side
+	   of a channel have been read in.  They are stored in the integer
+	   variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## termlist channel xy1y2
+	/* The x- and y- coordinates for a vertical terminal on
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist channel xy1y2 T
+	/* The x- and y- coordinates for a vertical terminal on the top of
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist channel xy1y2 B
+	/* The x- and y- coordinates for a vertical terminal on the bottom of
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist channel xy1y2 R
+	/* VPNR Standard Cells */
+	/* The x- and y- coordinates for a vertical terminal on the right side
+	   of a channel have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist channel xy1y2 L
+	/* VPNR Standard Cells */
+	/* The x- and y- coordinates for a vertical terminal on the left side of
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## termlist channel x1x2y1y2
+	/* The x- and y- coordinates for a two-dimensional terminal on
+	   a channel have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist channel x1x2y1y2 T
+	/* The x- and y- coordinates for a two-dimensional terminal on the top
+	   of a channel have been read in.  They are stored in the integer
+	   variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist channel x1x2y1y2 B
+	/* The x- and y- coordinates for a two-dimensional terminal on the
+	   bottom of a channel have been read in.  They are stored in the
+	   integer variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist channel x1x2y1y2 R
+	/* The x- and y- coordinates for a two-dimensional terminal on the right
+	   side of a channel have been read in.  They are stored in the
+	   integer variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist channel x1x2y1y2 L
+	/* The x- and y- coordinates for a two-dimensional terminal on the left
+	   side of a channel have been read in.  They are stored in the
+	   integer variables 'zzx1, 'zzx2', 'zzy1' and 'zzy2'. */
+
+## termlist addend
+	/* The code from this section is put at the end of the 'termlist'
+	   routine.  Anything which is to be done to both types of terminals
+	   should be put here to avoid duplicating code.
+	   No data is captured here. */
+
+## wirelist addtop
+	/* The 'wirelist' routine parses the list of wires for channels.
+	   Any declarations needed for this purpose should be put here.
+	   No data is captured here. */
+
+## wirelist head
+	/* The word 'wirelist' has just been read in.  Initializations
+	   for wire data structures should be put here.  No data is captured
+	   here. */
+
+## wirelist tail
+	/* The ';' has been read in, signifying the end of the list of wires.
+	   No data is captured here.  */
+
+## wirelist name
+	/* The one-word signal name of a wire has just been read in, and
+	   it is stored in the string variable 'zzs'. */
+
+## wirelist names
+	/* The two-word signal name of a wire has just been read in, and
+	   it is stored in the string variables 'zzs1' and 'zzs2'. */
+	/* In the example, the '1 3' line in the 'wirelist' section
+	   is read here.  The signal name is
+	   zzs1=``1'' and the segment name is zzs2=``3''. */
+
+## wirelist point
+	/* VPNR Standard Cells */
+	/* A point representing one part of a wire has just been read in.
+	   The current VPNR programs use two points to define a wire segment,
+	   one for the lower left corner and one for the upper right corner.
+	   The x- and y- coordinates are stored in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the example, the points from the '{ (10,56) (13,83)} layer=2'
+	   line are read here.  The first time through zzx=10, zzy=56; the
+	   second time zzx=13, zzy=83. */
+
+## wirelist addend
+	/* The code from this section is put at the end of the 'wirelist'
+	   routine.  No data is captured here. */
+
+## vialist addtop
+	/* The 'vialist' routine parses the list of wires for channels.
+	   Any declarations needed for this purpose should be put here.
+	   No data is captured here. */
+
+## vialist head
+	/* The word 'vialist' has just been read in.  Initializations for via
+	   data structures should be put here.  No data is captured here. */
+
+## vialist tail
+	/* The ';' has been read in, signifying the end of the list of vias.
+	   No data is captured here.  */
+
+## vialist point
+	/* VPNR Standard Cells */
+	/* A point representing one corner of a via has just been read in.
+	   The current VPNR programs use two points to define a via
+	   one for the lower left corner and one for the upper right corner.
+	   The x- and y- coordinates are stored in the integer variables
+	   'zzx' and 'zzy'. */
+	/* In the example, the points from the
+	   '{ (26,32) (30,36)} layer1=1 layer2=2'
+	   line are read here.  The first time through zzx=26, zzy=32; the
+	   second time zzx=30, zzy=36. 'layer1=1 layer2=2' are integer
+	   attributes. */
+
+## vialist addend
+	/* The code from this section is put at the end of the 'vialist'
+	   routine.  No data is captured here. */
+
+## equivalences addtop
+	/* The 'equivalences' routine parses the list of equivalent signals
+	   in a cell.  Any declarations needed for this purpose should be
+	   put here.  No data is captured here. */
+
+## equivalences head
+	/* The word 'equivalences' has just been read in.  Initializations for
+	   the data structures involved in the list of equivalent signals
+	   should be put here.  No data is captured here. */
+
+## equivalences tail
+	/* The ';' has been read in, signifying the end of the list of
+	   equivalences.  No data is captured here.  */
+
+## equivalences name
+	/* VPNR Standard Cells */
+	/* The name of an equivalence class has just been read in, and
+	   it is stored in the string variable 'zzs'. */
+	/* In the example, the equivalence class from the 'a ( a1 a2 );' line
+	   is read here, so zzs=``a''. */
+
+## equivalences equivnet
+	/* VPNR Standard Cells */
+	/* The name of a signal has just been read in, and
+	   it is stored in the string variable 'zzs'.  This signal belongs in
+	   the equivalence class whose name was most recently read in. */
+	/* In the example, the signal names from the 'a ( a1 a2 );' line
+	   is read here.  The first time through zzs=``a1''; the
+	   second time zzs=``a2''. */
+
+## equivalences addend
+	/* The code from this section is put at the end of the 'equivalences'
+	   routine.  No data is captured here. */
+
+## nets addtop
+	/* The 'nets' routine parses the list of nets which have special
+	   attributes in a domain.  Any declarations needed for this
+	   purpose should be put here.  No data is captured here. */
+
+## nets head
+	/* The word 'nets' has just been read in.  Initializations for
+	   the data structures involved in the list of net attributes
+	   should be put here.  No data is captured here. */
+
+## nets tail
+	/* The ';' has been read in, signifying the end of the list of nets.
+	   No data is captured here.  */
+
+## nets name
+	/* A net name, stored in the string variable 'zzs', has just been
+	   read in. */
+
+## nets addend
+	/* The code from this section is put at the end of the 'nets'
+	   routine.  No data is captured here. */
+
+## row addtop
+	/* VPNR Standard Cells */
+	/* The 'row' routine parses the list of rows and gates in those
+	   rows.  Any declarations needed for this
+	   purpose should be put here.  No data is captured here. */
+
+## row head
+	/* VPNR Standard Cells */
+	/* The word 'row' has just been read in.  Initializations for the
+	   data structures involved in the rows should be put here.  No data
+	   is captured here. */
+
+## row tail
+	/* The ';' has been read in, signifying the end of the row.
+	   No data is captured here.  */
+
+## row name
+	/* VPNR Standard Cells */
+	/* A row name, stored in the string variable 'zzs', has just been
+	   read in. */
+	/* In the example, the 'row 1' line is read here,
+	   so zzs=``1''. */
+
+## row gate
+	/* VPNR Standard Cells */
+	/* A cell name and a gate name, stored in the string variables
+	   'zzs1' and 'zzs2', has just been read in. */
+	/* In the example, the cell and gate names from the
+	   'a2s TGMUfunc4 (inp0,net2,func4)' line are read
+	   here, so zzs1=``a2s'' is the cell name and
+	   zzs2=``TGMUfunc4'' is the gate name. */
+
+## row signal
+	/* VPNR Standard Cells */
+	/* A signal name, stored in the string variable 'zzs', has just been
+	   read in. */
+	/* In the example, the signals form the
+	   'a2s TGMUfunc4 (inp0,net2,func4)' line are read here.  The
+	   first time through zzs=``inp0''; the second time
+	   zzs=``net2''; the third time zzs=``func4''. */
+
+## row addend
+	/* The code from this section is put at the end of the 'row'
+	   routine.  No data is captured here. */
+
+## siglist addtop
+	/* The 'siglist' routine parses the list of signals internal to
+	   a database cell.  Any declarations needed for this purpose should
+	   be put here.  No data is captured here. */
+
+## siglist head
+	/* The word 'sigllist' has just been read in.  Initializations for the
+	   data structures involved in signal lists should be put here.
+	   No data is captured here. */
+
+## siglist name
+	/* A signal name has been read in.  It is accessible in variable zzs
+	 */
+
+## siglist tail
+	/* The ';' has been read in, signifying the end of the signal
+	   list.  No data is captured here.  */
+
+## siglist addend
+	/* Any code that should be executed in all the above 'siglist'
+	   situations should be put here. */
+
+## translist addtop
+	/* The 'translist' routine parses the list of transistors contained
+	   in a database cell.  Any declarations needed for this purpose should
+	   be put here.  No data is captured here. */
+
+## translist head
+	/* The word 'transllist' has just been read in.  Initializations for the
+	   data structures involved in transistor lists should be put here.
+	   No data is captured here. */
+
+## translist name
+	/* Transistor name has been read in.  The data structure used
+	   to store this transistor should be selected/allocated and
+	   initialized. The transistor name is in variable zzs. */
+
+## translist gate
+	/* Signal connected to the transistor gate has been read in.
+	   The signal name is in variable zzs. */
+
+## translist drain
+	/* Signal connected to the transistor drain has been read in.
+	   The signal name is in variable zzs. */
+
+## translist source
+	/* Signal connected to the transistor source has been read in.
+	   The signal name is in variable zzs. */
+
+## translist tail
+	/* The ';' has been read in, signifying the end of the transistor
+	   list.  No data is captured here.  */
+
+## translist addend
+	/* Any code that should be executed in all the above 'translist'
+	   situations should be put here. */
+
+## iolist addtop
+	/* The 'iolist' routine parses the list of global IO signals which
+	   will be put on the perimeter of the domain.  Any declarations
+	   needed for this purpose should be put here.  No data is
+	   captured here. */
+
+## iolist head
+	/* VPNR Standard Cells */
+	/* The word 'iolist' has just been read in.  Initializations for the
+	   data structures involved in the IO signals should be put here.
+	   No data is captured here. */
+
+## iolist tail
+	/* The ';' has been read in, signifying the end of the io signal
+	   list.  No data is captured here.  */
+
+## iolist signal
+	/* VPNR Standard Cells */
+	/* A signal name, stored in the string variable 'zzs', has just been
+	   read in. */
+	/* In the example, the signal name from the 'inp7 T:(36,36)' line is
+	   read here, so zzs=``inp7''. */
+
+## iolist top
+	/* The last signal read in is allowed to be placed anywhere on the
+	   top of the design.  No data is captured here; the signal referred
+	   to here must have been saved in the 'iolist signal' section. */
+
+## iolist bottom
+	/* The last signal read in is allowed to be placed anywhere on the
+	   bottom of the design.  No data is captured here; the signal referred
+	   to here must have been saved in the 'iolist signal' section. */
+
+## iolist left
+	/* The last signal read in is allowed to be placed anywhere on the
+	   left side of the design.  No data is captured here; the signal
+	   referred to here must have been saved in the 'iolist signal'
+	   section. */
+
+## iolist right
+	/* The last signal read in is allowed to be placed anywhere on the
+	   right side of the design.  No data is captured here; the signal
+	   referred to here must have been saved in the 'iolist signal'
+	   section. */
+
+## iolist xy T
+	/* VPNR Standard Cells */
+	/* The last signal read in is allowed to be placed on the top
+	   of the design at a location indicated by the coordinates of this
+	   point.  The current VPNR convention is for the coordinates here
+	   to represent a pre cent range along the top edge, unless the x-
+	   and y- coordinates are equal.
+	   If they are equal, then the number represents the 'grid' location
+	   for the signal ('grid' location is meant in terms of the 'xgrid'
+	   parameter from the technology section).
+	   The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx' and 'zzy'. */
+	/* In the example, the IO signal's position from the 'inp7 T:(36,36)'
+	   line is read here, so zzx=36, zzy=36. */
+
+## iolist xy B
+	/* VPNR Standard Cells */
+	/* The last signal read in is allowed to be placed on the bottom
+	   of the design at a location indicated by the coordinates of this
+	   point.  The current VPNR convention is for the coordinates here
+	   to represent a pre cent range along the bottom edge.
+	   The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx' and 'zzy'. */
+
+## iolist xy L
+	/* VPNR Standard Cells */
+	/* The last signal read in is allowed to be placed on the left side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The current VPNR convention is for the coordinates here
+	   to represent a pre cent range along the left edge.
+	   The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx' and 'zzy'. */
+
+## iolist xy R
+	/* VPNR Standard Cells */
+	/* The last signal read in is allowed to be placed on the right side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The current VPNR convention is for the coordinates here
+	   to represent a pre cent range along the right edge.
+	   The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx' and 'zzy'. */
+
+## iolist x1x2y T
+	/* The last signal read in is allowed to be placed on the top
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## iolist x1x2y B
+	/* The last signal read in is allowed to be placed on the bottom
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## iolist x1x2y L
+	/* The last signal read in is allowed to be placed on the left side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## iolist x1x2y R
+	/* The last signal read in is allowed to be placed on the right side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2' and 'zzy'. */
+
+## iolist xy1y2 T
+	/* The last signal read in is allowed to be placed on the top
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## iolist xy1y2 B
+	/* The last signal read in is allowed to be placed on the bottom
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## iolist xy1y2 L
+	/* The last signal read in is allowed to be placed on the left side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## iolist xy1y2 R
+	/* The last signal read in is allowed to be placed on the right side
+	   of the design at a location indicated by the coordinates of this
+	   point.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx', 'zzy1' and 'zzy2'. */
+
+## iolist x1x2y1y2 T
+	/* The last signal read in is allowed to be placed on the top
+	   of the design at a location indicated by the coordinates of these
+	   points.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2', 'zzy1' and 'zzy2'. */
+
+## iolist x1x2y1y2 B
+	/* The last signal read in is allowed to be placed on the bottom
+	   of the design at a location indicated by the coordinates of these
+	   points.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2', 'zzy1' and 'zzy2'. */
+
+## iolist x1x2y1y2 L
+	/* The last signal read in is allowed to be placed on the left side
+	   of the design at a location indicated by the coordinates of these
+	   points.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2', 'zzy1' and 'zzy2'. */
+
+## iolist x1x2y1y2 R
+	/* The last signal read in is allowed to be placed on the right side
+	   of the design at a location indicated by the coordinates of these
+	   points.  The signal referred to here must have been saved in the
+	   'iolist signal' section.  The x- and y- coordinates are in the
+	   integer variables 'zzx1', 'zzx2', 'zzy1' and 'zzy2'. */
+
+## iolist addend
+	/* The code from this section is put at the end of the 'iolist'
+	   routine.  No data is captured here. */
+
+## tech addtop
+	/* The 'tech' routine parses the list of technology dependent
+	   parameters, such as wire spacing on each layer.
+	   Any declarations needed for this purpose should be put here.
+	   No data is captured here. */
+
+## tech head
+	/* The word 'technology' has just been read in.  Initializations for
+	   the data structures involved in the technology signals should be
+	   put here.  No data is captured here. */
+
+## tech tail
+	/* The ';' has been read in, signifying the end of the technology
+	   description.  No data is captured here.  */
+
+## tech sep
+	/* The separation of all wires (currently unused).  The value is
+	   stored in the integer variable 'zzn'. */
+
+## tech sep 0
+	/* VPNR Standard Cells */
+	/* The separation of wires on layer '0' (currently used for
+	   polysilicon).  The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'sep 0 : 2;' line is read here, so zzn=2. */
+
+## tech sep 1
+	/* VPNR Standard Cells */
+	/* The separation of wires on layer '0' (currently used for
+	   metal 1).  The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'sep 1 : 3;' line is read here, so zzn=3. */
+
+## tech sep 2
+	/* VPNR Standard Cells */
+	/* The separation of wires on layer '0' (currently used for
+	   metal 2).  The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'sep 2 : 4;' line is read here, so zzn=4. */
+
+## tech sep 3
+	/* The separation of wires on layer '0' (currently unused).
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech wire
+	/* The wire width for all wires.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech wire 0
+	/* VPNR Standard Cells */
+	/* The wire width for the wires on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'wire 0 : 3;' line is read here, so zzn=3. */
+
+## tech wire 1
+	/* VPNR Standard Cells */
+	/* The wire width for the wires on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'wire 1 : 3;' line is read here, so zzn=3. */
+
+## tech wire 2
+	/* VPNR Standard Cells */
+	/* The wire width for the wires on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'wire 2 : 3;' line is read here, so zzn=3. */
+
+## tech wire 3
+	/* The wire width for the wires on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viavia
+	/* The via-to-via separation for any layer.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'viavia : 3;' line is read here, so zzn=3. */
+
+## tech viavia 0
+	/* The via-to-via separation on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viavia 1
+	/* The via-to-via separation on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viavia 2
+	/* The via-to-via separation on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viavia 3
+	/* The via-to-via separation on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viasize
+	/* VPNR Standard Cells */
+	/* The length of a side of a via on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'viasize : 3;' line is read here, so zzn=3. */
+
+## tech viasize 0
+	/* The length of a side of a via on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viasize 1
+	/* The length of a side of a via on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viasize 2
+	/* The length of a side of a via on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viasize 3
+	/* The length of a side of a via on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contcont
+	/* VPNR Standard Cells */
+	/* The contact-to-contact separation on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'contcont : 2;' line is read here, so zzn=2. */
+
+## tech contcont 0
+	/* The contact-to-contact separation on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contcont 1
+	/* The contact-to-contact separation on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contcont 2
+	/* The contact-to-contact separation on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contcont 3
+	/* The contact-to-contact separation on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contsize
+	/* VPNR Standard Cells */
+	/* The length of a side of a contact on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'contsize : 2;' line is read here, so zzn=2. */
+
+## tech contsize 0
+	/* The length of a side of a contact on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contsize 1
+	/* The length of a side of a contact on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contsize 2
+	/* The length of a side of a contact on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contsize 3
+	/* The length of a side of a contact on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contedge
+	/* The separation of a contact from an edge on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contedge 0
+	/* The separation of a contact from an edge on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'contedge 0 : 1;' line is read here, so zzn=2. */
+
+## tech contedge 1
+	/* The separation of a contact from an edge on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'contedge 1 : 1;' line is read here, so zzn=2. */
+
+## tech contedge 2
+	/* The separation of a contact from an edge on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech contedge 3
+	/* The separation of a contact from an edge on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viaedge
+	/* The separation of a via from an edge on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viaedge 0
+	/* The separation of a via from an edge on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viaedge 1
+	/* VPNR Standard Cells */
+	/* The separation of a via from an edge on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'viaedge 1 : 1;' line is read here, so zzn=1. */
+
+## tech viaedge 2
+	/* VPNR Standard Cells */
+	/* The separation of a via from an edge on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'viaedge 2 : 1;' line is read here, so zzn=1. */
+
+## tech viaedge 3
+	/* The separation of a via from an edge on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viacont
+	/* VPNR Standard Cells */
+	/* The via-to-contact separation on any layer.
+	   The value is stored in the integer variable 'zzn'. */
+	/* In the example, the 'viacont : 2;' line is read here, so zzn=2. */
+
+## tech viacont 0
+	/* The via-to-contact separation on layer '0'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viacont 1
+	/* The via-to-contact separation on layer '1'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viacont 2
+	/* The via-to-contact separation on layer '2'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech viacont 3
+	/* The via-to-contact separation on layer '3'.
+	   The value is stored in the integer variable 'zzn'. */
+
+## tech xgrid
+	/* VPNR Standard Cells */
+	/* The separation between grid lines along the
+	   x-axis is stored in the integer variable 'zzn'.   This is
+	   essentially the viavia (or contcont) separation plus the
+	   wire width plus twice the viaedge (or contedge) separation. */
+	/* In the example, the 'xgrid : 8;' line is read here, so zzn=8. */
+
+## tech ygrid
+	/* VPNR Standard Cells */
+	/* The separation between grid lines along the
+	   y-axis is stored in the integer variable 'zzn'.   This is
+	   essentially the viavia (or contcont) separation plus the
+	   wire width plus twice the viaedge (or contedge) separation. */
+	/* In the example, the 'ygrid : 8;' line is read here, so zzn=8. */
+
+## tech offset
+	/* VPNR Standard Cells */
+	/* The offset of the first terminal from the edge of the cells
+   	modulo the space between wires.  This is need primarily for
+   	the standard cells methodology.  The value in the integer
+   	variable 'zzn'. */
+	/* In the example, the 'offset : 2;' line is read here, so zzn=2. */
+
+## tech addend
+	/* The code from this section is put at the end of the 'tech'
+	   routine.  No data is captured here. */
+
+## channel
+	/* VPNR Standard Cells */
+	/* The word 'channel' and the name of the channel, stored in the
+	   string variable 'zzs', have just been read in.  This is where
+	   code should go for opening a file which has channel information
+	   stored in it (if necessary). */
+	/* In the example, the 'channel ch.1' line is read here,
+	   so zzs=``ch.1''. */
+
+## attribute addtop
+	/* The 'attribute' routine parses the list of attributes for
+	   a given object.  Any declarations needed for this purpose should be
+	   put here.  No data is captured here. */
+
+## attribute nets integer
+	/* An integer attribute for a net has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+
+## attribute nets quotestring
+	/* An quoted string attribute for a net has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute nets decimal
+	/* An floating point attribute for a net has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute nets string
+	/* An integer attribute for a net has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute nets point
+	/* An integer attribute for a net has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates are
+	   in the two integer variables 'zzx' and 'zzy'. */
+
+## attribute row integer
+	/* An integer attribute for a row has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+
+## attribute row string
+	/* An integer attribute for a row has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute row quotestring
+	/* An quoted string attribute for a row has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute row decimal
+	/* An floating point attribute for a row has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute row point
+	/* An integer attribute for a row has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates
+	   are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute gate integer
+	/* An integer attribute for a gate has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+
+## attribute gate string
+	/* An integer attribute for a gate has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute gate quotestring
+	/* An quoted string attribute for a gate has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute gate decimal
+	/* An floating point attribute for a gate has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute gate point
+	/* An integer attribute for a gate has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates
+	   are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute siglist integer
+	/* An integer attribute for a in-cell signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+
+## attribute siglist string
+	/* An integer attribute for a in-cell signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute siglist quotestring
+	/* An quoted string attribute for a in-cell signal has just been read
+	   in. The attribute is in the string variable 'zzw' and the value is in
+	   the string variable 'zzs'. */
+
+## attribute siglist decimal
+	/* An floating point attribute for a in-cell signal has just been read
+	   in. The attribute is in the string variable 'zzw' and the value is in
+	   the double variable 'zzd'. */
+
+## attribute siglist point
+	/* An point attribute for a in-cell signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute translist integer
+	/* An integer attribute for a transistor has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+
+## attribute translist string
+	/* An integer attribute for a transistor has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute translist quotestring
+	/* An quoted string attribute for a transistor has just been read in.
+	   The attribute is in the string variable 'zzw' and the value is in
+	   the string variable 'zzs'. */
+
+## attribute translist decimal
+	/* An floating point attribute for a transistor has just been read in.
+	   The attribute is in the string variable 'zzw' and the value is in
+	   the double variable 'zzd'. */
+
+## attribute translist point
+	/* An point attribute for a transistor has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute terminal integer
+	/* An integer attribute for a terminal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+
+## attribute terminal string
+	/* An integer attribute for a terminal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute terminal quotestring
+	/* An quoted string attribute for a terminal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute terminal decimal
+	/* An floating point attribute for a terminal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute terminal point
+	/* An integer attribute for a terminal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute iolist integer
+	/* An integer attribute for an IO signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+
+## attribute iolist string
+	/* An integer attribute for an IO signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute iolist quotestring
+	/* An quoted string attribute for a iolist has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute iolist decimal
+	/* An floating point attribute for a iolist has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute iolist point
+	/* An integer attribute for an IO signal has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute via integer
+	/* An integer attribute for a via has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+	/* In the example, the attributes from the
+	   '{ (26,32) (30,36)} layer1=1 layer2=2' line are read here.  The
+	   first time through 'zzw=``layer1'' and zzn=1; the second time
+	   zzw=\*(layer2'' and zzn=2. */
+
+## attribute via string
+	/* An integer attribute for a via has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute via quotestring
+	/* An quoted string attribute for a via has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute via decimal
+	/* An floating point attribute for a via has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute via point
+	/* An integer attribute for a via has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates
+	   are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute wire integer
+	/* An integer attribute for a wire has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+	/* In the example, the attribute from the '{ (50,0) (53,19)} layer=2'
+	   line is read here, so zzw=``layer'' and zzx=2. */
+
+## attribute wire string
+	/* An integer attribute for a wire has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute wire quotestring
+	/* An quoted string attribute for a wire has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute wire decimal
+	/* An floating point attribute for a wire has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute wire point
+	/* An integer attribute for a wire has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates
+	   are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute channel integer
+	/* An integer attribute for a channel has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+	/* In the example, the attribute from the
+	   'channel begin ch.1 density=9;'
+	   line is read here, so zzw=``density'' and zzn=9. */
+
+## attribute channel string
+	/* An integer attribute for a channel has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute channel quotestring
+	/* An quoted string attribute for a channel has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute channel decimal
+	/* An floating point attribute for a channel has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute channel point
+	/* An integer attribute for a channel has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute domain integer
+	/* An integer attribute for a domain has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+	/* In the example, the attribute from the 'domain begin MAIN swap=0;'
+	   line is read here, so zzw=``swap'' and zzn=0. */
+
+## attribute domain string
+	/* An integer attribute for a domain has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute domain quotestring
+	/* An quoted string attribute for a domain has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute domain decimal
+	/* An floating point attribute for a domain has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute domain point
+	/* An integer attribute for a domain has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute cell integer
+	/* An integer attribute for a cell has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the integer
+	   variable 'zzn'. */
+
+## attribute cell string
+	/* An integer attribute for a cell has just been read in.  The attribute
+	   is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute cell quotestring
+	/* An quoted string attribute for a cell has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute cell decimal
+	/* An floating point attribute for a cell has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute cell point
+	/* An integer attribute for a cell has just been read in.  The attribute
+	   is in the string variable 'zzw' and the x- and y- coordinates
+	   are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute tech integer
+	/* An integer attribute for a technology has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   integer variable 'zzn'. */
+
+## attribute tech string
+	/* An integer attribute for a technology has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the
+	   string variable 'zzs'. */
+
+## attribute tech quotestring
+	/* An quoted string attribute for a technology has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the string
+	   variable 'zzs'. */
+
+## attribute tech decimal
+	/* An floating point attribute for a technology has just been read in.  The
+	   attribute is in the string variable 'zzw' and the value is in the double
+	   variable 'zzd'. */
+
+## attribute tech point
+	/* An integer attribute for a technology has just been read in.  The
+	   attribute is in the string variable 'zzw' and the x- and y-
+	   coordinates are in the integer variables 'zzx' and 'zzy'. */
+
+## attribute addend
+	/* The code from this section is put at the end of the 'attributes'
+	   routine.  No data is captured here. */
+
+## end addtop
+	/* VPNR Standard Cells */
+	/* Code that is here is inserted at the top of the 'end' routine.
+	   Declarations for local variables go here.  No data is captured
+	   here. */
+
+## end cell
+	/* VPNR Standard Cells */
+	/* The words 'end cell' and the name of the cell have been read in.
+	   The name of the cell is in the 'zzs' string variable.
+	   Final wrapup code dealing with cell structures should
+	   be placed here. */
+	/* In the example, the 'cell end aoi2211s;' line is read here,
+	   so zzs=``aoi2211s''. */
+
+## end domain
+	/* VPNR Standard Cells */
+	/* The words 'end domain' and the name of the domain have been read
+	   in.  The name of the domain is in the 'zzs' string variable.
+	   Final wrapup code for dealing with domain structures
+	   should be placed here. */
+	/* In the example, the 'domain end MAIN' line is read here,
+	   so zzs=``MAIN''. */
+
+## end channel
+	/* VPNR Standard Cells */
+	/* The words 'end channel' and the name of the channel have been read
+	   in.  The name of the channel is in the 'zzs' string variable.
+	   Final wrapup code for dealing with channel structures
+	   should be placed here. */
+	/* In the example, the 'channel end ch.2 density=9;' line is
+	   read here, so zzs=``ch.2''.  'density=9' is an integer
+	   attribute. */
+
+## end tech
+	/* The words 'end tech' have been read in.  The name of the technology
+	   is in the 'zzs' string variable.
+	   Final wrapup code for dealing with technology structures
+	   should be placed here. */
+	/* In the example, the 'tech end magic;' line is read here,
+	   so zzs=``magic''. */
+
+## end addend
+	/* The code from this section is put at the end of the 'end'
+	   routine.  Anything which is to be done to all three types of
+	   structures should be put here to avoid duplicating code.
+	   No data is captured here. */
+
+## addend
+	/* VPNR Standard Cells */
+	/* Code that is put here is appended to the end of the 'load.zz.c'
+	   file.  This is where user-supplied subroutines pertaining only
+	   to parsing should be put.  No data is captured here. */
+

@@ -1,0 +1,6 @@
+This directory contains a simple example of using 'load' to read some info
+from the cell database.  The code is meant to be readable, with no emphasis
+whatsoever on the optimality, diagnostics, foolproofness, and such.
+
+The resulting program will read transistor lists from a database and will
+print it out in a neat readable form.

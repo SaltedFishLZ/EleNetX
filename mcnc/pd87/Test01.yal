@@ -1,0 +1,80 @@
+/* File name   Test01.yal        */
+/* Start of cell library output  */
+MODULE T000003 ;
+	TYPE STANDARD ;
+	WIDTH   40.000 ;
+	HEIGHT 170.500 ;
+IOLIST ;
+	/* <signalname>	<term_type>	[<side>	[<position> [<width> <mask>]]] */
+		I001	 I		BOTTOM	  10.000    2.500    POLY   ;
+		O002	 O		BOTTOM	  30.000    2.500    POLY   ;
+		I001	 I		TOP   	  10.000    2.500    POLY   ;
+		O002	 O		TOP   	  30.000    2.500    POLY   ;
+ENDIOLIST ;
+ENDMODULE ;
+MODULE T000005 ;
+	TYPE PAD ;
+	WIDTH  840.000 ;
+	HEIGHT 1166.000 ;
+IOLIST ;
+	/* <signalname>	<term_type>	[<side>	[<position> [<width> <mask>]]] */
+		I001	 I		TOP   	  47.500    2.500    POLY   ;
+		O002	PO		BOTTOM	 495.000    2.500    METAL1 ;
+ENDIOLIST ;
+ENDMODULE ;
+MODULE T000007 ;
+	TYPE PAD ;
+	WIDTH  863.000 ;
+	HEIGHT 1166.000 ;
+IOLIST ;
+	/* <signalname>	<term_type>	[<side>	[<position> [<width> <mask>]]] */
+		I001	PI		BOTTOM	 518.000    2.500    METAL1 ;
+		O002	 O		TOP   	 192.500    2.500    POLY   ;
+ENDIOLIST ;
+ENDMODULE ;
+MODULE T000008 ;
+	TYPE STANDARD ;
+	WIDTH   60.000 ;
+	HEIGHT 170.500 ;
+IOLIST ;
+	/* <signalname>	<term_type>	[<side>	[<position> [<width> <mask>]]] */
+		I001	 I		BOTTOM	  10.000    2.500    POLY   ;
+		I002	 I		BOTTOM	  30.000    2.500    POLY   ;
+		O003	 O		BOTTOM	  50.000    2.500    POLY   ;
+		I001	 I		TOP   	  10.000    2.500    POLY   ;
+		I002	 I		TOP   	  30.000    2.500    POLY   ;
+		O003	 O		TOP   	  50.000    2.500    POLY   ;
+ENDIOLIST ;
+ENDMODULE ;
+/* This is the feedthrough*************************************************** */
+MODULE T000000 ;
+	TYPE FEEDTHROUGH ;
+	WIDTH   20.000 ;
+	HEIGHT 170.500 ;
+IOLIST ;
+	/* <signalname>	<term_type>	[<side>	[<position> [<width> <mask>]]] */
+		F001	 F		BOTTOM	  10.000    2.500    POLY   ;
+		F001	 F		TOP   	  10.000    2.500    POLY   ;
+ENDIOLIST ;
+ENDMODULE ;
+/* Start of chip************************************************************* */
+MODULE DUNLOP01 ;
+	TYPE PARENT ;
+IOLIST ;
+	S000012 I  RIGHT  ;
+	S000014 I  TOP    ;
+	S000010 O  LEFT   ;
+ENDIOLIST ;
+NETWORK ;
+	M000001 T000007 S000012 S000006 ;
+	M000002 T000008 S000013 S000004 S000003 ;
+	M000003 T000003 S000001 S000011 ;
+	M000004 T000005 S000005 S000010 ;
+	M000005 T000003 S000007 S000001 ;
+	M000006 T000007 S000014 S000004 ;
+	M000007 T000003 S000011 S000005 ;
+	M000008 T000003 S000002 S000007 ;
+	M000009 T000008 S000005 S000006 S000013 ;
+	M000010 T000003 S000003 S000002 ;
+ENDNETWORK ;
+ENDMODULE ;

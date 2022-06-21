@@ -1,0 +1,16 @@
+This directory contains a translator from YAL to VPNR.  The usage is
+
+	yal2vpnr < yal_file > vpnr_file scaling_factor
+
+All dimensions in the yal_file are multplied by the scaling factor.
+The default scaling factor is 1000; this will produce vpnr files with
+all dimensions specified in nanometers.
+
+The parser will read both the 1987 and 1988 variants of YAL.
+
+There are some comments in the source code.  If anything is not clear,
+please send me mail or call.
+
+Kris Kozminski
+kk@mcnc
+(919)-248-1969

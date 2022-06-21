@@ -1,0 +1,47 @@
+This directory contains source to the vpnr->yal/edifs/timberwolf
+translator.  It is copyrighted by MCNC, and its use is granted for the
+exclusive purpose of translating VPNR benchmark data into
+YAL/EDIF/TIMBERWOLF format.  The timberwolf data conforms to the
+TimberwolfSC 4.2 requirements.
+
+The program has many options that were necessary to accomodate various
+flavors of YAL for performing consistency checks between YAL and VPNR
+versions of the data.  Please use it as specified in the scripts
+Xlate2yal, Xlate2twolf, and Xlate2edif.
+
+This code was verified to work correctly on the enclosed data on a
+variety of machines.  Please report any bugs to kk@mcnc.org.
+
+Note1: on some machines (e.g. Cray) you may need to comment out the
+'#define MCNC' lines in 'main.c' and 'error.c' in order for the program
+to compile, as well as provide 'index' and 'rindex' functions (they
+return pointers to the respectively first and last occurrence of a
+character in a string or NULL if the chaacter does not occur there).
+
+Note2: Source files may appear messy if viewed with tab equal to 8 spaces.
+Use 3 spaces per tab instead ('vi' will do so automatically).
+
+Kris Kozminski
+(919)-248-1969
+
+Comments on the edif translation:
+---------------------------------
+The translator produces output in what I think is EDIF 2 0 0.  Unfortunately,
+I had no way of verifying the correctness of the translation, as at MCNC
+we do not have any tools that would read EDIF.  As far as I can tell by
+visual inspection, the syntax seems to be correct. The source file '2edif.c'
+contains lots of comments that should make it easy to fix any bugs.  Please
+let me know of any fixes you made.
+
+I had to resort to the 'userData' construct in EDIF in three situations where
+EDIF seems not to provide an appropriate construct:
+
+The allowed voltage drop and required current capacity are printed as:
+     (userData VOLTAGE <value>)
+     (userData CURRENT <value>)
+  The values are milivolts and microamps.
+
+The allowed intervals for pad positioning on the chip boundary are printed as: 
+     (userData interval <side> <from> <to>)
+  where <side> is TOP, BOTTOM, LEFT, or RIGHT, and <from> and <to> determine
+  the admissible interval (expresed in percents of the chip width/height).

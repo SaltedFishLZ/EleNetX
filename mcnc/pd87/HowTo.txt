@@ -1,0 +1,184 @@
+
+PHYSICAL DESIGN WORKSHOP
+Marriott's Hilton Head Resort
+Hilton Head, South Carolina,  April 27 - 29, 1987
+
+
+How To Obtain Benchmark Data
+
+1.0 Introduction
+
+All of the primary benchmark data is contained on the IBM
+PC-compatible floppy.  If you cannot read the floppy or want
+all of the data, read on.
+
+The full set of benchmark data is available in PARCVAX at
+Xerox PARC in the directory /user/ftp/pdworkshop.
+PARCVAX is running BSD 4.3 UNIX. You may obtain the
+information through ther ARPA Net FTP (File Transfer
+Protocol) or by calling PARCVAX and retrieving the
+information.  If both of these methods are unsatisfactory,
+please call, write or send an electronic message to Ken Roberts
+or Bryan Preas.  We will assist you in obtaining the
+benchmark data by electronic mail or 9-track tape.
+
+**** WARNING ****
+
+Do NOT use the PARCVAX for any purpose other than
+retrieving the benchmark information for the Physical Design
+Workshop from the directory /user/ftp/pdworkshop/.  Xerox
+has been kind enough to allow you to use PARCVAX for this
+purpose.  Don't abuse the privilege. ANY unauthorized use of
+this machine will result in the access being denied and the
+data removed from the machine!
+
+2.0 ARPA Net FTP
+
+If you have access to an ARPA Net connection you may
+establish an FTP connection to host parcvax.Xerox.COM; use
+the account pdworksh and password bpreas.  You should
+retrieve the file in the directory /user/ftp/psworkshop. 
+
+3.0 Telephone Call to PARCVAX
+
+You may dial the PARCVAX triple modem (# (415) 858-2605,
+7 data bits, even parity, 1 stop bit) and retrieve the
+information.  Instructions for ASCII transfer (if you can get a
+reliable phone line) Kermit, and XModem transfer are given
+below.
+
+3.1 XModem
+
+Disable Cyclic Redundancy Check on your Xmodem. I cannot
+get the batch transfer protocol to work on this port.  The
+typescript below demonstrates the use of single file transfers.
+
+^D
+4.3 BSD UNIX (parcvax.xerox.com) (ttyd1)
+
+login: pdworksh
+Password: bpreas
+Last login: Sun Mar  8 17:07:04 on ttyd1
+4.3 BSD UNIX #10: Fri Oct 24 00:21:30 PDT 1986
+
+  Report bugs to: <VaxcSystem?.pa@Xerox.COM>
+
+Status:
+  Drive 2 has been replaced, and files have been restored
+    from backups.
+  Folks with files under /user/csl/ or /usr/spool/ should
+    check to see that everything has been put back
+    successfully.
+
+parcvax.xerox.com> cd /user/ftp/pdworkshop
+parcvax.xerox.com> ls *
+cover.txt   format.txt  index.txt   rules.txt
+parcvax.xerox.com>/usr/local/xmodem -st index.txt
+
+XMODEM Version 1.1 -- UNIX-CP/M Remote File Transfer Facility
+XMODEM:  LOG File '/user/ftp/pdworkshop/xmodem.log' is Open
+XMODEM:  File index.txt Ready to SEND
+Estimated File Size 2K, 15 Records, 1893 Bytes
+
+Control-X to cancel.
+
+(return to your machine an issue command to retrieve index.txt)
+
+(retrieve the other files in the same way)
+
+parcvax.xerox.com> logout
+
+
+3.2 Kermit Protocol
+
+In order to get Kermit to work on this port you must use 8
+data bits, no parity an filter out the parity bit for text transfer
+(using Crosstalk INfilter, for example).  A script of the
+terminal session is shown below.
+
+^D
+4.3 BSD UNIX (parcvax.xerox.com) (ttyd2)
+
+login: pdworksh
+Password:bpreas
+Last login: Sun Mar  8 19:55:50 on ttyd2
+4.3 BSD UNIX #10: Fri Oct 24 00:21:30 PDT 1986
+
+Report bugs to: <VaxcSystem^.pa@Xerox.COM>
+    
+Status:
+  Drive 2 has been replaced, and files have been restored
+    from backups.
+  Folks with files under /user/csl/ or /usr/spool/ should
+    check to see that everything has been put back
+    successfully.
+
+parcvax.xerox.com> cd /user/ftp/pdworkshop/
+parcvax.xerox.com> ls *
+cover.txt   format.txt  index.txt   rules.txt
+parcvax.xerox.com> kermit
+C-Kermit, 4C(057) 31 Jul 85, 4.2 BSD
+Type ? for help
+
+C-Kermit>server
+
+C-Kermit server starting.  Return to your local machine by
+typing its escape sequence for closing the connection, and
+issue further commands from there.  To shut down the C-
+Kermit server, issue the FINISH or BYE command and then
+reconnect.
+# N3
+
+(return control to your machine and get *.*)
+(issue finish to terminate the server on PARCVAX)
+(return control to PARCVAX and logout)
+
+C-Kermit server done
+C-Kermit>quit
+parcvax.xerox.com> logout
+
+
+3.3 ASCII Capture
+
+You may use unchecked ASCII to retrieve the benchmark
+data.  This method is recommended only to obtain the initial
+information necessary to get you started.  A typescript
+follows; Parentheses set off my comments to you.
+
+^D
+4.3 BSD UNIX (parcvax.xerox.com) (ttyd2)
+
+login: pdworksh
+Password: bpreas
+Last login: Sun Mar  8 19:42:58 on ttyd2
+4.3 BSD UNIX #10: Fri Oct 24 00:21:30 PDT 1986
+
+  Report bugs to: <VaxcSystem?.pa@Xerox.COM>
+    
+  Status:
+    Drive 2 has been replaced, and files have been restored from
+      backups.
+    Folks with files under /user/csl/ or /usr/spool/ should check
+    to see that everything has been put back successfully.
+
+parcvax.xerox.com> cd /user/ftp/pdworkshop
+parcvax.xerox.com> ls *
+cover.txt   format.txt  index.txt   rules.txt 
+parcvax.xerox.com> cat index.txt
+
+(capture the remaining files in the directory)
+
+parcvax.xerox.com> logout
+
+
+4.0 9-Track Tape
+
+We are prepared to send you a 9-track tape.  Call or send a
+message with your requirements.  You are requested to return
+the tape.
+
+5.0 Electronic Mail
+
+We are prepared to send electronic mail but the files will
+have to divided and sent over time.  Send your electronic
+mail address.

@@ -1,0 +1,82 @@
+
+            International Workshop on Placement and Routing
+
+              Research Triangle Park, North Carolina, USA
+                            May 10-13, 1988
+
+   Sponsored by the Microelectronics Center of North Carolina (MCNC)
+       In Cooperation with the IEEE Circuits and Systems Society
+                    and the CANDE Committee of CAS
+
+  ___________________________________________________________________
+
+  Dear Colleague:
+
+  Here are the benchmark examples for  placement  and  routing  tools
+  that will be discussed during the forthcoming workshop on placement
+  and routing.
+
+  At the Physical Design Workshop on Placement and Floorplanning, ex-
+  amples  were  available  for  gate array and standard cell designs.
+  This year we added examples for building block style layouts.   Do-
+  cumentation  describing  the benchmarks is appended to this letter.
+  The documentation also suggests guidelines for  presenting  results
+  based on a consensus of the committee members.
+
+  Please respond with  any  comments  or  suggestions  regarding  the
+  benchmarks or documentation to the following address:
+
+  Malgorzata Marek-Sadowska
+  Electronics Research Laboratory,
+  University of California,
+  Berkeley, Ca 94720
+  email:  mms@esvax.Berkeley.EDU
+
+  The benchmark data can be obtained from MCNC in two ways.
+
+  If you have access to an Arpanet connection you  may  establish  an
+  FTP connection to host "mcnc.mcnc.org" and copy the files using the
+  mget command.  The login name is "anonymous" and  the  password  is
+  "guest".   The  files  are  in  the "/pub/prworkshop/pr_bench_v2.0"
+  directory.
+
+  Check the FTP man page  for  details  (assuming  you  have  a  UNIX
+  machine).   The  command sequence to get all of the benchmarks (as-
+  suming that you have set the default directory to  where  you  want
+  the benchmarks) is:
+
+           ftp mcnc.mcnc.org
+           anonymous     (in response to the "Name" prompt)
+           guest                 (in response to the "password" prompt)
+           cd pub/prworkshop/pr_bench_v2.0/DATA
+           mget *
+           cd ../DOCUMENTATION
+           mget *
+           cd ../PARSER
+           mget *
+           bye
+
+  We are prepared to send you a 9-track tape in either TAR format  or
+  VMS  format.  Contact the benchmark Archival Secretary (Tom Krakow)
+  by phone (919 248-1959) or email  (krakow@mcnc.org)  and  tell  him
+  your  requirements.  ACM SIGDA is providing funds to cover the cost
+  of tapes and shipping, so there is no cost to you for this service.
+
+  Thank you for your interest in the benchmarks.  You may  choose  to
+  present  your  results  either  as a highlight of your presentation
+  during any of the sessions at the workshop or during a special ses-
+  sion  that  will  introduce  the benchmark posters.  If you plan to
+  present a poster with benchmark results, please submit your  propo-
+  sal directly to the address above no later than April 30.
+
+  We hope to see you at the International Workshop on  Placement  and
+  Routing in North Carolina this spring.
+
+  Best regards,
+
+  Malgorzata Marek-Sadowska
+  Benchmark Chairperson
+
+
+
+
