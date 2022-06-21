@@ -46,7 +46,6 @@ FILE *InputFile;
 
 GetModule(TInputFile, Name, ModType, Dimensions, IOListHead, 
 	  NetworkListHead, PlacementListHead, CriticalNetListHead)
-
 FILE *TInputFile;   
 NameType Name;
 ModuleType *ModType;
@@ -55,7 +54,6 @@ IOList **IOListHead;
 NetworkList **NetworkListHead;
 PlacementList **PlacementListHead;
 CriticalNetList **CriticalNetListHead;
-
 {
 
     InputFile = TInputFile;
@@ -260,7 +258,6 @@ IOList *NewIOPin;
 
 GetIOList(IOListHead) 
 IOList **IOListHead;
-
 {
     char IOField[100];
     Boolean EndDetected;
@@ -662,7 +659,6 @@ int fred;
 
 char *GetMemory(NumberOfBytes)
 int NumberOfBytes;
-
 {
     return(malloc(NumberOfBytes));
 }
@@ -680,7 +676,6 @@ char *MemPointer;
 Error(String,  ErrorType)
 char *String;
 int ErrorType;
-
 {
     if (ErrorType == WARNING) fprintf(stderr,"Warning: ");
     else  fprintf(stderr,"Fatal Error: ");
@@ -758,7 +753,6 @@ char *Text;
 
 ScanField(Text)
 char *Text;
-
 {
     char NextChar;
     char *TextP;
@@ -803,7 +797,6 @@ char *Text;
 
 Number ConvertToNumber(Text)
 char *Text;
-
 {
     Number ReturnValue;
     int ErrFlag;
@@ -819,7 +812,6 @@ char *Text;
    field if it wasn't already encountered */
 
 GetLineTerminator()
-
 {
     char TermField[100];
 
@@ -842,7 +834,6 @@ GetLineTerminator()
 
 strequal(s1,s2)
 char *s1,*s2;
-
 {
     if (strcmp(s1,s2) == 0 ) return (true);
 
