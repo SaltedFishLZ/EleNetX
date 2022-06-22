@@ -138,22 +138,29 @@ end:
 
 int main(int argc, char const *argv[])
 {
-    if (argc < 3) {
-        printf("Usage: yal2json <input>.yal <output>.json!\n");
+    if (argc < 2) {
+        fprintf(stderr, "Usage: yal2json <input> [<output>]!\n");
         return -1;
     }
 
     /* Open input and output files */
-    FILE *InputFile, *OutputFile;
+    FILE *InputFile;
     InputFile = fopen(argv[1], "r");
-    OutputFile = fopen(argv[2], "w");
+    
     if (InputFile == NULL) {
-        printf("Cannot open file %s\n", argv[1]);
+        fprintf(stderr, "Cannot open file %s\n", argv[1]);
         return -1;
     }
-    if (OutputFile == NULL) {
-        printf("Cannot open file %s\n", argv[2]);
-        return -1;
+    FILE *OutputFile;
+    if (argc == 3) {
+        OutputFile = fopen(argv[2], "w");
+        if (OutputFile == NULL) {
+            fprintf(stderr, "Cannot open file %s\n", argv[2]);
+            return -1;
+        }
+    }
+    else {
+        OutputFile = stdout;
     }
 
     /* JSON list wrapper */
@@ -183,16 +190,19 @@ int main(int argc, char const *argv[])
             fprintf(OutputFile, "%s\n\n", json_str);
         }
     }
-    /* Note: there is a ENDFILE module read by GetModule */
-    printf("%d modules parsed\n", ModuleNumber - ModuleInitiaID - 1);
-
-
     /* JSON list wrapper */
     fprintf(OutputFile, "]\n");
 
+    /* flush output to file handle */
+    fflush(OutputFile);
 
     /* close input and output files */
-    fclose(InputFile); fclose(OutputFile);
+    fclose(InputFile);
+    if (OutputFile != stdout) fclose(OutputFile);
+
+    /* Summary report */
+    /* Note: there is a ENDFILE module read by GetModule */
+    fprintf(stderr, "%d modules parsed\n", ModuleNumber - ModuleInitiaID - 1);
 
     return 0;
 }

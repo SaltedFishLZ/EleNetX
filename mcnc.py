@@ -118,7 +118,20 @@ PD91_TECHNOLOGIES = {
     }
 }
 
-def pd91_yal2json(base_dir:str):
+def yal_to_json_str(src_yal_path:str) -> str:
+    """Convert a YAL file to JSON string
+    :param src_yal_path: path to the source YAL file
+    :return: a JSON string obtained by yal2json
+    """
+    YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
+    result = subprocess.run([YAL2JSON_TRANSLATOR_PATH, src_yal_path],
+                            capture_output=True, text=True)
+    # TODO: error handling
+    return result.stdout
+
+def pd91_yal_to_json_file(base_dir:str):
+    """Convert all PD91 benchmarks from YAL files into JSON files
+    """
     YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
     # translate PD91 benchmark YAL files
     for category in PD91_BENCHMARKS:
@@ -219,34 +232,41 @@ def parse_yal_file(modules:list) -> dict:
 
 
 if __name__ == "__main__":
-    # pd91_yal2json(base_dir=PD91_BASE_DIR)
+    # pd91_yal_to_json_file(base_dir=PD91_BASE_DIR)
     
     for category in PD91_BENCHMARKS:
         for benchmark in PD91_BENCHMARKS[category]:
             if "yal" in PD91_BENCHMARKS[category][benchmark]["format"]:
                 print("benchmark: ", benchmark)
+                src_yal_path = os.path.join(PD91_BASE_DIR, category,
+                                            benchmark + ".yal")
                 json_path = os.path.join(PD91_BASE_DIR, category,
                                          benchmark + ".json")
-                with open(json_path, "r") as f:
-                    modules = json.loads(f.read())
-                    results = parse_yal_file(modules)
+                
+                json_str = yal_to_json_str(src_yal_path)
 
-                    if benchmark == "fan":
-                        G = nx.Graph()
+                modules = json.loads(json_str)
+                results = parse_yal_file(modules)
 
-                        nodes = results["vertices"].keys()
-                        G.add_nodes_from(nodes)
-                        # print(G.nodes())
+                if benchmark == "struct":
+                    # use OrderedGraph to make plot reproduciable
+                    G = nx.OrderedGraph()
 
-                        hyperedges = results["hyperedges"]
-                        print(hyperedges)
-                        hyperedges = hyperedges.values()
-                        edges = hyperedges2edges(hyperedges)
-                        for edge in edges:
-                            G.add_edge(edge["src"], edge["dst"], weight=edge["weight"])
-                        
-                        print(G.edges())
+                    nodes = results["vertices"].keys()
+                    G.add_nodes_from(nodes)
+                    # print(G.nodes())
 
-                        fig, ax = plt.subplots()
-                        nx.draw(G, with_labels=True)
-                        plt.show()
+                    hyperedges = results["hyperedges"]
+                    # print(hyperedges)
+                    hyperedges = hyperedges.values()
+                    edges = hyperedges2edges(hyperedges)
+                    for edge in edges:
+                        G.add_edge(edge["src"], edge["dst"], weight=edge["weight"])
+                    
+                    # print(G.edges())
+
+                    fig, ax = plt.subplots()
+                    # make node layout deterministic
+                    pos = nx.spectral_layout(G)
+                    nx.draw(G, pos=pos, with_labels=True)
+                    plt.show()
