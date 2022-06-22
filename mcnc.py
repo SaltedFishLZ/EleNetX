@@ -2,6 +2,16 @@
 import os
 import json
 import subprocess
+try:
+    from collections.abc import OrderedDict
+except ImportError:
+    from collections import OrderedDict
+
+import networkx as nx
+import matplotlib.pyplot as plt 
+
+from hypergraph import hyperedges2edges
+
 
 
 PD91_BASE_DIR = os.path.join("mcnc", "pd91", "bench")
@@ -108,9 +118,9 @@ PD91_TECHNOLOGIES = {
     }
 }
 
-def pd91_yal2json(base_dir):
+def pd91_yal2json(base_dir:str):
     YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
-    # translate benchmark YAL files
+    # translate PD91 benchmark YAL files
     for category in PD91_BENCHMARKS:
         for benchmark in PD91_BENCHMARKS[category]:
             if "yal" in PD91_BENCHMARKS[category][benchmark]["format"]:
@@ -127,5 +137,116 @@ def pd91_yal2json(base_dir):
                     dst_json_path
                 ])
 
+def parent_module_to_netlist(module:dict) -> (OrderedDict, OrderedDict):
+    """Extract netlist in a hyper-graph form from the top module dict
+    :param module: input top-level flattened design
+    :return: (vertices, hyperedges)
+    vertices is an OrderedDict of instances, key=name, value=attributes
+    hyperedges is OrderedDict of connections, key=name, value=[instance names]
+    """
+    # input module should be a parent/top module
+    assert "ModType" in module, TypeError()
+    assert "Network" in module, TypeError()
+    assert (module["ModType"] == "PARENT"), TypeError()
+    
+    instances = OrderedDict()
+    netlist = OrderedDict()
+
+    # (1) extract netlist connection information
+    # as well as instance type (which module)
+    for instance in module["Network"]:
+        instance_name = instance["instancename"]
+        module_name = instance["modulename"]
+        # insert instance with attributes
+        assert instance_name not in instances
+        instances[instance_name] = {
+            "modulename" : module_name,
+            # TODO: other attributes
+        }
+        # insert signals or update signals with connected instances 
+        for signal in instance["signalnames"]:
+            if (signal not in netlist) or (netlist[signal] is None):
+                # insert the signal with initalization
+                netlist[signal] = [instance_name, ]
+            else:
+                # update connected instances for the signal
+                netlist[signal].append(instance_name)
+    
+    # remove singleton nets in netlist
+    netlist = remove_singleton_net(netlist)
+    
+    return instances, netlist
+
+def remove_singleton_net(netlist:OrderedDict) -> OrderedDict:
+    """Remove signal net which has only 1 instance connected (e.g., I/O)
+    :param netlist: input netlist (NOTE: will be mutated)
+    """
+    # NOTE: we cannot mutate the OrderedDict when iterating it
+    # so we maintain old keys and keys to be deleted
+    original_net_names = netlist.keys()
+    singleton_net_names = []
+    for net in original_net_names:
+        if len(netlist[net]) <= 1:
+            singleton_net_names.append(net)
+    for net in singleton_net_names:
+        del netlist[net]
+    return netlist
+
+def parse_yal_file(modules:list) -> dict:
+    """Parse YAL file and get 
+    TODO: output json to stdout pipe instead of a file so that a benchmark
+    with different input formats (e.g., .vpnr) won't have file conflicts
+    :return: parsed dict {vertices, hyperedges}
+    """
+    vertices = None; hyperedges = None
+
+    # search for top modules
+    num_top_modules = 0
+    for module in modules:
+        if (module["ModType"] == "PARENT"):
+            num_top_modules += 1
+            vertices, hyperedges = parent_module_to_netlist(module)
+            # remove singleton nets
+            hyperedges = remove_singleton_net(hyperedges) 
+
+    # only 1 parent/top module is allowed in a benchmark
+    assert num_top_modules == 1, ValueError("More than one top module found")
+
+    return {
+        "vertices"      :   vertices,
+        "hyperedges"    :   hyperedges,
+    }
+
+
 if __name__ == "__main__":
-    pd91_yal2json(base_dir=PD91_BASE_DIR)
+    # pd91_yal2json(base_dir=PD91_BASE_DIR)
+    
+    for category in PD91_BENCHMARKS:
+        for benchmark in PD91_BENCHMARKS[category]:
+            if "yal" in PD91_BENCHMARKS[category][benchmark]["format"]:
+                print("benchmark: ", benchmark)
+                json_path = os.path.join(PD91_BASE_DIR, category,
+                                         benchmark + ".json")
+                with open(json_path, "r") as f:
+                    modules = json.loads(f.read())
+                    results = parse_yal_file(modules)
+
+                    if benchmark == "fan":
+                        G = nx.Graph()
+
+                        nodes = results["vertices"].keys()
+                        G.add_nodes_from(nodes)
+                        # print(G.nodes())
+
+                        hyperedges = results["hyperedges"]
+                        print(hyperedges)
+                        hyperedges = hyperedges.values()
+                        edges = hyperedges2edges(hyperedges)
+                        for edge in edges:
+                            G.add_edge(edge["src"], edge["dst"], weight=edge["weight"])
+                        
+                        print(G.edges())
+
+                        fig, ax = plt.subplots()
+                        nx.draw(G, with_labels=True)
+                        plt.show()
