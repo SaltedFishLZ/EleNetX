@@ -1,5 +1,6 @@
 
 import os
+import sys
 import json
 import subprocess
 try:
@@ -11,7 +12,6 @@ import networkx as nx
 import matplotlib.pyplot as plt 
 
 from hypergraph import hyperedges2edges
-
 
 
 PD91_BASE_DIR = os.path.join("mcnc", "pd91", "bench")
@@ -118,6 +118,7 @@ PD91_TECHNOLOGIES = {
     }
 }
 
+
 def yal_to_json_str(src_yal_path:str) -> str:
     """Convert a YAL file to JSON string
     :param src_yal_path: path to the source YAL file
@@ -129,8 +130,10 @@ def yal_to_json_str(src_yal_path:str) -> str:
     # TODO: error handling
     return result.stdout
 
+
 def pd91_yal_to_json_file(base_dir:str):
-    """Convert all PD91 benchmarks from YAL files into JSON files
+    """Batch processing utility function: convert all PD91 benchmarks 
+    from YAL files into JSON files
     """
     YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
     # translate PD91 benchmark YAL files
@@ -149,6 +152,7 @@ def pd91_yal_to_json_file(base_dir:str):
                     src_yal_path,
                     dst_json_path
                 ])
+
 
 def parent_module_to_netlist(module:dict) -> (OrderedDict, OrderedDict):
     """Extract netlist in a hyper-graph form from the top module dict
@@ -185,42 +189,65 @@ def parent_module_to_netlist(module:dict) -> (OrderedDict, OrderedDict):
                 # update connected instances for the signal
                 netlist[signal].append(instance_name)
     
-    # remove singleton nets in netlist
-    netlist = remove_singleton_net(netlist)
-    
     return instances, netlist
 
-def remove_singleton_net(netlist:OrderedDict) -> OrderedDict:
-    """Remove signal net which has only 1 instance connected (e.g., I/O)
-    :param netlist: input netlist (NOTE: will be mutated)
+
+def remove_singleton_edge(hyperedges:OrderedDict) -> OrderedDict:
+    """Remove signal edge which has only 1 instance connected (e.g., I/O)
+    :param hyperedges: input hyperedges (NOTE: will be mutated)
+    :return: mutated hyperedges
     """
     # NOTE: we cannot mutate the OrderedDict when iterating it
     # so we maintain old keys and keys to be deleted
-    original_net_names = netlist.keys()
-    singleton_net_names = []
-    for net in original_net_names:
-        if len(netlist[net]) <= 1:
-            singleton_net_names.append(net)
-    for net in singleton_net_names:
-        del netlist[net]
-    return netlist
+    original_ids = hyperedges.keys()
+    singleton_ids = []
+    for _id in original_ids:
+        if len(hyperedges[_id]) <= 1:
+            singleton_ids.append(_id)
+    for _id in singleton_ids:
+        del hyperedges[_id]
+    return hyperedges
 
-def parse_yal_file(modules:list) -> dict:
-    """Parse YAL file and get 
-    TODO: output json to stdout pipe instead of a file so that a benchmark
-    with different input formats (e.g., .vpnr) won't have file conflicts
+
+def remove_duplicated_nodes(hyperedges:OrderedDict, verbose=False):
+    """Remove duplicated nodes in the netlist to make sure that each 
+    unique node appears only once in each net.
+    :param netlist: input netlist, a list of nodes
+    :return: output netlist after duplication removal
+    """
+    _no_dup = OrderedDict()
+    
+    for key in hyperedges:
+        origin_hyperedge = hyperedges[key]
+        unique_hyperedge = list(set(origin_hyperedge))
+        _no_dup[key] = unique_hyperedge
+
+        if (verbose):
+            if len(unique_hyperedge) < len(origin_hyperedge):
+                num_dup_nodes = len(origin_hyperedge) - len(unique_hyperedge)
+                print(key, "has %d duplicated nodes" % num_dup_nodes)
+
+    return _no_dup
+
+
+def parse_yal_file(yal_path:str) -> dict:
+    """Parse YAL file and get vertices and hyperedges
+    :param yal_path: path to the YAL file
     :return: parsed dict {vertices, hyperedges}
     """
     vertices = None; hyperedges = None
 
+    # get the parsed JSON string of the YAL file
+    json_str = yal_to_json_str(yal_path)
+    # load json string to a list of Python dict
+    modules = json.loads(json_str)
+    
     # search for top modules
     num_top_modules = 0
     for module in modules:
         if (module["ModType"] == "PARENT"):
             num_top_modules += 1
             vertices, hyperedges = parent_module_to_netlist(module)
-            # remove singleton nets
-            hyperedges = remove_singleton_net(hyperedges) 
 
     # only 1 parent/top module is allowed in a benchmark
     assert num_top_modules == 1, ValueError("More than one top module found")
@@ -231,42 +258,78 @@ def parse_yal_file(modules:list) -> dict:
     }
 
 
+def yal_to_nx(yal_path:str, verbose=True) -> nx.Graph:
+    """Parse YAL file and obtain a correpsonding NetworkX graph
+    """
+    # parse YAL file to get a dict
+    results = parse_yal_file(yal_path)
+
+    # use OrderedGraph to make plot reproduciable
+    if sys.version >= "3.7":
+        G = nx.Graph()
+    else:
+        G = nx.OrderedGraph()
+
+    nodes = results["vertices"].keys()
+    G.add_nodes_from(nodes)
+
+    hyperedges = results["hyperedges"]
+
+    # remove duplicated nodes in each net
+    if verbose:
+        print("Removing duplicated nodes...")
+    hyperedges = remove_duplicated_nodes(hyperedges)
+    
+    # remove singleton hyperedges/edges
+    if verbose:
+        print("Removing singleton hyperedge...")
+    hyperedges = remove_singleton_edge(hyperedges)
+
+    # transform hyperedges to edges
+    if verbose:
+        print("Transforming hyperedges to edges...")
+    hyperedges = hyperedges.values()
+    edges = hyperedges2edges(hyperedges)
+
+    for edge in edges:
+        G.add_edge(edge["src"], edge["dst"], weight=edge["weight"])
+
+    if verbose:
+        print("NetworkX graph constructed")
+
+    return G
+
+
+def plotting_test(G:nx.Graph):
+    num_nodes = len(G.nodes)
+    num_edges = len(G.edges)
+    print("Num of nodes: ", num_nodes)
+    print("Num of edges: ", num_edges)
+
+    with_labels = True if  num_nodes < 20 else False
+    node_size = 100  if  num_nodes < 20 else 20
+
+    ax = plt.figure(figsize=(20, 15))
+    pos = nx.shell_layout(G) # deterministic node layout 
+    nx.draw(G, pos=pos, node_size=node_size, with_labels=with_labels)
+    plt.show()
+
+    ax = plt.figure(figsize=(20, 15))
+    pos = nx.spectral_layout(G)
+    nx.draw(G, pos=pos, node_size=node_size, with_labels=with_labels)
+    plt.show()
+
+
 if __name__ == "__main__":
-    # pd91_yal_to_json_file(base_dir=PD91_BASE_DIR)
     
     for category in PD91_BENCHMARKS:
         for benchmark in PD91_BENCHMARKS[category]:
             if "yal" in PD91_BENCHMARKS[category][benchmark]["format"]:
                 print("benchmark: ", benchmark)
-                src_yal_path = os.path.join(PD91_BASE_DIR, category,
-                                            benchmark + ".yal")
-                json_path = os.path.join(PD91_BASE_DIR, category,
-                                         benchmark + ".json")
-                
-                json_str = yal_to_json_str(src_yal_path)
+                yal_path = os.path.join(PD91_BASE_DIR, category,
+                                        benchmark + ".yal")
 
-                modules = json.loads(json_str)
-                results = parse_yal_file(modules)
+                G = yal_to_nx(yal_path)
 
                 if benchmark == "struct":
-                    # use OrderedGraph to make plot reproduciable
-                    G = nx.OrderedGraph()
-
-                    nodes = results["vertices"].keys()
-                    G.add_nodes_from(nodes)
-                    # print(G.nodes())
-
-                    hyperedges = results["hyperedges"]
-                    # print(hyperedges)
-                    hyperedges = hyperedges.values()
-                    edges = hyperedges2edges(hyperedges)
-                    for edge in edges:
-                        G.add_edge(edge["src"], edge["dst"], weight=edge["weight"])
-                    
-                    # print(G.edges())
-
-                    fig, ax = plt.subplots()
-                    # make node layout deterministic
-                    pos = nx.spectral_layout(G)
-                    nx.draw(G, pos=pos, with_labels=True)
-                    plt.show()
+                    plotting_test(G)
