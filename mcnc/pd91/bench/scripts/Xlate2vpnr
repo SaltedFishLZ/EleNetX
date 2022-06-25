@@ -1,0 +1,28 @@
+#!/bin/csh
+# This script was used to translate nto VPNR the data that originally
+# came in YAL
+
+set y2v=`pwd`/../yal2vpnr/yal2vpnr
+
+pushd block
+set fi=ami33	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=ami49	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=apte	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=hp	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=xerox	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+popd
+pushd floorplan
+set fi=fan	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+popd
+pushd gatearr
+set fi=GALib	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+popd
+pushd mixed
+set fi=a3	; ($y2v -m <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=g2	; ($y2v -m <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=t1	; ($y2v -m <$fi.yal >! $fi.vpnr) >&! $fi.log
+popd
+pushd stdcell
+set fi=primary1	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=primary2	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log
+set fi=sclib	; ($y2v    <$fi.yal >! $fi.vpnr) >&! $fi.log

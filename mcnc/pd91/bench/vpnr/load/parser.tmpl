@@ -1,0 +1,1358 @@
+/*
+ *   This code was developed by individuals connected with MCNC
+ *   and Duke University.
+ *
+ *   Copyright 1988 by the Microelectronics Center of North Carolina       
+ *   All rights reserved.
+ *
+ *   $Source: /mcnc/pi/hill/modgen89/bench/src/load/RCS/parser.tmpl,v $
+ *   $Date: 89/01/20 09:48:08 $
+ *   $Author: kk $
+ *   $Revision: 1.1 $
+ *
+ * Routines to load data structures, called by the parser from ../parser.
+ */
+
+
+#include <math.h>;
+#include <stdio.h>;
+#include "vparser.h";
+/* addtop */
+
+zzbegintype(zzs,zztype)
+char * zzs;
+int zztype;
+{
+	/* begin addtop */
+	switch(zztype)
+	{
+	case zzTECH:
+		/* begin tech */
+		break;
+	case zzCELL:
+		/* begin cell */
+		break;
+	case zzCHANNEL:
+		/* begin channel */
+		break;
+	case zzDOMAIN:
+		/* begin domain */
+		break;
+	}
+	/* begin addend */
+}
+
+
+zzendtype(zzs,zztype)
+char * zzs;
+int zztype;
+{
+	/* end addtop */
+	switch(zztype)
+	{
+	case zzTECH:
+		/* end tech */
+		break;
+	case zzCELL:
+		/* end cell */
+		break;
+	case zzCHANNEL:
+		/* end channel */
+		break;
+	case zzDOMAIN:
+		/* end domain */
+		break;
+	}
+	/* end addend */
+}
+
+
+zzaddatt(zzw,zzp,zzn,zzkeyword,zztype)
+
+char *zzw;
+int zzp,zzn,zzkeyword,zztype;
+{
+	int zzx,zzy,zzx1,zzx2,zzy1,zzy2;
+	char *zzs;
+	double zzd;
+
+	/* attribute addtop */
+	switch(zzkeyword)
+	{
+	case zzNETS:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute nets integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute nets string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute nets decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute nets quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute nets point */
+			break;
+		}
+		break;
+	case zzROW:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute row integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute row string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute row decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute row quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute row point */
+			break;
+		}
+		break;
+	case zzGATE:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute gate integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute gate string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute gate decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute gate quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute gate point */
+			break;
+		}
+		break;
+	case zzTERMLIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute terminal integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute terminal string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute terminal decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute terminal quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute terminal point */
+			break;
+		}
+		break;
+	case zzIOLIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute iolist integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute iolist string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute iolist decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute iolist quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute iolist point */
+			break;
+		}
+		break;
+	case zzTRANSLIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute translist integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute translist string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute translist decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute translist quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute translist point */
+			break;
+		}
+		break;
+	case zzSIGLIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute siglist integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute siglist string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute siglist decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute siglist quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute siglist point */
+			break;
+		}
+		break;
+	case zzVIALIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute via integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute via string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute via decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute via quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute via point */
+			break;
+		}
+		break;
+	case zzTECH:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute tech integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute tech string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute tech decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute tech quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute tech point */
+			break;
+		}
+		break;
+	case zzWIRELIST:
+		switch(zzp)
+		{
+		case zzINTEGER:
+			/* attribute wire integer */
+			break;
+		case zzSTRING:
+			zzs = (char *)zzn;
+			/* attribute wire string */
+			break;
+		case zzNUMBER:
+			zzs = (char *)zzn;
+			zzd = atof(zzs);
+			/* attribute wire decimal */
+			break;
+		case zzQUOTESTR:
+			zzs = ((char *)zzn)+1;
+			zzs[strlen(zzs)-1] = '\0';
+			/* attribute wire quotestring */
+			break;
+		case zzPOINT:
+			zzx = ((int *)zzn)[0];
+			zzy = ((int *)zzn)[1];
+			/* attribute wire point */
+			break;
+		}
+		break;
+	case zzBEGIN:
+		switch(zztype)
+		{
+		case zzCHANNEL:
+			switch(zzp)
+			{
+			case zzINTEGER:
+				/* attribute channel integer */
+				break;
+			case zzSTRING:
+				zzs = (char *)zzn;
+				/* attribute channel string */
+				break;
+			case zzNUMBER:
+				zzs = (char *)zzn;
+				zzd = atof(zzs);
+				/* attribute channel decimal */
+				break;
+			case zzQUOTESTR:
+				zzs = ((char *)zzn)+1;
+				zzs[strlen(zzs)-1] = '\0';
+				/* attribute channel quotestring */
+				break;
+			case zzPOINT:
+				zzx = ((int *)zzn)[0];
+				zzy = ((int *)zzn)[1];
+				/* attribute channel point */
+				break;
+			}
+			break;
+		case zzDOMAIN:
+			switch(zzp)
+			{
+			case zzINTEGER:
+				/* attribute domain integer */
+				break;
+			case zzSTRING:
+				zzs = (char *)zzn;
+				/* attribute domain string */
+				break;
+			case zzNUMBER:
+				zzs = (char *)zzn;
+				zzd = atof(zzs);
+				/* attribute domain decimal */
+				break;
+			case zzQUOTESTR:
+				zzs = ((char *)zzn)+1;
+				zzs[strlen(zzs)-1] = '\0';
+				/* attribute domain quotestring */
+				break;
+			case zzPOINT:
+				zzx = ((int *)zzn)[0];
+				zzy = ((int *)zzn)[1];
+				/* attribute domain point */
+				break;
+			}
+			break;
+		case zzCELL:
+			switch(zzp)
+			{
+			case zzINTEGER:
+				/* attribute cell integer */
+				break;
+			case zzSTRING:
+				zzs = (char *)zzn;
+				/* attribute cell string */
+				break;
+			case zzNUMBER:
+				zzs = (char *)zzn;
+				zzd = atof(zzs);
+				/* attribute cell decimal */
+				break;
+			case zzQUOTESTR:
+				zzs = ((char *)zzn)+1;
+				zzs[strlen(zzs)-1] = '\0';
+				/* attribute cell quotestring */
+				break;
+			case zzPOINT:
+				zzx = ((int *)zzn)[0];
+				zzy = ((int *)zzn)[1];
+				/* attribute cell point */
+				break;
+			}
+			break;
+		}
+	}
+	/* attribute addend */
+}
+
+
+zzmaketermlist(zzn,zzw,zztype,zzwhere)
+int zzn,zzw,zztype,zzwhere;
+{
+	char *zzs,*zzs1,*zzs2;
+	int zzx1,zzx2,zzy1,zzy2,zzx,zzy;
+
+	/* termlist addtop */
+	switch(zztype)
+	{
+	case zzCHANNEL:
+		switch(zzn)
+		{
+		case zzHEAD:
+			/* termlist channel head */
+			break;
+		case zzTAIL:
+			/* termlist channel tail */
+			break;
+		case zzNAME:
+			zzs = (char *)zzw;
+			/* termlist channel name */
+			break;
+		case zzNAMES:
+			zzs1 = (char *)zzw;
+			zzs2 = (char *)(zzw+zzMAXNAME);
+			/* termlist channel names */
+			break;
+		case zzTOP:
+			/* termlist channel top */
+			break;
+		case zzBOT:
+			/* termlist channel bottom */
+		case zzRIGHT:
+			/* termlist channel right */
+			break;
+			break;
+		case zzLEFT:
+			/* termlist channel left */
+			break;
+		case zzXY:
+			zzx = ((int *)zzw)[0];
+			zzy = ((int *)zzw)[1];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist channel xy T */
+				break;
+			case 'B':
+				/* termlist channel xy B */
+				break;
+			case 'R':
+				/* termlist channel xy R */
+				break;
+			case 'L':
+				/* termlist channel xy L */
+				break;
+			default:
+				/* termlist channel xy */
+				break;
+			}
+			break;
+		case zzX1X2Y:
+			zzx1 = ((int *)zzw)[0];
+			zzx2 = ((int *)zzw)[1];
+			zzy = ((int *)zzw)[2];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist channel x1x2y T */
+				break;
+			case 'B':
+				/* termlist channel x1x2y B */
+				break;
+			case 'R':
+				/* termlist channel x1x2y R */
+				break;
+			case 'L':
+				/* termlist channel x1x2y L */
+				break;
+			default:
+				/* termlist channel x1x2y */
+				break;
+			}
+			break;
+		case zzX1X2Y1Y2:
+			zzx1 = ((int *)zzn)[0];
+			zzx2 = ((int *)zzn)[1];
+			zzy1 = ((int *)zzn)[2];
+			zzy2 = ((int *)zzn)[3];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist channel x1x2y1y2 T */
+				break;
+			case 'B':
+				/* termlist channel x1x2y1y2 B */
+				break;
+			case 'R':
+				/* termlist channel x1x2y1y2 R */
+				break;
+			case 'L':
+				/* termlist channel x1x2y1y2 L */
+				break;
+			default:
+				/* termlist channel x1x2y1y2 */
+				break;
+			}
+			break;
+		case zzXY1Y2:
+			zzx = ((int *)zzw)[0];
+			zzy1 = ((int *)zzw)[1];
+			zzy2 = ((int *)zzw)[2];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist channel xy1y2 T */
+				break;
+			case 'B':
+				/* termlist channel xy1y2 B */
+				break;
+			case 'R':
+				/* termlist channel xy1y2 R */
+				break;
+			case 'L':
+				/* termlist channel xy1y2 L */
+				break;
+			default:
+				/* termlist channel xy1y2 */
+				break;
+			}
+			break;
+		}
+		break;
+	case zzCELL:
+		switch(zzn)
+		{
+		case zzHEAD:
+			/* termlist cell head */
+			break;
+		case zzTAIL:
+			/* termlist cell tail */
+			break;
+		case zzNAME:
+			zzs = (char *)zzw;
+			/* termlist cell name */
+		case zzNAMES:
+			zzs1 = (char *)zzw;
+			zzs2 = (char *)(zzw+zzMAXNAME);
+			/* termlist cell names */
+			break;
+		case zzTOP:
+			/* termlist cell top */
+			break;
+		case zzBOT:
+			/* termlist cell bottom */
+			break;
+		case zzRIGHT:
+			/* termlist cell right */
+			break;
+		case zzLEFT:
+			/* termlist cell left */
+			break;
+		case zzXY:
+			zzx = ((int *)zzw)[0];
+			zzy = ((int *)zzw)[1];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist cell xy T */
+				break;
+			case 'B':
+				/* termlist cell xy B */
+				break;
+			case 'R':
+				/* termlist cell xy R */
+				break;
+			case 'L':
+				/* termlist cell xy L */
+				break;
+			default:
+				/* termlist cell xy */
+				break;
+			}
+			break;
+		case zzX1X2Y:
+			zzx1 = ((int *)zzw)[0];
+			zzx2 = ((int *)zzw)[1];
+			zzy = ((int *)zzw)[2];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist cell x1x2y T */
+				break;
+			case 'B':
+				/* termlist cell x1x2y B */
+				break;
+			case 'R':
+				/* termlist cell x1x2y R */
+				break;
+			case 'L':
+				/* termlist cell x1x2y L */
+				break;
+			default:
+				/* termlist cell x1x2y */
+				break;
+			}
+			break;
+		case zzX1X2Y1Y2:
+			zzx1 = ((int *)zzn)[0];
+			zzx2 = ((int *)zzn)[1];
+			zzy1 = ((int *)zzn)[2];
+			zzy2 = ((int *)zzn)[3];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist cell x1x2y1y2 T */
+				break;
+			case 'B':
+				/* termlist cell x1x2y1y2 B */
+				break;
+			case 'R':
+				/* termlist cell x1x2y1y2 R */
+				break;
+			case 'L':
+				/* termlist cell x1x2y1y2 L */
+				break;
+			default:
+				/* termlist cell x1x2y1y2 */
+				break;
+			}
+			break;
+		case zzXY1Y2:
+			zzx = ((int *)zzw)[0];
+			zzy1 = ((int *)zzw)[1];
+			zzy2 = ((int *)zzw)[2];
+			switch(zzwhere)
+			{
+			case 'T':
+				/* termlist cell xy1y2 T */
+				break;
+			case 'B':
+				/* termlist cell xy1y2 B */
+				break;
+			case 'R':
+				/* termlist cell xy1y2 R */
+				break;
+			case 'L':
+				/* termlist cell xy1y2 L */
+				break;
+			default:
+				/* termlist cell xy1y2 */
+				break;
+			}
+			break;
+		}
+		break;
+	}
+	/* termlist addend */
+}
+
+zzmktranslist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs, *zzs1, *zzs2;
+	int zzx,zzy;
+
+	/* translist addtop */
+
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* translist head */
+		break;
+	case zzNAME:
+		zzs = (char *)zzw;
+		/* translist name */
+		break;
+	case zzSOURCE:
+		zzs = (char *)zzw;
+		/* translist source */
+		break;
+	case zzDRAIN:
+		zzs = (char *)zzw;
+		/* translist drain */
+		break;
+	case zzGATE:
+		zzs = (char *)zzw;
+		/* translist gate */
+		break;
+	case zzTAIL:
+		/* translist tail */
+		break;
+	}
+	/* translist addend */
+}
+
+zzmksiglist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs, *zzs1, *zzs2;
+	int zzx,zzy;
+
+	/* siglist addtop */
+
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* siglist head */
+		break;
+	case zzNAME:
+		zzs = (char *)zzw;
+		/* siglist name */
+		break;
+	case zzTAIL:
+		/* siglist tail */
+		break;
+	}
+	/* siglist addend */
+}
+
+zzmakewirelist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs, *zzs1, *zzs2;
+	int zzx,zzy;
+
+	/* wirelist addtop */
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* wirelist head */
+		break;
+	case zzTAIL:
+		/* wirelist tail */
+		break;
+	case zzNAME:
+		zzs1 = (char *)zzw;
+		/* wirelist name */
+		break;
+	case zzNAMES:
+		zzs = (char *)zzw;
+		zzs2 = (char *)(zzw+zzMAXNAME);
+		/* wirelist names */
+		break;
+	case zzPOINT:
+		zzx = ((int *)zzw)[0];
+		zzy = ((int *)zzw)[1];
+		/* wirelist point */
+		break;
+	}
+	/* wirelist addend */
+}
+
+
+zzmakerowlist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs,*zzs1,*zzs2;
+	/* row addtop */
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* row head */
+		break;
+	case zzTAIL:
+		/* row tail */
+		break;
+	case zzNAME:
+		zzs = (char *)zzw;
+		/* row name */
+		break;
+	case zzGATE:
+		zzs1 = (char *)zzw;
+		zzs2 = (char *)(zzw+zzMAXNAME);
+		/* row gate */
+		break;
+	case zzSIGNAL:
+		zzs = (char *)zzw;
+		/* row signal */
+		break;
+	}
+	/* row addend */
+}
+
+
+zzmakeiolist(zzw,zzn,zzwhere)
+int zzw,zzn,zzwhere;
+{
+	char *zzs;
+	int zzx,zzy,zzx1,zzx2,zzy1,zzy2;
+	/* iolist addtop */
+	switch(zzw)
+	{
+	case zzHEAD:
+		/* iolist head */
+		break;
+	case zzTAIL:
+		/* iolist tail */
+		break;
+	case zzSIGNAL:
+		zzs = (char *)zzn;
+		/* iolist signal */
+		break;
+	case zzRIGHT:
+		/* iolist right */
+		break;
+	case zzTOP:
+		/* iolist top */
+		break;
+	case zzBOT:
+		/* iolist bottom */
+		break;
+	case zzLEFT:
+		/* iolist left */
+		break;
+	case zzXY:
+		zzx = ((int *)zzn)[0];
+		zzy = ((int *)zzn)[1];
+		switch(zzwhere)
+		{
+		case 'T':
+			/* iolist xy T */
+			break;
+		case 'B':
+			/* iolist xy B */
+			break;
+		case 'R':
+			/* iolist xy R */
+			break;
+		case 'L':
+			/* iolist xy L */
+			break;
+		}
+		break;
+	case zzX1X2Y:
+		zzx1 = ((int *)zzn)[0];
+		zzx2 = ((int *)zzn)[1];
+		zzy = ((int *)zzn)[2];
+		switch(zzwhere)
+		{
+		case 'T':
+			/* iolist x1x2y T */
+			break;
+		case 'B':
+			/* iolist x1x2y B */
+			break;
+		case 'R':
+			/* iolist x1x2y R */
+			break;
+		case 'L':
+			/* iolist x1x2y L */
+			break;
+		}
+		break;
+	case zzX1X2Y1Y2:
+		zzx1 = ((int *)zzn)[0];
+		zzx2 = ((int *)zzn)[1];
+		zzy1 = ((int *)zzn)[2];
+		zzy2 = ((int *)zzn)[3];
+		switch(zzwhere)
+		{
+		case 'T':
+			/* iolist x1x2y1y2 T */
+			break;
+		case 'B':
+			/* iolist x1x2y1y2 B */
+			break;
+		case 'R':
+			/* iolist x1x2y1y2 R */
+			break;
+		case 'L':
+			/* iolist x1x2y1y2 L */
+			break;
+		}
+		break;
+	case zzXY1Y2:
+		zzx = ((int *)zzn)[0];
+		zzy1 = ((int *)zzn)[1];
+		zzy2 = ((int *)zzn)[2];
+		switch(zzwhere)
+		{
+		case 'T':
+			/* iolist xy1y2 T */
+			break;
+		case 'B':
+			/* iolist xy1y2 B */
+			break;
+		case 'R':
+			/* iolist xy1y2 R */
+			break;
+		case 'L':
+			/* iolist xy1y2 L */
+			break;
+		}
+		break;
+	}
+
+	/* iolist addend */
+}
+
+
+zzmakevialist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs;
+	int zzx,zzy;
+
+	/* vialist addtop */
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* vialist head */
+		break;
+	case zzTAIL:
+		/* vialist tail */
+		break;
+	case zzPOINT:
+		zzx = ((int *)zzw)[0];
+		zzy = ((int *)zzw)[1];
+		/* vialist point */
+		break;
+	}
+	/* vialist addend */
+}
+
+
+zzmakeeqlist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs;
+	int zzx,zzy;
+
+	/* equivalences addtop */
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* equivalences head */
+		break;
+	case zzTAIL:
+		/* equivalences tail */
+		break;
+	case zzNAME:
+		zzs = (char *)zzw;
+		/* equivalences name */
+		break;
+	case zzEQUIV:
+		zzs = (char *)zzw;
+		/* equivalences equivnet */
+		break;
+	}
+	/* equivalences addend */
+}
+
+
+zzmakenetchrlist(zzn,zzw)
+int zzn,zzw;
+{
+	char *zzs;
+
+	/* nets addtop */
+	switch(zzn)
+	{
+	case zzHEAD:
+		/* nets head */
+		break;
+	case zzTAIL:
+		/* nets tail */
+		break;
+	case zzNAME:
+		zzs = (char *)zzw;
+		/* nets name */
+		break;
+	}
+	/* nets addend */
+}
+
+
+zzmakeprof(zzw,zztype,zzwhere)
+int zzw,zztype,zzwhere;
+{
+	int zzx,zzy;
+
+	/* profile addtop */
+	switch(zztype)
+	{
+	case zzCELL:
+		switch(zzw)
+		{
+		case zzTOP:
+			/* profile cell top */
+			break;
+		case zzBOT:
+			/* profile cell bottom */
+			break;
+		case zzRIGHT:
+			/* profile cell right */
+			break;
+		case zzLEFT:
+			/* profile cell left */
+			break;
+		default:
+			zzx = ((int *)zzw)[0];
+			zzy = ((int *)zzw)[1];
+			switch(zzwhere)
+			{
+			case zzTOP:
+				/* profile cell point top */
+				break;
+			case zzBOT:
+				/* profile cell point bottom */
+				break;
+			case zzRIGHT:
+				/* profile cell point right */
+				break;
+			case zzLEFT:
+				/* profile cell point left */
+				break;
+			}
+			break;
+		}
+		break;
+	case zzCHANNEL:
+		switch(zzw)
+		{
+		case zzTOP:
+			/* profile channel top */
+			break;
+		case zzBOT:
+			/* profile channel bottom */
+			break;
+		case zzRIGHT:
+			/* profile channel right */
+			break;
+		case zzLEFT:
+			/* profile channel left */
+			break;
+		default:
+			zzx = ((int *)zzw)[0];
+			zzy = ((int *)zzw)[1];
+			switch(zzwhere)
+			{
+			case zzTOP:
+				/* profile channel point top */
+				break;
+			case zzBOT:
+				/* profile channel point bottom */
+				break;
+			case zzRIGHT:
+				/* profile channel point right */
+				break;
+			case zzLEFT:
+				/* profile channel point left */
+				break;
+			}
+			break;
+		}
+		break;
+	case zzDOMAIN:
+		switch(zzw)
+		{
+		case zzTOP:
+			/* profile domain top */
+			break;
+		case zzBOT:
+			/* profile domain bottom */
+			break;
+		case zzRIGHT:
+			/* profile domain right */
+			break;
+		case zzLEFT:
+			/* profile domain left */
+			break;
+		default:
+			zzx = ((int *)zzw)[0];
+			zzy = ((int *)zzw)[1];
+			switch(zzwhere)
+			{
+			case zzTOP:
+				/* profile domain point top */
+				break;
+			case zzBOT:
+				/* profile domain point bottom */
+				break;
+			case zzRIGHT:
+				/* profile domain point right */
+				break;
+			case zzLEFT:
+				/* profile domain point left */
+				break;
+			}
+			break;
+		}
+		break;
+	}
+	/* profile addend */
+}
+
+
+
+zztechlist(zzn1,zzn2,zzn)
+int zzn1,zzn2,zzn;
+{
+	/* tech addtop */
+	switch(zzn1)
+	{
+	case zzHEAD:
+		/* tech head */
+		break;
+	case zzTAIL:
+		/* tech tail */
+		break;
+	case zzSEP:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech sep 0 */
+			break;
+		case '1':
+			/* tech sep 1 */
+			break;
+		case '2':
+			/* tech sep 2 */
+			break;
+		case '3':
+			/* tech sep 3 */
+		default:
+			/* tech sep */
+			break;
+			break;
+			break;
+		}
+		break;
+	case zzWIRE:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech wire 0 */
+			break;
+		case '1':
+			/* tech wire 1 */
+			break;
+		case '2':
+			/* tech wire 2 */
+			break;
+		case '3':
+			/* tech wire 3 */
+		default:
+			/* tech wire */
+			break;
+			break;
+			break;
+		}
+		break;
+	case zzVIAVIA:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech viavia 0 */
+			break;
+		case '1':
+			/* tech viavia 1 */
+			break;
+		case '2':
+			/* tech viavia 2 */
+			break;
+		case '3':
+			/* tech viavia 3 */
+		default:
+			/* tech viavia */
+			break;
+			break;
+			break;
+		}
+		break;
+	case zzVIAEDGE:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech viaedge 0 */
+			break;
+		case '1':
+			/* tech viaedge 1 */
+			break;
+		case '2':
+			/* tech viaedge 2 */
+			break;
+		case '3':
+			/* tech viaedge 3 */
+		default:
+			/* tech viaedge */
+			break;
+			break;
+		}
+		break;
+	case zzVIASIZE:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech viasize 0 */
+			break;
+		case '1':
+			/* tech viasize 1 */
+			break;
+		case '2':
+			/* tech viasize 2 */
+			break;
+		case '3':
+			/* tech viasize 3 */
+		default:
+			/* tech viasize */
+			break;
+			break;
+		}
+		break;
+	case zzCONTSIZE:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech contsize 0 */
+			break;
+		case '1':
+			/* tech contsize 1 */
+			break;
+		case '2':
+			/* tech contsize 2 */
+			break;
+		case '3':
+			/* tech contsize 3 */
+		default:
+			/* tech contsize */
+			break;
+			break;
+		}
+		break;
+	case zzCONTCONT:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech contcont 0 */
+			break;
+		case '1':
+			/* tech contcont 1 */
+			break;
+		case '2':
+			/* tech contcont 2 */
+			break;
+		case '3':
+			/* tech contcont 3 */
+		default:
+			/* tech contcont */
+			break;
+			break;
+			break;
+		}
+		break;
+	case zzCONTEDGE:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech contedge 0 */
+			break;
+		case '1':
+			/* tech contedge 1 */
+			break;
+		case '2':
+			/* tech contedge 2 */
+			break;
+		case '3':
+			/* tech contedge 3 */
+			break;
+		default:
+			/* tech contedge */
+			break;
+		}
+		break;
+	case zzVIACONT:
+		switch(zzn2)
+		{
+		case '0':
+			/* tech viacont 0 */
+			break;
+		case '1':
+			/* tech viacont 1 */
+			break;
+		case '2':
+			/* tech viacont 2 */
+			break;
+		case '3':
+			/* tech viacont 3 */
+			break;
+		default:
+			/* tech viacont */
+			break;
+		}
+		break;
+	case zzXGRID:
+		/* tech xgrid */
+		break;
+	case zzYGRID:
+		/* tech ygrid */
+		break;
+	case zzOFFSET:
+		/* tech offset */
+		break;
+	}
+	/* tech addend */
+}
+
+
+zzfindchan(zzs)
+char *zzs;
+{
+	/* channel */
+}
+
+
+/* addend */

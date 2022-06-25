@@ -1,0 +1,29 @@
+#!/bin/csh -f
+
+set v2t=`pwd`/../v2/v2
+
+pushd stdcell
+cat sclib.vpnr primary1.vpnr	| $v2t primary1.cel
+cat sclib.vpnr primary2.vpnr	| $v2t primary2.cel
+cat industry1.vpnr		| $v2t industry1.cel
+cat industry1a.vpnr		| $v2t industry1a.cel
+cat industry2.vpnr		| $v2t industry2.cel
+cat industry3.vpnr		| $v2t industry3.cel
+cat db.vpnr biomed.vpnr		| $v2t -w500 biomed.cel
+cat db.vpnr fract.vpnr		| $v2t -w500 fract.cel
+cat db.vpnr struct.vpnr		| $v2t -w500 struct.cel
+popd
+
+pushd mixed
+cat a3.vpnr			| $v2t -w250 a3.cel
+cat g2.vpnr			| $v2t -w250 g2.cel
+cat t1.vpnr			| $v2t -w50 t1.cel
+popd
+
+pushd block
+cat ami33.vpnr			| $v2t ami33.cel
+cat ami49.vpnr			| $v2t ami49.cel
+cat apte.vpnr			| $v2t apte.cel
+cat xerox.vpnr			| $v2t xerox.cel
+cat hp.vpnr			| $v2t hp.cel
+popd

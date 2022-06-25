@@ -1,0 +1,49 @@
+cell begin a2s xgrid=16 ygrid=4 wire=6
+ profile top (-1,57) (31,57);
+ profile bot (-1,-1) (31,-1);
+
+termlist
+ a { (1-4,57) (1-4,-1) };
+ b { (9-12,-1) (9-12,57) };
+ q { (25-28,-1) (25-28,57) };
+siglist
+ n108
+ n512 ;
+translist
+ ainputP a n512 Vdd
+ binputP b Vdd n512 length=2 type=p
+ invertP n512 q Vdd width=17 type=p
+ ainputN a n108 n512 width=17 length=2 type=n
+ binputN b GND n108 width=17 length=2 type=n
+ invertN n512 q GND width=7 length=2 type=n
+;
+cell end a2s
+
+cell begin a3s xgrid=16 ygrid=4 wire=6
+ profile top (-1,57) (31,57);
+ profile bot (-1,-1) (31,-1);
+ termlist
+  a { (25-28,57) (25-28,-1) };
+  b { (17-20,57) (17-20,-1) };
+  c { (9-12,57) (9-12,-1) };
+  q { (1-4,57) (1-4,-1) } type=output;
+  u type=feedthrough ;
+ equivalences
+  eqa ( a b c );
+siglist
+ n188
+ n268
+ n564
+;
+translist
+ ainputP a Vdd n564 width=11.33 length=2 type=p
+ binputP b n564 Vdd width=11 length=2 type=p
+ cinputP c Vdd n564 width=12 length=2 type=p
+ invertP n564 q Vdd width=17 length=2 type=p
+ ainputN a n188 n564 width=20 length=2 type=n
+ binputN b n268 n188 width=20 length=2 type=n
+ cinputN c GND n268 width=20 length=2 type=n
+ invertN n564 q GND width=7 length=2 type=n
+;
+cell end a3s
+

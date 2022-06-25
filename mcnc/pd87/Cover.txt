@@ -1,0 +1,141 @@
+
+PHYSICAL DESIGN WORKSHOP
+Marriott's Hilton Head Resort
+Hilton Head, South Carolina,  April 27 - 29, 1987
+
+
+Dear Colleague:
+
+Thank you for deciding to participate in the Place-Off portion
+of the Physical Design Workshop.  This workshop provides a
+unique opportunity to define industry standard benchmarks
+for cell-based, automatic layout algorithms and systems.  This
+packet contains our attempt at what such benchmarks
+should contain.  We intend to devote a significant part of the
+workshop to a discussion of benchmarks for cell-based layout
+algorithms and systems; please come prepared to discuss your
+ideas on benchmarking in general and on these benchmarks
+in particular.
+
+The Place-Off circuits have been collected by Ken Roberts
+(United Technologies Microelectronics Center) and Al Dunlop
+(AT&T Bell Laboratories).  These are representative designs of
+up to 4000 cells.
+
+The circuits are composed of gate array cells, standard cells
+and mixed standard cells, and general cells.  We were unable
+to collect a suite of general cell circuits in time for the
+workshop.  After much discussion we decided to distribute the
+circuits in Yet Another Layout Language, YAL.  This
+decision was made only after considering a lot of other
+alternatives.  A description of the YAL format is enclosed on
+paper as well as in machine readable form.  In order to ease
+the burden of entering the Place-Off circuits into your
+system, we have provided a parser written in Berkeley Unix
+C (courtesy of Jonathan Rose of Stanford University).
+
+This packet contains the following material:
+  Rules for the Place-Off;
+  Description of YAL (Yet Another Layout Language);
+  How to Obtain Benchmark Data;
+  Benchmark Circuit Descriptions:
+    Smoke test (Smoke.yal);
+    Primary Benchmark numbers 1 and 2 (Primary1.yal) and
+     (Primary2yal); and
+    Gate array and standard cell libraries (GALib.yal) and
+     (SCLib.yal);
+  A directory of the files on the floppy; and
+  An IBM PC compatible floppy containing the primary
+      benchmark data.
+
+I have placed the full set of benchmark data on the
+PARCVAX.  The data may be obtianed through ARPA net
+FTP (File Transfer Protocol) or by dialing PARCVAX.  See
+"How to Obtain Benchmark Data" in this packet.  If all of
+these methods are unsatisfactory, write or send electronic mail
+to Ken Roberts at the address indicated below.  We are
+prepared to send electronic mail or a nine track tape.
+
+A total of 13 circuits has been assembled, and two of
+these have been identified as "primary" circuits for the Place
+Off.  All participants should try these two circuits
+(Primary1.ya  and Primary2.yal), with either (GALib.yal) or
+SCLib.yal).  You are requested to submit placement results to
+Ken Roberts prior to the workshop.  You are also encouraged to
+try as many of the others as you feel are reasonable and report
+your results at the workshop.  The circuits are as follows:
+
+  Smoke.yal - A simple "smoke test", to ensure that you can
+    handle the data formats correctly.
+  Primary1.yal - First "primary" circuit.  750 cells, which can
+    be treated as either a gate array or standard cell circuit.
+  Primary2.yal - Second "primary" circuit.  2907 cells.  Like the
+    above, it can be considered either a standard cell or gate
+    array circuit.
+  DECIN1.yal - A subchip with approximately 150 cells of
+    totally combinational logic.  This and circuit 3 are intended
+    to provide examples of extremes in random and regular
+    circuits.
+  REGFILE.yal - A subchip with 160 cells of highly regular
+    sequential logic.
+  Test01.yal - a smoke test
+  Test02.yal - 1752 standard cells.
+  Test03.yal - 2379 standard cells.
+  Test04.yal - 3804 standard cells.
+  Test05.yal - 1663 standard cells plus 2 large general cells.
+  Test06.yal - 1607 standard cells, one small general cell and
+    one large general cell.
+  Test07.yal - 1515 standard cells, and 4 general cells.
+  Test08.yal - 2595 standard cells, and 5 general cells.
+
+We hope that participants will spend a few minutes
+presenting their results at the Workshop.  This should
+include an overview of your placement method and the
+time you spent on the benchmark (number of runs,
+time of runs) and amount and type of tuning that
+you did.  A discussion of the results in terms of the
+following types of metrics is requested:
+
+  wire length metrics such as half-perimeter, spanning tree
+    and/or Steiner wiring estimates
+  congestion measures;
+  actual wiring lengths and via counts, if routed;
+  core layout size for standard cell circuits;
+  routing completion for gate arrays; and
+  any other metric you think is appropriate.
+
+You are encouraged to bring plots of your results, and a
+display area will be designated for those that are available.
+
+Finally, it is suggested that you send your placements for
+Primary1.yal and Primary2.yal to Ken Roberts prior to the
+Workshop (by April 10, 1987, please).  This data should be
+submitted in the given format, either on IBM floppy or by
+electronic mail (please indicate if you prefer anonymity).
+Ken will develop and present consistent statistics for all
+results received.
+ 
+Participants in the Place-Off are invited to show their
+results at the 1987 Design Automation Conference, in
+which a poster and panel session has been scheduled as a
+follow-up to this workshop. DA Conference material can
+be your Place-off results, or results from further work you
+do based on the Physical Design Workshop.  
+
+
+Best Regards
+
+
+Bryan Preas
+Xerox Palo Alto Research Center
+3333 Coyote Hill Road
+Palo Alto, CA 94304
+Tel: (415) 494-4845
+Arpa address: preas.pa@Xerox.com
+
+Ken Roberts
+United Technologies Microelectronics Center
+1575 Garden of the Gods Road
+Colorado Springs, CO 80907
+Tel: (303) 594-8065
+uucp address: convex!utmc!roberts

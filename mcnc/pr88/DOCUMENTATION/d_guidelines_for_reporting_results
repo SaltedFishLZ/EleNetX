@@ -1,0 +1,75 @@
+
+ GUIDELINES FOR REPORTING RESULTS
+
+ A.  Placement and Routing Procedures
+
+ We realize that it is difficult to fulfill all  the  requirements
+ specified  for  the  examples,  especially  if  you are currently
+ developing your system.  Thus we propose several levels of parti-
+ cipation:
+
+ level_1 : ( For building blocks and standard cells ) :
+           Place the blocks and route all nets such that your 
+           layout fits into the least area rectangle. 
+           Treat P/G as signal nets.
+
+           ( For gate arrays ) :
+           Place the cells and route as many connections as you can. 
+           Treat P/G nets as signal nets.
+
+ level_2 : level_1 but P/G nets have proper wire widths such 
+           that electro- migration constraints are fulfilled and, 
+           if possible voltage drops as well.
+
+ level_3 : level_1 + nets designated as critical satisfy their 
+           constraints.
+
+ level_4 : level_2 + nets designated as critical satisfy their 
+           constraints.
+
+ From now on all levels of participation  are  relevant  only  for
+ building blocks and standard cell examples.
+
+ level_5 : level_1 + the bounding rectangle has a given aspect ratio.
+
+ level_6 : level_2 + the bounding rectangle has a given aspect ratio.
+
+ level_7 : level_3 + the bounding rectangle has a given aspect ratio.
+
+ level_8 : level_4 + the bounding rectangle has a given aspect ratio.
+
+ level_9 : level_1 + the bounding rectangle has one dimension fixed.
+
+ level_10 : level_2 + the bounding rectangle has one dimension fixed.
+
+ level_11 : level_3 + the bounding rectangle has one dimension fixed.
+
+ level_12 : level_4 + the bounding rectangle has one dimension fixed.
+
+ B.  Presentation at the Workshop
+
+ Participants will spend a few minutes presenting their results at
+ the  Workshop. This should include an overview of their placement
+ and routing methods. Also, we ask you to show  us  a  picture  of
+ your result for those levels to which you choose to respond. Pic-
+ tures have to be drawn in a SCALE SUPPLIED BY US in the Benchmark
+ Characteristics table.  Scale is a coefficient of magnification.
+
+ C.  Quality Criteria
+
+ For standard cells and building blocks : area  size  in  square
+ microns ; for gate arrays : number of unconnected from-tos.
+
+  Summation of total wire lengths on each layer in microns;
+  Lengths of critical nets in microns;
+  Total number of vias.
+  Area occupied by P/G in square microns.
+
+ We are also interested in how you routed P/G nets, what were your
+ considerations  for  choosing  the  topology and determining wire
+ widths.  For standard cells and building blocks examples,  please
+ show  us  also  the results of placement, before routing has been
+ completed.  All other comments and suggestions are welcomed.
+
+
+

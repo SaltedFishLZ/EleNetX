@@ -1,0 +1,788 @@
+/*
+ *   Copyright 1990 by the Microelectronics Center of North Carolina       
+ *   All rights reserved.
+ *
+ *   $Source: /mcnc/mcnc/kk/pdw/RCS/db.trans,v $
+ *   $Date: 89/01/19 10:03:20 $
+ *   $Revision: 1.3 $
+ *
+ * This is the database of leaf cells.  Install it wherever it is convenient
+ * for you (perhaps in the 'lib' subdirectory that will  be created by
+ * 'make install').
+ *
+ * NOTE: The power supply lines are given global names 'vdd' and 'gnd' in all
+ * cells.
+ */
+
+/* Technology section: please ignore it.  The only useful info here are
+ * the names of layers.
+ */
+
+tech begin scmos unitsize=1
+ wire 0 : 2000; layername=poly
+ wire 1 : 3000; layername=metal1
+ wire 2 : 3000; layername=metal2
+ sep 0 : 2000;
+ sep 1 : 3000;
+ sep 2 : 4000;
+ contsize : 4000;
+ contcont : 3000;
+ contedge 0 : 2000;
+ contedge 1 : 3000;
+ viasize : 4000;
+ viavia : 4000;
+ viacont : 2000;
+ viaedge 1 : 3000;
+ viaedge 2 : 4000;
+ xgrid :  8000;
+ ygrid :  8000;
+ offset : 2000;
+tech end scmos
+
+cell begin a2s area=1856.0 transistors=6 generic=a2
+ profile top (-1000,57000) (31000,57000);
+ profile bot (-1000,-1000) (31000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.6 nominal_rise_fan=2.28 nominal_fall_delay=0.73 nominal_fall_fan=2.98 loads=0.0940317;
+  b { (9000-12000,-1000)  (9000-12000,57000)  } pintype=input nominal_rise_delay=0.68 nominal_rise_fan=2.27 nominal_fall_delay=1.1 nominal_fall_fan=3.06 loads=0.0822208;
+  q { (25000-28000,-1000)  (25000-28000,57000)  } pintype=output;
+/* feedthroughs */
+  u1 { (17000-20000,-1000) (17000-20000,57000) } pintype=feedthrough;
+ equivalences
+  eqa ( a b );
+siglist
+s_20_2 s_6_16 gnd vdd a b q
+;
+translist
+m0 s_6_16 gnd q length=2000 width=7000 type=n
+m1 b s_20_2 gnd length=2000 width=17000 type=n
+m2 a s_6_16 s_20_2 length=2000 width=17000 type=n
+m3 s_6_16 vdd q length=2000 width=18000 type=p
+m4 b s_6_16 vdd length=2000 width=14000 type=p
+m5 a vdd s_6_16 length=2000 width=19000 type=p
+;
+cell end a2s
+
+cell begin ai2s area=1392.0 transistors=4 generic=ai2
+ profile top (-1000,57000) (23000,57000);
+ profile bot (-1000,-1000) (23000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.46 nominal_rise_fan=2.66 nominal_fall_delay=0.34 nominal_fall_fan=2.17 loads=0.0853976;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.31 nominal_rise_fan=2.66 nominal_fall_delay=0.26 nominal_fall_fan=2.15 loads=0.079027;
+  q { (17000-20000,57000)  (17000-20000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b );
+siglist
+s_8_22 gnd vdd a b q
+;
+translist
+m0 b s_8_22 q length=2000 width=14000 type=n
+m1 a s_8_22 gnd length=2000 width=16000 type=n
+m2 b vdd q length=2000 width=15000 type=p
+m3 a vdd q length=2000 width=15000 type=p
+;
+cell end ai2s
+
+cell begin ai3s area=1856.0 transistors=6 generic=ai3
+ profile top (-1000,57000) (31000,57000);
+ profile bot (-1000,-1000) (31000,-1000);
+ termlist
+  a { (1000-4000,-1000)  (1000-4000,57000)  } pintype=input nominal_rise_delay=0.64 nominal_rise_fan=2.43 nominal_fall_delay=0.46 nominal_fall_fan=2.14 loads=0.109975;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.55 nominal_rise_fan=2.67 nominal_fall_delay=0.39 nominal_fall_fan=2.14 loads=0.0911389;
+  c { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.39 nominal_rise_fan=2.89 nominal_fall_delay=0.28 nominal_fall_fan=2.14 loads=0.0855914;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b c );
+siglist
+s_12_36 s_32_2 gnd vdd a b c q
+;
+translist
+m0 c s_32_2 q length=2000 width=19000 type=n
+m1 b s_12_36 s_32_2 length=2000 width=20000 type=n
+m2 a gnd s_12_36 length=2000 width=26000 type=n
+m3 c vdd q length=2000 width=14000 type=p
+m4 b q vdd length=2000 width=15000 type=p
+m5 a vdd q length=2000 width=17000 type=p
+;
+cell end ai3s
+
+cell begin ai4s area=2320.0 transistors=8 generic=ai4
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.97 nominal_rise_fan=2.47 nominal_fall_delay=0.68 nominal_fall_fan=2.14 loads=0.113346;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.84 nominal_rise_fan=2.41 nominal_fall_delay=0.63 nominal_fall_fan=2.12 loads=0.10816;
+  c { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.67 nominal_rise_fan=2.38 nominal_fall_delay=0.51 nominal_fall_fan=2.13 loads=0.10816;
+  d { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.45 nominal_rise_fan=2.37 nominal_fall_delay=0.33 nominal_fall_fan=2.11 loads=0.115531;
+  q { (33000-36000,57000)  (33000-36000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b c d );
+siglist
+s_14_50 s_34_2 s_42_2 gnd vdd a b c d q
+;
+translist
+m0 d s_42_2 q length=2000 width=29000 type=n
+m1 c s_34_2 s_42_2 length=2000 width=27000 type=n
+m2 b s_14_50 s_34_2 length=2000 width=27000 type=n
+m3 a s_14_50 gnd length=2000 width=28000 type=n
+m4 d vdd q length=2000 width=17000 type=p
+m5 c q vdd length=2000 width=17000 type=p
+m6 b vdd q length=2000 width=17000 type=p
+m7 a q vdd length=2000 width=17000 type=p
+;
+cell end ai4s
+
+cell begin aoi211s area=2320.0 transistors=8 generic=aoi211
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a1 { (1000-4000,-1000)  (1000-4000,57000)  } pintype=input nominal_rise_delay=1 nominal_rise_fan=4.19 nominal_fall_delay=0.59 nominal_fall_fan=2.35 loads=0.116822;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=4.16 nominal_fall_delay=0.64 nominal_fall_fan=2.36 loads=0.121563;
+  b { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=1.1 nominal_rise_fan=4.19 nominal_fall_delay=0.33 nominal_fall_fan=1.19 loads=0.121563;
+  c { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.71 nominal_rise_fan=4.17 nominal_fall_delay=0.31 nominal_fall_fan=1.49 loads=0.113098;
+  q { (33000-36000,-1000)  (33000-36000,57000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+  eqb ( b c );
+siglist
+s_16_2 s_42_56 s_4_90 gnd vdd a1 a2 b c q
+;
+translist
+m0 c q gnd length=2000 width=14000 type=n
+m1 b gnd q length=2000 width=18000 type=n
+m2 a2 s_16_2 gnd length=2000 width=18000 type=n
+m3 a1 q s_16_2 length=2000 width=14000 type=n
+m4 c s_42_56 q length=2000 width=29000 type=p
+m5 b s_4_90 s_42_56 length=2000 width=31000 type=p
+m6 a2 vdd s_4_90 length=2000 width=31000 type=p
+m7 a1 vdd s_4_90 length=2000 width=31000 type=p
+;
+cell end aoi211s
+
+cell begin aoi21s area=1856.0 transistors=6 generic=aoi21
+ profile top (-1000,57000) (31000,57000);
+ profile bot (-1000,-1000) (31000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.71 nominal_rise_fan=2.76 nominal_fall_delay=0.59 nominal_fall_fan=2.2 loads=0.117654;
+  a2 { (9000-12000,-1000)  (9000-12000,57000)  } pintype=input nominal_rise_delay=0.6 nominal_rise_fan=2.94 nominal_fall_delay=0.53 nominal_fall_fan=2.2 loads=0.102011;
+  b { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.39 nominal_rise_fan=2.96 nominal_fall_delay=0.22 nominal_fall_fan=1.01 loads=0.124572;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+siglist
+s_12_18 s_4_86 gnd vdd a1 a2 b q
+;
+translist
+m0 b q gnd length=2000 width=20000 type=n
+m1 a2 s_12_18 q length=2000 width=14000 type=n
+m2 a1 gnd s_12_18 length=2000 width=17000 type=n
+m3 b s_4_86 q length=2000 width=30000 type=p
+m4 a2 vdd s_4_86 length=2000 width=26000 type=p
+m5 a1 vdd s_4_86 length=2000 width=29000 type=p
+;
+cell end aoi21s
+
+cell begin aoi221s area=2784.0 transistors=10 generic=aoi221
+ profile top (-1000,57000) (47000,57000);
+ profile bot (-1000,-1000) (47000,-1000);
+ termlist
+  a1 { (1000-4000,-1000)  (1000-4000,57000)  } pintype=input nominal_rise_delay=1.5 nominal_rise_fan=3.76 nominal_fall_delay=1 nominal_fall_fan=2.56 loads=0.122732;
+  a2 { (9000-12000,-1000)  (9000-12000,57000)  } pintype=input nominal_rise_delay=1.4 nominal_rise_fan=3.91 nominal_fall_delay=0.95 nominal_fall_fan=2.56 loads=0.107274;
+  b1 { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.65 nominal_rise_fan=3.91 nominal_fall_delay=0.58 nominal_fall_fan=2.47 loads=0.116723;
+  b2 { (33000-36000,-1000)  (33000-36000,57000)  } pintype=input nominal_rise_delay=0.53 nominal_rise_fan=3.95 nominal_fall_delay=0.55 nominal_fall_fan=2.45 loads=0.115999;
+  c { (17000-20000,-1000)  (17000-20000,57000)  } pintype=input nominal_rise_delay=1 nominal_rise_fan=4.04 nominal_fall_delay=0.39 nominal_fall_fan=1.3 loads=0.125464;
+  q { (41000-44000,57000)  (41000-44000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+  b ( b1 b2 );
+  eqa ( a b );
+siglist
+s_40_84 s_4_90 s_58_2 s_8_24 gnd vdd a1 a2 b1 b2 c q
+;
+translist
+m0 b2 s_58_2 q length=2000 width=13000 type=n
+m1 b1 gnd s_58_2 length=2000 width=13000 type=n
+m2 c q gnd length=2000 width=17000 type=n
+m3 a2 s_8_24 q length=2000 width=13000 type=n
+m4 a1 s_8_24 gnd length=2000 width=15000 type=n
+m5 b2 q s_40_84 length=2000 width=32000 type=p
+m6 b1 s_40_84 q length=2000 width=34000 type=p
+m7 c s_4_90 s_40_84 length=2000 width=34000 type=p
+m8 a2 vdd s_4_90 length=2000 width=30000 type=p
+m9 a1 vdd s_4_90 length=2000 width=33000 type=p
+;
+cell end aoi221s
+
+cell begin aoi31s area=2320.0 transistors=8 generic=aoi31
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.67 nominal_rise_fan=3.23 nominal_fall_delay=0.58 nominal_fall_fan=2.64 loads=0.113114;
+  a2 { (9000-12000,-1000)  (9000-12000,57000)  } pintype=input nominal_rise_delay=0.84 nominal_rise_fan=3.1 nominal_fall_delay=0.72 nominal_fall_fan=2.62 loads=0.117839;
+  a3 { (17000-20000,-1000)  (17000-20000,57000)  } pintype=input nominal_rise_delay=0.99 nominal_rise_fan=3.14 nominal_fall_delay=0.78 nominal_fall_fan=2.64 loads=0.118839;
+  b { (25000-28000,-1000)  (25000-28000,57000)  } pintype=input nominal_rise_delay=0.73 nominal_rise_fan=3.25 nominal_fall_delay=0.19 nominal_fall_fan=1.08 loads=0.109399;
+  q { (33000-36000,-1000)  (33000-36000,57000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+siglist
+s_14_7 s_2_58 s_6_7 gnd vdd a1 a2 a3 b q
+;
+translist
+m0 b gnd q length=2000 width=20000 type=n
+m1 a3 s_14_7 gnd length=2000 width=18000 type=n
+m2 a2 s_6_7 s_14_7 length=2000 width=18000 type=n
+m3 a1 q s_6_7 length=2000 width=18000 type=n
+m4 b s_2_58 q length=2000 width=24000 type=p
+m5 a3 vdd s_2_58 length=2000 width=29000 type=p
+m6 a2 s_2_58 vdd length=2000 width=29000 type=p
+m7 a1 vdd s_2_58 length=2000 width=27000 type=p
+;
+cell end aoi31s
+
+cell begin aoi32s area=2784.0 transistors=10 generic=aoi32
+ profile top (-1000,57000) (47000,57000);
+ profile bot (-1000,-1000) (47000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.97 nominal_rise_fan=3.05 nominal_fall_delay=0.82 nominal_fall_fan=2.62 loads=0.115477;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=3.02 nominal_fall_delay=0.96 nominal_fall_fan=2.62 loads=0.113477;
+  a3 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=2.96 nominal_fall_delay=1 nominal_fall_fan=2.62 loads=0.119201;
+  b1 { (25000-28000,-1000)  (25000-28000,57000)  } pintype=input nominal_rise_delay=0.94 nominal_rise_fan=2.98 nominal_fall_delay=0.44 nominal_fall_fan=1.85 loads=0.109752;
+  b2 { (33000-36000,57000)  (33000-36000,-1000)  } pintype=input nominal_rise_delay=0.77 nominal_rise_fan=2.79 nominal_fall_delay=0.37 nominal_fall_fan=1.89 loads=0.117839;
+  q { (41000-44000,-1000)  (41000-44000,57000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+  b ( b1 b2 );
+siglist
+s_12_3 s_20_3 s_54_3 s_6_62 gnd vdd a1 a2 a3 b1 b2 q
+;
+translist
+m0 b2 s_54_3 q length=2000 width=18000 type=n
+m1 b1 gnd s_54_3 length=2000 width=18000 type=n
+m2 a3 s_20_3 gnd length=2000 width=18000 type=n
+m3 a2 s_12_3 s_20_3 length=2000 width=18000 type=n
+m4 a1 q s_12_3 length=2000 width=18000 type=n
+m5 b2 q s_6_62 length=2000 width=29000 type=p
+m6 b1 s_6_62 q length=2000 width=26000 type=p
+m7 a3 vdd s_6_62 length=2000 width=30000 type=p
+m8 a2 s_6_62 vdd length=2000 width=28000 type=p
+m9 a1 vdd s_6_62 length=2000 width=28000 type=p
+;
+cell end aoi32s
+
+cell begin aoi33s area=3248.0 transistors=12 generic=aoi33
+ profile top (-1000,57000) (55000,57000);
+ profile bot (-1000,-1000) (55000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=2.9 nominal_fall_delay=0.97 nominal_fall_fan=2.49 loads=0.128588;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1 nominal_rise_fan=2.83 nominal_fall_delay=0.91 nominal_fall_fan=2.51 loads=0.117839;
+  a3 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.77 nominal_rise_fan=2.66 nominal_fall_delay=0.81 nominal_fall_fan=2.49 loads=0.125288;
+  b1 { (25000-28000,-1000)  (25000-28000,57000)  } pintype=input nominal_rise_delay=0.48 nominal_rise_fan=2.61 nominal_fall_delay=0.46 nominal_fall_fan=2.37 loads=0.116839;
+  b2 { (33000-36000,57000)  (33000-36000,-1000)  } pintype=input nominal_rise_delay=0.61 nominal_rise_fan=2.88 nominal_fall_delay=0.58 nominal_fall_fan=2.28 loads=0.10739;
+  b3 { (41000-44000,57000)  (41000-44000,-1000)  } pintype=input nominal_rise_delay=0.78 nominal_rise_fan=2.59 nominal_fall_delay=0.65 nominal_fall_fan=2.35 loads=0.12658;
+  q { (49000-52000,57000)  (49000-52000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+  b ( b1 b2 b3 );
+  eqa ( a b );
+siglist
+s_12_66 s_16_32 s_36_2 s_62_2 s_70_2 gnd vdd a1 a2 a3 b1 b2 b3 q
+;
+translist
+m0 b3 s_70_2 gnd length=2000 width=22000 type=n
+m1 b2 s_62_2 s_70_2 length=2000 width=18000 type=n
+m2 b1 q s_62_2 length=2000 width=18000 type=n
+m3 a3 s_36_2 q length=2000 width=18000 type=n
+m4 a2 s_16_32 s_36_2 length=2000 width=18000 type=n
+m5 a1 gnd s_16_32 length=2000 width=24000 type=n
+m6 b3 s_12_66 q length=2000 width=29000 type=p
+m7 b2 q s_12_66 length=2000 width=25000 type=p
+m8 b1 s_12_66 q length=2000 width=29000 type=p
+m9 a3 vdd s_12_66 length=2000 width=33000 type=p
+m10 a2 s_12_66 vdd length=2000 width=29000 type=p
+m11 a1 vdd s_12_66 length=2000 width=28000 type=p
+;
+cell end aoi33s
+
+cell begin dr2s area=3712.0 transistors=14 generic=dr2
+ profile top (-1000,57000) (63000,57000);
+ profile bot (-1000,-1000) (63000,-1000);
+ termlist
+  d { (1000-4000,-1000)  (1000-4000,57000)  } pintype=input loads=0.0100575;
+  reset { (17000-20000,57000)  (17000-20000,-1000)  } pintype=reset loads=0.00946925;
+  ck1 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=clock loads=0.0235191;
+  ck2 { (41000-44000,57000)  (41000-44000,-1000)  } pintype=clock loads=0.0483386;
+  qb { (49000-52000,57000)  (49000-52000,-1000)  } pintype=output;
+  q { (57000-60000,57000)  (57000-60000,-1000)  } pintype=output;
+/* feedthroughs */
+  u1 { (25000-28000,57000) (25000-28000,-1000) } pintype=feedthrough;
+  u2 { (33000-36000,57000) (33000-36000,-1000) } pintype=feedthrough;
+ equivalences
+  u ( u1 u2 );
+siglist
+s_18_72 s_32_74 s_44_56 s_48_22 s_88_22 gnd vdd ck1 ck2 d q qb reset
+;
+translist
+m0 s_88_22 gnd q length=2000 width=20000 type=n
+m1 q qb gnd length=2000 width=21000 type=n
+m2 ck2 s_44_56 s_88_22 length=2000 width=3000 type=n
+m3 s_18_72 gnd s_44_56 length=2000 width=8000 type=n
+m4 reset s_18_72 gnd length=2000 width=4000 type=n
+m5 s_44_56 s_48_22 gnd length=2000 width=3000 type=n
+m6 ck2 s_18_72 s_48_22 length=2000 width=3000 type=n
+m7 ck1 d s_18_72 length=2000 width=3000 type=n
+m8 ck2 qb s_88_22 length=2000 width=3000 type=p
+m9 q vdd qb length=2000 width=20000 type=p
+m10 s_18_72 vdd s_44_56 length=2000 width=8000 type=p
+m11 s_44_56 s_32_74 vdd length=2000 width=6000 type=p
+m12 ck1 s_18_72 s_32_74 length=2000 width=3000 type=p
+m13 s_88_22 vdd q length=2000 width=21000 type=p
+;
+cell end dr2s
+
+/* Scan-based testability feature:
+ * The 'ds' node should be connected to the output of the predecessor
+ * flip-flop in the scan chain.  The scan_clk is used instead of ck1 to
+ * scan the info in and out.  That is: in the normal operation of
+ * the circuit scan_clk is low, and ck1/ck2 are used.  In the scan mode,
+ * scan_clk/ck2 are used with ck1 kept low to scan the data in, ck1 is pulsed
+ * once (with scan_clk low) and then scan_clk/ck2 are used to scan the
+ * results out with ck1 kept low.
+ */
+cell begin dsr2s area=4176.0 transistors=16 generic=dsr2
+ profile top (-1000,57000) (71000,57000);
+ profile bot (-1000,-1000) (71000,-1000);
+ termlist
+  d { (9000-12000,-1000)  (9000-12000,57000)  } pintype=input loads=0.00946925;
+  scanin { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input loads=0.0100575;
+  reset { (33000-36000,57000)  (33000-36000,-1000)  } pintype=reset loads=0.0100575;
+  ck1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=clock loads=0.0265191;
+  scan_clk { (17000-20000,57000)  (17000-20000,-1000)  } pintype=clock loads=0.0265191;
+  ck2 { (49000-52000,57000)  (49000-52000,-1000)  } pintype=clock loads=0.0503386;
+  qb { (57000-60000,57000)  (57000-60000,-1000)  } pintype=output;
+  q { (65000-68000,57000)  (65000-68000,-1000)  } pintype=output;
+/* feedthroughs */
+  u1 { (41000-44000,57000) (41000-44000,-1000) } pintype=feedthrough;
+siglist
+s_16_90 s_30_90 s_42_78 gnd vdd ck1 ck2 d i1 i2 n1 q qb reset scan_clk
+scanin
+;
+translist
+m0 i2 gnd q length=2000 width=20000 type=n
+m1 q qb gnd length=2000 width=21000 type=n
+m2 ck2 s_42_78 i2 length=2000 width=3000 type=n
+m3 i1 gnd s_42_78 length=2000 width=8000 type=n
+m4 reset i1 gnd length=2000 width=4000 type=n
+m5 s_42_78 n1 gnd length=2000 width=3000 type=n
+m6 ck2 i1 n1 length=2000 width=3000 type=n
+m7 ck2 qb i2 length=2000 width=3000 type=p
+m8 scan_clk i1 scanin length=2000 width=3000 type=n
+m9 ck1 d i1 length=2000 width=3000 type=n
+m10 q vdd qb length=2000 width=20000 type=p
+m11 i2 vdd q length=2000 width=21000 type=p
+m12 i1 vdd s_42_78 length=2000 width=8000 type=p
+m13 s_42_78 s_30_90 vdd length=2000 width=6000 type=p
+m14 scan_clk s_16_90 s_30_90 length=2000 width=3000 type=p
+m15 ck1 i1 s_16_90 length=2000 width=3000 type=p
+;
+cell end dsr2s
+
+cell begin i1s area=928.0 transistors=2 generic=i1
+ profile top (-1000,57000) (15000,57000);
+ profile bot (-1000,-1000) (15000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.25 nominal_rise_fan=3.04 nominal_fall_delay=0.24 nominal_fall_fan=2.91 loads=0.0570055;
+  q { (9000-12000,57000)  (9000-12000,-1000)  } pintype=output;
+siglist
+gnd vdd a q
+;
+translist
+m0 a gnd q length=2000 width=7000 type=n
+m1 a vdd q length=2000 width=13000 type=p
+;
+cell end i1s
+
+cell begin i2s area=928.0 transistors=2 generic=i2
+ profile top (-1000,57000) (15000,57000);
+ profile bot (-1000,-1000) (15000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.22 nominal_rise_fan=1.27 nominal_fall_delay=0.24 nominal_fall_fan=1.45 loads=0.113822;
+  q { (9000-12000,57000)  (9000-12000,-1000)  } pintype=output;
+siglist
+gnd vdd a q
+;
+translist
+m0 a gnd q length=2000 width=14000 type=n
+m1 a q vdd length=2000 width=31000 type=p
+;
+cell end i2s
+
+cell begin oai211s area=2320.0 transistors=8 generic=oai211
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=1.1 nominal_rise_fan=2.95 nominal_fall_delay=0.58 nominal_fall_fan=1.76 loads=0.119131;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=2.96 nominal_fall_delay=0.67 nominal_fall_fan=1.73 loads=0.141223;
+  b { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.51 nominal_rise_fan=1.67 nominal_fall_delay=0.55 nominal_fall_fan=1.74 loads=0.133428;
+  c { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.42 nominal_rise_fan=2.2 nominal_fall_delay=0.37 nominal_fall_fan=1.71 loads=0.113885;
+  q { (33000-36000,-1000)  (33000-36000,57000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+  eqb ( b c );
+siglist
+s_48_8 s_4_100 s_4_16 gnd vdd a1 a2 b c q
+;
+translist
+m0 c s_48_8 q length=2000 width=27000 type=n
+m1 b s_4_16 s_48_8 length=2000 width=29000 type=n
+m2 a2 gnd s_4_16 length=2000 width=25000 type=n
+m3 a1 gnd s_4_16 length=2000 width=22000 type=n
+m4 c q vdd length=2000 width=19000 type=p
+m5 b vdd q length=2000 width=25000 type=p
+m6 a1 s_4_100 q length=2000 width=25000 type=p
+m7 a2 vdd s_4_100 length=2000 width=32000 type=p
+;
+cell end oai211s
+
+cell begin oai21s area=1856.0 transistors=6 generic=oai21
+ profile top (-1000,57000) (31000,57000);
+ profile bot (-1000,-1000) (31000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.76 nominal_rise_fan=3.15 nominal_fall_delay=0.55 nominal_fall_fan=2.14 loads=0.113752;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.62 nominal_rise_fan=3.15 nominal_fall_delay=0.4 nominal_fall_fan=2.09 loads=0.110752;
+  b { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.29 nominal_rise_fan=2 nominal_fall_delay=0.29 nominal_fall_fan=2.07 loads=0.0898379;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+siglist
+s_14_58 s_2_2 gnd vdd a1 a2 b q
+;
+translist
+m0 b s_2_2 q length=2000 width=14000 type=n
+m1 a2 gnd s_2_2 length=2000 width=18000 type=n
+m2 a1 s_2_2 gnd length=2000 width=18000 type=n
+m3 b q vdd length=2000 width=20000 type=p
+m4 a2 s_14_58 q length=2000 width=26000 type=p
+m5 a1 vdd s_14_58 length=2000 width=26000 type=p
+;
+cell end oai21s
+
+cell begin oai221s area=2784.0 transistors=10 generic=oai221
+ profile top (-1000,57000) (47000,57000);
+ profile bot (-1000,-1000) (47000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=1.4 nominal_rise_fan=3.35 nominal_fall_delay=1.1 nominal_fall_fan=2.26 loads=0.1163;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=3.35 nominal_fall_delay=0.83 nominal_fall_fan=2.11 loads=0.116592;
+  b1 { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.76 nominal_rise_fan=3.21 nominal_fall_delay=0.55 nominal_fall_fan=2.1 loads=0.120679;
+  b2 { (41000-44000,57000)  (41000-44000,-1000)  } pintype=input nominal_rise_delay=0.66 nominal_rise_fan=3.29 nominal_fall_delay=0.44 nominal_fall_fan=2.04 loads=0.118317;
+  c { (17000-20000,-1000)  (17000-20000,57000)  } pintype=input nominal_rise_delay=0.45 nominal_rise_fan=1.5 nominal_fall_delay=0.61 nominal_fall_fan=1.94 loads=0.1143;
+  q { (33000-36000,57000)  (33000-36000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+  b ( b1 b2 );
+  eqa ( a b );
+siglist
+s_12_66 s_2_22 s_48_2 s_62_64 gnd vdd a1 a2 b1 b2 c q
+;
+translist
+m0 b2 q s_48_2 length=2000 width=23000 type=n
+m1 b1 s_48_2 q length=2000 width=23000 type=n
+m2 c s_2_22 s_48_2 length=2000 width=19000 type=n
+m3 a2 gnd s_2_22 length=2000 width=23000 type=n
+m4 a1 s_2_22 gnd length=2000 width=19000 type=n
+m5 b2 s_62_64 q length=2000 width=25000 type=p
+m6 b1 vdd s_62_64 length=2000 width=26000 type=p
+m7 c q vdd length=2000 width=27000 type=p
+m8 a2 s_12_66 q length=2000 width=23000 type=p
+m9 a1 vdd s_12_66 length=2000 width=27000 type=p
+;
+cell end oai221s
+
+cell begin oai22s area=2320.0 transistors=8 generic=oai22
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.97 nominal_rise_fan=3.23 nominal_fall_delay=0.79 nominal_fall_fan=2.06 loads=0.110744;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.85 nominal_rise_fan=3.23 nominal_fall_delay=0.59 nominal_fall_fan=1.93 loads=0.111575;
+  b1 { (33000-36000,-1000)  (33000-36000,57000)  } pintype=input nominal_rise_delay=0.58 nominal_rise_fan=2.91 nominal_fall_delay=0.46 nominal_fall_fan=1.92 loads=0.111106;
+  b2 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.47 nominal_rise_fan=2.99 nominal_fall_delay=0.35 nominal_fall_fan=1.82 loads=0.111106;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 );
+  b ( b1 b2 );
+  eqa ( a b );
+siglist
+s_12_66 s_2_2 s_40_92 gnd vdd a1 a2 b1 b2 q
+;
+translist
+m0 b1 q s_2_2 length=2000 width=16000 type=n
+m1 b2 s_2_2 q length=2000 width=16000 type=n
+m2 a2 gnd s_2_2 length=2000 width=19000 type=n
+m3 a1 s_2_2 gnd length=2000 width=16000 type=n
+m4 b1 s_40_92 vdd length=2000 width=28000 type=p
+m5 b2 q s_40_92 length=2000 width=28000 type=p
+m6 a2 s_12_66 q length=2000 width=25000 type=p
+m7 a1 vdd s_12_66 length=2000 width=27000 type=p
+;
+cell end oai22s
+
+cell begin oai31s area=2320.0 transistors=8 generic=oai31
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=4.1 nominal_fall_delay=0.75 nominal_fall_fan=2.32 loads=0.122016;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=4.11 nominal_fall_delay=0.76 nominal_fall_fan=2.31 loads=0.118184;
+  a3 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.85 nominal_rise_fan=4.12 nominal_fall_delay=0.5 nominal_fall_fan=2.1 loads=0.122563;
+  b { (33000-36000,-1000)  (33000-36000,57000)  } pintype=input nominal_rise_delay=0.28 nominal_rise_fan=1.18 nominal_fall_delay=0.35 nominal_fall_fan=2.16 loads=0.119546;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+siglist
+s_0_16 s_18_56 s_6_64 gnd vdd a1 a2 a3 b q
+;
+translist
+m0 b s_0_16 q length=2000 width=14000 type=n
+m1 a3 gnd s_0_16 length=2000 width=18000 type=n
+m2 a2 s_0_16 gnd length=2000 width=14000 type=n
+m3 a1 s_0_16 gnd length=2000 width=17000 type=n
+m4 b q vdd length=2000 width=33000 type=p
+m5 a3 s_18_56 q length=2000 width=31000 type=p
+m6 a2 s_6_64 s_18_56 length=2000 width=32000 type=p
+m7 a1 vdd s_6_64 length=2000 width=30000 type=p
+;
+cell end oai31s
+
+cell begin oai32s area=2784.0 transistors=10 generic=oai32
+ profile top (-1000,57000) (47000,57000);
+ profile bot (-1000,-1000) (47000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=3.9 nominal_fall_delay=0.76 nominal_fall_fan=2.32 loads=0.12674;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=3.88 nominal_fall_delay=0.75 nominal_fall_fan=2.31 loads=0.120546;
+  a3 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.84 nominal_rise_fan=3.91 nominal_fall_delay=0.49 nominal_fall_fan=2.11 loads=0.128288;
+  b1 { (33000-36000,57000)  (33000-36000,-1000)  } pintype=input nominal_rise_delay=0.44 nominal_rise_fan=2.54 nominal_fall_delay=0.37 nominal_fall_fan=2.16 loads=0.119184;
+  b2 { (41000-44000,57000)  (41000-44000,-1000)  } pintype=input nominal_rise_delay=0.49 nominal_rise_fan=2.62 nominal_fall_delay=0.44 nominal_fall_fan=1.86 loads=0.114925;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+  b ( b1 b2 );
+siglist
+s_12_66 s_26_58 s_56_80 s_6_18 gnd vdd a1 a2 a3 b1 b2 q
+;
+translist
+m0 b2 q s_6_18 length=2000 width=18000 type=n
+m1 b1 s_6_18 q length=2000 width=14000 type=n
+m2 a3 gnd s_6_18 length=2000 width=18000 type=n
+m3 a2 s_6_18 gnd length=2000 width=14000 type=n
+m4 a1 s_6_18 gnd length=2000 width=17000 type=n
+m5 b2 s_56_80 vdd length=2000 width=32000 type=p
+m6 b1 q s_56_80 length=2000 width=32000 type=p
+m7 a3 s_26_58 q length=2000 width=33000 type=p
+m8 a2 s_12_66 s_26_58 length=2000 width=33000 type=p
+m9 a1 vdd s_12_66 length=2000 width=32000 type=p
+;
+cell end oai32s
+
+cell begin oai33s area=3248.0 transistors=12 generic=oai33
+ profile top (-1000,57000) (55000,57000);
+ profile bot (-1000,-1000) (55000,-1000);
+ termlist
+  a1 { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=1.4 nominal_rise_fan=3.73 nominal_fall_delay=0.75 nominal_fall_fan=1.98 loads=0.131464;
+  a2 { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=3.74 nominal_fall_delay=0.77 nominal_fall_fan=1.99 loads=0.122909;
+  a3 { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=1 nominal_rise_fan=3.75 nominal_fall_delay=0.59 nominal_fall_fan=2 loads=0.121909;
+  b1 { (33000-36000,57000)  (33000-36000,-1000)  } pintype=input nominal_rise_delay=0.58 nominal_rise_fan=3.78 nominal_fall_delay=0.34 nominal_fall_fan=1.98 loads=0.13165;
+  b2 { (41000-44000,57000)  (41000-44000,-1000)  } pintype=input nominal_rise_delay=0.85 nominal_rise_fan=3.83 nominal_fall_delay=0.64 nominal_fall_fan=2.3 loads=0.122909;
+  b3 { (49000-52000,57000)  (49000-52000,-1000)  } pintype=input nominal_rise_delay=1 nominal_rise_fan=3.79 nominal_fall_delay=0.78 nominal_fall_fan=2.42 loads=0.124909;
+  q { (25000-28000,57000)  (25000-28000,-1000)  } pintype=output;
+ equivalences
+  a ( a1 a2 a3 );
+  b ( b1 b2 b3 );
+  eqa ( a b );
+siglist
+s_12_66 s_20_66 s_60_82 s_68_90 s_6_22 gnd vdd a1 a2 a3 b1 b2 b3 q
+;
+translist
+m0 b3 s_6_22 q length=2000 width=14000 type=n
+m1 b2 q s_6_22 length=2000 width=14000 type=n
+m2 b1 s_6_22 q length=2000 width=18000 type=n
+m3 a3 gnd s_6_22 length=2000 width=14000 type=n
+m4 a2 s_6_22 gnd length=2000 width=14000 type=n
+m5 a1 s_6_22 gnd length=2000 width=17000 type=n
+m6 b3 s_68_90 vdd length=2000 width=34000 type=p
+m7 b2 s_60_82 s_68_90 length=2000 width=34000 type=p
+m8 b1 q s_60_82 length=2000 width=34000 type=p
+m9 a3 s_20_66 q length=2000 width=34000 type=p
+m10 a2 s_12_66 s_20_66 length=2000 width=34000 type=p
+m11 a1 vdd s_12_66 length=2000 width=34000 type=p
+;
+cell end oai33s
+
+cell begin oi2s area=1392.0 transistors=4 generic=oi2
+ profile top (-1000,57000) (23000,57000);
+ profile bot (-1000,-1000) (23000,-1000);
+ termlist
+  a { (17000-20000,57000)  (17000-20000,-1000)  } pintype=input nominal_rise_delay=0.29 nominal_rise_fan=2.58 nominal_fall_delay=0.38 nominal_fall_fan=2.97 loads=0.0971626;
+  b { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.45 nominal_rise_fan=2.56 nominal_fall_delay=0.65 nominal_fall_fan=3 loads=0.104249;
+  q { (9000-12000,57000)  (9000-12000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b );
+siglist
+s_12_86 gnd vdd a b q
+;
+translist
+m0 a q gnd length=2000 width=7000 type=n
+m1 b gnd q length=2000 width=7000 type=n
+m2 a s_12_86 q length=2000 width=30000 type=p
+m3 b vdd s_12_86 length=2000 width=33000 type=p
+;
+cell end oi2s
+
+cell begin oi3s area=1856.0 transistors=6 generic=oi3
+ profile top (-1000,57000) (31000,57000);
+ profile bot (-1000,-1000) (31000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=input nominal_rise_delay=0.77 nominal_rise_fan=3.67 nominal_fall_delay=0.85 nominal_fall_fan=3.16 loads=0.110974;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.66 nominal_rise_fan=3.67 nominal_fall_delay=0.7 nominal_fall_fan=2.98 loads=0.0956114;
+  c { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=0.33 nominal_rise_fan=3.67 nominal_fall_delay=0.42 nominal_fall_fan=2.96 loads=0.105611;
+  q { (17000-20000,57000)  (17000-20000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b c );
+siglist
+s_32_52 s_6_108 gnd vdd a b c q
+;
+translist
+m0 c q gnd length=2000 width=7000 type=n
+m1 b gnd q length=2000 width=7000 type=n
+m2 a q gnd length=2000 width=7000 type=n
+m3 c s_32_52 q length=2000 width=34000 type=p
+m4 b s_6_108 s_32_52 length=2000 width=34000 type=p
+m5 a s_6_108 vdd length=2000 width=35000 type=p
+;
+cell end oi3s
+
+cell begin oi4s area=2320.0 transistors=8 generic=oi4
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a { (1000-4000,57000)  (1000-4000,-1000)  } pintype=output nominal_rise_delay=0.33 nominal_rise_fan=5.3 nominal_fall_delay=0.43 nominal_fall_fan=2.94 loads=0.090887;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=0.9 nominal_rise_fan=5.35 nominal_fall_delay=0.73 nominal_fall_fan=2.99 loads=0.098887;
+  c { (25000-28000,57000)  (25000-28000,-1000)  } pintype=input nominal_rise_delay=1.2 nominal_rise_fan=5.35 nominal_fall_delay=0.85 nominal_fall_fan=3.13 loads=0.098887;
+  d { (33000-36000,57000)  (33000-36000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=5.44 nominal_fall_delay=0.94 nominal_fall_fan=3.33 loads=0.100887;
+  q { (17000-20000,57000)  (17000-20000,-1000)  } pintype=output;
+ equivalences
+  eqa ( a b c d );
+siglist
+s_14_46 s_32_46 s_48_46 gnd vdd a b c d q
+;
+translist
+m0 d q gnd length=2000 width=7000 type=n
+m1 c gnd q length=2000 width=7000 type=n
+m2 b q gnd length=2000 width=7000 type=n
+m3 a gnd q length=2000 width=7000 type=n
+m4 d s_48_46 vdd length=2000 width=32000 type=p
+m5 c s_32_46 s_48_46 length=2000 width=32000 type=p
+m6 b s_14_46 s_32_46 length=2000 width=32000 type=p
+m7 a q s_14_46 length=2000 width=32000 type=p
+;
+cell end oi4s
+
+cell begin tsbuffs area=13000.0 transistors=14 generic=tsbuff
+ profile top (-1000,57000) (63000,57000);
+ profile bot (-1000,-1000) (63000,-1000);
+ termlist
+  data { (25000-28000,-1000) (25000-28000,57000) } pintype=input loads=0.11904;
+  enable { (9000-12000,-1000) (9000-12000,57000) } pintype=input loads=0.09804;
+  q { (57000-60000,-1000) (57000-60000,57000) } pintype=output;
+/* feedthroughs */
+  u1 { (1000-4000,57000) (1000-4000,-1000) } pintype=feedthrough;
+  u2 { (17000-20000,-1000) (17000-20000,57000) } pintype=feedthrough;
+  u3 { (33000-36000,57000) (33000-36000,-1000) } pintype=feedthrough;
+  u4 { (41000-44000,57000) (41000-44000,-1000) } pintype=feedthrough;
+  u5 { (49000-52000,57000) (49000-52000,-1000) } pintype=feedthrough;
+ equivalences
+  u ( u1 u2 u3 u4 u5 );
+siglist
+s_116_114 s_56_170 s_58_14 s_6_170 s_96_132 gnd vdd data enable q
+;
+translist
+m0 s_96_132 q gnd length=2000 width=15000 type=n
+m1 s_96_132 gnd q length=2000 width=16000 type=n
+m2 s_6_170 s_96_132 gnd length=2000 width=8000 type=n
+m3 data gnd s_96_132 length=2000 width=8000 type=n
+m4 data s_58_14 s_56_170 length=2000 width=16000 type=n
+m5 enable gnd s_58_14 length=2000 width=16000 type=n
+m6 enable s_6_170 gnd length=2000 width=8000 type=n
+m7 s_56_170 q vdd length=2000 width=27000 type=p
+m8 s_56_170 vdd q length=2000 width=27000 type=p
+m9 s_6_170 s_116_114 vdd length=2000 width=27000 type=p
+m10 data s_96_132 s_116_114 length=2000 width=27000 type=p
+m11 data s_56_170 vdd length=2000 width=17000 type=p
+m12 enable vdd s_56_170 length=2000 width=16000 type=p
+m13 enable s_6_170 vdd length=2000 width=16000 type=p
+;
+cell end tsbuffs
+
+cell begin tscons0s area=13000.0 transistors=14 generic=tscons0
+ profile top (-1000,57000) (63000,57000);
+ profile bot (-1000,-1000) (63000,-1000);
+ termlist
+  enable { (9000-12000,-1000) (9000-12000,57000) } pintype=input loads=0.120788;
+  q { (57000-60000,-1000) (57000-60000,57000) } pintype=output;
+/* feedthroughs */
+  u1 { (1000-4000,57000) (1000-4000,-1000) } pintype=feedthrough;
+  u2 { (17000-20000,-1000) (17000-20000,57000) } pintype=feedthrough;
+  u3 { (25000-28000,57000) (25000-28000,-1000) } pintype=feedthrough;
+  u4 { (33000-36000,57000) (33000-36000,-1000) } pintype=feedthrough;
+  u5 { (41000-44000,57000) (41000-44000,-1000) } pintype=feedthrough;
+  u6 { (49000-52000,57000) (49000-52000,-1000) } pintype=feedthrough;
+ equivalences
+  u ( u1 u2 u3 u4 u5 u6 );
+siglist
+s_116_114 s_50_22 s_56_170 s_6_170 s_96_132 gnd vdd enable q
+;
+translist
+m0 s_96_132 q gnd length=2000 width=14000 type=n
+m1 s_96_132 gnd q length=2000 width=16000 type=n
+m2 s_6_170 s_96_132 gnd length=2000 width=8000 type=n
+m3 gnd gnd s_96_132 length=2000 width=8000 type=n
+m4 s_56_170 q vdd length=2000 width=27000 type=p
+m5 s_56_170 vdd q length=2000 width=27000 type=p
+m6 gnd s_50_22 s_56_170 length=2000 width=16000 type=n
+m7 enable gnd s_50_22 length=2000 width=16000 type=n
+m8 enable s_6_170 gnd length=2000 width=8000 type=n
+m9 s_6_170 s_116_114 vdd length=2000 width=27000 type=p
+m10 gnd s_96_132 s_116_114 length=2000 width=27000 type=p
+m11 gnd s_56_170 vdd length=2000 width=17000 type=p
+m12 enable vdd s_56_170 length=2000 width=16000 type=p
+m13 enable s_6_170 vdd length=2000 width=16000 type=p
+;
+cell end tscons0s
+
+cell begin xors area=2320.0 transistors=10 generic=xor
+ profile top (-1000,57000) (39000,57000);
+ profile bot (-1000,-1000) (39000,-1000);
+ termlist
+  a { (1000-4000,-1000)  (1000-4000,57000)  } pintype=input nominal_rise_delay=0.68 nominal_rise_fan=4.08 nominal_fall_delay=0.4 nominal_fall_fan=2.27 loads=0.164778;
+  b { (9000-12000,57000)  (9000-12000,-1000)  } pintype=input nominal_rise_delay=1.3 nominal_rise_fan=3.81 nominal_fall_delay=1.6 nominal_fall_fan=1.65 loads=0.159486;
+  q { (33000-36000,-1000)  (33000-36000,57000)  } pintype=output;
+/* feedthroughs */
+  u1 { (17000-20000,57000) (17000-20000,-1000) } pintype=feedthrough;
+  u2 { (25000-28000,-1000) (25000-28000,57000) } pintype=feedthrough;
+ equivalences
+  eqa ( a b );
+  u ( u1 u2 );
+siglist
+s_16_74 s_2_80 s_32_74 s_56_2 gnd vdd a b q
+;
+translist
+m0 a s_56_2 gnd length=2000 width=14000 type=n
+m1 b q s_56_2 length=2000 width=14000 type=n
+m2 s_2_80 gnd q length=2000 width=15000 type=n
+m3 b s_2_80 gnd length=2000 width=10000 type=n
+m4 a gnd s_2_80 length=2000 width=14000 type=n
+m5 a q s_32_74 length=2000 width=18000 type=p
+m6 b s_32_74 q length=2000 width=22000 type=p
+m7 s_2_80 vdd s_32_74 length=2000 width=22000 type=p
+m8 b s_16_74 vdd length=2000 width=14000 type=p
+m9 a s_2_80 s_16_74 length=2000 width=14000 type=p
+;
+cell end xors
+

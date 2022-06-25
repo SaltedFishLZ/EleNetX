@@ -1,0 +1,107 @@
+
+  DESIGN RULES
+
+  A.  General Comments
+
+  Circuits which are gate arrays or totally standard  height  cells
+  will  be  placed  in rows. The topology is at your discretion for
+  circuits composed of  mixed  standard  cells  and  general  cells
+  (building blocks).
+
+  For gate array implementations we  will  specify  the  number  of
+  rows,  placement  positions  per  row, tracks per channel and the
+  number of pad positions on each side of the die.
+
+  The gate array library includes feedthrough  positions  on  cells
+  for  over-cell  routing.  At least one standard cell library will
+  also permit over-cell routing.  Most cells are dual-ported.  Ter-
+  minals  are  accessed  only  from  the side specified in the cell
+  description. Any over-cell routing  is  assumed  to  go  straight
+  across the cell.
+
+  For general cells examples, blocks can not be "over-cell  routed"
+  and also none of these examples have blocks with feed throughs.
+
+  Two layers are available for routing.
+
+  Some of the circuits will have a pre-specified pad placement. For
+  other  circuits, pads at the bounding frame are specified only in
+  terms of side and ordering, i.e., their exact positions are  ini-
+  tially unknown.
+
+  B.  Geometrical Rules
+
+  We assume 2 layers of  interconnect  with  the  following  design
+  rules:
+
+    i.   signal wires in layer_1 have width w1;
+    ii.  wire_to_wire spacing in layer_1 is s1;
+    iii. signal wires in layer_2 have width w2;
+    iv.  wire_to_wire spacing in layer_2 is s2;
+    v.   via size is svia;
+    vi.  via surrounding is vsur.
+
+              An example is shown in the figure below.
+
+                            svia
+                            !  !
+                         _________       _________
+                         I       I       I       I
+           --------------I  ---- I<----->I       I
+                w1       I  I  I I max   I       I
+           --------------I  ---- I(s1,s2)I       I
+                         I_______I       I_______I
+                            I  I            I  I
+                            Iw2I            I  I
+                            I  I            I  I
+
+  C.  Power and Ground Nets (P/G)
+
+  A net specified as P/G must fulfill additional constraints. These
+  are  related  to electromigration phenomenon and to voltage drops
+  between supplying and demanding pads. In  order  to  calculate  a
+  correct  wire  width for P/G, each pin of such a net has, besides
+  the usual information, two additional numbers. One is a value  of
+  current drawn by the pin, the other is the maximum allowable vol-
+  tage drop from pin to the supplying pad.  For supplying pad,  the
+  current value specifies the maximum current which can be supplied
+  by it, voltage drop is ignored.
+
+  We  assume  the  following  relationships  for  calculating  wire
+  widths:
+
+   wire_conductance = g_const*wire_width/wire_length ;
+   wire_current <= k_electro*wire_width ;
+   wire_current = g_const*v_electro*wire_width/wire_length ;
+   v_electro <= k_electro * wire_length / g_const ;
+   g_const and k_electro will be supplied for the examples.
+
+  Note that some power nets may have multiple pads at the boundary.
+  Power nets can use all of them, some, or just one.
+
+  D.  Critical Nets
+
+  A group of nets  considered  critical  will  have  their  maximum
+  lengths  specified.   This  means  that in the final result their
+  lengths should not exceed the prespecified values.
+
+  E.  Aspect Ratio
+
+  The chip may have an aspect ratio specified. It should be  under-
+  stood  that we are looking for the least area realization fulfil-
+  ling all the requirements and bounded by a rectangle having  that
+  aspect ratio.
+
+  F.  Fixed Length or Width of Bounding Rectangle
+
+  Instead of specifying the aspect ratio, we may request  that  one
+  side of the parent block not exceed a given length.
+
+  G. Constraints Specifications
+
+  NOTE  that  not  all  of  the  examples   will   have   all   the
+  constraints/requirements  specified.  See "Benchmark characteris-
+  tics" for details.
+
+
+

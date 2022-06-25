@@ -1,0 +1,110 @@
+This directory contains the following standard cell benchmarks:
+
+Name  YAL datafile/library    VPNR datafile/library      #cells  #nets  #I/O
+=========================================================================
+SC0                           fract.vpnr/db.vpnr         125     147    24
+SC1   primary1.yal/sclib.yal  primary1.vpnr/sclib.db     752     904    81
+SC2                           struct.vpnr/db.vpnr        1888    1920   64
+SC3                           industry1.vpnr             2271    2594   814
+SC3a                          industry1a.vpnr            2271    2479   580
+SC4   primary2.yal/sclib.yal  primary2.vpnr/sclib.db     2907    3029   10
+SC5                           biomed.vpnr/db.vpnr        6417    5766   97
+SC6                           industry2.vpnr             12142   13915  495
+SC7                           industry3.vpnr             15059   21966  375
+
+Notes:
+
+Please treat ALL benchmarks as 'PRIMARY' - they are all of equal importance
+and cover a wide spectrum of circuit sizes.
+
+Plot magnifications will be specified at a later time.
+
+Benchmarks SC0, SC2, SC5, SC6, and SC7 use SCMOS MOSIS rules.  The width of
+the P/G rails in the cells is 6 microns.
+
+Here are SCMOS rules:
+
+metal_1 wire width               :   w1 = 3
+metal_1 wire-wire spacing        :   s1 = 3
+metal_2 wire width               :   w2 = 3 
+metal_2 wire-wire spacing        :   s2 = 4 
+via size                         : svia = 2
+via surrounding                  : vsur = 1
+
+Benchmarks SC1 and SC4 use design rules specified in sclib.yal.  See the
+beginng of the 'sclib.yal', even if you are using 'sclib.db'.  The width
+of the P/G rails in the cells is 8 microns.
+
+Benchmark SC3 uses the following design rules:
+	w1 = s1 = s2 = svia = 2 microns
+	w2 = 2.8 microns
+	vsur1 = 1 micron
+	vsur2 = 0.4 micron
+Due to the specifics of the cells used in SC3, only VPNR description is
+available.
+
+Unless specified otherwise, all signal ports in all cells are on
+METAL2 layer, and all power/ground ports are on METAL1.
+
+SC0:  This benchmark was used in the Physical Design Workshop 1989.  It is
+      also used in the ISCAS'89 Sequential Testability Benchmarks.
+
+SC1:  This is the old 'Primary1' benchmark from Physical Design Workshop '87
+      and Workshop on Placement & Routing 1988.
+
+SC2:  This circuit contains a fair amount of repetitive subcircuits.
+
+SC3:  Benchmark 'industry1' contains 115 'pass-through' signals that occur
+      only at the pins but do not connect to any cell.  If your software
+      cannot handle such nets, please use 'industry1a' which is the same
+      circuit, but with the 'pass-through' I/Os removed.
+      The cells used in SC3 differ significantly from the other cells.
+      The signal ports are actually metal1/metal2 vias; metal 2 can route
+      anywhere over the cells, metal1 is forbidden over the cells.
+      Please route this benchmark with metal2 running verically and metal1
+      running horizontally (parallel to the cell rows).
+
+SC4:  This is the old 'Primary2' benchmark from Physical Design Workshop '87
+      and Workshop on Placement & Routing 1988.
+
+SC5:  This circuit contains a number of buses, hence it has fewer nets than
+      cells.
+
+SC0 and SC5: These benchmarks can be routed with or without the scan chain.
+      The scan chain is not connected in the benchmark files; your software
+      is free to connect it in any manner that will be suitable.  The only
+      cell that goes into the scan chain is 'dsr2s', and the scan_in input
+      is the second terminal of this cell.  If your software cannot handle
+      automatic scan chaining, please leave this input unconnected and make
+      a note of it when presenting the benchmark results.
+
+      Descriptions of both SC0 and SC5 are available on a mixed functional/
+      structural level as well.  Those descriptions will be supplied at
+      individual requests.
+
+Additional requests:
+====================
+
+P/G nets constraints:
+	---------- VALUES WILL BE SUPPLIED LATER ----------------
+
+Aspect ratio constraints:
+	Try to produce the following aspect ratios for each benchmark circuit:
+	1, 1.5, and 2.
+
+Fixed widths:
+	---------- VALUES WILL BE SUPPLIED LATER ----------------
+
+Critical nets:
+	There are no critical net data specified for these circuits (yet).
+	However, the database 'db.vpnr' can be used to determine the longest
+	path in benchmarks SC0, SC2, and SC5.  The dsr2s and dr2s cells are
+	d-flipflops.
+	Please try to produce the layout that will minimize the delay from any
+	input/flipflop output to any output/flipflop input.  The delay data
+	is specified in db.vpnr for each input-output pair of pins in each
+	combinational cell.  Please use the data in 'tech' regarding the
+	metal1 and metal2 capacitances.
+
+	See the description of the SCMOS technology for physical constants
+	relevant to the timing issues.

@@ -1,0 +1,260 @@
+%A Badri Lokanathan
+%A Edwin Kinnen
+%T Performance Optimized Floor Planning by Graph Planarization
+%J 26th ACM/IEEE Design Automation Conference
+%P 116-121
+%I ACM, Inc.
+%C New York
+%D June 1989
+%K P&R
+%X Placement and post-layout results for PrimBBL2 benchmark are shown. 
+(All blocks have fixed dimensions and pins.)
+The floorplanning procedure, based on rectangular dualization, maximizes 
+adjacency of modules that are heavily connected or are connected by critical nets.
+
+%A Mitsuru Igusa
+%A Mark Beardslee
+%A Alberto Sangiovanni-Vincentelli
+%T ORCA A Sea-of-gates P&R System
+%J 26th ACM/IEEE Design Automation Conference
+%P 122-127
+%I ACM, Inc.
+%C New York
+%D June 89
+%K P&R
+%X The active area percentage and the CPU time on a VAX8650 for PrimGA1 and 
+PrimGA2 benchmarks are reported.  
+The total net length for PrimGA2 is compared against that of other systems 
+e.g. LTX2, GE, Proud.
+The system uses a min-cut floorplanner, an exhaustive enumeration local 
+placer and an area router with rip-up-and-reroute algorithm. 
+
+%A A. Herrigel
+%A W. Fichtner
+%T An Analytic Optimization Technique for Placement of Macro-Cells
+%J 26th ACM/IEEE Design Automation Conference
+%P 376-381
+%I ACM, Inc.
+%C New York
+%D June 1989
+%K P&R
+%X This paper gives the total wire length and the chip area for PrimBBL1 
+benchmark.  (Post-layout result is also shown.)  The authors map the placement 
+problem (with rectangular and L-shaped blocks) into a nonlinear and nonconvex 
+programming problem and use a modified penalty method to solve the problem.  
+Pin positions on the blocks are also optimized.
+
+%A Xueqing Zhang
+%A Lawrence T. Pillage
+%A Ronald A. Rohrer
+%T Efficient Final Placement Based on Nets-as-Points
+%J 26th ACM/IEEE Design Automation Conference
+%P 578-581
+%I ACM, Inc.
+%C New York
+%D June 1989
+%K P&R
+%X This paper reports half-perimeter and minimum spanning tree wire lengths for 
+PrimGA1 and PrimGA2 benchmarks.  Maximum horizontal and vertical
+congestions and CPU times are presented as well.  A pseudo Steiner tree
+model for the net-points, which selects the gate positions to best
+minimize the wiring congestion, along with a virtual snap-to-grid procedure
+, which places the gates in rows to best alleviate the wiring congestion of
+the channels, are used.
+
+%A Jingsheng Cong
+%A Bryan Preas
+%T A New Algorithm for Standard Cell Global Routing
+%J Digest of Technical Papers ICCAD-88
+%P 176-179
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1988
+%K P&R
+%X A new global router for standard cell layouts is presented. The algorithm
+processes all nets in parallel.  Initially, it finds an optimal spanning 
+forest on a net connection graph that contains all the 
+interconnection information for pins in the design.  The number and
+the locations of all feedthroughs added to rows are thus determined. 
+In the next stage, the net segments - to complete connections for each net - are 
+chosen such that the total channel density is minimized.  
+Results on chip width and chip height, total number of tracks and
+total feedthrough count for PrimSC1 and PrimSC2 are reported and compared
+with those obtained by TimberWolfSC version 4.2 global router.
+
+%A Kai-Win Lee
+%A Carl Sechen
+%T A New Global Router for Row-based Layout
+%J Digest of Technical Papers ICCAD-88
+%P 180-183
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1988
+%K P&R
+%X A new global router for row-based layout styles such as sea-of-gates, 
+gate array, and standard cell circuits is presented. 
+The algorithm finds an approximate Steiner tree for each net and then converts
+all nonvertical and nonhorizontal edges in the tree to L-shaped segments. 
+A coarse global routing step determines the orientations of switchable 
+L-shaped segments (in order to minimize the total channel density).
+Next, specific feedthrough paths are assigned.
+Effort is made to minimize the horizontal spans of segments and to perfectly
+align the feedthroughs.
+Results on number of tracks and CPU time (on SUN3/260) for PrimSC1, PrimSC2,
+PrimGA1 and PrimGA2 are reported and compared with TimberWolfSC version 4.2 global
+router.
+
+%A Bernhard Eschermann
+%A Wei-Ming Dai
+%A Ernest S. Kuh
+%A Massoud Pedram
+%T Hierarchical Placement for Macrocells: A ``Meet in the Middle'' Approach
+%J Digest of Technical Papers ICCAD-88
+%P 460-463
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1988
+%K P&R
+%X A hierarchical placement algorithm for building block layout is presented.
+The algorithm combines the bottom-up shape propagation and the
+top-down enumeration techniques in order to minimize a linear combination
+of chip area, total wire length and aspect ratio mismatch.  
+Other features of the system include hierarchical wiring area estimation 
+(during placement) and shape optimization (after placement).
+Chip area, wire length, and total via count for PrimBBL1 and PrimBBL2
+benchmarks are reported and compared with those of MOSAICO, VITAL, Seatle
+Silicon, and Delft University.
+
+%A Jurgen M. Kleinhans
+%A George Sigl
+%A Frank M. Johannes
+%T GORDIAN: A New Global Optimization / Rectangle Dissection Methods for Cell Placement
+%J Digest of Technical Papers ICCAD-88
+%P 506-509
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1988
+%K P&R
+%X A new placement method for cell-based layout styles is presented. 
+It is composed of alternating and interacting global optimization and 
+partitioning phases. In the global optimization phase, a constrained quadratic
+optimization problem is solved to determine the global placement of cells.
+In the partitioning phase, each region is divided into two subregions, 
+subsets of cells are assigned to these subregions, and
+new geometric constraints on cells are generated.
+Total half perimeter lengths and minimum spanning trees with squared Euclidean 
+metric lengths for PrimSC1 and PrimSC2 are reported.  The total
+half perimeter length, chip area, and CPU time for PrimBBL2 are given as well.
+
+%A Lu Sha
+%A Tom Blank
+%T ATLAS - A Technique for Layout Using Analytic Shapes
+%J Digest of Technical Papers ICCAD-87
+%P 84-87
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1987
+%K P&R
+%X This paper introduces a new objective function for building block placement
+which takes into account the translation, rotation, and mirror operations 
+simultaneously.  Two methods (the Penalty Function 
+Method and the Sequential Quadratic Programming) have been used to solve the 
+resulting non-linear programming problem.  Wire length and CPU time (VAX 
+Station II) for PrimBBL2 are reported and compared with those of TimberWolf 
+version 3.2.
+
+%A Carl Sechen
+%A Kai-Win Lee
+%T An Improved Simulated Annealing Algorithm for Row-Based Placement
+%J Digest of Technical Papers ICCAD-87
+%P 478-481
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D 1987
+%K P&R
+%X This paper presents TimberWolfSC version 4.2. The main features of the this
+version include problem normalization and negative-feedback control of the
+key simulated annealing parameters. Wire length and number of tracks for
+PrimSC1 and PrimSC2 are reported.
+
+%A Gerhard Zimmerman
+%T A New Area and Shape Function Estimation Technique for VLSI Layouts
+%J 25th ACM/IEEE Design Automation Conference
+%P 60-65
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D June 1988
+%K P&R
+%X A shape function estimation method for standard cell and general cell layouts
+is presented.  The estimation technique relies on knowledge about the geometry and 
+about cell neighborhoods in order to produce accurate area estimates. Shape function
+and area estimates for PrimSC1 benchmark over a wide range of aspect ratios
+
+%A H. Cai
+%T Connectivity Biased Channel Construction and Ordering for Building-Block Layout
+%J 25th ACM/IEEE Design Automation Conference
+%P 560-565
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D June 1988
+%K P&R
+%X This paper introduces a number of techniques for the construction and ordering
+of routing channels for building-block layouts.  The algorithms use both
+the geometrical data (the placement) and the topological data 
+(the connectivity) to determine the channel structure. The layout area,
+net length, number of vias, and CPU times (on Apollo DN3000) are reported
+for PrimBBL1 and PrimBBL2 benchmarks.
+
+
+%A Bryan Preas
+%T Benchmarks for Cell-Based Layout Systems
+%J 24th ACM/IEEE Design Automation Conference
+%P 319-320
+%I ACM, Inc.
+%C New York
+%D June 1987
+%K P&R
+%X This paper presents a representative set of cell-based layout benchmarks
+that are real and representative of modern designs.  Example benchmarks
+are provided to span the design space along several axes: regularity (a
+register array and irregular control logic), size (137 cells to 3804 cells), 
+design style (gate arrays, standard cells, general cells). Layout rules
+for the benchmarks are specified.
+
+%A Jonathan Rose
+%T LocusRoute: A Parallel Global Router for Standard Cells
+%J Proc. of 25th ACM/IEEE Design Automation Conference
+%P 189-195
+%I IEEE Computer Society Press
+%C Washington D.C.
+%D June, 1988
+%K P&R
+%X Results are cited on Primary1, Primary2 and Test06 from the
+standard cell benchmark set.
+
+%A Peter Suaris
+%A Gershon Kedem
+%T A Quadrisection-Based Combined Place and Route Scheme for Standard Cells
+%J IEEE Transactions on Computer-Aided Design
+%V 8, No. 3
+%P 234-244
+%D March, 1989
+%K P&R
+%X Area, wire length and CPU time are cited for Primary1 and Primary2
+benchmark circuits.
+
+%A M. Beardslee
+%A J. Burns
+%A A. Casotto
+%A M. Igusa
+%A F. Romeo
+%A A. Sangiovanni-Vincentelli
+%T An Integrated Macro-Cell Layout System
+%J Proceedings of The International Workshop on Placement and Routing
+%D May, 1988
+%I MCNC
+%C Research Triangle Park, NC
+%K P&R
+%X Paper describes the Mosaico Macro-Cell layout system.  Area and
+wire length Results (along with a plot) are
+cited for the PrimBBL1 benchmark.

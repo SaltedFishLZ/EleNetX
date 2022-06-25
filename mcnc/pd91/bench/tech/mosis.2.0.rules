@@ -1,0 +1,100 @@
+All numbers in the rules are in microns.
+========================================
+
+WELLS
+-----
+RULE 1.1:         N-Well and P-Well width must be at least 10
+RULE 1.2:         N-Well to P-Well spacing must be at least 9
+RULE 1.3:         P-Well to P-Well spacing must be at least 6
+RULE 1.3:         N-Well to N-Well spacing must be at least 6
+
+DIFFUSION
+---------
+RULE 2.1:         Diffusion width must be at least 3
+RULE 2.2:         Diffusion spacing must be at least 3
+RULE 2.3:         Source/drain diffusion should be separated from well edge by
+		  at least 5
+
+RULE 2.4:	  Substrate/well contact diffusion should be separated from
+		  well edge by at least 3.
+
+POLYSILICON
+-----------
+RULE 3.1:         Polysilicon width must be at least 2
+RULE 3.2:         Polysilicon spacing must be at least 2
+RULE 3.3:         Poly must overhang transistor by at least 2
+RULE 3.4:         Diffusion must overhang transistor by at least 3
+RULE 3.5:         Field poly and diffusion must be separated by at least 1
+
+SELECTS
+-------
+
+RULE 4.1:	  P-select/N-select spacing (overlap) to (of) channel should be
+		  at least 3.
+RULE 4.2:	  Select spacing (overlap) to (of) drain/source diffusion should
+		  be at least 2.
+RULE 4.3:	  Select spacing (overlap) to (of) contact to well or substrate
+		  should be at least 1.
+RULE 4.4:	  Select spacing and width should be at least 2.
+
+SIMPLE CONTACT TO POLY
+----------------------
+
+RULE 5A.1:	  Contact size exactly 2 by 2.
+RULE 5A.2:	  Poly overlap of contact: 2.
+RULE 5A.3:	  Spacing between contacts: 2.
+
+DENSER CONTACT TO POLY
+----------------------
+
+RULE 5B.1:	  Contact size exactly 2 by 2.
+RULE 5B.2:	  Poly overlap of contact: 1.
+RULE 5B.3:	  Contact spacing on the same poly: 2
+RULE 5B.4:	  Contact spacing on different poly: 5
+RULE 5B.5:        Poly contact must be at least 4 from other poly
+RULE 5B.6:        Single poly contact must be 2 microns from diffusion
+RULE 5B.7:        Many adjacent poly contacts must be 3 microns from diffusion
+
+
+SIMPLE CONTACT TO DIFF
+----------------------
+RULE 6A.1:        Contact size exactly 2 by 2.
+RULE 6A.2:        Diffusion overlap of contact: 2.
+RULE 6A.3:	  Spacing between contacts: 2.
+RULE 6A.4:	  Contact spacing to transistor gate: 2.
+
+DENSER CONTACT TO DIFF
+----------------------
+
+RULE 6B.1:	  Contact size exactly 2 by 2.
+RULE 6B.2:	  Diffusion  overlap of contact: 1.
+RULE 6B.3:	  Contact spacing on the same diff: 2
+RULE 6B.4:	  Contact spacing on different diff: 6
+RULE 6B.5:        Diff contact must be at least 5 from other diffusion
+RULE 6B.6:        Contact spacing to transistor gate: 2.
+RULE 6B.7:        Single diff contact must be 2 microns from field poly
+RULE 6B.8:        Many adjacent diff contacts must be 3 microns from field poly
+RULE 6B.9:        Poly contacts must be 4 away from diffusion contacts
+
+METAL1
+------
+
+RULE 7.1:         First-level metal width must be at least 3
+RULE 7.2:         First-level metal spacing must be at least 3
+RULE 7.3:         First-level metal overlap of contacts must be at least 1
+
+VIA BETWEEN METAL1 and METAL2
+-----------------------------
+
+RULE 8.1:         Via size exactly 2 by 2.
+RULE 8.2:         Spacing between vias should be at least 3.
+RULE 8.3:	  Via overlap by metal1 must be at least 1.
+RULE 8.4:	  Via spacing to edge of poly/diffusion should be at least 2.
+RULE 8.5:	  Via spacing to contact should be at least 2.
+
+METAL2
+------
+
+RULE 9.1:         Second-level metal width must be at least 3
+RULE 9.2:         Second-level metal spacing must be at least 4
+RULE 9.3:         Second-level metal overlap of vias must be at least 1

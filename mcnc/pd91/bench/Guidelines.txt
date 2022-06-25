@@ -1,0 +1,138 @@
+Guidelines for Reporting Results
+================================
+
+All routing should be done in two layers, unless specified otherwise.
+
+Placement and Routing Procedures
+================================
+
+We realize that it is difficult to fulfill all the requirements
+specified for the examples, especially if your system is currently
+being developed. Thus we propose several levels of participation.
+
+Everybody who participates on level 2 or higher, is also asked to
+participate on level_1, so as to have a common denominator for
+all participants.
+
+level_1:
+	Treat P/G nets as signal nets.
+	For building blocks and standard cells: Place the blocks and route
+	all nets such that your layout fits into the least-area rectangle.
+	For gate arrays and sea-of-gates: Place the cells in the least-area
+	rectangle that has the aspect ratio specified for the initial GA
+	configuration and enables your system to route all nets.
+
+level_2a:
+	level_1 with P/G nets having proper wire widths such that electro-
+	migration constraints are fulfilled and, if possible, voltage drops
+	as well.
+
+level_2b:
+	level_1 + nets designated as critical satisfy their constraints.
+
+level_3:
+	level_2a + nets designated as critical satisfy their constraints.
+	
+From now on, all levels of participation are relevant only for building
+blocks, standard cell, and mixed building block/standard cell examples.
+
+level_4a:
+	level_1 + the bounding rectangle has a given aspect ratio.
+
+level_4b:
+	level_1 + the bounding rectangle has one dimension fixed.
+
+level_5a:
+	level_2a + the bounding rectangle has a given aspect ratio.
+
+level_5b:
+	level_2b + the bounding rectangle has a given aspect ratio.
+
+level_5c:
+	level_2a + the bounding rectangle has one dimension fixed.
+
+level_5d:
+	level_2b + the bounding rectangle has one dimension fixed.
+
+level_6a:
+	level_3 + the bounding rectangle has a given aspect ratio.
+
+level_6b:
+	level_3 + the bounding rectangle has one dimension fixed.
+
+In addition to the specified above levels 1-6, you are invited to do the
+same problems using 3 layers of metal.  Layer 3 can route anywhere, but
+vias to METAL3 are not allowed over the area of any cell or block.  The
+corresponding levels will be called level_1(3M), level_2a(3M), etc.
+
+Submission of the results
+=========================
+
+For the benchmarks results supplied to MCNC in machine-readable form,
+an effort will be made to plot them on a color Versatec. The plots will
+then be made available to the participants.
+
+Participants are asked to deposit a compressed tar archive with the
+results of the placement and routing examples on the MCNCUs ftp server
+machine in the directory pub/benchmark/laysynth90/results, and then
+immediately send mail to kk@mcnc.org with a notification of the
+transfer, so that your file can be copied to a safe place and the space
+on the ftp server released. Alternately, you may send a magnetic tape
+in tar format. The layouts should be submitted in CIF or Magic formats.
+
+Please submit your results before May 1, 1990 to assure the availability
+of the plots.
+
+Presentation at the Workshop
+============================
+
+Participants will be asked to spend a few minutes presenting their
+results at the Workshop during a 1.5-hour long session.  The exact time
+available for the presentation will depend on the number of
+participants; please count on about 5-10 minutes per presentation.
+
+The presentation should include a brief overview of the placement and
+routing methods. Also, we ask you to show us a picture of your result
+for those levels on which you choose to participate.  If you wish to
+prepare the picture yourself, please use the magnification as specified
+for each benchmark in the appropriate README file.
+
+We are interested in how you routed P/G nets, what were your
+considerations for choosing the topology and determining wire widths.
+For building blocks examples, please show us also the results of
+placement, before routing has been completed. All other comments and
+suggestions are welcome.
+
+Please keep track of the human and machine  time  spent  on  each
+benchmark.   If  your  CAD  tool  is interactive, count all time spent
+interacting with it.  Show these times for each benchmark.  Let us know
+the number of program runs done for each benchmark and whether you did
+any 'tuning' of your software to obtain the best performance.
+
+Please run your local design rule checker on each  of  your  layouts.
+If  you  have  software that can extract and compare netlists, please
+do so also.  In the case of the flexibility  benchmark,  which is an
+8 bit accumulator, you may want to simulate it to see if it actually
+accumulates.  In  any  case,  please  state what checks you made.
+
+Quality Criteria
+================
+
+Main criterion:
+-------------
+
+Core area size in square microns.
+
+Auxiliary figures of merit:
+---------------------------
+
+For gate arrays: number of unconnected net segments (from-to pairs)
+in the initially specified array.
+
+Summation of total wire lengths on each layer in microns.
+
+Lengths of critical nets in microns.
+
+Total number of vias.
+
+Area occupied by P/G in square microns.

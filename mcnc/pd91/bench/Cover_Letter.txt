@@ -1,0 +1,161 @@
+Dear Colleague:
+
+This is to notify you about the availability of the benchmark examples
+for placement and routing that will be discussed during the forthcoming
+International Workshop on Layout Synthesis.  The benchmark set
+incorporates some of the examples from the Physical Design Workshops
+'87 and '89, the Compaction Benchmarks Session from the 1987
+International Conference on Computer Design, and the International
+Workshop on Placement and Routing '88. Based on the consensus of the
+Workshop Committee members, those of the benchmarks used in the past
+which were found to be the most challenging and/or referenced in
+conference and journal publications are included in the current suite.
+Furthermore, additional large examples were added to the benchmark set
+to provide a continuing challenge to the software tools.
+
+I still expect several challenging benchmarks to be added to the
+current suite.  Their availability will be announced as soon as I
+receive the data.  Meanwhile, please try out those benchmarks that are
+already available.
+
+You may choose to present your results either as a highlight of your
+presentation during any of the sessions at the workshop or during a
+special session that will introduce the benchmark posters. In either
+case, you are invited to submit the benchmark results to me at the
+address given at the end of this message.  All results will be compiled
+as anonymous contributions unless you ask to be identified.
+
+While the group creating the benchmarks tried to produce a clean,
+workable and reasonable set, it is likely that there will be at least
+some ambiguity, and perhaps some errors in them.  We therefore ask that
+you send your electornic mail address and phone number to kk@mcnc.org
+when you pick up the benchmarks.  In this way, if corrections or
+explanations are needed, they can be broadcast without delay.  If you
+discover an error in a benchmark (such as two gates shorted together),
+we ask that you try to run it as it stands, if at all possible, and
+then again with your fix.  Of course, please inform me about the
+problem as soon as possible.
+
+We hope to see you at the International Workshop on Layout Synthesis in
+North Carolina this spring.
+
+Best regards,
+
+Krzysztof Kozminski
+Benchmark Chairman
+International Workshop on Layout Synthesis
+
+================== How to obtain the data =================
+
+The benchmark data can be obtained from MCNC in two ways:
+
+1)  Users who have access to the Internet:
+
+    You may establish an 'ftp' connection to the host 'mcnc.org' (also
+    known as 'mcnc.mcnc.org' , or 'theo.mcnc.org'; IP node number
+    128.109.130.3) and copy the files using the 'mget' command. The login
+    name is "anonymous" and the password is any non-empty string of
+    characters. The files are in the 'pub/benchmark/pdw91' directory.
+    Please consult the ftp manual for the details of operation. If you use
+    ftp to obtain the benchmark data, please let me know about it so that I
+    can contact you in case of any changes or corrections to the benchmarks
+    or the software provided with them.
+
+  * If you are a UNIX user, please check if you have the 'uncompress'
+    command available.  Transferring the benchmarks in a compressed form
+    reduces the transfer time significantly. After establishing the ftp
+    connection to mcnc.org, set the binary transfer mode and use the 'get'
+    command of ftp to import either the bench.tar.Z file (about 1 Mbyte)
+    if you do have the uncompress command available, or bench.tar
+    (about 3.5 Mbytes) otherwise.  Uncompressing the file with the command:
+
+                uncompress bench.tar.Z
+
+    will produce a tar archive bench.tar, the same which would be
+    imported with ftp by those who do not have access to uncompress. This
+    archive can be unpacked using the UNIX tar utility with the following
+    command:
+
+                tar xf bench.tar
+
+    Please consult the ftp manual for the details of operation.  Here is a
+    sample script of an ftp session illustrating the process of copying a
+    tar archive.
+
+            % ftp mcnc.mcnc.org
+            Connected to mcnc.mcnc.org.
+            220 mcnc FTP server (Version 4.2 Tue May 9 15:46:45 EDT 1989) ready.
+            Name (mcnc.mcnc.org:kk): anonymous
+            331 Guest login ok, send ident as password.
+            Password:anything
+            230 Guest login ok, access restrictions apply.
+            ftp> verbose
+            Verbose mode off.
+            ftp> cd pub/benchmark/PDWorkshop91
+            ftp> binary
+            ftp> get bench.tar.Z
+            ftp> quit
+
+  * Users who do not have the 'uncompress' command but who do have 'tar'
+    should repeat the above procedure, but get the file 'bench.tar'
+    instead of 'bench.tar.Z'.  Of course, you would not have to uncompress
+    it on your local machine; just use the 'tar xf bench.tar' to re-
+    create the files.
+
+  * Users who do not have 'tar' will have to get the files explicitly.
+    This means that the orignial directory structure of the PDWorshop91
+    area must be re-created on your local machine, and each sub-directory
+    of files must be copied into the correct place.  See the .readme file
+    in the PDWorkshop91 directory, or contact the benchmark coordinator
+    at benchmarks@mcnc.org for more details.
+
+
+	WE STRONGLY RECOMMEND THAT YOU LOG IN VIA FTP AROUND APRIL 1 TO
+	CHECK FOR CHANGES AND CORRECTIONS.  ANY SUCH CHANGES WILL BE
+	DESCRIBED IN THE FILE ``ANNOUNCEMENTS''.
+
+2)  Users who do not have access to the Internet:
+
+    We are prepared to send you a tape in tar format.  Please contact Jeri 
+    Williams at MCNC by e-mail (jeri@mcnc.org) or by phone (919)-248-1938
+    and tell her your requirements. ACM SIGDA is providing funds to cover
+    the cost of tapes and shipping, so there is no cost to you for this
+    service.
+
+    If you wish so, the benchmarks will be sent to you by electronic mail.
+    There are about 3.5 megabytes of data.  Since some mailers restrict
+    the message size, please be prepared to receive the benchmarks in about
+    25 installments.  Please let me know if you have the 'compress' and
+    'uudecode' utilities - encoding the benchmark data with those two
+    programs reduces the size of the transferred data to about 1.5 Mb.
+
+    Also, you may request that only the data that is of interest to you
+    be mailed; we have the following groups of benchmarks:
+
+	- building block (macro block) place & route
+	- layout compaction
+	- layout synthesis (from transistor-level netlist)
+	- mixed building block/standard cell place & route
+	- standard cell place & route
+	- gate array place & route
+	- floorplanning benchmarks 
+
+Please let me know any comments or suggestions regarding the benchmarks
+or documentation. I can be reached at the following address:
+
+Dwight Hill
+AT&T Bell Labs 3D-446
+600 Mountain Ave
+Murray Hill, NJ 07733
+e-mail: research!dwight@att.com
+phone (908) 582-7766
+fax: (908) 582-5192
+
+
+Krzysztof Kozminski
+MCNC
+P.O. Box 12889
+3021 Cornwallis Road
+Research Triangle Park, North Carolina 27709
+tel. (919)-248-1969, fax (919)-248-1455
+e-mail: kk@mcnc.org

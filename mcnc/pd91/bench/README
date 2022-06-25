@@ -1,0 +1,88 @@
+This directory contains the benchmark data for the Physical
+Design Workshop number II, of 1991, to be held at Nemecolin Woodlands, 
+Laurel Highlands, Pennsylvania - 412 329-6190
+
+The benchmark set is basically taken from the 1989 and 1990 workshops.
+Most of the work of assembing the software, and all the standard
+cell and floorplanning system, was done by Krzysztof Kozminski, whose
+address is listed below. 
+
+IMPORTANT: There will undoubtedly be changes/fixes to the benchamrks.
+Please check back after April 1, 1991, and look for a file named
+Announcements in this directory. 
+
+Comments about the selection of the benchmarks, especially the
+cell synthesis ones, can be directed to me, 
+
+Dwight Hill, 
+research!dwight@att.com
+(908) 582-7766
+
+Please send me your e-mail address when you pick up the benchmarks.
+
+Questions about VPNR should be directed to Krzysztof Kozminski,
+whose address is below. Kris supplied all of the software,
+scripts and many of the benchmarks themselves.
+
+The rest of this file is taken from the IWLS90 file. 
+
+#####################################################################
+
+If you intend to use the benchmark data, please let me know your e-mail
+address so that I can contact you in case of any changes.  Please do
+not hesitate to call me with any questions you may have, and report any
+difficulties/bugs in the data or in the enclosed software.  I can be
+reached via e-mail at kk@mcnc.org, or by phone at (919)-248-1969.
+
+Krzysztof Kozminski
+MCNC
+P.O. Box 12889
+3021 Cornwallis Road
+Research Triangle Park
+North Carolina, 27709-2889, USA.
+
+######################################################################
+
+Note on languages:
+
+The benchmarks are described in two languages: YAL and VPNR.  Most of
+the benchmarks have two representations, one in YAL and another in
+VPNR; these representations are supposed to be equivalent.  Several
+benchmarks are described only in VPNR.  I expect to have a VPNR->YAL
+translator finshed within a week or so, and will add the equivalent
+VPNR representations as well as double-check the YAL-VPNR equivalence.
+Meanwhile, please treat the benchmark data as preliminary, although any
+changes will be minor.
+
+In order to ease the burden of entering the benchmarks into your
+system, parsers for both YAL and VPNR are provided.  I have also
+enclosed a translator that was used to obtain VPNR data from YAL.
+
+The source for the VPNR software is located in ./vpnr, and the
+executables will be located (after they have been made) in ./bin.  The
+software included is really just a parser and related functions.  It is
+intended that each group would modify the software to interface with
+its own system.  In order to use it, you will need to parse the vpnr
+files and write out the information you need in the language your
+system accepts, or perhaps link the parser with your system.  For more
+details, see the files in the 'vpnr' directory and comments in db.vpnr.
+
+######################################################################
+
+For participants in the 'flexibility' benchmark:
+
+A description of MOSIS SCMOS technology is contained in the `tech'
+directory.  This directory also contains a technology normalization
+cell.  If you use rules other than MOSIS SCMOS, please complete the
+technology normalization cell.  This is a simple cell that you should
+construct by hand, not synthesize.  It is not, strictly speaking, one
+of the benchmarks.  Rather, it is intended to normalize the differences
+in the design rules that various participants will be using.  Enter it
+exactly as described in the tech directory, compact it (if you use
+compactors), and make a plot of it, showing the X and Y dimensions in
+microns.  Plotting instructions are in tech/README.  At the workshop,
+participants who did not use the MOSIS rules will have their results
+scaled according to the ratio of their dimensions to the MOSIS design's
+dimensions.
+
+######################################################################

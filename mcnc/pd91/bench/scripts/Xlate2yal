@@ -1,0 +1,15 @@
+#!/bin/csh -f
+# This script was used to translate nto VPNR the data that originally
+# came in VPNR
+
+set v2y=`pwd`/../v2/v2
+
+cd stdcell
+cat db.vpnr			| $v2y -r -C db.yal
+cat db.vpnr biomed.vpnr		| $v2y -L biomed.yal
+cat db.vpnr fract.vpnr		| $v2y -L fract.yal
+cat db.vpnr struct.vpnr		| $v2y -L struct.yal
+cat industry1.vpnr		| $v2y -r industry1.yal
+cat industry1a.vpnr		| $v2y -r industry1a.yal
+cat industry2.vpnr		| $v2y -r industry2.yal
+cat industry3.vpnr		| $v2y -r industry3.yal

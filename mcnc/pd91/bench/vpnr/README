@@ -1,0 +1,49 @@
+There are three software subdirectories here:
+
+	parser - contains the parser  library
+	load   - contains the load utility and templates for the functions
+	         called by the parser
+	sample - example of using 'load'. Use it with 'sampledata' as
+		 standard input.
+
+Several directories will be created by 'make install':
+
+	include - contains vparser.h, to be used by all customized parsers.
+	../bin	- contains 'load' executable shell
+	lib	- contains 'load' filter and some useful files.
+
+In order to install the programs, edit the Makefile in this directory
+and change DESTDIR to be the directory where bin/, include/, and lib/
+subdirectories should reside (I use my home directory for DESTDIR).
+Then do
+	make makefiles
+	make install
+
+And that's it.
+
+My Makefiles are rather complicated but they can be used do do a lot of
+things.  They are rather extensively commented.  In short, here is
+how to, e.g., add a source file to be compiled with a program:
+
+1) Add the name of the file to the SOURCES definition
+2) Add the object file name to the specific instructions between the
+   lines containing the word SPECIFIC.
+
+In case of doubt, please call me or mail.
+
+NOTE: there is a file called ".preinstall" in this directory. DO NOT REMOVE
+      this file or 'make' will fail.  If you move the contents of this
+      directory elsewhere, remember to more .preinstall as well.  Files
+      named ".preinstall.*', where '*' stands for a string of digits,
+      can be removed, though.  They result from aborted 'make' runs.
+      After the move, edit the Makefile as above (if in th new location
+      you have other subdirectories to execute 'make' in, add them to
+      the SUBDIR definition in this Makefile), and repeaat the
+      installation.
+
+
+Kris Kozminski
+
+kk@mcnc.org
+
+tel. (919)-248-1969

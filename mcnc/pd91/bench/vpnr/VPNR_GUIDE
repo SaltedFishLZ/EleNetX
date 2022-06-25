@@ -1,0 +1,362 @@
+This document describes the VPNR parser front end and the subset of the
+VPNR language used to represent the benchmarks. It is intended to
+facilitate writing the code to read data in the VPNR format.
+
+The VPNR language is a circuit description language oriented towards
+placement and routing. It is easy to use and to read, yet it is
+powerful enough to handle very complicated circuits. 
+
+VPNR parsers are built in two pieces: the front end reads the input
+files and checks their syntax and the back end is used for loading
+user-defined data structures. The syntax checker is identical for all
+VPNR programs, and the back end is customized for each application. The
+customization is performed with the VPNR utility program "load". In this
+way, each program can have a specialized parser, and data structures of
+the developer's choice can be used.
+
+'Load" inserts code provided by the user into a template parser file
+containing routines that are called by the parser library to interpret
+the data being read in.  The interpreter routines are basically series
+of switch statements. For each situation that may occur while reading a
+VPNR input file, there is an appropriate switch statement that may or
+may not contain some code supplied by the programmer. Situations for
+which no code is supplied are ignored.
+
+A typical template of an interpreter function is given below. This
+particular function is called after reading the begin keyword followed
+by any of the "cell", "channel", "domain", or "tech" keywords and by the name
+of the whatever entity has been encountered.
+
+	zzbegintype(zzs,zztype)
+	char *zzs; /* name of the entity, the begin of which has been read. */
+	int zztype;
+	{
+	   /* begin addtop */
+	   /* Declarations of any variables that are used in the statements
+	      below, and any statements that should be executed for any type
+	      of begin go here */
+	   switch(zztype) {
+	   case zzTECH:
+	      /* begin tech */
+	      /* Statements to be executed upon reading a beginning of a
+	         technology description go here */
+	      break;
+	   case zzCELL:
+	      /* begin cell */
+	      /* Statements to be executed upon reading a beginning of a cell
+	         description go here */
+	      break;
+	   case zzCHANNEL:
+	      /* begin channel */
+	      /* Statements to be executed upon reading a beginning of a channel
+	         description go here */
+	      break;
+	   case zzDOMAIN:
+	      /* begin domain */
+	      /* Statements to be executed upon reading a beginning of a domain
+	         description go here */
+	      break;
+	   }
+	   /* begin addend */
+	   /* Statements that should follow any type of begin go here */
+	}
+
+The template parser file, called "parser.templ", is located in the VPNR
+library directory. The "load" utility is provided to relieve
+programmers of the necessity of browsing through the template file and
+manually putting code in the necessary places.
+
+The routines called by the parser handle the following situations that
+may occur while reading a file written in the VPNR language:
+
+* A line containing the begin or end keywords has been encountered.
+  These keywords must occur in conjunction with one of the following:
+  "cell", "channel", "domain", or "tech", and must be followed by the
+  name of an entity. The function for handling the begin situations was
+  presented above; the function for handling end situations is analogous.
+  If an application is to be used repeatedly, some cleanup at the end of
+  reading some entity is usually necessary.
+
+* An attribute has been encountered. Attributes are optional
+  characteristics of objects.  There are five allowed classes of
+  attributes: integer, point, string, quotestring, and decimal. The
+  function handling attributes receives information about the type of
+  entity, the attribute type, and the attribute value.
+  
+* A list of terminals has been encountered. This can happen while
+  reading a description of a channel or cell. The function handling
+  terminals is normally called twice or more; in the first call it
+  receives information about the terminal name, in the second call it
+  receives information about the terminal position, and in the later
+  calls it receives information about alternate (equivalent) positions.
+  
+Refer to file "LOAD.tmpl" in the librery directory for information
+regarding the remaining situations:
+
+* A row information is being read. A row is a list of cell instances.
+
+* A list of equivalent nets is being read. Equivalent nets are
+  those that may be swapped with each other without affecting the
+  functioning of a circuit (e.g., two inputs to a NAND gate).
+
+* Technology information is being read.
+
+
+
+In order to customize the VPNR parser, the programmer should create a
+file containing actions to be performed after reading any data of
+interest. This file is read by load and merged with parser.templ. The
+resulting file, load.zz.c, should be compiled with the rest of the
+program-specific files and with the libparse.a library. The main
+program segment should have the following structure:
+
+	main(argc,argv)
+	{
+	   extern FILE *yyin; /* The parser reads its input from it.
+				 Default is stdin */
+
+	   /* Here go declarations and initializations that are necessary before
+	   reading a VPNR file */
+
+	   yyin = fopen(whatever file you want to read)
+	   yyparse();
+	   /* yyparse will read the entire file; it sits in libparse.a. */
+
+	   /* Here goes the code to handle whatever has been read */
+	}
+
+
+The load program takes blocks of C source code delimited by "KeyLines"
+and inserts them into parser.templ to create a C source code file. The
+blocks of C code should contain the statements necessary to fill the
+program's data structures with the information stored in a VPNR file.
+A KeyLine consist of two pound signs (##) followed by one or more
+kewords, discussed later.
+
+Not all sequences of these keywords create valid KeyLines. The list of
+all valid KeyLines can be found in either of two files: LOAD.tmpl or
+load.tmpl, which are located in the library directory. The first
+file contains a detailed explanation of the situation handled by the
+code associated with each KeyLine. The second file is a list of all
+valid KeyLines.
+
+Note: No comments are allowed in the KeyLines.
+
+In each situation, the programmer is given access to the currently read
+information via a set of predeclared variables:
+
+int zzn; /* for a single integer value */
+int zzx; /* for one x-coordinate value */
+int zzy; /* for one y-coordinate value */
+int zzx1,zzx2; /* for two x-coordinate values */
+int zzy1,zzy2; /* for two y-coordinate values */
+char *zzs; /* for a string */
+char *zzs1,*zzs2; /* for two strings */
+char *zzw; /* for an attribute name */
+double zzd; /* for a floating-point number */
+
+In any situation, only some of these variables contain meaningful
+values. Refer to the file LOAD.tmpl in the VPNR library directory for
+information about each possible situation.
+
+In addition to the above variables, the programmer has access to all
+global variables and procedures generated by lex and yacc; the only
+variable of real interest is yyin, denoting the file from which the
+input is being read.
+
+The following is an example of an input file for load. The resulting
+program will read a VPNR file and print all string attributes of cells
+and pins. For more complicated examples, refer to 'load' input files
+in VPNR source directories. These files can be recognized by the
+'.ld' extension.
+
+
+## addtop
+char cellname[255]; /* Will hold the name of the most recently read cell. */
+char pinname[255]; /* Will hold the name of the most recently read terminal. */
+
+## begin cell
+strcpy(cellname,zzs);
+
+## termlist cell name
+strcpy(pinname,zzs);
+
+## attribute terminal string
+printf("cell %s, terminal %s attribute %s = %s\n", cellname, pinname,zzw,zzs);
+
+## attribute cell string
+printf("cell %s, cell attribute %s = %s\n",cellname,zzw,zzs);
+
+## addend
+
+main()
+{
+ yyparse();
+}
+
+
+Note: Upon encountering the name of any terminal, cell, pin, etc., for
+which the programmer uses some specific data structure to hold
+attributes, coordinates, and such, it is a good practice to initialize
+all fields of this structure to some invalid values. In this manner, it
+is possible to verify presence or absence of some particular data for
+each entity.
+
+
+--------------   VPNR LANGUAGE --------------
+
+The VPNR language is intended to be self-explanatory.  Only
+an informal description of the VPNR language is given here, using
+simple examples.  NOTE: the examples below use units of 1.5 micron;
+the database distributed for the benchmarks uses 1 nanometer unit.
+Other than that, everything is the same.
+
+/* ===========  cell description in vpnr database 'db.trans'  ===========  */
+
+cell begin aoi2211s xgrid=16 ygrid=4 wire=6
+/* The cell name is 'aoi2211s'. The attributes can be ignored - they are used
+ * in the MCNC programs.  See '## begin cell' in LOAD.templ for more info.
+ */
+ profile top (-1,57) (55,57);
+ profile bot (-1,-1) (55,-1);
+/* The two lines above tell the cell outline; in this case it is a rectangle
+ * with lower left corner at (-1,-1) and upper right corner at (55,57).
+ * See lines starting with '## profile cell' in LOAD.templ for more info.
+ */
+ termlist
+  a1 { (1-4,-1) (1-4,57) } pintype=input
+	nominal_rise_delay=0.86
+	nominal_rise_fan=2.61
+	nominal_fall_delay=0.43
+	nominal_fall_fan=1.38
+	loads=0.122066;
+  /* This tells the positions of terminals associated with signal 'a1'.  Each
+   * terminal is given as a line segment.  By knowing the cell outline,
+   * you can figure out whether the terminal is positioned on top or on
+   * the bottom of a cell. The code to handle the name of a
+   * terminal is indicated by KeyLine '##termlist cell name'.  The code to
+   * handle each pin position is indicated by KeyLine '## termlist cell x1x2y'.
+   * The code to handle end-of the list of the positions is indicated by
+   * '## termlist cell tail'.
+   * In additon, the delay parameters are specified.  Delays of the rising
+   * falling edge from each pin to the output are treated individually.
+   * The formula expressing the delay is:
+   * 	nominal_?_delay + nominal_?_fan * (capacitance seen by the output)
+   * The units are nanoseconds and picofarads.  The 'loads' is the capacitance
+   * of the input seen by the gate driving it.
+   * The code to handle all attributes of form <string>=<number> is indicated
+   * by '## attribute terminal integer' or '## attribute terminal decimal',
+   * depending on the type of the number.
+   */
+  a2 { (9-12,-1) (9-12,57) } pintype=input nominal_rise_delay=0.72 nominal_rise_fan=2.63 nominal_fall_delay=0.42
+  nominal_fall_fan=1.36 loads=0.111246;
+  b1 { (33-36,-1) (33-36,57) } pintype=input nominal_rise_delay=0.26 nominal_rise_fan=2.53 nominal_fall_delay=0.26 nominal_fall_fan=1.24 loads=0.113479;
+  b2 { (41-44,-1) (41-44,57) } pintype=input nominal_rise_delay=0.34 nominal_rise_fan=2.63 nominal_fall_delay=0.23 nominal_fall_fan=1.34 loads=0.112013;
+  c { (17-20,-1) (17-20,57) } pintype=input nominal_rise_delay=0.75 nominal_rise_fan=2.6 nominal_fall_delay=0.35 nominal_fall_fan=0.935 loads=0.104547;
+  d { (25-28,-1) (25-28,57) } pintype=input nominal_rise_delay=0.62 nominal_rise_fan=2.5 nominal_fall_delay=0.34 nominal_fall_fan=0.87 loads=0.113479;
+  q { (49-52,-1) (49-52,57) } pintype=output;
+  /* Note: there is no particular place to handle the end of the list of all
+   * terminals.  It is best to write the code for handling each terminal so
+   * that no wrap-up is necessary.  Otherwise, the wrap-up code can be
+   * called upon encountering 'equivalences', 'siglist', 'translist', or
+   * 'cell end' constructs.
+   */
+ equivalences
+  a ( a1 a2 );
+  /* This tells us that signals a1 and a2 can be interchanged without affecting
+   * the logical behavior of the cell.  'a' is the name of the group of
+   * equivalent signals, the names of which are enclosed in parentheses.
+   */
+  b ( b1 b2 );
+  eqa ( a b );
+  /* This tells us thath the two GROUPS of signal can be swapped without
+   * changing the circuit behavior. 'eqa' is the name of the equivalence class,
+   * with the list of the class members enclosed in parentheses.
+   */
+  eqc ( c d );
+  /* Note: again there is no special place to handle the end-of-equivalences.
+   */
+siglist
+ n108 n5064 n570 n5864 n748
+ /* This is the list of signal internal to the cell.  See the 'sample,ld'
+  * file for example of reading in this information.
+  */
+;
+translist
+ pa1 a1 vdd n570 width=32 length=2 type=p
+ /* Description of the transistor. 'pa1' is th transistor name, followed by
+  * the names of signals connected to gate, drain, and source.  See the
+  * 'sample.ld' file for an example of reading this information.
+  */
+ pa2 a2 n570 vdd width=30 length=2 type=p
+ pc c n5064 n570 width=30 length=2 type=p
+ pd d n5864 n5064 width=34 length=2 type=p
+ pb1 b1 q n5864 width=35 length=2 type=p
+ pb2 b2 n5864 q width=34 length=2 type=p
+ na1 a1 n108 gnd width=16 length=2 type=n
+ na2 a2 q n108 width=13 length=2 type=n
+ nc c gnd q width=13 length=2 type=n
+ nd d q gnd width=13 length=2 type=n
+ nb1 b1 n748 q width=13 length=2 type=n
+ nb2 b2 gnd n748 width=13 length=2 type=n
+;
+cell end aoi2211s
+/* End of a cell.  See '## end cell' */
+
+/* ===========  description of a netlist  ===========  */
+
+domain begin TEST lib=scmos swap=0
+/* domain is a basic building block of a hierarchical circuit description.
+ * Here, the name of the domain is TEST.  The attributes can be ignored.
+ * See '## begin domain' for more info.
+ */
+profile top (0,0) (0,0);
+profile bot (0,0) (0,0);
+/* The profile of the domain is undefined as yet, hence all zeros ... */
+iolist
+/* iolist is the list of signals that go outside of the domain (similar
+ * the the termlist in a cell).
+ */
+a T:(0,40) pintype=pi
+/* This line tells that the interface to connect signal 'a' should be
+ * positioned somewhere on the top of the domain (once it is designed and
+ * its outline is determined), within the leftmost 40% of the domain width.
+ * The type of the pin is 'input'.
+ */
+b B:(0,100) pintype=pi
+/* Anywhere on ebthe bottom ... */
+xor L:(0,40) pintype=po
+/* Within the lower 40% on the left side of the domain  ... */
+;
+row 1
+/* A row is a construct used primarily to describe standard cell layouts.
+ * In each of the distributed benchmarks, there is a single row only,
+ * and cells comprising this row are free to move about...
+ */
+ai2s	INS1 (a,b,ab)
+/* Cell type is ai2s, the instance name is 'INS1'.  The signals a, b, ab are
+ * connected to the consecutive pins listed in the cell's termlist.
+ */
+ai2s	INS2 (a,ab,q1)
+ai2s	INS3 (b,ab,q2)
+ai2s	INS4 (q1,q2,xor)
+;
+domain end TEST
+
+domain begin supercell lib=scmos swap=0
+profile top (0,0) (0,0);
+profile bot (0,0) (0,0);
+iolist
+xor L:(0,40) pintype=po
+;
+row 1
+
+/* HERE IS THE CALL  to the preceding domain */
+TEST    INS0 (q1,q2,a)
+/* The signals above get connected to the signals named in the iolist in TEST domain */
+ai2s	INS1 (a,b,ab)
+ai2s	INS2 (a,ab,q1)
+ai2s	INS3 (b,ab,q2)
+ai2s	INS4 (q1,q2,xor)
+;
+domain end supercell

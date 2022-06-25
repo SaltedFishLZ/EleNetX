@@ -1,0 +1,210 @@
+B.      FAN Floorplanning Benchmark
+
+The FAN benchmark is a VLSI ASIC designed to adaptively compress 16-bit
+signed data based on a given error tolerance.  The circuit has a
+distributed control scheme consisting of 4 controllers.  The total
+system consists of 4 control units, a register array, 3 adders, and a
+multiplier.
+
+The I/O pins for all blocks except for the multiplier and clock
+generator are completely flexible and can be moved to any desired side
+of the block; however, the busses must all stay on the same side of any
+block to which they are connected.  All busses have names that match
+the following pattern:
+
+	?bus.#
+
+where '?' is a single character and '#' is a number.
+
+For all blocks other than the multiplier, the Vdd/GND connections
+should be made in two arbitrarily chosen corners of each block.
+
+Pin placements must follow the design rules specified below.  The pin
+placements for the multiplier are fixed.  All interconnections run in
+metal1/metal2.  The ports of Vdd, GND, clocks, all busses are on
+metal2, while the ports of all other signal nets, although specified
+on metal2, are available on EITHER metal 1 or metal 2.  All signal
+interconnections except for the busses and clocks can be routed in
+minimum-width metal; the busses and clock lines should be 2.4 microns wide.
+
+The design rules for metal1/metal2:
+
+metal 1 width:			1.6 microns
+metal 1 spacing:		1.6 microns
+metal 2 width:			2 microns
+metal 2 spacing:		2 microns
+via hole:			1.6 x 1.6 microns
+via overlap (metal 1 or 2):	0.8 micron (for the total size of 3.2 microns
+				sq. on metal1/metal2).
+ 
+Bonding pad information:
+------------------------
+
+The I/O signals should be routed to the following sides of the chip:
+
+Right side, top to bottome:
+	SystemIn.4, SystemIn.3, SystemIn.2, SystemIn.1, GND
+	VDD, RC, RE, SC, WE.
+
+Bottom side, left to right:
+	VDD, GND, RED, SED, Vdd, Vdd, GND, Phi1_test, Phi1, VDD, GND.
+
+Left side, top to bottom:
+	SystemIn.13, SystemIn.14, SystemIn.15, SystemIn.16, GND,
+	VDD, reset, ScanIn, GND, ScanOut
+
+Top side, left to right:
+	SystemIn.12, SystemIn.11, SystemIn.10, SystemIn.9, GND,
+	VDD, SystemIn.8, SystemIn.7, SystemIn.6, SystemIn.5.
+
+The sequences above indicate the desired sequence of pads.  Please
+assume equidistant spacing of the pads.  Note that the locations of the
+pads in the parent module 'FAN' in the 'fan.yal' file are intendended
+ONLY to provide the information about relative ordering.  The dimensions
+of this module should be also disregarded!
+
+The multiple pads for the power supply are provided in order to minimize
+voltage drops on power rails.  The actual circuit uses separate power
+rails/pads for the data output pads (ScanOut, RED, and SED, located in
+the lower left corner - note the power pads in the vicinity).
+
+Special nets:
+-------------
+
+The following signals are special and should be treated differently
+from all other signals.  Yheir connections should be determined
+dynamically during the floorplanning process.
+
+'ScanIn' and 'ScanOut'
+
+	These are connections for the LSSD scan chain.  Although the
+	pins labeled 'ScanIn' and 'ScanOut' are present in the netlist.
+	The proper connections should be determined based on the
+	recommended floorplan topology.  The scan chain should be
+	threaded as follows:
+
+	'ScanIn' pad -> 'ScanIn' pin of block A
+	'ScanOut' pin of block A -> 'ScanIn' pin of block B
+	...
+	'ScanOut' pin of block N -> 'ScanOut' pad.
+
+	The sequence of the block should be determined by the
+	floorplanner.
+
+	All 'ScanIn' and 'ScanOut' pins can be placed anywhere on the
+	boundaries of any Standard Cell block.  Their placement is
+	pre-specified on the MULT block.
+
+'Phi1Hf', 'Phi1_tf', and 'Phi2Hf'
+
+	These are clock feedback pins that are used to assure the
+	non-overlapping clock phases.  These pins are not specified in
+	the netlist, nor are they specifed as pins in any module
+	(except for the CLOCKGEN).  There is no need to wire these
+	signals to each and every block.  They should be routed from
+	the clock generator to the farthest corner of the farthest
+	block recieving the 'Phi1H', 'Phi2H', and 'Phi1_test' signal
+	respectively.
+
+Power/Ground nets:
+	The ports for these nets are defined only in the MULT and CLOCKGEN
+	custom modules.  For all other modules, please see the the module
+	descriptions below and assume that Power/Ground nets can be attached
+	anywhere on the module boundary.
+
+NOTE:  Pins defined for the MULT block that have identical names are NOT
+       connected inside the block.  They should be connected ON THE OUTISIDE.
+
+--------------------- Components -------------------------
+
+* HADD
+
+This is a 20-bit adder/accumulator that interfaces via the 'hbus' bus
+that is used to input the operands and output the result of the
+addition.  It is made with standard cells.
+
+The shape function is: (302, 5917), (406, 3952), (478, 3047), (553, 2433),
+(640, 2126), (717, 1814), (754, 1617), (880, 1466), (926, 1341),
+(1020, 1237), (1092, 1159), (1161, 1092)
+
+Vdd/Ground connections should be 24 microns wide.
+
+* LADD
+
+This is a 20-bit adder/accumulator.
+
+The shape function and power requirements are identical as for 'hadd'.
+
+* MADD
+
+This is a somewhat different 20-bit adder/accumulator.
+
+The Shape Function is: (252, 5496), (342, 3712), (444, 2802), (515, 2329),
+(584, 1939), (660, 1721), (760, 1497), (968, 1159), (1095, 1097), (1138, 1050)
+
+Vdd/Ground connections should be 22 microns wide.
+
+* MCTRL
+
+This is one of the four interacting FSM controllers.  It is made with
+standard cells.
+
+The shape function is: (285, 2418), (368, 1653), (434, 1294), (508, 1092),
+(576, 946), (657, 858), (734, 790), (812, 764), (889, 712)
+
+Vdd/Ground connections should be 15 microns wide.
+
+* RCTRL
+
+This is one of the four interacting FSM controllers.  It is made with
+standard cells.
+
+The shape function is: (222, 1222), (291, 821), (364, 665), (443, 598),
+(515, 504), (578, 473)
+
+Vdd/Ground connections should be 10 microns wide.
+
+* HCTRL
+
+This is one of the four interacting FSM controllers.  It is made with
+standard cells.
+
+The shape function is: (228, 1253), (306, 878), (370, 696), (440, 572),
+(505, 499), (576, 452)
+
+Vdd/Ground connections should be 10 microns wide.
+
+* LCTRL
+
+This is one of the four interacting FSM controllers.  It is made with
+standard cells.
+
+The shape function is: (248, 1305), (325, 904), (390, 722), (443, 608),
+(528, 535), (622, 483), (722, 468)
+
+Vdd/Ground connections should be 12 microns wide.
+
+* REG
+
+This is a block of registers.
+
+The shape function is: (2264, 6645), (2316, 6021), (2482, 5543),
+(2575, 5153), (2882, 4784), (2970, 4487), (3120, 4201), (3354, 3962),
+(3405, 3775), (3686, 3744), (4018, 3473), (4023, 3395)
+
+Vdd/Ground connections should be 40 microns wide.
+
+-------- The following blocks are custom-designed and are not flexible ------
+
+* CLOCKGEN
+
+This is clock generator for the entire chip.  It generates three clock
+signals: 'Phi1H', 'Phi2H', and 'Phi1_test' from the master clock that
+is applied to the input 'Phi'. Signals 'Phi1H' and 'Phi1_test' are mutually
+exclusive - they are generated depending on the value on the input Phi1t.
+Three additional inputs, 'Phi1Hf', 'Phi1_tf', and 'Phi2Hf' are feeedback
+lines (see 'Special Nets').
+
+* MULT
+
+This is a custom-designed, 20-bit multiplier/adder module.

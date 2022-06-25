@@ -1,0 +1,64 @@
+This is the ``gate matrix'' description of the technology
+normalization cell for the Physical Design Workshop
+
+
+      dummy output
+           V
+		inv    nand inv  nor
+
+
+       --n-+---n---n---n---n <Vdd
+         : |   :   :   :    
+       *P* | *P*P* *P* *P*P*
+       *P* | *P*P* *P* *P*P* 
+       *P* | *P*P* *P* *P*P* 
+       :|  | :| |:  |:  | |: 
+       *|  | -+-+*  |*  | |: 
+input> +*--+--+-++--*|  | |:  <output
+       *+--+--* |*--++--*^|: 
+       :|  *--+-*+--+*  | |: 
+       :|  |  | |*  |: -+-+- 
+       :|  |  | |:  |: :| |:
+       *N* | *N=N* *N* *N*N*
+       *N* | *N=N* *N* *N*N*
+         : | :     :     :  
+       --p-+-p-----p-----p--  <Vss
+
+
+           ^
+      dummy output
+
+                 11111111112
+       012345678901234567890
+
+
+Key (similiar to Weste's book Principles of CMOS Design page 275,
+with extensions for tub ties and horizontal diffusion wire)
+
+N    n-channel transistor. channel length=3.0 microns, 
+      width== metal/diff contact size == 6 microns
+P    p-channel transistor, same dimensions
++    metal-poly or metal-diffusion crossover
+*    contact
+|    polysilicon wire
+!    p-diffusion wire
+:    vertical metal
+-    horizontal metal
+p    ptub tie
+n    ntub tie
+=    horizontal diffusion (connected on both right and left)
+^    horizontal poly (connected on both right and left) 
+
+
+Note that spacings are determined by the design rules, not
+by the gate matrix drawing. For example, the vertical metal
+routing between the transistors and power is not as tall as the
+transistors. You should run this design through your compactor
+or whatever to make the spacings minimum.  
+Input and output on left and right are on metal,
+on top and bottom in poly. 
+This cell
+should be compacted in such a way to allow it to butt up with
+adjacent cells (10 total) in the X dimension. 
+Include this extra width in your measurements.
+

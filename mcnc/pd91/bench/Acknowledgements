@@ -1,0 +1,38 @@
+The enclosed set of benchmarks has evolved from the benchmarks used at
+the following workshops/conferences:
+
+	* Compaction Workshop '86
+	* ICCD'87
+	* Physical Design Workshop '87
+	* Workshop on Placement & Routing '88
+	* Physical Design Workshop '89,
+
+The following people have contributed through the years 1986-1990 to this
+set of benchmarks by providing examples, software, and ideas:
+
+John Benoit (Intel)
+Dave Boyer (Bellcore)
+Franc Brglez (MCNC)
+Jeff Burns (IBM Corp.)
+James Cohoon (University of Virginia)
+Al Dunlop (AT&T)
+Robin Dutta (DEC)
+Dwight Hill (AT&T)
+Bill Kao (Xerox)
+Bob Kirk (AMI)
+Ernest Kuh (U.C.Berkeley)
+Ulrich Lauther (Siemens)
+Michael Lorenzetti (MCNC)
+Malgorzata Marek-Sadowska (UC-Berkeley)
+Steve Meyer (Independent Consultant)
+Tatsuo Ohtsuki (Waseda University)
+Bryan Preas (Xerox PARC)
+Ken Roberts (Motorola)
+Jonathan Rose (Stanford)
+Rob Rutenbar (Carnegie-Mellon University)
+Carl Sechen (Yale)
+Michael Upton (Seattle Silicon)
+Manfred Wiesel (Intel Corp.)
+Gerhard Zimmerman (University of Kaiserslautern)
+
+MCNC is distributing the benchmarks and documentation.

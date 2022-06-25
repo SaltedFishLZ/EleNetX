@@ -1,0 +1,34 @@
+
+/* file name : Read_me      */
+
+
+This directory contains parser files. There are separate YAL parsers 
+for gate array and standard cell examples than for building block examples.
+
+***************************************************************************
+
+
+Files of the parser for BUILDING BLOCK style examples are :
+
+benchtypes.h       - the types and the constants;
+getmodule.c        - the parser;
+writemodule.c      - the routine to output a module;
+ptest.c            - a simple main routine to read and write modules;
+makefile           - make file for ptest.
+
+Documentation is in :
+
+yal_parser_document.
+
+****************************************************************************
+
+
+
+The parsers for GATE ARRAY and STANDARD CELL examples are in:
+ 
+parse.h		a "C" version of the parser
+parse.pas	a Pascal version of the parser
+
+
+*****************************************************************************
+

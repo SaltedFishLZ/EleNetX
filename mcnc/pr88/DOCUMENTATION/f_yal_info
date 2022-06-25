@@ -1,0 +1,20 @@
+
+YET ANOTHER LANGUAGE (YAL)
+
+The examples are distributed in Yet Another Language  (YAL).   In
+order  to  ease  the  burden of entering the benchmarks into your
+system, we have provided a parser written in Berkeley Unix C.
+
+The parser consists of two parts. The GetModule()  reads  from  a
+specified  input  file  and provides all information contained in
+next MODULE in that file. The output from GetModule is in a  sim-
+ple  "generic"  form  which is easy to recognize. The WriteModule
+takes as input information about a module as produced by the Get-
+Module and outputs the YAL form description of the module.
+
+Files of the parser  and  yal_parser  documentation  are  in  the
+PARSER sub directory.
+
+
+
+

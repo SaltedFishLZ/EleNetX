@@ -1,0 +1,107 @@
+A.  PrimBBL1 Floorplanning Benchmark
+
+The PrimBBL1 benchmark is a 16-bit VLSI microprocessor designed to support
+a high level language.  The processor has an instruction unit (IU) and 
+an execution unit (EU).  Both these units deal with the outside world 
+through a bus interface.  The EU consists of the following functional 
+units: RAM (Register File), Hardwired Register Array, ALU, ROM, and 
+Micro Control.  In addition, the processor has an external bus control, 
+a couple of bus interface controls, and external bus output latch blocks.
+
+I/O pins on the STANDARD CELL blocks - except for those connected to 
+busses - are completely flexible, i.e., they can be placed any where 
+on the boundary of the block as long as the minimum pin-to-pin spacing 
+is honored.  Busses can be moved but cannot be decomposed. However, bus 
+interleaving, with another bus or with control signals, is allowed.  
+I/O pins on all other blocks are partially flexible, i.e., they can 
+be placed any where on their assigned sides subject to the minimum 
+pin-to-pin spacing.  (The assigned side for an I/O pin on a block 
+denotes side of the block where the pin is currently placed - as 
+specified in the PrimBBL1 YAL description.) Again busses cannot be 
+decomposed but can slide along their assigned sides.  Pins of all signal 
+nets are available on either metal 1 or metal 2.
+
+------------------------ Design rules -------------------------------
+
+The design rules for metal1/metal2 are:
+metal 1 width:          2 microns
+metal 1 spacing:        2 microns
+metal 2 width:          2.5 microns
+metal 2 spacing:        2.5 microns
+via hole:           2 x 2 microns
+via overlap (metal 1 or 2): 1 micron
+
+
+------------------------ Busses -------------------------------------
+
+The PrimBBL1 benchmark consists of the following internal busses: 
+PRD7A-PRD0A, PRD7B-PRD0B, PRD7C-PRD0C, PBMD7I-PBMD0I, PBMD7-PBMD0,
+DHRXD7-DHRXD0, DHTD7I-DHTD0I, A4A-A1A, A1PA-A4PA, A4B-A1B, and 
+A4PB-A1PB.
+
+
+----------------------- Components -----------------------------------
+
+BLKB: Bus Interface Control I - This block is responsible for linking 
+the IU and EU with the external system environment. It is implemented 
+as a STANDARD CELL block.
+shape function: (715, 1115), (810, 940), (920, 825), (1048, 733),
+(1198, 668), (1295, 616), (1405, 580), (1525, 550), (1670, 510), (1850, 475)
+
+BLKD: Bus Interface Control II - This block is responsible for linking 
+the IU and EU with the external system environment. It is implemented 
+as a STANDARD CELL block. 
+shape function: (550, 1152), (640, 945), (725, 815), (820, 710), (920, 643),
+(1035, 585), (1155, 535), (1295, 490), (1405, 478), (1525, 460)
+
+BLKT: Counters - This block divides down the input clock to data path 
+and bus interface cycle clocks, and implements a couple of finite state 
+machines for controlling the use of external bus and for operation 
+priority decode.  It is implemented as a STANDARD CELL block. 
+shape function: (710, 1640), (790, 1472), (882, 1316), (960, 1235),
+(1040, 1060), (1130, 1009), (1235, 960), (1316, 882), (1412, 841), (1535, 795)
+
+BLKP: Instruction Unit - This block consists of an instruction buffer, 
+associated control and a couple of 4-bit shift registers. (Instruction 
+buffer is organized in a 4-word by 16-bit fashion and is implemented as 
+a STANDARD CELL block. 
+shape function: (525, 1390), (670, 995), (765, 823), (870, 730), (1020, 653), 
+(1115, 614), (1225, 585), (1350, 542), (1490, 508), (1640, 476)
+
+BLKRC: Micro Control - This block consists of 11-bit micro-instruction 
+address register and incrementer, a 11-bit by 8-register micro stack, 
+the status bus controller, the machine state controller, and clock 
+buffers. It is implemented as a STANDARD CELL block. 
+shape function: (805, 2950), (925, 2490), (987, 2370), (1162, 1939), 
+(1340, 1650), (1535, 1434), (1750, 1285), (1940, 1172), (2166, 1060),
+(2250, 1040) 
+
+BLKRS: ROM - This section is where the microcode resides.  It consists 
+of up to 2K words of 31-bits each.  In addition to ROM array, it 
+includes the row and column decoders, column multiplexers, a 31-bit 
+micro-instruction register, and ROM control. 
+shape function: (650, 3170), (1218, 1652)
+
+BLKUL: External Bus Output Latches - This block consists of several 
+16-bit registers and multiplexers, bus drivers, and a control unit. It 
+is implemented as a DATA PATH block. 
+shape function: (695, 4135), (1295, 2114), (1660, 1580) 
+
+BLKUR: ALU - This section consists of three 16-bit registers, a barrel 
+shifter, the ALU itself, and the associated control.  The ALU supports
+addition, increment/decrement and boolean operations.  It is implemented 
+as a DATA PATH block. 
+shape function: (725, 3840), (1295, 1939), (1630, 1376)
+
+BLKLL: Hardwired Register Array - This section consists of 16-bit PC 
+register, PC incrementer, instruction address register, a couple of 8-bit 
+multiplexers and the associated control.  It is implemented as a DATA 
+PATH block. 
+shape function: (690, 5015), (1295, 2534)
+
+BLKLR: RAM (Register File) - This block consists of 32 general-purpose 
+registers, and 16 special purpose registers.  The RAM array is organized 
+in a 24 by 32-bit fashion.  The basic RAM cell is a 2-port static RAM 
+cell.  This block includes the RAM address generator, the RAM control, 
+word decoders, and latch registers. 
+shape function: (720, 5130), (1295, 2569)

@@ -1,0 +1,40 @@
+/* File name : xerox.tech     */
+
+UNITS
+All lengths are in microns, currents in [A], voltages in [V].
+
+CONSTANTS
+conductance  G = 45.454546
+curPerMicron K =  0.45e-2
+
+CRITICAL NETS
+name          max.length
+A1PC          850
+A1C           850
+A2PC          850
+NNLFTA        600
+NRLFTA        600
+TXREQ         600
+TXACK         600
+PAORB        1200
+NWRI         1700
+NWA          1700
+A1A          2000
+LK            850
+SIZE          850
+RXADM         850
+ID           2200
+NWRGTB        850
+RXOPDA        850
+
+DESIGN RULES
+metal_1 wire width               :   w1 = 4
+metal_1 wire-wire spacing        :   s1 = 2
+metal_2 wire width               :   w2 = 5 
+metal_2 wire-wire spacing        :   s2 = 2 
+via size                         : svia = 2
+via surrounding                  : vsur = 1
+
+LENGTH OF FIXED SIDE DESIGN
+4500
+

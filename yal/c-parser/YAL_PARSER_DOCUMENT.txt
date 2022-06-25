@@ -1,0 +1,159 @@
+/* file name  : yal_parser_document    */
+
+
+   YAL PARSER DOCUMENTATION
+
+Copyright (C) 1987 by Jonathan Rose.  All rights reserved.
+Updated to the new YAL, for rectilinear general cells, Dec 1, 1987.
+
+This document describes the parser for Preas-Roberts placement language YAL.
+The parser is written in the C language.
+
+The parser consists of two parts. The GetModule()  reads  from  a
+specified  input  file  and provides all information contained in
+next MODULE in that file. The output from GetModule is in a  sim-
+ple  "generic"  form  which is easy to recognize. The WriteModule
+takes as input information about a module as produced by the Get-
+Module and outputs the YAL form description of the module.
+
+There is only one routine used to interface to the parser: GetModule.
+This routine reads from a specified input file and provides all of the
+information contained in the next "MODULE" in that file. 
+
+The calling sequence is as follows:
+
+	#include "benchtypes.h"
+	GetModule(InputFile, Name, ModType, Dimensions, IOListHead, 
+	          NetworkListHead, PlacementListHead, CriticalNetListHead)
+
+The data types are:
+
+	FILE *InputFile;   
+	NameType Name;
+	ModuleType *ModType;
+	CoordPair **Dimensions;
+	IOList **IOListHead;
+	NetworkList **NetworkListHead;
+	PlacementList **PlacementListHead;
+	CriticalNetList **CriticalNetListHead;
+
+The data types used (aside from FILE, which is in <stdio.h>) are all described
+in the file benchtypes.h.  There are constants associated with some of the
+types, and are also given in that file.
+
+
+Inputs to GetModule:
+--------------------
+
+InputFile is a pointer to a file that is already opened by fopen.
+
+Outputs from GetModule:
+-----------------------
+
+Name is character string that is the name of the Module.
+
+ModType is one of 6 constants, defined in benchtypes.h, that indicated
+the type of module.  The constant names are:
+        STANDARD    
+        PAD        
+        GENERAL   
+        PARENT   
+        FEEDTHROUGH
+        ENDFILE
+The constant "ENDFILE" indicates that the end of file was reached and that 
+no module was read.
+
+Dimensions is a pointer to a pointer to CoordPair type defined in benchtypes.h.
+It is the head of a linked list of x,y entries giving the corner points
+of the module.
+
+IOListHead is a pointer to a pointer to the IOList type defined in
+benchtypes.h.  It is the head pointer of a linked list of IO pin 
+entries for the module.  Each entry contains:
+1) SignalName - a string.
+2) Terminal Type - one of the constants I,O,B,PI,PO,PB,F.
+3) Side Type - one of the constants BOTTOM,LEFT,TOP,RIGHT. 
+   or is set to the constant NOSIDE if none was specified.
+4) Position - a floating number if specified.  The constant NOPOSITION if not.
+5) Width - a floating number if specified.  The constant NOWIDTH if not.
+6) Layer - one of the constants PDIFF,NDIFF,POLY,METAL1,METAL2 if specified.
+   or is set to the constant NOLAYER if not specified.
+7) Link - a pointer to the next element in the IOList.  If this is the
+   last then it is set to IOListNull.
+8) Current - max current if this is a power pin.
+9) Voltage - max voltage drop if this is a power pin.
+The pointer *IOListHead is set to IOListNull if an IOList not is given.
+
+NetworkListHead is a pointer to a pointer to the NetworkList type defined in
+benchtypes.h.  It is the head of a linked list of network entries, each
+containing:
+1) InstanceName - a string.
+2) ModuleName - a string.
+3) SignalName - the head of linked list of signal names.
+4) Link - pointer to the next element. Set to NetworkListNull if it is
+   the last element.  
+The pointer *NetworkListHead is set to NetworkListNull if no Network was
+given in the module definition.
+
+PlacementListHead is a pointer to a pointer to the PlacementList type defined
+in benchtypes.h  It is the head of a linked list of placement entries, each
+containing:
+1) InstanceName - a string.
+2) XLocation - a floating point number.
+3) YLocation - a floating point number.
+4) Reflection - one of the constants RFLNONE or RFLY. (default RFLNONE)
+5) Rotation - one of the constants ROT0,ROT90,ROT180,ROT270. (default ROT0)
+6) Link - pointer to the next element.  PlacementListNull if is last.
+The pointer *PlacementListHead is set to PlacementListNull if no Placement was
+given in the module definition.
+
+Critical
+CriticalNetListHead is a pointer to a pointer to the CriticalNetList type 
+defined in benchtypes.h  It is the head of a linked list of entries of
+signals that are critical, and their maximum length.
+Each CriticalNetlist type contains:
+1)  SignalName -  the name of the critical wire.
+2)  MaximumLength  - a floating point number.
+3)  Link - pointer to the next element, CriticalNetListNull if is last.
+The pointer *CriticalNetListHead is set to CriticalNetListNull if no 
+Critical Nets was given in the module definition.
+
+____________________________________________________________________________
+Notes:
+
+1) The parser only checks syntax.  If a syntax error is found, it is reported,
+   along with the line number, and the program exits.  Thus, unfortunately,
+   only one error is found at a time.  The errors are reported on the
+   standard error output. 
+
+2) The parser does not do semantic checking - i.e. it doesn't look for 
+   duplicate names of modules or pins or any such thing.  It doesn't check
+   to see if, a "CIRCUIT" type module in fact has an NETWORK specified.  All
+   this is left to the user.
+
+3) Comments (delimited by /* and */) must have white space around the
+   delimiters.  i.e a comment /*Hi there*/ is not allowed, but /* Hi there */
+   is.
+
+_________________________________________________________________
+
+
+The routine WriteModule outputs the YAL form of a module,
+starting from the form produced by GetModule.
+
+
+WriteModule(TOutputFile, Name, ModType, Dimensions, IOListHead,
+	  NetworkListHead, PlacementListHead,CriticalNetListHead)
+
+
+FILE *OutputFile;   
+NameType Name;
+ModuleType ModType;
+CoordPair *Dimensions;
+IOList *IOListHead;
+NetworkList *NetworkListHead;
+PlacementList *PlacementListHead;
+CriticalNetList *CriticalNetListHead;
+
+Note that the pointers have one less level of indirection than in GetModule,
+since this is an output routine.

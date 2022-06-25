@@ -1,0 +1,177 @@
+Design Rules
+============
+
+General Comments
+================
+
+Circuits implemented with gate arrays, sea-of-gates arrays, or standard
+cells of uniform height will be placed in horizontal rows. For circuits
+composed of mixed standard cells and/or general cells (building blocks),
+you can choose any appropriate topology.  For gate array implementations,
+we will specify the initial number of rows, placement positions per
+row, tracks per channel and the number of pad positions on each side of
+the die. If your software is not able to route all interconnections,
+add the necessary number of row and columns that will enable you to
+complete the design, while preserving the initial aspect ratio of the
+gate array core.
+
+The gate array and standard cell libraries include feed-through
+positions on cells for over-the-cell routing.  Most cells have dual
+terminals that can be accessed both from the top and from the bottom of
+the cell. Any over-the-cell routing is assumed to go straight across
+the cell.  For general cell examples, the macro blocks constitute areas
+forbidden to routing. There are no feed-throughs in these blocks, and
+no over-the-cell routing is permitted. In the mixed examples, only the
+standard cell components have feed-throughs or over-the-cell routing
+capability.
+
+Some of the circuits will have pre-specified pad positions (horizontal
+and vertical coordinates).  For other circuits, pads are assigned to a
+particular side of the chip, and the ordering of pads on this side is
+pre-determined; however, the exact positions of pads are to be
+determined by the design system.
+
+Geometrical Design Rules
+========================
+
+Unless specified otherwise, we will be using MOSIS SCMOS design rules
+with lambda=1 micron.  Some benchmarks will have alternate design rules
+specified; in such cases, please use the rules exactly as specified.
+The flexibility benchmark (in the 'flex' directory) allows you to use
+your favorite design rules; hovever, if you use anything different from
+SCMOS, please follow the directions outlined in the 'tech/README' file
+regarding the technology normalization cell.
+
+The alternate  design rules occur for some of the standarad cell/building
+block/mixed benchmarks.  In all such cases, 2 layers of interconnect are
+assumed with the following geometrical design rules:
+
+i.      The minimum admissible width of wires in layer_1 and layer_2
+	are respectively denoted with the symbols w1 and w2.
+
+ii.     The minimum admissible wire-to-wire spacing in layer_1 and
+	layer_2 are respectively denoted with the symbols s1 and s2.
+
+iii.    The size of a via contact hole is denoted with the symbol
+	svia.
+
+vi.     The widths of the required surrounds of layer_1 and layer_2
+	over the via contact hole are denoted respectively with the symbols
+	vsur1 and vsur2 .  For many benchmarks, vsur1 equals vsur2, and only
+	one value, vsur, is specified.
+
+v.      The minimum spacing of two via contact holes is denoted with
+	vspac. In some benchmark examples, this spacing may be larger than
+	max(2*vsur1+s1,2*vsur2+s2). In other benchmarks, the minimum spacing of
+	two via contact holes is not specified, in which case it should be
+	assumed to be the larger of the values (2*vsur1+s1) and (2*vsur2+s2).
+
+The design rules are illustrated in the figure below.
+
+                       svia                   vsur2   vsur1  
+                       !  !                  !     !  !  !   
+                 +--------------+            +--------------+
+                 |              |            |              |
+                 |  +--------+  |            |  +--------+  |
+                 |  |        |<---- >= s1 ----->|        |  |
+ ----------------+--+  +--+  |  |            |  |  +--+  |  |
+      w1         |  |  |  |<------ >= vspac ------>|  |  |  |
+ ----------------+--+  +--+  |  |            |  |  +--+  |  |
+                 |  |        |  |            |  |        |  |
+    >= s1        |  +--------+  |            |  +--------+  |
+                 |              |<- >= s2 -->|              |
+ --------+       +---+------+---+            +--------------+
+ layer_1 |           |      |                                   
+         |           |      |                                   
+         |           |<-w2->|                                   
+
+
+Additional Constraints Specifications
+=====================================
+
+NOTE that not all of the examples will have all the
+constraints/requirements listed below. See the README documents
+pertaining to each group of benchmarks for details.
+
+Power and Ground Nets (P/G)
+===========================
+
+In some circuits, a net specified as P/G must fulfill additional
+constraints. These are related to the electromigration phenomenon and
+to voltage drops between the supplying and receiving pins.  In order to
+calculate a correct wire width for P/G, for each pin of such a net two
+numbers are specified in addition to the usual information.  For the
+receiving pins, one of these numbers is a value of the current drawn by
+the pin, and the other is the maximum admissible voltage drop from this
+pin to the supplying (driving) pin. For the driving pins, the current
+value specifies the maximum current which can be supplied by the pin,
+and the voltage drop is ignored. These numbers are provided as a part
+of the macro cell definitions. For standard cells, the width of the P/G
+rails is specified for each library of cells: it is up to the layout
+system to assure that the P/G constraints are fulfilled.  There are no
+restrictions as to the method of treatment of the P/G nets used to
+assure that the P/G constraints are met.
+
+We assume the following relationships and constraints for calculating
+wire widths:
+
+	wire_conductance = G*wire_width/wire_length
+
+At any cut-point on the wire, the width of the wire and the current
+through the wire, calculated as the sum of all current demands of the
+receiving pins on the opposite side of the cut than the driving pin,
+should fulfill the following inequality:
+
+	wire_current <= K * wire_width
+
+At any receiving pin, the voltage drop calculated as the sum of voltage
+drops along the path to the driving pins should be less than or equal
+to the admissible voltage drop specified for this pin.  The voltage
+drop for a segment of wire carrying a current calculated as described
+above is expressed with the usual formula:
+
+	voltage_drop = wire_current / wire_conductance
+
+For the constants G (conductance factor) and K (electromigration factor)
+please assume the following values: G=20 Ohm^-1, K=0.5 mA/micron, unless
+specified otherwise for a particular benchmark.  Some power nets may have
+multiple pads assigned on the chip perimeter. Power nets can use all of
+the assigned pads, some of them, or just one, as long as all
+constraints are met.
+
+Timing Issues
+=============
+
+There are several levels of detail in treating the timing-related
+issues in placement and routing.  The simplest method is by indicating
+a group of nets that should be considered critical. Each critical net
+will have its maximum lengths specified which should not be exceeded by
+the given net in the final result of placement and routing (assuming
+the minimum-width wire is used to route the net). A more exact method
+specifies sets of nets, such that the sum of the lengths of all nets in
+the set should not exceed the values pre-specified for each such set.
+In a slight refinement of these methods, lengths of wires on different
+layers may be weighted to account for different layer capacitances.
+Finally, in a yet more exact approximation, each cell in the circuit
+netlist may have pin-to-output delays specified for each pin, expressed
+as a function of the total capacitance connected to the output. These
+delays may be specified separately for the rising and falling
+transitions with an approximate formula:
+
+	delay = delay_const + delay_fan * output_capacitance
+
+Not all benchmarks have all the information pertinent to all the
+methods. It is up to you to treat the timing aspects of placement and
+routing and use the information given in the benchmark examples. If
+your layout system allows for timing-influenced layout, please supply
+the information about the particular objectives and methods used to
+incorporate the timing issues.
+
+Aspect Ratio and Fixed Length or Width of the Bounding Rectangle
+================================================================
+
+The chip may have an minimum width or minimum height specified.
+Sometimes, only the desired aspect ratio is supplied, in which case it
+should be understood that we are looking for the least-area
+realization fulfilling all the requirements and bounded by a rectangle
+having that aspect ratio.

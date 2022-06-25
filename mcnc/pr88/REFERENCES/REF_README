@@ -1,0 +1,24 @@
+This directory contains a bibliography of references to the place and route
+benchmarks.  We ask that, if you publish your results on this benchmark set,
+that you inform us so that we can add your publication to this list.
+Send this information to:
+	benchmarks@mcnc.org
+
+	or
+
+	Jeri Williams
+	MCNC
+	P.O. Box 12889
+	Research Triangle Park, NC  27709
+
+Files contained in this directory are:
+
+	PR.bib		bibligraphy in "refer" format
+	PR.lpr		line printer version of the bibliography
+	Makefile	commands to print bibliography.  This file uses
+			the UNIX commands "refer", "nroff" and "troff".
+			You may need to modify this file if these commands
+			have been customized on your machine.
+			"make PR.lpr" will make a new version of PR.lpr,
+			"make PR.laser" will send a copy to your laser printer
+			by using "troff"

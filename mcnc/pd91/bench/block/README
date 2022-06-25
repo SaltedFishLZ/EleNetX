@@ -1,0 +1,55 @@
+This directory contains the following macro cell (building block) benchmarks:
+
+Name  YAL datafile    VPNR datafile  Design rules    #blocks  #nets  #I/O
+=========================================================================
+BBL1  xerox.yal       xerox.vpnr     xerox.tech      10       203    2
+BBL2  ami33.yal       ami33.yal      ami.tech        33       123    42
+BBL3  apte.yal        apte.vpnr      MOSIS SCMOS     9        97     73
+BBL4  ami49.yal       ami49.vpnr     ami.tech        49       408    22
+BBL5  hp.yal          hp.vpnr        ami.tech        11       83     45
+
+Notes:
+
+See *.tech for P/G constants.
+
+BBL1: This benchmark was used in the Physical Design Workshop 1989.  Plot
+      magnification: 40
+
+BBL2: This benchmark was used in the Physical Design Workshop 1989.  Plot
+      magnification: 100
+
+BBL3: 8 large blocks and one small - a test for an extreme mismatch of block
+      sizes.  Plot magnification: 40
+
+BBL4: Relatively uniform distribution of block size from 0.18 M sq.microns
+      to 1M sq.microns + a couple of larger blocks.  Aspect ratios distributed
+      uniformly from 1.7 to 3.2. Plot magnification: 40
+
+BBL5: Large variations in block sizes and aspect ratios.  Plot magnification:
+      100.
+
+Unless specified otherwise, all signal ports in all cells are on
+METAL2 layer, and all power/ground ports are on METAL1.
+
+Additional requests:
+====================
+
+P/G nets constraints:
+	Specified in xerox.tech and ami.tech.  Your program should adjust
+	the width of the P/G ports on each cell while preserving the center
+	of the minimum-size port specified in each block.  The same should be
+	done for other ports which have the width initially set to 1 micron
+	(in most cases, use minimum allowed widths).
+
+Aspect ratio constraints:
+	Try to produce the following aspect ratios for each benchmark circuit:
+	1, 1.5, and 2.
+
+Fixed widths:
+	BBL1: 4500
+	BBL4: 5000
+	BBL5: 2300
+	BBL2 and BBL3 - not specified.
+
+Critical nets:
+	Specified only in BBL1

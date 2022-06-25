@@ -1,0 +1,85 @@
+This directory contains data for the mixed macro-block / standard cell
+benchmarks.  The four mixed examples from the Physical Design Workshop '87
+and Workshop on Placement and Routing '88 have been dropped and replaced
+with the following industrial examples, originally obtained in YAL format:
+
+Name  YAL datafile    VPNR datafile      #cells  #blocks  #nets  #I/O
+=========================================================================
+MIX1  g2.yal          g2.vpnr            113     17       295    72
+MIX2  a3.yal          a3.vpnr            519     27       881    48
+MIX3  t1.yal          t1.vpnr            434     26       1059
+
+Plot magnification:
+	MIX1: 120
+	MIX2: 80
+	MIX3: 50
+
+UNITS
+All lengths are in microns, currents in [A], voltages in [V].
+
+DESIGN RULES
+metal_1 wire width               :   w1 = 2.5
+metal_1 wire-wire spacing        :   s1 = 1.5
+metal_2 wire width               :   w2 = 2.5 
+metal_2 wire-wire spacing        :   s2 = 1.5 
+metal_3 wire width               :   w2 = 3.5 
+metal_3 wire-wire spacing        :   s2 = 2.0 
+via size                         : svia = 1.5
+via surrounding                  : vsur = 1.5
+
+NOTES:
+
+Unless specified otherwise, all signal ports in all cells are on
+METAL2 layer, and all power/ground ports are on METAL1.
+
+CHANGE WITH RESPECT TO THE PREVIOUSLY RELEASED INFORMATION:
+
+All ports of a block that have the same name are connected within the
+block and there is no need to connect them outside of the block.
+Signal pins are always internally connected, and may be used to feed
+through the blocks.  However, some of the power/ground terminals do
+have to be connected externally.  For example, if there are 6 VDD
+terminals  with names VDD0, VDD1, and VDD2, only one of each name must
+be connected - so at least 3 connections must be made.
+
+For STANDARD cells, assume that all ports that have the same name are
+connected inside the cell.
+
+All GND/VDD connections are IMPLICIT and no references to
+them are made in the NELIST section (this is unlike in the macro-cell
+benchmark, where power supply nets are listed explicitly).  Please
+be sure to connect the P/G nets nevertheless!
+
+In the YAL files:
+-----------------
+Pass-thru terminals have been automatically inserted by an
+over-cell router. These terminals will not line up with the cell
+boundary.
+
+Standard cell terminals are really in the center of the cell
+to permit metal 2 stub connections to be made over the cell.
+
+In the VPNR files:
+------------------
+All terminals are moved to the nearest side of the cell boundary,
+both in the standard cells and building blocks.
+
+Additional requests:
+====================
+
+P/G nets constraints:
+	Only the electromigration phenomenon is accounted for.  Assume that
+	the P/G port widths specified in the data are proportional to the
+	expected currents and proceed from there.
+
+Aspect ratio constraints:
+	Try to produce the following aspect ratios for each benchmark circuit:
+	1, 1.5, and 2.
+
+Fixed widths:
+	MIX1: 2500
+	MIX2: 3500
+	MIX3: 5000
+
+Critical nets:
+	Not specified.

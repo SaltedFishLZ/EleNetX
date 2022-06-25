@@ -1,0 +1,237 @@
+
+cell begin G11 type=STANDARD scale=0.001
+profile top (0,100000) (40000,100000);
+profile bot (0,0) (40000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   O1 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+cell end G11
+
+cell begin G21 type=STANDARD scale=0.001
+profile top (0,100000) (80000,100000);
+profile bot (0,0) (80000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   O1 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (68000-72000,100000) layer=METAL2 (68000-72000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+cell end G21
+
+cell begin G31 type=STANDARD scale=0.001
+profile top (0,100000) (80000,100000);
+profile bot (0,0) (80000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=input;
+   I3 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   O1 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (68000-72000,100000) layer=METAL2 (68000-72000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+cell end G31
+
+cell begin G41 type=STANDARD scale=0.001
+profile top (0,100000) (100000,100000);
+profile bot (0,0) (100000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=input;
+   I3 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   I4 { (68000-72000,100000) layer=METAL2 (68000-72000,0) layer=METAL2 } pintype=input;
+   O1 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=feedthrough;
+cell end G41
+
+cell begin G61 type=STANDARD scale=0.001
+profile top (0,100000) (140000,100000);
+profile bot (0,0) (140000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=input;
+   I3 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   I4 { (88000-92000,100000) layer=METAL2 (88000-92000,0) layer=METAL2 } pintype=input;
+   I5 { (108000-112000,100000) layer=METAL2 (108000-112000,0) layer=METAL2 } pintype=input;
+   I6 { (128000-132000,100000) layer=METAL2 (128000-132000,0) layer=METAL2 } pintype=input;
+   O1 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=feedthrough;
+   F6 { (118000-122000,100000) layer=METAL2 (118000-122000,0) layer=METAL2 } pintype=feedthrough;
+   F7 { (138000-142000,100000) layer=METAL2 (138000-142000,0) layer=METAL2 } pintype=feedthrough;
+cell end G61
+
+cell begin G81 type=STANDARD scale=0.001
+profile top (0,100000) (220000,100000);
+profile bot (0,0) (220000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=input;
+   I3 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   I4 { (68000-72000,100000) layer=METAL2 (68000-72000,0) layer=METAL2 } pintype=input;
+   I5 { (148000-152000,100000) layer=METAL2 (148000-152000,0) layer=METAL2 } pintype=input;
+   I6 { (168000-172000,100000) layer=METAL2 (168000-172000,0) layer=METAL2 } pintype=input;
+   I7 { (188000-192000,100000) layer=METAL2 (188000-192000,0) layer=METAL2 } pintype=input;
+   I8 { (208000-212000,100000) layer=METAL2 (208000-212000,0) layer=METAL2 } pintype=input;
+   O1 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (118000-122000,100000) layer=METAL2 (118000-122000,0) layer=METAL2 } pintype=feedthrough;
+   F6 { (138000-142000,100000) layer=METAL2 (138000-142000,0) layer=METAL2 } pintype=feedthrough;
+   F7 { (178000-182000,100000) layer=METAL2 (178000-182000,0) layer=METAL2 } pintype=feedthrough;
+   F8 { (198000-202000,100000) layer=METAL2 (198000-202000,0) layer=METAL2 } pintype=feedthrough;
+   F9 { (218000-222000,100000) layer=METAL2 (218000-222000,0) layer=METAL2 } pintype=feedthrough;
+cell end G81
+
+cell begin G12 type=STANDARD scale=0.001
+profile top (0,100000) (80000,100000);
+profile bot (0,0) (80000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   O1 { (38000-42000,100000) layer=METAL2 (38000-42000,0) layer=METAL2 } pintype=output;
+   O2 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (68000-72000,100000) layer=METAL2 (68000-72000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+cell end G12
+
+cell begin F22 type=STANDARD scale=0.001
+profile top (0,100000) (200000,100000);
+profile bot (0,0) (200000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   O1 { (138000-142000,100000) layer=METAL2 (138000-142000,0) layer=METAL2 } pintype=output;
+   O2 { (178000-182000,100000) layer=METAL2 (178000-182000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+   F6 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=feedthrough;
+   F7 { (108000-112000,100000) layer=METAL2 (108000-112000,0) layer=METAL2 } pintype=feedthrough;
+   F8 { (118000-122000,100000) layer=METAL2 (118000-122000,0) layer=METAL2 } pintype=feedthrough;
+   F9 { (148000-152000,100000) layer=METAL2 (148000-152000,0) layer=METAL2 } pintype=feedthrough;
+   F10 { (198000-202000,100000) layer=METAL2 (198000-202000,0) layer=METAL2 } pintype=feedthrough;
+cell end F22
+
+cell begin F32 type=STANDARD scale=0.001
+profile top (0,100000) (360000,100000);
+profile bot (0,0) (360000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   I3 { (108000-112000,100000) layer=METAL2 (108000-112000,0) layer=METAL2 } pintype=input;
+   O1 { (258000-262000,100000) layer=METAL2 (258000-262000,0) layer=METAL2 } pintype=output;
+   O2 { (318000-322000,100000) layer=METAL2 (318000-322000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+   F6 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=feedthrough;
+   F7 { (118000-122000,100000) layer=METAL2 (118000-122000,0) layer=METAL2 } pintype=feedthrough;
+   F8 { (138000-142000,100000) layer=METAL2 (138000-142000,0) layer=METAL2 } pintype=feedthrough;
+   F9 { (148000-152000,100000) layer=METAL2 (148000-152000,0) layer=METAL2 } pintype=feedthrough;
+   F10 { (198000-202000,100000) layer=METAL2 (198000-202000,0) layer=METAL2 } pintype=feedthrough;
+   F11 { (218000-222000,100000) layer=METAL2 (218000-222000,0) layer=METAL2 } pintype=feedthrough;
+   F12 { (248000-252000,100000) layer=METAL2 (248000-252000,0) layer=METAL2 } pintype=feedthrough;
+   F13 { (278000-282000,100000) layer=METAL2 (278000-282000,0) layer=METAL2 } pintype=feedthrough;
+   F14 { (288000-292000,100000) layer=METAL2 (288000-292000,0) layer=METAL2 } pintype=feedthrough;
+   F15 { (298000-302000,100000) layer=METAL2 (298000-302000,0) layer=METAL2 } pintype=feedthrough;
+   F16 { (308000-312000,100000) layer=METAL2 (308000-312000,0) layer=METAL2 } pintype=feedthrough;
+   F17 { (338000-342000,100000) layer=METAL2 (338000-342000,0) layer=METAL2 } pintype=feedthrough;
+   F18 { (358000-362000,100000) layer=METAL2 (358000-362000,0) layer=METAL2 } pintype=feedthrough;
+cell end F32
+
+cell begin F42 type=STANDARD scale=0.001
+profile top (0,100000) (360000,100000);
+profile bot (0,0) (360000,0);
+termlist
+   I1 { (8000-12000,100000) layer=METAL2 (8000-12000,0) layer=METAL2 } pintype=input;
+   I2 { (48000-52000,100000) layer=METAL2 (48000-52000,0) layer=METAL2 } pintype=input;
+   I3 { (108000-112000,100000) layer=METAL2 (108000-112000,0) layer=METAL2 } pintype=input;
+   I4 { (128000-132000,100000) layer=METAL2 (128000-132000,0) layer=METAL2 } pintype=input;
+   O1 { (258000-262000,100000) layer=METAL2 (258000-262000,0) layer=METAL2 } pintype=output;
+   O2 { (318000-322000,100000) layer=METAL2 (318000-322000,0) layer=METAL2 } pintype=output;
+   F1 { (-2000-2000,100000) layer=METAL2 (-2000-2000,0) layer=METAL2 } pintype=feedthrough;
+   F2 { (18000-22000,100000) layer=METAL2 (18000-22000,0) layer=METAL2 } pintype=feedthrough;
+   F3 { (28000-32000,100000) layer=METAL2 (28000-32000,0) layer=METAL2 } pintype=feedthrough;
+   F4 { (58000-62000,100000) layer=METAL2 (58000-62000,0) layer=METAL2 } pintype=feedthrough;
+   F5 { (78000-82000,100000) layer=METAL2 (78000-82000,0) layer=METAL2 } pintype=feedthrough;
+   F6 { (98000-102000,100000) layer=METAL2 (98000-102000,0) layer=METAL2 } pintype=feedthrough;
+   F7 { (118000-122000,100000) layer=METAL2 (118000-122000,0) layer=METAL2 } pintype=feedthrough;
+   F8 { (138000-142000,100000) layer=METAL2 (138000-142000,0) layer=METAL2 } pintype=feedthrough;
+   F9 { (148000-152000,100000) layer=METAL2 (148000-152000,0) layer=METAL2 } pintype=feedthrough;
+   F10 { (198000-202000,100000) layer=METAL2 (198000-202000,0) layer=METAL2 } pintype=feedthrough;
+   F11 { (218000-222000,100000) layer=METAL2 (218000-222000,0) layer=METAL2 } pintype=feedthrough;
+   F12 { (248000-252000,100000) layer=METAL2 (248000-252000,0) layer=METAL2 } pintype=feedthrough;
+   F13 { (278000-282000,100000) layer=METAL2 (278000-282000,0) layer=METAL2 } pintype=feedthrough;
+   F14 { (288000-292000,100000) layer=METAL2 (288000-292000,0) layer=METAL2 } pintype=feedthrough;
+   F15 { (298000-302000,100000) layer=METAL2 (298000-302000,0) layer=METAL2 } pintype=feedthrough;
+   F16 { (308000-312000,100000) layer=METAL2 (308000-312000,0) layer=METAL2 } pintype=feedthrough;
+   F17 { (338000-342000,100000) layer=METAL2 (338000-342000,0) layer=METAL2 } pintype=feedthrough;
+   F18 { (358000-362000,100000) layer=METAL2 (358000-362000,0) layer=METAL2 } pintype=feedthrough;
+cell end F42
+
+cell begin I1 type=PAD scale=0.001
+profile top (0,300000) (600000,300000);
+profile bot (0,0) (600000,0);
+termlist
+   I1 { (600000,150000) layer=METAL2 } pintype=padinput;
+   O1 { (0,148000-152000) layer=METAL1 } pintype=output;
+cell end I1
+
+cell begin I2 type=PAD scale=0.001
+profile top (0,300000) (600000,300000);
+profile bot (0,0) (600000,0);
+termlist
+   I1 { (600000,150000) layer=METAL2 } pintype=padinput;
+   O1 { (0,138000-142000) layer=METAL1 } pintype=output;
+   O2 { (0,158000-162000) layer=METAL1 } pintype=output;
+cell end I2
+
+cell begin O1 type=PAD scale=0.001
+profile top (0,300000) (600000,300000);
+profile bot (0,0) (600000,0);
+termlist
+   I1 { (0,148000-152000) layer=METAL1 } pintype=input;
+   O1 { (600000,150000) layer=METAL2 } pintype=padoutput;
+cell end O1
+
+cell begin O2 type=PAD scale=0.001
+profile top (0,300000) (600000,300000);
+profile bot (0,0) (600000,0);
+termlist
+   I1 { (0,138000-142000) layer=METAL1 } pintype=input;
+   I2 { (0,158000-162000) layer=METAL1 } pintype=input;
+   O1 { (600000,150000) layer=METAL2 } pintype=padoutput;
+cell end O2
+
+cell begin B21 type=PAD scale=0.001
+profile top (0,300000) (600000,300000);
+profile bot (0,0) (600000,0);
+termlist
+   I1 { (0,138000-142000) layer=METAL1 } pintype=input;
+   I2 { (0,148000-152000) layer=METAL1 } pintype=input;
+   O1 { (0,158000-162000) layer=METAL1 } pintype=output;
+   B1 { (600000,150000) layer=METAL2 } pintype=padbidirectional;
+cell end B21
