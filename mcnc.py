@@ -3,12 +3,17 @@ import os
 import sys
 import json
 import subprocess
-try:
-    from collections.abc import OrderedDict
-except ImportError:
-    from collections import OrderedDict
+
+if sys.version <= "3.7":
+    try:
+        from collections.abc import OrderedDict
+    except ImportError:
+        from collections import OrderedDict
+else:
+    OrderedDict = dict
 
 import networkx as nx
+import matplotlib as mpl
 import matplotlib.pyplot as plt 
 
 from hypergraph import hyperedges2edges
@@ -219,7 +224,7 @@ def remove_duplicated_nodes(hyperedges:OrderedDict, verbose=False):
     
     for key in hyperedges:
         origin_hyperedge = hyperedges[key]
-        unique_hyperedge = list(set(origin_hyperedge))
+        unique_hyperedge = list(OrderedDict.fromkeys(origin_hyperedge))
         _no_dup[key] = unique_hyperedge
 
         if (verbose):
@@ -258,7 +263,7 @@ def parse_yal_file(yal_path:str) -> dict:
     }
 
 
-def yal_to_nx(yal_path:str, verbose=True) -> nx.Graph:
+def yal_to_nx(yal_path:str, verbose=False) -> nx.Graph:
     """Parse YAL file and obtain a correpsonding NetworkX graph
     """
     # parse YAL file to get a dict
@@ -270,9 +275,14 @@ def yal_to_nx(yal_path:str, verbose=True) -> nx.Graph:
     else:
         G = nx.OrderedGraph()
 
-    nodes = results["vertices"].keys()
-    G.add_nodes_from(nodes)
+    # extract and add nodes
+    nodes = results["vertices"]
+    G.add_nodes_from(nodes.items())
+    # sanity check
+    for _v in G.nodes:
+        assert G.nodes[_v] == nodes[_v]
 
+    # extract hyperedges
     hyperedges = results["hyperedges"]
 
     # remove duplicated nodes in each net
@@ -300,23 +310,77 @@ def yal_to_nx(yal_path:str, verbose=True) -> nx.Graph:
     return G
 
 
-def plotting_test(G:nx.Graph):
+def obj_attr_cat_to_int(objects:OrderedDict, category:str) -> OrderedDict:
+    """Map objects' categorical attributes to int
+    :param objects: all objects to be processed
+    :param category: category keyword in attributes
+    :param: a map from category keyword to int
+    """
+    categories = [objects[_id][category] for _id in objects]
+    int_map = OrderedDict.fromkeys(categories)
+    # fill in color id by enumeration
+    for i, c in enumerate(int_map):
+        int_map[c] = i
+    return int_map
+
+
+def empty_scatterplot_colormap_by_category(ax, cmap, categories:OrderedDict):
+    """Scatter plot some empty points with given color map
+    :param ax:
+    :param cmap:
+    :param categories: a map from categories to int indices
+    """
+    max_index = max(categories.values())
+    for category in categories:
+        ax.scatter([],[], label=category,
+                   c=[cmap(categories[category] / max_index)])
+
+
+def plotting_test(G:nx.Graph, verbose=False):
     num_nodes = len(G.nodes)
     num_edges = len(G.edges)
-    print("Num of nodes: ", num_nodes)
-    print("Num of edges: ", num_edges)
+    if (verbose):
+        print("Num of nodes: ", num_nodes)
+        print("Num of edges: ", num_edges)
 
     with_labels = True if  num_nodes < 20 else False
     node_size = 100  if  num_nodes < 20 else 20
 
-    ax = plt.figure(figsize=(20, 15))
+    # get module colors & colormap
+    nodes = G.nodes()
+    module_indices = obj_attr_cat_to_int(nodes, "modulename")
+    node_colors = [module_indices[G.nodes[_v]["modulename"]] for _v in G.nodes]
+    if verbose:
+        if (len(module_indices) < len(nodes)):
+            print("%d nodes, %d kinds of modules"
+                  % (len(nodes), len(module_indices)))
+            print("module cm", module_indices)
+    cmap = plt.cm.viridis
+
+    # plot with shell layout
+    fig = plt.figure(figsize=(18, 10))
+    ax = plt.axes()
     pos = nx.shell_layout(G) # deterministic node layout 
-    nx.draw(G, pos=pos, node_size=node_size, with_labels=with_labels)
+    nx.draw_networkx(G, ax=ax, pos=pos,
+                     node_size=node_size,
+                     node_color=node_colors,
+                     with_labels=with_labels)    
+    # make empty plot with correct color and label for each group
+    empty_scatterplot_colormap_by_category(ax, cmap, module_indices)
+    plt.legend(); plt.axis('off')
     plt.show()
 
-    ax = plt.figure(figsize=(20, 15))
+    # plot with spectral layout
+    fig = plt.figure(figsize=(18, 10))
+    ax = plt.axes()
     pos = nx.spectral_layout(G)
-    nx.draw(G, pos=pos, node_size=node_size, with_labels=with_labels)
+    nx.draw_networkx(G, ax=ax, pos=pos,
+                     node_size=node_size,
+                     node_color=node_colors,
+                     with_labels=with_labels)
+    # make empty plot with correct color and label for each group
+    empty_scatterplot_colormap_by_category(ax, cmap, module_indices)
+    plt.legend(); plt.axis('off')
     plt.show()
 
 
