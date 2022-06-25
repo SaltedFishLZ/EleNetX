@@ -1,3 +1,19 @@
+"""MCNC Circuit Benchmark Suite
+
+Current supported items:
+- PDWorkshop 91
+"""
+__all__ = [
+    "PD91_BASE_DIR", "PD91_BENCHMARKS", "PD91_TECHNOLOGIES",
+    "yal_to_json_str", "pd91_yal_to_json_file",
+    "parent_module_to_netlist",
+    "remove_singleton_edge",
+    "remove_duplicated_nodes",
+    "parse_yal_file", "yal_to_nx",
+    "obj_attr_cat_to_int",
+    "empty_scatterplot_colormap_by_category",
+    "plotting_test"
+]
 
 import os
 import sys
@@ -16,10 +32,14 @@ import networkx as nx
 import matplotlib as mpl
 import matplotlib.pyplot as plt 
 
-from hypergraph import hyperedges2edges
+from .hypergraph import hyperedges2edges
 
+DIR_PATH = os.path.dirname(__file__)
 
-PD91_BASE_DIR = os.path.join("mcnc", "pd91", "bench")
+YAL2JSON_REL_PATH = os.path.join("yal", "c-parser", "yal2json")
+YAL2JSON_ABS_PATH = os.path.join(DIR_PATH, YAL2JSON_REL_PATH)
+
+PD91_BASE_DIR = os.path.join(DIR_PATH, "mcnc", "pd91", "bench")
 
 PD91_BENCHMARKS = {
     # block design
@@ -129,8 +149,8 @@ def yal_to_json_str(src_yal_path:str) -> str:
     :param src_yal_path: path to the source YAL file
     :return: a JSON string obtained by yal2json
     """
-    YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
-    result = subprocess.run([YAL2JSON_TRANSLATOR_PATH, src_yal_path],
+    assert os.path.exists(src_yal_path), ValueError("YAL not found")
+    result = subprocess.run([YAL2JSON_ABS_PATH, src_yal_path],
                             capture_output=True, text=True)
     # TODO: error handling
     return result.stdout
@@ -140,7 +160,6 @@ def pd91_yal_to_json_file(base_dir:str):
     """Batch processing utility function: convert all PD91 benchmarks 
     from YAL files into JSON files
     """
-    YAL2JSON_TRANSLATOR_PATH = os.path.join("yal", "c-parser", "yal2json")
     # translate PD91 benchmark YAL files
     for category in PD91_BENCHMARKS:
         for benchmark in PD91_BENCHMARKS[category]:
@@ -153,7 +172,7 @@ def pd91_yal_to_json_file(base_dir:str):
                 dst_json_path = os.path.join(PD91_BASE_DIR, category,
                                              benchmark + ".json")
                 subprocess.run([
-                    YAL2JSON_TRANSLATOR_PATH,
+                    YAL2JSON_ABS_PATH,
                     src_yal_path,
                     dst_json_path
                 ])

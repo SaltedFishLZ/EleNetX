@@ -9,7 +9,7 @@ except ImportError:
 import networkx as nx
 import matplotlib.pyplot as plt 
 
-from hypergraph import hyperedges2edges
+from .hypergraph import hyperedges2edges
 
 
 def parse_are_file(fpath:str) -> list:
