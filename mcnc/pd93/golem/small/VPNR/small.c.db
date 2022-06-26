@@ -1,0 +1,1575 @@
+cell begin c0 type=PAD scale=0.25
+  profile top (0,240) (576,240);
+  profile bot (0,0) (576,0);
+  termlist
+    Pin0 {(209-211,85-87)};
+    Pin1 {(329-331,121-123)};
+    Pin2 {(301-303,109-111)};
+    Pin3 {(313-315,121-123)};
+    Pin4 {(261-263,181-183)} group=4;
+    Pin5 {(261-263,181-183)} group=4;
+    Pin6 {(261-263,181-183)} type=IGNORED group=4;
+    Pin7 {(261-263,181-183)} type=IGNORED group=4;
+    Pin8 {(261-263,181-183)} group=4;
+    Pin9 {(261-263,181-183)} type=IGNORED group=4;
+    Pin10 {(261-263,181-183)} type=IGNORED group=4;
+    Pin11 {(261-263,181-183)} group=4;
+    Pin12 {(261-263,181-183)} group=4;
+    Pin13 {(261-263,181-183)} type=IGNORED group=4;
+    Pin14 {(301-303,77-79)};
+    Pin15 {(313-315,89-91)};
+cell end c0
+cell begin c9 type=PAD scale=0.25
+  profile top (0,576) (240,576);
+  profile bot (0,0) (240,0);
+  termlist
+    Pin0 {(85-87,209-211)};
+    Pin1 {(121-123,329-331)};
+    Pin2 {(109-111,301-303)};
+    Pin3 {(121-123,313-315)};
+    Pin4 {(41-43,321-323)} type=IGNORED;
+    Pin5 {(181-183,261-263)} type=IGNORED group=5;
+    Pin6 {(181-183,261-263)} group=5;
+    Pin7 {(181-183,261-263)} type=IGNORED group=5;
+    Pin8 {(181-183,261-263)} type=IGNORED group=5;
+    Pin9 {(181-183,261-263)} group=5;
+    Pin10 {(73-75,325-327)};
+    Pin11 {(33-35,321-323)};
+    Pin12 {(77-79,301-303)} type=IGNORED;
+    Pin13 {(89-91,313-315)};
+cell end c9
+cell begin c84 type=PAD scale=0.25
+  profile top (0,240) (576,240);
+  profile bot (0,0) (576,0);
+  termlist
+    Pin0 {(305-307,21-23)};
+    Pin1 {(117-119,37-39)} type=IGNORED;
+    Pin2 {(117-119,45-47)} type=IGNORED;
+    Pin3 {(117-119,53-55)};
+    Pin4 {(117-119,61-63)} type=IGNORED;
+    Pin5 {(117-119,69-71)};
+    Pin6 {(117-119,77-79)} type=IGNORED;
+    Pin7 {(117-119,85-87)} type=IGNORED;
+    Pin8 {(117-119,93-95)} type=IGNORED;
+    Pin9 {(117-119,101-103)};
+    Pin10 {(117-119,109-111)};
+    Pin11 {(117-119,117-119)};
+    Pin12 {(117-119,125-127)};
+    Pin13 {(117-119,133-135)};
+    Pin14 {(117-119,141-143)};
+    Pin15 {(117-119,149-151)};
+    Pin16 {(117-119,157-159)} type=IGNORED;
+    Pin17 {(265-267,29-31)};
+cell end c84
+cell begin c97 type=PAD scale=0.25
+  profile top (0,576) (240,576);
+  profile bot (0,0) (240,0);
+  termlist
+    Pin0 {(181-183,261-263)} type=IGNORED;
+    Pin1 {(73-75,325-327)};
+    Pin2 {(41-43,325-327)} type=IGNORED;
+cell end c97
+cell begin c100 type=PAD scale=0.25
+  profile top (0,576) (240,576);
+  profile bot (0,0) (240,0);
+  termlist
+    Pin0 {(85-87,209-211)};
+    Pin1 {(121-123,329-331)};
+    Pin2 {(113-115,305-307)};
+    Pin3 {(117-119,309-311)} type=IGNORED;
+    Pin4 {(181-183,261-263)} group=4;
+    Pin5 {(181-183,261-263)} group=4;
+    Pin6 {(181-183,261-263)} type=IGNORED group=4;
+    Pin7 {(181-183,261-263)} group=4;
+    Pin8 {(181-183,261-263)} type=IGNORED group=4;
+    Pin9 {(181-183,261-263)} group=4;
+    Pin10 {(181-183,261-263)} group=4;
+    Pin11 {(181-183,261-263)} group=4;
+    Pin12 {(181-183,261-263)} type=IGNORED group=4;
+    Pin13 {(181-183,261-263)} group=4;
+    Pin14 {(81-83,305-307)};
+    Pin15 {(85-87,309-311)};
+cell end c100
+cell begin c3 type=STANDARD scale=0.25
+  profile top (0,120) (96,120);
+  profile bot (0,0) (96,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(41-43,0) (41-43,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(65-67,0) (65-67,120)};
+    Pin4 {(5-7,0) (5-7,120)};
+    Pin5 {(73-75,0) (73-75,120)} type=IGNORED;
+    Pin6 {(69-71,0) (69-71,120)};
+    Pin7 {(81-83,0) (81-83,120)} type=IGNORED;
+    Pin8 {(89-91,0) (89-91,120)} type=IGNORED;
+    Pin9 {(21-23,0) (21-23,120)};
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c3
+cell begin c4 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c4
+cell begin c5 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c5
+cell begin c6 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(37-39,0) (37-39,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(13-15,0) (13-15,120)};
+    Pin5 {(25-27,0) (25-27,120)} group=5;
+    Pin6 {(21-23,0) (21-23,120)} group=5;
+    Pin7 {(57-59,0) (57-59,120)} group=7;
+    Pin8 {(69-71,0) (69-71,120)} group=8;
+    Pin9 {(65-67,0) (65-67,120)} group=8;
+    Pin10 {(61-63,0) (61-63,120)} group=7;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c6
+cell begin c7 type=STANDARD scale=0.25
+  profile top (0,120) (12,120);
+  profile bot (0,0) (12,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c7
+cell begin c11 type=STANDARD scale=0.25
+  profile top (0,120) (12,120);
+  profile bot (0,0) (12,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c11
+cell begin c12 type=STANDARD scale=0.25
+  profile top (0,120) (12,120);
+  profile bot (0,0) (12,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c12
+cell begin c13 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(25-27,0) (25-27,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c13
+cell begin c14 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)} type=IGNORED;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c14
+cell begin c16 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(25-27,0) (25-27,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(53-55,0) (53-55,120)};
+    Pin4 {(45-47,0) (45-47,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c16
+cell begin c17 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(17-19,0) (17-19,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c17
+cell begin c18 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c18
+cell begin c19 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(21-23,0) (21-23,120)};
+    Pin2 {(5-7,0) (5-7,120)} type=IGNORED;
+    Pin3 {(17-19,0) (17-19,120)} type=IGNORED;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c19
+cell begin c20 type=STANDARD scale=0.25
+  profile top (0,120) (12,120);
+  profile bot (0,0) (12,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c20
+cell begin c21 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(17-19,0) (17-19,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c21
+cell begin c22 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(41-43,0) (41-43,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c22
+cell begin c23 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(25-27,0) (25-27,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c23
+cell begin c24 type=STANDARD scale=0.25
+  profile top (0,120) (120,120);
+  profile bot (0,0) (120,0);
+  termlist
+    Pin0 {(49-51,0) (49-51,120)};
+    Pin1 {(77-79,0) (77-79,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(41-43,0) (41-43,120)};
+    Pin5 {(57-59,0) (57-59,120)} group=5;
+    Pin6 {(53-55,0) (53-55,120)} type=IGNORED group=5;
+    Pin7 {(13-15,0) (13-15,120)};
+    Pin8 {(1-3,0) (1-3,120)};
+    Pin9 {(105-107,0) (105-107,120)};
+    Pin10 {(117-119,0) (117-119,120)};
+    u28 {(113-115,0) (113-115,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u25 {(101-103,0) (101-103,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u22 {(89-91,0) (89-91,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+cell end c24
+cell begin c25 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(17-19,0) (17-19,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c25
+cell begin c26 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c26
+cell begin c27 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)} type=IGNORED;
+    Pin2 {(21-23,0) (21-23,120)} type=IGNORED;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c27
+cell begin c28 type=STANDARD scale=0.25
+  profile top (0,120) (180,120);
+  profile bot (0,0) (180,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(53-55,0) (53-55,120)};
+    Pin3 {(45-47,0) (45-47,120)};
+    Pin4 {(133-135,0) (133-135,120)};
+    Pin5 {(121-123,0) (121-123,120)};
+    Pin6 {(169-171,0) (169-171,120)} type=IGNORED;
+    Pin7 {(161-163,0) (161-163,120)} type=IGNORED;
+    Pin8 {(81-83,0) (81-83,120)};
+    Pin9 {(113-115,0) (113-115,120)};
+    u44 {(177-179,0) (177-179,120)} pintype=feedthrough;
+    u43 {(173-175,0) (173-175,120)} pintype=feedthrough;
+    u41 {(165-167,0) (165-167,120)} pintype=feedthrough;
+    u39 {(157-159,0) (157-159,120)} pintype=feedthrough;
+    u38 {(153-155,0) (153-155,120)} pintype=feedthrough;
+    u37 {(149-151,0) (149-151,120)} pintype=feedthrough;
+    u36 {(145-147,0) (145-147,120)} pintype=feedthrough;
+    u35 {(141-143,0) (141-143,120)} pintype=feedthrough;
+    u34 {(137-139,0) (137-139,120)} pintype=feedthrough;
+    u32 {(129-131,0) (129-131,120)} pintype=feedthrough;
+    u31 {(125-127,0) (125-127,120)} pintype=feedthrough;
+    u29 {(117-119,0) (117-119,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u26 {(105-107,0) (105-107,120)} pintype=feedthrough;
+    u25 {(101-103,0) (101-103,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u22 {(89-91,0) (89-91,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c28
+cell begin c29 type=STANDARD scale=0.25
+  profile top (0,120) (120,120);
+  profile bot (0,0) (120,0);
+  termlist
+    Pin0 {(49-51,0) (49-51,120)};
+    Pin1 {(77-79,0) (77-79,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(41-43,0) (41-43,120)};
+    Pin5 {(57-59,0) (57-59,120)} group=5;
+    Pin6 {(53-55,0) (53-55,120)} group=5;
+    Pin7 {(13-15,0) (13-15,120)};
+    Pin8 {(5-7,0) (5-7,120)};
+    Pin9 {(105-107,0) (105-107,120)};
+    Pin10 {(113-115,0) (113-115,120)};
+    u29 {(117-119,0) (117-119,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u25 {(101-103,0) (101-103,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u22 {(89-91,0) (89-91,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c29
+cell begin c30 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(41-43,0) (41-43,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c30
+cell begin c33 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c33
+cell begin c35 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(37-39,0) (37-39,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(13-15,0) (13-15,120)};
+    Pin5 {(25-27,0) (25-27,120)} group=5;
+    Pin6 {(21-23,0) (21-23,120)} group=5;
+    Pin7 {(57-59,0) (57-59,120)} group=7;
+    Pin8 {(65-67,0) (65-67,120)} group=8;
+    Pin9 {(69-71,0) (69-71,120)} group=8;
+    Pin10 {(61-63,0) (61-63,120)} type=IGNORED group=7;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c35
+cell begin c36 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(37-39,0) (37-39,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c36
+cell begin c37 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c37
+cell begin c38 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c38
+cell begin c39 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(25-27,0) (25-27,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c39
+cell begin c40 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c40
+cell begin c41 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c41
+cell begin c43 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c43
+cell begin c44 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c44
+cell begin c45 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(21-23,0) (21-23,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c45
+cell begin c46 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(21-23,0) (21-23,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(29-31,0) (29-31,120)} type=IGNORED;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c46
+cell begin c47 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(29-31,0) (29-31,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    Pin4 {(17-19,0) (17-19,120)} type=IGNORED;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c47
+cell begin c48 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c48
+cell begin c50 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c50
+cell begin c51 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)} type=IGNORED;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c51
+cell begin c52 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c52
+cell begin c53 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c53
+cell begin c54 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c54
+cell begin c55 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(17-19,0) (17-19,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c55
+cell begin c60 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(25-27,0) (25-27,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(37-39,0) (37-39,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c60
+cell begin c61 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c61
+cell begin c62 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    Pin4 {(41-43,0) (41-43,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c62
+cell begin c63 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    Pin4 {(45-47,0) (45-47,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(49-51,0) (49-51,120)};
+    Pin7 {(41-43,0) (41-43,120)};
+    Pin8 {(65-67,0) (65-67,120)};
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c63
+cell begin c65 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(41-43,0) (41-43,120)};
+    Pin4 {(25-27,0) (25-27,120)};
+    Pin5 {(37-39,0) (37-39,120)} type=IGNORED;
+    Pin6 {(45-47,0) (45-47,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c65
+cell begin c66 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c66
+cell begin c68 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(21-23,0) (21-23,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(57-59,0) (57-59,120)};
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c68
+cell begin c69 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c69
+cell begin c70 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c70
+cell begin c71 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(37-39,0) (37-39,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(5-7,0) (5-7,120)};
+    Pin4 {(13-15,0) (13-15,120)};
+    Pin5 {(25-27,0) (25-27,120)} group=5;
+    Pin6 {(21-23,0) (21-23,120)} group=5;
+    Pin7 {(57-59,0) (57-59,120)} group=7;
+    Pin8 {(69-71,0) (69-71,120)} type=IGNORED group=8;
+    Pin9 {(65-67,0) (65-67,120)} type=IGNORED group=8;
+    Pin10 {(61-63,0) (61-63,120)} type=IGNORED group=7;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c71
+cell begin c73 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(13-15,0) (13-15,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c73
+cell begin c74 type=STANDARD scale=0.25
+  profile top (0,120) (132,120);
+  profile bot (0,0) (132,0);
+  termlist
+    Pin0 {(61-63,0) (61-63,120)};
+    Pin1 {(89-91,0) (89-91,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    Pin3 {(37-39,0) (37-39,120)} type=IGNORED;
+    Pin4 {(33-35,0) (33-35,120)} type=IGNORED;
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(49-51,0) (49-51,120)};
+    Pin7 {(65-67,0) (65-67,120)} type=IGNORED group=7;
+    Pin8 {(69-71,0) (69-71,120)} type=IGNORED group=7;
+    Pin9 {(13-15,0) (13-15,120)} type=IGNORED;
+    Pin10 {(1-3,0) (1-3,120)} type=IGNORED;
+    Pin11 {(117-119,0) (117-119,120)};
+    Pin12 {(129-131,0) (129-131,120)} type=IGNORED;
+    u31 {(125-127,0) (125-127,120)} pintype=feedthrough;
+    u30 {(121-123,0) (121-123,120)} pintype=feedthrough;
+    u28 {(113-115,0) (113-115,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u26 {(105-107,0) (105-107,120)} pintype=feedthrough;
+    u25 {(101-103,0) (101-103,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+cell end c74
+cell begin c79 type=STANDARD scale=0.25
+  profile top (0,120) (24,120);
+  profile bot (0,0) (24,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(13-15,0) (13-15,120)};
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c79
+cell begin c80 type=STANDARD scale=0.25
+  profile top (0,120) (84,120);
+  profile bot (0,0) (84,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    Pin4 {(45-47,0) (45-47,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(49-51,0) (49-51,120)};
+    Pin7 {(41-43,0) (41-43,120)};
+    Pin8 {(77-79,0) (77-79,120)};
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c80
+cell begin c85 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(29-31,0) (29-31,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(33-35,0) (33-35,120)};
+    Pin4 {(17-19,0) (17-19,120)};
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c85
+cell begin c87 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c87
+cell begin c88 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(29-31,0) (29-31,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    Pin4 {(41-43,0) (41-43,120)};
+    Pin5 {(33-35,0) (33-35,120)};
+    Pin6 {(21-23,0) (21-23,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c88
+cell begin c91 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(1-3,0) (1-3,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(25-27,0) (25-27,120)} type=IGNORED;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+cell end c91
+cell begin c93 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(41-43,0) (41-43,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c93
+cell begin c94 type=STANDARD scale=0.25
+  profile top (0,120) (96,120);
+  profile bot (0,0) (96,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(25-27,0) (25-27,120)};
+    Pin4 {(45-47,0) (45-47,120)};
+    Pin5 {(29-31,0) (29-31,120)};
+    Pin6 {(49-51,0) (49-51,120)};
+    Pin7 {(41-43,0) (41-43,120)} type=IGNORED;
+    Pin8 {(77-79,0) (77-79,120)};
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u22 {(89-91,0) (89-91,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c94
+cell begin c95 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(25-27,0) (25-27,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(21-23,0) (21-23,120)};
+    Pin4 {(33-35,0) (33-35,120)};
+    Pin5 {(29-31,0) (29-31,120)} type=IGNORED;
+    Pin6 {(41-43,0) (41-43,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c95
+cell begin c99 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    Pin3 {(29-31,0) (29-31,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c99
+cell begin c107 type=STANDARD scale=0.25
+  profile top (0,120) (372,120);
+  profile bot (0,0) (372,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(57-59,0) (57-59,120)};
+    Pin2 {(101-103,0) (101-103,120)};
+    Pin3 {(145-147,0) (145-147,120)};
+    Pin4 {(189-191,0) (189-191,120)};
+    Pin5 {(233-235,0) (233-235,120)};
+    Pin6 {(277-279,0) (277-279,120)};
+    Pin7 {(321-323,0) (321-323,120)};
+    Pin8 {(5-7,0) (5-7,120)};
+    Pin9 {(9-11,0) (9-11,120)};
+    Pin10 {(25-27,0) (25-27,120)};
+    Pin11 {(13-15,0) (13-15,120)};
+    Pin12 {(37-39,0) (37-39,120)} type=IGNORED group=12;
+    Pin13 {(93-95,0) (93-95,120)} type=IGNORED group=13;
+    Pin14 {(125-127,0) (125-127,120)} type=IGNORED group=14;
+    Pin15 {(181-183,0) (181-183,120)} type=IGNORED group=15;
+    Pin16 {(225-227,0) (225-227,120)} type=IGNORED group=16;
+    Pin17 {(269-271,0) (269-271,120)} group=17;
+    Pin18 {(313-315,0) (313-315,120)} type=IGNORED group=18;
+    Pin19 {(357-359,0) (357-359,120)} type=IGNORED group=19;
+    Pin20 {(45-47,0) (45-47,120)} type=IGNORED group=12;
+    Pin21 {(81-83,0) (81-83,120)} type=IGNORED group=13;
+    Pin22 {(137-139,0) (137-139,120)} group=14;
+    Pin23 {(169-171,0) (169-171,120)} group=15;
+    Pin24 {(213-215,0) (213-215,120)} group=16;
+    Pin25 {(257-259,0) (257-259,120)} type=IGNORED group=17;
+    Pin26 {(301-303,0) (301-303,120)} group=18;
+    Pin27 {(345-347,0) (345-347,120)} type=IGNORED group=19;
+    Pin28 {(49-51,0) (49-51,120)} type=IGNORED group=12;
+    Pin29 {(89-91,0) (89-91,120)} type=IGNORED group=13;
+    Pin30 {(133-135,0) (133-135,120)} group=14;
+    Pin31 {(177-179,0) (177-179,120)} type=IGNORED group=15;
+    Pin32 {(221-223,0) (221-223,120)} type=IGNORED group=16;
+    Pin33 {(265-267,0) (265-267,120)} type=IGNORED group=17;
+    Pin34 {(309-311,0) (309-311,120)} group=18;
+    Pin35 {(353-355,0) (353-355,120)} type=IGNORED group=19;
+    Pin36 {(41-43,0) (41-43,120)} group=12;
+    Pin37 {(85-87,0) (85-87,120)} type=IGNORED group=13;
+    Pin38 {(129-131,0) (129-131,120)} group=14;
+    Pin39 {(173-175,0) (173-175,120)} type=IGNORED group=15;
+    Pin40 {(217-219,0) (217-219,120)} group=16;
+    Pin41 {(261-263,0) (261-263,120)} type=IGNORED group=17;
+    Pin42 {(305-307,0) (305-307,120)} group=18;
+    Pin43 {(349-351,0) (349-351,120)} type=IGNORED group=19;
+    Pin44 {(361-363,0) (361-363,120)} type=IGNORED;
+    u92 {(369-371,0) (369-371,120)} pintype=feedthrough;
+    u91 {(365-367,0) (365-367,120)} pintype=feedthrough;
+    u85 {(341-343,0) (341-343,120)} pintype=feedthrough;
+    u84 {(337-339,0) (337-339,120)} pintype=feedthrough;
+    u83 {(333-335,0) (333-335,120)} pintype=feedthrough;
+    u82 {(329-331,0) (329-331,120)} pintype=feedthrough;
+    u81 {(325-327,0) (325-327,120)} pintype=feedthrough;
+    u79 {(317-319,0) (317-319,120)} pintype=feedthrough;
+    u74 {(297-299,0) (297-299,120)} pintype=feedthrough;
+    u73 {(293-295,0) (293-295,120)} pintype=feedthrough;
+    u72 {(289-291,0) (289-291,120)} pintype=feedthrough;
+    u71 {(285-287,0) (285-287,120)} pintype=feedthrough;
+    u70 {(281-283,0) (281-283,120)} pintype=feedthrough;
+    u68 {(273-275,0) (273-275,120)} pintype=feedthrough;
+    u63 {(253-255,0) (253-255,120)} pintype=feedthrough;
+    u62 {(249-251,0) (249-251,120)} pintype=feedthrough;
+    u61 {(245-247,0) (245-247,120)} pintype=feedthrough;
+    u60 {(241-243,0) (241-243,120)} pintype=feedthrough;
+    u59 {(237-239,0) (237-239,120)} pintype=feedthrough;
+    u57 {(229-231,0) (229-231,120)} pintype=feedthrough;
+    u52 {(209-211,0) (209-211,120)} pintype=feedthrough;
+    u51 {(205-207,0) (205-207,120)} pintype=feedthrough;
+    u50 {(201-203,0) (201-203,120)} pintype=feedthrough;
+    u49 {(197-199,0) (197-199,120)} pintype=feedthrough;
+    u48 {(193-195,0) (193-195,120)} pintype=feedthrough;
+    u46 {(185-187,0) (185-187,120)} pintype=feedthrough;
+    u41 {(165-167,0) (165-167,120)} pintype=feedthrough;
+    u40 {(161-163,0) (161-163,120)} pintype=feedthrough;
+    u39 {(157-159,0) (157-159,120)} pintype=feedthrough;
+    u38 {(153-155,0) (153-155,120)} pintype=feedthrough;
+    u37 {(149-151,0) (149-151,120)} pintype=feedthrough;
+    u35 {(141-143,0) (141-143,120)} pintype=feedthrough;
+    u30 {(121-123,0) (121-123,120)} pintype=feedthrough;
+    u29 {(117-119,0) (117-119,120)} pintype=feedthrough;
+    u28 {(113-115,0) (113-115,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u26 {(105-107,0) (105-107,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c107
+cell begin c112 type=STANDARD scale=0.25
+  profile top (0,120) (420,120);
+  profile bot (0,0) (420,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(57-59,0) (57-59,120)};
+    Pin2 {(101-103,0) (101-103,120)};
+    Pin3 {(145-147,0) (145-147,120)};
+    Pin4 {(189-191,0) (189-191,120)};
+    Pin5 {(233-235,0) (233-235,120)};
+    Pin6 {(277-279,0) (277-279,120)};
+    Pin7 {(321-323,0) (321-323,120)};
+    Pin8 {(365-367,0) (365-367,120)};
+    Pin9 {(5-7,0) (5-7,120)} type=IGNORED;
+    Pin10 {(9-11,0) (9-11,120)} type=IGNORED;
+    Pin11 {(25-27,0) (25-27,120)} type=IGNORED;
+    Pin12 {(13-15,0) (13-15,120)};
+    Pin13 {(37-39,0) (37-39,120)} type=IGNORED group=13;
+    Pin14 {(93-95,0) (93-95,120)} type=IGNORED group=14;
+    Pin15 {(137-139,0) (137-139,120)} type=IGNORED group=15;
+    Pin16 {(169-171,0) (169-171,120)} type=IGNORED group=16;
+    Pin17 {(225-227,0) (225-227,120)} type=IGNORED group=17;
+    Pin18 {(269-271,0) (269-271,120)} type=IGNORED group=18;
+    Pin19 {(313-315,0) (313-315,120)} type=IGNORED group=19;
+    Pin20 {(357-359,0) (357-359,120)} type=IGNORED group=20;
+    Pin21 {(401-403,0) (401-403,120)} group=21;
+    Pin22 {(45-47,0) (45-47,120)} type=IGNORED group=13;
+    Pin23 {(81-83,0) (81-83,120)} type=IGNORED group=14;
+    Pin24 {(125-127,0) (125-127,120)} type=IGNORED group=15;
+    Pin25 {(181-183,0) (181-183,120)} type=IGNORED group=16;
+    Pin26 {(213-215,0) (213-215,120)} group=17;
+    Pin27 {(257-259,0) (257-259,120)} type=IGNORED group=18;
+    Pin28 {(301-303,0) (301-303,120)} group=19;
+    Pin29 {(345-347,0) (345-347,120)} type=IGNORED group=20;
+    Pin30 {(389-391,0) (389-391,120)} group=21;
+    Pin31 {(49-51,0) (49-51,120)} type=IGNORED group=13;
+    Pin32 {(89-91,0) (89-91,120)} type=IGNORED group=14;
+    Pin33 {(133-135,0) (133-135,120)} type=IGNORED group=15;
+    Pin34 {(177-179,0) (177-179,120)} type=IGNORED group=16;
+    Pin35 {(221-223,0) (221-223,120)} group=17;
+    Pin36 {(265-267,0) (265-267,120)} type=IGNORED group=18;
+    Pin37 {(309-311,0) (309-311,120)} type=IGNORED group=19;
+    Pin38 {(353-355,0) (353-355,120)} type=IGNORED group=20;
+    Pin39 {(397-399,0) (397-399,120)} type=IGNORED group=21;
+    Pin40 {(41-43,0) (41-43,120)} type=IGNORED group=13;
+    Pin41 {(85-87,0) (85-87,120)} type=IGNORED group=14;
+    Pin42 {(129-131,0) (129-131,120)} type=IGNORED group=15;
+    Pin43 {(173-175,0) (173-175,120)} type=IGNORED group=16;
+    Pin44 {(217-219,0) (217-219,120)} type=IGNORED group=17;
+    Pin45 {(261-263,0) (261-263,120)} type=IGNORED group=18;
+    Pin46 {(305-307,0) (305-307,120)} group=19;
+    Pin47 {(349-351,0) (349-351,120)} group=20;
+    Pin48 {(393-395,0) (393-395,120)} type=IGNORED group=21;
+    Pin49 {(405-407,0) (405-407,120)} type=IGNORED;
+    u104 {(417-419,0) (417-419,120)} pintype=feedthrough;
+    u103 {(413-415,0) (413-415,120)} pintype=feedthrough;
+    u102 {(409-411,0) (409-411,120)} pintype=feedthrough;
+    u96 {(385-387,0) (385-387,120)} pintype=feedthrough;
+    u95 {(381-383,0) (381-383,120)} pintype=feedthrough;
+    u94 {(377-379,0) (377-379,120)} pintype=feedthrough;
+    u93 {(373-375,0) (373-375,120)} pintype=feedthrough;
+    u92 {(369-371,0) (369-371,120)} pintype=feedthrough;
+    u90 {(361-363,0) (361-363,120)} pintype=feedthrough;
+    u85 {(341-343,0) (341-343,120)} pintype=feedthrough;
+    u84 {(337-339,0) (337-339,120)} pintype=feedthrough;
+    u83 {(333-335,0) (333-335,120)} pintype=feedthrough;
+    u82 {(329-331,0) (329-331,120)} pintype=feedthrough;
+    u81 {(325-327,0) (325-327,120)} pintype=feedthrough;
+    u79 {(317-319,0) (317-319,120)} pintype=feedthrough;
+    u74 {(297-299,0) (297-299,120)} pintype=feedthrough;
+    u73 {(293-295,0) (293-295,120)} pintype=feedthrough;
+    u72 {(289-291,0) (289-291,120)} pintype=feedthrough;
+    u71 {(285-287,0) (285-287,120)} pintype=feedthrough;
+    u70 {(281-283,0) (281-283,120)} pintype=feedthrough;
+    u68 {(273-275,0) (273-275,120)} pintype=feedthrough;
+    u63 {(253-255,0) (253-255,120)} pintype=feedthrough;
+    u62 {(249-251,0) (249-251,120)} pintype=feedthrough;
+    u61 {(245-247,0) (245-247,120)} pintype=feedthrough;
+    u60 {(241-243,0) (241-243,120)} pintype=feedthrough;
+    u59 {(237-239,0) (237-239,120)} pintype=feedthrough;
+    u57 {(229-231,0) (229-231,120)} pintype=feedthrough;
+    u52 {(209-211,0) (209-211,120)} pintype=feedthrough;
+    u51 {(205-207,0) (205-207,120)} pintype=feedthrough;
+    u50 {(201-203,0) (201-203,120)} pintype=feedthrough;
+    u49 {(197-199,0) (197-199,120)} pintype=feedthrough;
+    u48 {(193-195,0) (193-195,120)} pintype=feedthrough;
+    u46 {(185-187,0) (185-187,120)} pintype=feedthrough;
+    u41 {(165-167,0) (165-167,120)} pintype=feedthrough;
+    u40 {(161-163,0) (161-163,120)} pintype=feedthrough;
+    u39 {(157-159,0) (157-159,120)} pintype=feedthrough;
+    u38 {(153-155,0) (153-155,120)} pintype=feedthrough;
+    u37 {(149-151,0) (149-151,120)} pintype=feedthrough;
+    u35 {(141-143,0) (141-143,120)} pintype=feedthrough;
+    u30 {(121-123,0) (121-123,120)} pintype=feedthrough;
+    u29 {(117-119,0) (117-119,120)} pintype=feedthrough;
+    u28 {(113-115,0) (113-115,120)} pintype=feedthrough;
+    u27 {(109-111,0) (109-111,120)} pintype=feedthrough;
+    u26 {(105-107,0) (105-107,120)} pintype=feedthrough;
+    u24 {(97-99,0) (97-99,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c112
+cell begin c115 type=STANDARD scale=0.25
+  profile top (0,120) (96,120);
+  profile bot (0,0) (96,0);
+  termlist
+    Pin0 {(17-19,0) (17-19,120)};
+    Pin1 {(9-11,0) (9-11,120)};
+    Pin2 {(53-55,0) (53-55,120)};
+    Pin3 {(45-47,0) (45-47,120)};
+    Pin4 {(65-67,0) (65-67,120)};
+    Pin5 {(89-91,0) (89-91,120)};
+    u23 {(93-95,0) (93-95,120)} pintype=feedthrough;
+    u21 {(85-87,0) (85-87,120)} pintype=feedthrough;
+    u20 {(81-83,0) (81-83,120)} pintype=feedthrough;
+    u19 {(77-79,0) (77-79,120)} pintype=feedthrough;
+    u18 {(73-75,0) (73-75,120)} pintype=feedthrough;
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c115
+cell begin c131 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(21-23,0) (21-23,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(33-35,0) (33-35,120)} type=IGNORED;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c131
+cell begin c136 type=STANDARD scale=0.25
+  profile top (0,120) (48,120);
+  profile bot (0,0) (48,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(13-15,0) (13-15,120)};
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c136
+cell begin c137 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(21-23,0) (21-23,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c137
+cell begin c138 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(25-27,0) (25-27,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c138
+cell begin c143 type=STANDARD scale=0.25
+  profile top (0,120) (72,120);
+  profile bot (0,0) (72,0);
+  termlist
+    Pin0 {(21-23,0) (21-23,120)};
+    Pin1 {(17-19,0) (17-19,120)};
+    Pin2 {(9-11,0) (9-11,120)};
+    Pin3 {(57-59,0) (57-59,120)};
+    u17 {(69-71,0) (69-71,120)} pintype=feedthrough;
+    u16 {(65-67,0) (65-67,120)} pintype=feedthrough;
+    u15 {(61-63,0) (61-63,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u12 {(49-51,0) (49-51,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u1 {(5-7,0) (5-7,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c143
+cell begin c144 type=STANDARD scale=0.25
+  profile top (0,120) (36,120);
+  profile bot (0,0) (36,0);
+  termlist
+    Pin0 {(5-7,0) (5-7,120)};
+    Pin1 {(21-23,0) (21-23,120)};
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u3 {(13-15,0) (13-15,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c144
+cell begin c145 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(9-11,0) (9-11,120)};
+    Pin1 {(21-23,0) (21-23,120)};
+    Pin2 {(5-7,0) (5-7,120)};
+    Pin3 {(13-15,0) (13-15,120)};
+    Pin4 {(45-47,0) (45-47,120)} type=IGNORED;
+    Pin5 {(33-35,0) (33-35,120)};
+    Pin6 {(37-39,0) (37-39,120)};
+    Pin7 {(49-51,0) (49-51,120)} type=IGNORED;
+    Pin8 {(53-55,0) (53-55,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c145
+cell begin c151 type=STANDARD scale=0.25
+  profile top (0,120) (60,120);
+  profile bot (0,0) (60,0);
+  termlist
+    Pin0 {(13-15,0) (13-15,120)};
+    Pin1 {(5-7,0) (5-7,120)};
+    Pin2 {(49-51,0) (49-51,120)};
+    u14 {(57-59,0) (57-59,120)} pintype=feedthrough;
+    u13 {(53-55,0) (53-55,120)} pintype=feedthrough;
+    u11 {(45-47,0) (45-47,120)} pintype=feedthrough;
+    u10 {(41-43,0) (41-43,120)} pintype=feedthrough;
+    u9 {(37-39,0) (37-39,120)} pintype=feedthrough;
+    u8 {(33-35,0) (33-35,120)} pintype=feedthrough;
+    u7 {(29-31,0) (29-31,120)} pintype=feedthrough;
+    u6 {(25-27,0) (25-27,120)} pintype=feedthrough;
+    u5 {(21-23,0) (21-23,120)} pintype=feedthrough;
+    u4 {(17-19,0) (17-19,120)} pintype=feedthrough;
+    u2 {(9-11,0) (9-11,120)} pintype=feedthrough;
+    u0 {(1-3,0) (1-3,120)} pintype=feedthrough;
+cell end c151

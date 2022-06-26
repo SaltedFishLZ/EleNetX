@@ -1,0 +1,660 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					 GOLEM LARGE CHIP TESTCASE: DATA FORMAT
+
+
+
+
+
+
+
+								  June 25, 1992
+
+
+				     Juergen Koehl, Fabian Braun, Ren-Song Tsay
+
+
+							IBM Boeblingen, Germany
+					  contact: koehl at boevm4.vnet.ibm.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  CONTENTS
+  ________
+
+
+
+
+
+   INTRODUCTION  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  1
+
+   DATAFORMAT  . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  2
+   Cell (or Book) Library File Format  . . . . . . . . . . . . . . . . . . .  2
+     Head line   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  2
+     Physical Cell Description   . . . . . . . . . . . . . . . . . . . . . .  3
+   Design File Format  . . . . . . . . . . . . . . . . . . . . . . . . . . .  4
+     Design Statistics   . . . . . . . . . . . . . . . . . . . . . . . . . .  4
+     I/O Pad Description   . . . . . . . . . . . . . . . . . . . . . . . . .  5
+     Module Description  . . . . . . . . . . . . . . . . . . . . . . . . . .  6
+   Wiring Channel File   . . . . . . . . . . . . . . . . . . . . . . . . . .  6
+   Placement Configuration File  . . . . . . . . . . . . . . . . . . . . . .  7
+   Output File   . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .  8
+     New Design File   . . . . . . . . . . . . . . . . . . . . . . . . . . .  8
+    Legal placement locations and netlength  . . . . . . . . . . . . . . . .  8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								    Contents  2
+
+
+
+
+
+
+
+  INTRODUCTION
+  ____________
+
+
+
+
+
+  This chip has a complexity similar to existing designs. It does not contain
+  any technology specific information.
+
+  Due to this restriction, it may only be used for basic placement
+  benchmarking. It is not constructed with wiring or timing driven placement
+  applications in mind.
+
+  The testcase will be distributed upon request and we would like to know the
+  results obtained by the participants:
+
+  1.  Estimated wiring length (minimum bound box or minimum spanning tree).
+
+  2.  CPU time and hardware used.
+
+  3.  A brief overview of the approach used.
+
+  We plan to distribute the results inside IBM. An external presentation of the
+  results will be discussed with the participants.
+
+  The benchmark will be distributed with a small testcase for interface debug-
+  ging.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								Introduction  1
+
+
+
+
+
+  DATAFORMAT
+  __________
+
+
+
+
+
+  CELL (OR BOOK) LIBRARY FILE FORMAT
+  __________________________________
+
+  designName.lib
+  ______________
+
+  Cell library file describes the geometrical structure of each cell in detail.
+  The information is important for placer to match the modules with the under-
+  lying base cell image and is also important for wiring package to connect
+  wires in the right locations and find where to do over-the-cell wiring.
+
+  In the file, the first line gives the number of logical cells, NRLOGCELLS.
+  The details of the cells are to be described in this file.
+
+  I assume the last cell description is for the chip. In other words, the chip
+  is described in the same way as a cell and is placed at the last cell in the
+  cell library file.
+
+
+    Example:
+	** nrLogCells **
+	4
+
+  Following this line, logical cells are listed sequentially as the order of
+  logical cell id.  Three subsections are used to describe each logical cell:
+  head line, pin list, and physical cell description.
+
+
+
+  HEAD LINE
+
+  It contains three fields on the same line.
+
+  o   LOGCELLID: logical cell id numbered sequentially from 0 to NRLOGCELLS -
+      1.
+
+  o   UNUSED: Currently it has to be 1.
+
+  o   NRPINS: the number of pins that are going to be listed.
+
+
+	Example:
+	    ** logCellId unused nrPins **
+	    0 1 3
+
+
+
+
+
+
+
+
+								  Dataformat  2
+
+
+
+
+
+
+
+
+
+  PHYSICAL CELL DESCRIPTION
+
+  o   head line:
+
+      -   UNUSED: 0.
+
+      -   NRCORNERS: The cell contour can be rectilinear. This field gives the
+	  number of corners of this rectilinear shape.
+
+      -   TMASK: mask for transformation. Currently, set this field to be 15.
+
+	Example:
+	    ** unused nrCorners tMask **
+	    0 4 15
+
+  o   Corner Coordinates:  integer x and y coordinates of each corner in
+       counterclockwise order. All in one line.
+
+
+	Example:
+	    ** cor1.x cor1.y cor2.x cor2.y ... **
+	    0 0 630 0 630 156 0 156
+
+  o   Pin lists:
+
+      -   PINID: pin id number from 0 to NRPINS - 1.
+
+      -   PINTYPE: always 0.
+
+
+	    Note:
+		#define UNKNOWN    0  /* unclassified */
+
+      -   LLX, LLY, URX, URY: I assume each pin is a rectangle.  Hence these
+	  four integers give the lower left x coordinate, lower left y coordi-
+	  nate, upper right x coordinate, upper right y coordinate of the rec-
+	  tangle relative to the lower left corner of the physical cell.
+
+      -   W1 - W3: unused, default: 0 1 0
+
+      -   LLX, LLY, URX, URY: two diagonal corners of a rectangle.
+
+      -   U1 - U6: unused, default 0 255 0 0.0 0.0 0.0
+
+
+
+	Example:
+	    ** pinId pinType llx lly urx ury w1 w2 w3 **
+	    0 1   56  156 56  156 0 1 0
+	      ** llx lly urx ury u1 u2 u3 u4 u5 u6 **
+		  56 156 56 156 0 255 0 0.0 0.0 0.0
+	    1 2  196 156 196 156 0 1 0
+		 196 156 196 156 0 255 0 0.0 0.0 0.0
+
+
+
+								  Dataformat  3
+
+
+
+
+
+
+
+
+
+  o   UNUSED.  Each section has the same format.
+
+      -   B1: unused, default 0
+
+      -   B2: unused, default 0
+
+      -   B3: unused, default 0
+
+      -   B4: unused, default 0
+
+	Example:
+	    0
+	    0
+	    0
+	    0
+
+
+
+  DESIGN FILE FORMAT
+  __________________
+
+  designName.des
+  ______________
+
+  Basically, this file describes the the net list and the structure of the
+  design.
+
+  The main objects to be described are modules (also called instances), which
+  are used for net list specification, The function of a module is determined
+  by the associated logical cell.
+
+  I/O pads are modules that communicate with out-of-chip circuits and are
+  usually placed around chip boundary (rarely, they can be at the center).
+
+  The design file contains four parts: design statistics, I/O pad description,
+  macros description, and module description.
+
+
+
+  DESIGN STATISTICS
+
+  Design statistics are numbers of I/O pads, macros, modules, nets and pins.
+  These statistics are given to help the program read this file fast.
+
+
+  o   NRIOS: number of I/O pads.
+
+
+	Example:
+	    nrIOs=    16
+
+  o   NRMACROS: number of macro-cells (0).
+
+
+	Example:
+	    nrMacros=    0
+
+
+								  Dataformat  4
+
+
+
+
+
+
+
+
+
+
+
+  o   NRMODS: number of modules.
+
+
+	Example:
+	    nrMods=    16
+
+  o   NRNETS: number of signal nets. This number includes single-pin nets and
+      unused nets.
+
+
+	Example:
+	    nrNets=    20
+
+  o   NRPINS: number of pins of both I/O pads and modules listed in this design
+      file. This number includes unused pins.
+
+
+	Example:
+	    nrPins=    51
+
+
+  I/O PAD DESCRIPTION
+
+  Each I/O pad is described in two sub-sections: head line, and pin list.
+
+  o   Head line: eight fields on the same line, separated by spaces.
+
+      -   IOID: starts from 0 to NRIOS - 1.
+
+      -   XREFID: Enumerates circuits.
+
+      -   LOGCELLID: the corresponding cell id in the cell library that this
+	  I/O pad is implemented.
+
+      -   UNUSED: 0.
+
+      -   NRPINS: the number of pins that will be listed in the next sub-
+	  section. These pins are used in connecting nets.
+
+      -   X, Y: the coordinates of the lower left corner of this I/O pad rela-
+	  tive to the lower left corner of the chip area.
+
+      -   PATTERN: a binary code which indicates how the corresponding physical
+	  cell is rotated or mirrored to fit in the assigned location.
+
+	  If x and y are the positive x- and y-axis and o is the origin before
+	  the transformation, the cell will be flipped like the following
+	  figure shows:
+
+	    1:   y        2:     y      4:   o-x      8:   x-o
+		 |               |           |               |
+		 o-x           x-o           y               y
+
+
+								  Dataformat  5
+
+
+
+
+
+
+
+
+
+	Example:
+	    ** ioId xRefId logCellId unused nrPins x y pattern **
+	    5 0 1 0 1 80 27 1
+
+  o   Pin list: every pin occupies one line with four fields.
+
+      -   PINID: a sequential number of this pin from 0 to NRPINS - 1. The
+	  ordering of pins is not sensitive.
+
+      -   LOGPINID: the id number of the corresponding pin on the designated
+	  logical cell.
+
+      -   NETID: the id number of the signal net that this pin belongs to.
+
+      -   PINTYPE: always 0.
+
+
+	    Note:
+		#define UNKNOWN    0  /* unclassified */
+
+	Example:
+	    ** pinId logPinId netId pinType **
+	    5 0 19 3
+
+
+  MODULE DESCRIPTION
+
+  The format in this section is exactly the same as that for I/O pad except
+  IOID is now MODID, and the MODID must be numbered sequentially from 0 to
+  NRMODS - 1.
+
+
+    Example:
+	** modId xRefId logCellId unused nrPins x y pattern **
+	0 1 3 0 2 20 35 0
+	** pinId logPinId netId pinType **
+	5 0 1 1
+	6 1 2 2
+
+
+  WIRING CHANNEL FILE
+  ___________________
+
+  designName.chn
+  ______________
+
+  The file has four set of numbers.
+
+  o   NRXWIRECHAN: number of vertical wiring channels.
+
+  o   XWIRECHANNELLOC: the vertical channel locations in ascending order.
+
+  o   NRYWIRECHAN: number of horizontal wiring channels.
+
+
+
+								  Dataformat  6
+
+
+
+
+
+
+
+  o   YWIRECHANNELLOC: the horizontal channel locations in ascending order.
+
+    Example:
+      2        /* two vertical wiring channels */
+       72
+       144
+      3        /* three horizontal wiring channels */
+       50
+       100
+       150
+
+
+  PLACEMENT CONFIGURATION FILE
+  ____________________________
+
+  designName.dpc
+  ______________
+
+  This file specifies the legal placement region. The placement region is
+  decomposed into rows (in the future it will also include columns).  The rows
+  are described in a sequence from bottom to top and from left to right.
+
+
+  o   NRROWS: a integer number of rows to be described.
+
+  o   LLX, LLY, URX, URY: The lower-left x and y, upper-right x and y coordi-
+      nates of the placement region.
+
+  o   ROW DESCRIPTION:
+
+
+      -   LLX,LLY,URX,URY: The lower-left x and y, upper-right x and y coordi-
+	  nates of the placement row.
+
+      -   RELDENSITY: a real number that specifies the density of this row rel-
+	  ative to others.  If every relDensity equals one, it means the
+	  modules are to be evenly distributed throughout the chip. Otherwise,
+	  a smaller number means less modules are to be placed there. Of
+	  course, zero means no modules are supposed to be there.  For most
+	  common case, we set the RELDENSITY of the boundary row to 1.0, and
+	  the center row to a number less than 1.0, for example 0.90.
+
+      -   ROTPATTERN: rotation pattern.
+
+      -   ROWID: an integer from 0 to nrRows -1.
+
+      -   MINDEN: minimum required circuit density on this row.
+
+      -   MAXDEN: maximum allowable circuit density on this row.
+
+
+
+
+
+
+
+
+
+								  Dataformat  7
+
+
+
+
+
+
+    Example:
+      8
+       5400 5150  64512 64850
+      17208 5150  35352 6200  1.000000 4 0 0.2 1.0
+      37440 5150  56160 6200  1.000000 4 1 0.2 1.0
+      17208 6200  35352 7250  1.000000 1 2 0.2 1.0
+      37440 6200  56160 7250  1.000000 1 3 0.2 1.0
+      5400  62750 35352 63800 1.000000 4 4 0.2 1.0
+      37440 62750 58176 63800 1.000000 4 5 0.2 1.0
+      5400  63800 35352 64850 1.000000 1 6 0.2 1.0
+      37440 63800 58176 64850 1.000000 1 7 0.2 1.0
+
+
+  OUTPUT FILE
+  ___________
+
+
+  NEW DESIGN FILE
+
+  designName.new
+  ______________
+
+  A file designName.NEW which has exactly the same format as the design file is
+	 __________
+  generated for re-iteration.  This file is intended for re-iteration of
+  detailed placement improvement. All fields will be the same as the original
+  design file except the module locations or rotation patterns will be the one
+  decided by placement.
+
+
+
+  LEGAL PLACEMENT LOCATIONS AND NETLENGTH
+
+  The I/O's are preplaced an should not be moved. Internal modules are to be
+  placed in rows defined in .dpc with on a x-coordinate defined in .chn.
+
+  Total netlength is measured either in minimum spanning tree or by the half
+  perimeter of minimum bounding rectangle enclosing all pins. The rotation
+  pattern of the circuits has to be applied to the circuits according to the
+  pattern of the placement row.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								  Dataformat  8
+
+

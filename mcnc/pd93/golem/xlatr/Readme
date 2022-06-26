@@ -1,0 +1,3 @@
+PORTING:
+
+Edit non_mcnc.h and uncomment include files that are present in your system

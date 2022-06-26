@@ -1,0 +1,215 @@
+The GOLEM benchmark was prepared by Juergen Koehl, Fabian Braun, and
+Ren-Song Tsay of IBM.  The original document describing the benchmark
+is included in the file Golem.txt.
+
+The conversion of the benchmark to standard-cell formats (YAL, VPNR)
+has been done by Krzysztof Kozminski, (kk@wujek.durham.nc.us).
+
+===========
+Contents of this directory
+===========
+	golem.tar  - original data files + small example + translator.
+		     This is the minimum set of data you should transfer.
+		     It contains the following:
+
+	    Readme  - this file.
+
+	    Golem.txt - description of the original data.
+
+	    small/  - directory with a small example, useful to test the
+		      translator 'xlatr' or its derivatives/alternatives.
+
+	    xlatr/  - translator of the original data into YAL/VPNR
+
+	    golem3.*.Z - compressed, original data files.
+
+	    xlatr2yal, xlatr2vpnr - symbolic links to the translator executable
+				    (which you should make by compiling it in
+				    the 'xlatr' subdirectory).
+
+	All the above are also present in this directory for retrieval
+	piece-by-piece.
+
+	Other things present here:
+
+	    VPNR.tar - golem3 benchmark in VPNR format.
+	    YAL.tar  - golem3 benchmark in YAL format.
+
+	NOTE: all tar archives contain compressed files.  Be sure to use
+	binary transfer mode for the tar files and uncompress everything
+	AFTER un-taring.
+	    
+===========
+Considerations influencing the translation to standard-cell format:
+===========
+
+The original circuit is evidently meant for use with an over-the-cell
+router.  All pins in all pads and cells are specified as points.  The
+routing grid is one unit in either direction and covers the entire chip
+area.  Such situation is possible in a 3-level (or more) metal
+technology, with all routing done in the top 2 layers and all power/gnd
+(perhaps also clock) in the lower layer(s).
+
+There are a number of strange occurrences in the network. In most pads,
+some of the signal pins coincide.  This seems to indicate that certain
+signals were split into sub-nets.  Despite the nearly 100,000 cells in
+the circuit, the largest single net connects only 38 pins.  This seems
+unusual.  Another unusual thing is that for some cells only one pin is
+ever used.  The following are cells where this happens:
+
+    cell #7   - only pin #0 ever used.  This is OK - the cell is a pad.
+    cell #155 - only pin #0 ever used.  This is OK - the cell is a pad.
+    cell #25  - This was confirmed OK with the benchamrk authors.
+
+In cell definitions, there are a number of pins that are never used - these
+pins are never referenced in golem3.des.  These pins may be either treated
+as obstacles or ignored.  The following are cells where this happens:
+
+    pad  #7	- pins 1 2 3 
+    pad  #8	- pins 0 1 
+    pad  #10	- pins 0 
+    pad  #16	- pins 2 3 
+    pad  #20	- pins 0 1 2 3 4 10 11 12 13 
+    pad  #99	- pins 0 1 2 3 4 6 8 11 13 14 15 16 
+    pad  #113	- pins 1 
+    pad  #117	- pins 1 3 14 
+    pad  #119	- pins 0 
+    pad  #154	- pins 0 1 2 
+    pad  #155	- pins 1 
+    pad  #156	- pins 1 
+
+    cell #105	- pins 6 
+    cell #125	- pins 6 
+    cell #133	- pins 5 6 7 8 29 
+    cell #137	- pins 9 10 13 
+    cell #139	- pins 8 9 10 
+    cell #144	- pins 5 
+    cell #145	- pins 5 
+    cell #146	- pins 5 6 
+    cell #152	- pins 9 
+    cell #171	- pins 6 
+
+=========== Translation proces.
+
+The benchmark is distributed in its original form + a translator to
+both VPNR and YAL languages used in the previous MCNC benchmarks
+distribution.  The translator is believed to be portable, but is not
+guaranteed.  Checksums for the translated files are enclosed below as
+obtained on a Sun-4 running SunOS 4.1.1 with the standard 'sum' utility.
+
+Porting the translator to other machines than those tested at MCNC
+should involve only commenting out non-existent system includes from
+the file non_mcnc.h.
+
+The translator should be run either as
+
+	xlatr2yal
+
+to produce YAL data, or
+
+	xlatr2vpnr
+
+to produce VPNR data.  It should be fairly easy to add other formats;
+see the differences between the files yal.c and vpnr.c to see what
+kind of changes that might be required.
+
+In the translation, the following options are considered.
+
+#1   	- nets connected to coinciding pins may be merged into a
+	  single net.  Alternative: any such nets are left alone.
+
+#2   	- Unused pins may be listed in the netlist anyway.  In this
+	  case, they present obstacles to routing.
+	  Alternative: unused pins are ignored.
+
+#3   	- Cell pins are left in the original positions.
+	  Alternative: the translator produces cell descriptions in the
+	  format known from the previous benchmarks, where all pins are
+	  available at the top/bottom boundaries of each cell.  This
+	  can be thought of as pre-routing the nets to the periphery of
+	  the cell.  It also inserts as many feed-throughs as possible.
+	  The pre-routing depends on the treatement of the unused pins.
+	  Ignoring the unused pins maximizes the number of feed-throughs
+	  and increases the number of pins available at both boundaries.
+
+Options #1 and #2 affect the circuit netlist.  All options affect
+the cell database.  Running the translator will produce eight databases
+and four netlists:
+
+Databases:
+    golem3.a.db - Pins in the original positions.  Unused pins present.
+		  Coinciding net not merged.
+    golem3.b.db - Pins in the original positions.  Unused pins removed.
+		  Coinciding net not merged.
+    golem3.c.db - Pins routed to cell boundaries.  Unused pins present.
+		  Coinciding net not merged.
+    golem3.d.db - Pins routed to cell boundaries.  Unused pins removed.
+		  Coinciding net not merged.
+    golem3.e.db - Pins in the original positions.  Unused pins present.
+		  Coinciding net merged.
+    golem3.f.db - Pins in the original positions.  Unused pins removed.
+		  Coinciding net merged.
+    golem3.g.db - Pins routed to cell boundaries.  Unused pins present.
+		  Coinciding net merged.
+    golem3.h.db - Pins routed to boundaries.  Unused pins removed.
+		  Coinciding net not merged.
+
+Netlists:
+    golem3.a.net - Coinciding net not merged. Unused pins present.
+    golem3.b.net - Coinciding net not merged. Unused pins removed.
+    golem3.c.net - Coinciding net merged. Unused pins present.
+    golem3.d.net - Coinciding net merged. Unused pins removed.
+
+The following combinations of the above make sense:
+
+Variant 0: golem3.a.db + golem3.a.net
+Variant 1: golem3.b.db + golem3.b.net
+
+Variant 2: golem3.c.db + golem3.a.net
+Variant 3: golem3.d.db + golem3.b.net
+
+Variant 4: golem3.e.db + golem3.c.net
+Variant 5: golem3.f.db + golem3.d.net
+
+Variant 6: golem3.g.db + golem3.c.net
+Variant 7: golem3.h.db + golem3.d.net
+
+Any results should be reported with an indication of the variant employed.
+If possible, please do VARIANT 0 first, since it corresponds exactly to
+the original data.
+
+For translation, a single unit in the original data was assumend to be
+one micron.  The routing grid in both dimesnsions has 1 micron pitch,
+with wire width, via width, and all separations equal to 0.5 micron.
+
+Note that VPNR translation is done with scaling factor 0.25, i.e. a
+single unit is 0.25 micron.  In both YAL and VPNR, cell outlines are
+shifted horizontally by half of the old grid (i.e., by 0.5 micron).
+This prevents wires from running directly over the cell boundaries
+(since I know of some systems that might have problems with this),
+while preserving all the metrics.  Also, it makes possible to mirror
+cells horizontally.
+
+If you do placement/routing using the quadrupled sizes, pls scale the
+results back to the original grid for the reporting purposes.  Make
+note of the variant used and whether horizontal cell mirroring was
+employed.
+
+Please report any errors and inconsistencies to me.
+
+Kris Kozminski
+kk@wujek.durham.nc.us
+
+Results of runnning the command:
+
+	sum golem3.*.db golem3.*. net
+
+for VPNR data:
+
+
+Results of runnning the command:
+
+	sum golem3.*.db golem3.*.net
+
+for YAL data:
+
