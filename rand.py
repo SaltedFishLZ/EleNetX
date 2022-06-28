@@ -3,6 +3,8 @@ import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 
+from .visualize import plot_ele_nx
+
 
 def random_colored_graph(n, p, c, directed=False, seed=None):
     """Generate a random colored graph
@@ -42,9 +44,7 @@ if __name__ == "__main__":
 
     # plot the figure
     fig, ax = plt.subplots()
-    pos = nx.shell_layout(G)
-    colors = [G.nodes[_v]["color"] for _v in G.nodes]
-    print(colors)
-    nx.draw(G, pos=pos, with_labels=True,
-            node_color=colors, cmap=plt.cm.viridis)
+    
+    plot_ele_nx(G, ax, layout="shell", node_color_keyword="color")
+
     plt.show()

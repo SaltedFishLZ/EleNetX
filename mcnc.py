@@ -10,14 +10,12 @@ __all__ = [
     "remove_singleton_edge",
     "remove_duplicated_nodes",
     "parse_yal_file", "yal_to_nx",
-    "obj_attr_cat_to_int",
-    "empty_scatterplot_colormap_by_category",
-    "plotting_test"
 ]
 
 import os
 import sys
 import json
+import logging
 import subprocess
 
 if sys.version <= "3.7":
@@ -33,6 +31,7 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt 
 
 from .hypergraph import hyperedges2edges
+from .visualize import plot_ele_nx
 
 DIR_PATH = os.path.dirname(__file__)
 
@@ -329,82 +328,11 @@ def yal_to_nx(yal_path:str, verbose=False) -> nx.Graph:
     return G
 
 
-def obj_attr_cat_to_int(objects:OrderedDict, category:str) -> OrderedDict:
-    """Map objects' categorical attributes to int
-    :param objects: all objects to be processed
-    :param category: category keyword in attributes
-    :param: a map from category keyword to int
-    """
-    categories = [objects[_id][category] for _id in objects]
-    int_map = OrderedDict.fromkeys(categories)
-    # fill in color id by enumeration
-    for i, c in enumerate(int_map):
-        int_map[c] = i
-    return int_map
-
-
-def empty_scatterplot_colormap_by_category(ax, cmap, categories:OrderedDict):
-    """Scatter plot some empty points with given color map
-    :param ax:
-    :param cmap:
-    :param categories: a map from categories to int indices
-    """
-    max_index = max(categories.values())
-    for category in categories:
-        ax.scatter([],[], label=category,
-                   c=[cmap(categories[category] / max_index)])
-
-
-def plotting_test(G:nx.Graph, verbose=False):
-    num_nodes = len(G.nodes)
-    num_edges = len(G.edges)
-    if (verbose):
-        print("Num of nodes: ", num_nodes)
-        print("Num of edges: ", num_edges)
-
-    with_labels = True if  num_nodes < 20 else False
-    node_size = 100  if  num_nodes < 20 else 20
-
-    # get module colors & colormap
-    nodes = G.nodes()
-    module_indices = obj_attr_cat_to_int(nodes, "modulename")
-    node_colors = [module_indices[G.nodes[_v]["modulename"]] for _v in G.nodes]
-    if verbose:
-        if (len(module_indices) < len(nodes)):
-            print("%d nodes, %d kinds of modules"
-                  % (len(nodes), len(module_indices)))
-            print("module cm", module_indices)
-    cmap = plt.cm.viridis
-
-    # plot with shell layout
-    fig = plt.figure(figsize=(18, 10))
-    ax = plt.axes()
-    pos = nx.shell_layout(G) # deterministic node layout 
-    nx.draw_networkx(G, ax=ax, pos=pos,
-                     node_size=node_size,
-                     node_color=node_colors,
-                     with_labels=with_labels)    
-    # make empty plot with correct color and label for each group
-    empty_scatterplot_colormap_by_category(ax, cmap, module_indices)
-    plt.legend(); plt.axis('off')
-    plt.show()
-
-    # plot with spectral layout
-    fig = plt.figure(figsize=(18, 10))
-    ax = plt.axes()
-    pos = nx.spectral_layout(G)
-    nx.draw_networkx(G, ax=ax, pos=pos,
-                     node_size=node_size,
-                     node_color=node_colors,
-                     with_labels=with_labels)
-    # make empty plot with correct color and label for each group
-    empty_scatterplot_colormap_by_category(ax, cmap, module_indices)
-    plt.legend(); plt.axis('off')
-    plt.show()
-
-
 if __name__ == "__main__":
     
+    FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
+    logging.basicConfig(format=FORMAT, level=logging.INFO)
+
     for category in PD91_BENCHMARKS:
         for benchmark in PD91_BENCHMARKS[category]:
             if "yal" in PD91_BENCHMARKS[category][benchmark]["format"]:
@@ -415,4 +343,20 @@ if __name__ == "__main__":
                 G = yal_to_nx(yal_path)
 
                 if benchmark == "struct":
-                    plotting_test(G)
+
+                    fig = plt.figure(figsize=(18, 10))
+                    ax = plt.axes()
+
+                    plot_ele_nx(G, ax, layout="shell",
+                                node_color_keyword="modulename")
+
+                    plt.show()
+
+
+                    fig = plt.figure(figsize=(18, 10))
+                    ax = plt.axes()
+
+                    plot_ele_nx(G, ax, layout="spectral",
+                                node_color_keyword="modulename")
+
+                    plt.show()
