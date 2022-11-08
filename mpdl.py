@@ -1,6 +1,10 @@
 """Mixed-Precision Deep Learning SoC benchmark Suite
 """
-__all__ = ["assign_modules"]
+__all__ = [
+    "compose_graph_path",
+    "assign_modules",
+    "MPDL_BENCHMARKS"
+]
 
 MPDL_BENCHMARKS = {
     'mobilenetv2' : {
