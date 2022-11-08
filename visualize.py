@@ -31,9 +31,11 @@ def empty_scatterplot_colormap_by_category(ax, cmap,
                    c=[cmap(categories[category] / max_index)])
 
 
-def plot_ele_nx(graph:nx.Graph, ax:mpl.axes.Axes, layout:str,
+def plot_ele_nx(graph:nx.Graph, ax:mpl.axes.Axes,
                 node_color_keyword:str,
                 node_color_map=plt.cm.viridis,
+                layout:[str]=None, pos=None,
+                with_labels:[str]=None,
                 node_size=None):
     """Plot a electronic system represented in a NetworkX graph model
     :param graph: system graph
@@ -48,16 +50,18 @@ def plot_ele_nx(graph:nx.Graph, ax:mpl.axes.Axes, layout:str,
     num_nodes = len(nodes)
 
 
-    # node layout (should be deterministic)
-    if layout == "shell":
-        pos = nx.shell_layout(graph)
-    elif layout == "spectral":
-        pos = nx.spectral_layout(graph)
-    else:
-        raise NotImplementedError()
+    if pos is None:
+        # generate node layout (should be deterministic)
+        if layout == "shell":
+            pos = nx.shell_layout(graph)
+        elif layout == "spectral":
+            pos = nx.spectral_layout(graph)
+        else:
+            raise NotImplementedError()
 
     # node label
-    with_labels = True if  num_nodes < 20 else False
+    if with_labels is None:
+        with_labels = True if  num_nodes < 20 else False
 
     # node color
     color_indices = obj_attr_cat_to_int(nodes, node_color_keyword)
