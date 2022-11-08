@@ -2,6 +2,21 @@
 """
 __all__ = ["assign_modules"]
 
+MPDL_BENCHMARKS = {
+    'mobilenetv2' : {
+        'prefix'    :   'new_mobilenetv2_pareto',
+        'num_cfg'   :   1,
+    },
+    'resnet18' : {
+        'prefix'    :   'new_resnet18_pareto',
+        'num_cfg'   :   1,
+    },
+    'resnet50' : {
+        'prefix'    :   'new_resnet50_pareto',
+        'num_cfg'   :   1,
+    },
+}
+
 import os
 import sys
 import pickle
@@ -20,6 +35,20 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 
 from .visualize import plot_ele_nx
+
+
+def compose_graph_path(neural_net:str, id:int) -> str:
+    script_dir_path = os.path.dirname(__file__)
+    # get file name prefix
+    prefix = MPDL_BENCHMARKS[neural_net]['prefix']
+    # compose file name
+    bench_file = prefix + '_{}.pkl'.format(id)
+    # compose the entire path
+    gpath = os.path.join(script_dir_path,
+                         "mpdl", "pkl", "sample",
+                         "v0.2",
+                         neural_net, bench_file)
+    return gpath
 
 
 def assign_modules(G:nx.Graph):
@@ -57,32 +86,25 @@ if __name__ == "__main__":
     FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
     logging.basicConfig(format=FORMAT, level=logging.INFO)
 
-    script_dir_path = os.path.dirname(__file__)
-
     graphs = []
     gnames = []
 
-    for i in range(10, 13, 2):
+    for neural_net in MPDL_BENCHMARKS.keys():
+        num_cfg = MPDL_BENCHMARKS[neural_net]['num_cfg']
+        # enumerate configs
+        for i in range(num_cfg):
 
-        # bfile = 'new_resnet50_pareto_{}.pkl'.format(i)
-        # print(bfile)
+            gpath = compose_graph_path(neural_net, i)
+            print(gpath)
 
-        # gpath = os.path.join(script_dir_path,
-        #                     "mpdl", "pkl",
-        #                     "resnet50", bfile)
+            with open(gpath, 'rb') as fin:
+                G = pickle.load(fin)
+            # G = nx.read_gpickle(gpath)
 
-        bfile = 'new_mobilenetv2_pareto_{}.pkl'.format(i)
-        print(bfile)
+            assign_modules(G)
 
-        gpath = os.path.join(script_dir_path,
-                            "mpdl", "pkl", "sample", "v0.2",
-                            "mobilenetv2", bfile)
-        G = nx.read_gpickle(gpath)
-
-        assign_modules(G)
-
-        graphs.append(G)
-        gnames.append(r'$G^{(' + str(i) + r')}$')
+            graphs.append(G)
+            gnames.append(neural_net + ':' + str(i))
     
     G = nx.union_all(graphs, rename=[gname + ":" for gname in gnames])
     print(G.nodes)
