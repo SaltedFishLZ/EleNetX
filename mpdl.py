@@ -119,7 +119,7 @@ if __name__ == "__main__":
     pos = graphviz_layout(G)
     plot_ele_nx(G, ax,
                 pos=pos,
-                node_color_keyword="module")
+                node_autocolor_by="module")
 
     plt.show()
     plt.pause(1)

@@ -348,7 +348,7 @@ if __name__ == "__main__":
                     ax = plt.axes()
 
                     plot_ele_nx(G, ax, layout="shell",
-                                node_color_keyword="modulename")
+                                node_autocolor_by="modulename")
 
                     plt.show()
 
@@ -357,6 +357,6 @@ if __name__ == "__main__":
                     ax = plt.axes()
 
                     plot_ele_nx(G, ax, layout="spectral",
-                                node_color_keyword="modulename")
+                                node_autocolor_by="modulename")
 
                     plt.show()
