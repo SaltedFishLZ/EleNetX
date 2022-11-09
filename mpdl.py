@@ -50,7 +50,7 @@ def compose_graph_path(neural_net:str, id:int) -> str:
     # compose the entire path
     gpath = os.path.join(script_dir_path,
                          "mpdl", "pkl", "sample",
-                         "v0.2",
+                         "v0.3",
                          neural_net, bench_file)
     return gpath
 
@@ -62,6 +62,7 @@ def assign_modules(G:nx.Graph):
     for i in G.nodes:
         v = G.nodes[i]
         hw_configs = v['hw_configs']
+        print(hw_configs)
         name = hw_configs['name']
         prec = hw_configs['input_dtype']
         # we have make the "module" hasable
@@ -81,8 +82,13 @@ def assign_modules(G:nx.Graph):
                 ('name', name),
                 # ('prec', prec)
             )
+        elif (name == 'NVDLA'):
+            v['module'] = (
+                ('name', name),
+                # ('prec', prec)
+            )
         else:
-            raise ValueError()
+            raise ValueError("Unknown module: " + name)
     return G
 
 
