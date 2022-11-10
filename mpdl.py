@@ -8,15 +8,19 @@ __all__ = [
 
 MPDL_BENCHMARKS = {
     'mobilenetv2' : {
-        'prefix'    :   'new_mobilenetv2_pareto',
+        'prefix'    :   'mobilenetv2_pareto',
         'num_cfg'   :   1,
     },
     'resnet18' : {
-        'prefix'    :   'new_resnet18_pareto',
+        'prefix'    :   'resnet18_pareto',
         'num_cfg'   :   1,
     },
     'resnet50' : {
-        'prefix'    :   'new_resnet50_pareto',
+        'prefix'    :   'resnet50_pareto',
+        'num_cfg'   :   1,
+    },
+    'yolov5' : {
+        'prefix'    :   'yolov5_pareto',
         'num_cfg'   :   1,
     },
 }
@@ -50,7 +54,7 @@ def compose_graph_path(neural_net:str, id:int) -> str:
     # compose the entire path
     gpath = os.path.join(script_dir_path,
                          "mpdl", "pkl", "sample",
-                         "v0.3",
+                         "v0.4",
                          neural_net, bench_file)
     return gpath
 
