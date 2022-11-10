@@ -62,33 +62,9 @@ def assign_modules(G:nx.Graph):
     for i in G.nodes:
         v = G.nodes[i]
         hw_configs = v['hw_configs']
-        print(hw_configs)
         name = hw_configs['name']
         prec = hw_configs['input_dtype']
-        # we have make the "module" hasable
-        # so we use tuples
-        if (name == 'ShiDianNao'):
-            v['module'] = (
-                ('name', name),
-                # ('prec', prec)
-            )
-        elif (name == 'TPU') or (name == 'Gemmini'):
-            v['module'] = (
-                ('name', 'TPU'),
-                # ('prec', prec)
-            )
-        elif (name == 'Eyeriss'):
-            v['module'] = (
-                ('name', name),
-                # ('prec', prec)
-            )
-        elif (name == 'NVDLA'):
-            v['module'] = (
-                ('name', name),
-                # ('prec', prec)
-            )
-        else:
-            raise ValueError("Unknown module: " + name)
+        v['module'] = name
     return G
 
 
@@ -119,7 +95,9 @@ if __name__ == "__main__":
     G = nx.union_all(graphs, rename=[gname + ":" for gname in gnames])
     print(G.nodes)
 
-    print(nx.number_connected_components(G))
+    print("=" * 64)
+    print('number of connected components:',
+          nx.number_connected_components(G))
 
     fig = plt.figure(figsize=(18, 10))
     ax = plt.axes()
