@@ -54,7 +54,7 @@ def compose_graph_path(neural_net:str, id:int) -> str:
     # compose the entire path
     gpath = os.path.join(script_dir_path,
                          "mpdl", "pkl", "sample",
-                         "v0.4",
+                         "v1.0",
                          neural_net, bench_file)
     return gpath
 
@@ -67,7 +67,6 @@ def assign_modules(G:nx.Graph):
         v = G.nodes[i]
         hw_configs = v['hw_configs']
         name = hw_configs['name']
-        prec = hw_configs['input_dtype']
         v['module'] = name
     return G
 
