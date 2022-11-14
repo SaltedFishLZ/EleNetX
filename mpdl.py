@@ -54,7 +54,7 @@ def compose_graph_path(neural_net:str, id:int) -> str:
     # compose the entire path
     gpath = os.path.join(script_dir_path,
                          "mpdl", "pkl", "sample",
-                         "v1.0",
+                         "v2.0",
                          neural_net, bench_file)
     return gpath
 
